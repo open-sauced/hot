@@ -1,9 +1,18 @@
 ---
 // Sauce.astro
+import og from 'open-graph';
+
 const response = await fetch('https://api.opensauced.pizza/hot.json');
 const data = await response.json();
 // Remember: Astro component scripts log to the CLI
 console.log(data);
+
+
+const url = 'https://github.com/lydiahallie/javascript-questions';
+
+og(url, function (err, meta) {
+  console.log(meta);
+});
 ---
 <!-- Output the result to the page -->
 <div>TBD</div>

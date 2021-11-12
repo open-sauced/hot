@@ -10,9 +10,5 @@
   },
   "devDependencies": {
     "astro": "^0.20.12"
-  },
-  "dependencies": {
-    "open-graph": "^0.2.6",
-    "open-graph-scraper": "^4.10.0"
   }
 }

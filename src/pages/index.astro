@@ -1,6 +1,7 @@
 ---
-// Component Imports
+    // Component Imports
 import Recos from '../components/Recos.jsx'
+import ogs from 'open-graph-scraper';
 // import Sauce from '../components/Sauce.astro';
 // You can import components from any supported Framework here!
 // const response = await fetch('https://api.opensauced.pizza/hot.json');
@@ -14,9 +15,8 @@ const data = await fetch('https://api.opensauced.pizza/hot.json').then((res) => 
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let title = 'Hot JSON';
-console.log(repo.openGraph.image.url);
+// console.log(repo.openGraph.image.url);
 
-import ogs from 'open-graph-scraper';
 const options = { url: 'https://github.com/snowpackjs/astro' };
 const repo = await ogs(options)
   .then((data) => {

@@ -1,23 +1,17 @@
 ---
     // Component Imports
-import Recos from '../components/Recos.jsx'
+import SocialImage from '../components/SocialImage.jsx'
 import ogs from 'open-graph-scraper';
-// import Sauce from '../components/Sauce.astro';
-// You can import components from any supported Framework here!
-// const response = await fetch('https://api.opensauced.pizza/hot.json');
-// const data = await response.json();
 const data = await fetch('https://api.opensauced.pizza/hot.json').then((res) => res.json());
-// const repo = await fetch('https://opengraph.io/api/1.0/site/http%3A%2F%2Fgithub.com%2Fopen-sauced%2Fopen-sauced?app_id=0b36e0d0-8534-4ac4-b636-a023d65a60e2').then((res) => res.json());
 
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
-let title = 'Hot JSON';
-// console.log(repo.openGraph.image.url);
+let title = 'hot.opensauced.pizza';
 
-const options = { url: 'https://github.com/snowpackjs/astro' };
+const options = { url: `https://github.com/${data[6].repo_name}` };
 const repo = await ogs(options)
   .then((data) => {
     const { error, result } = data;
@@ -57,7 +51,7 @@ const repo = await ogs(options)
             </div>
         </header>
 
-        <Recos data={repo} />
+        <SocialImage data={repo} />
 
         <!--
            - You can also use imported framework components directly in your markup!

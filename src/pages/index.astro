@@ -1,8 +1,12 @@
 ---
-    // Component Imports
-import SocialImage from '../components/SocialImage.jsx'
-import ogs from 'open-graph-scraper';
-const data = await fetch('https://api.opensauced.pizza/hot.json').then((res) => res.json());
+// Component Imports
+
+import Navbar from '../components/Navbar.astro';
+import Navbar2 from '../components/Navbar2.astro';
+import PostsWrap from '../components/PostsWrap.jsx';
+
+
+// You can import components from any supported Framework here!
 
 
 // Component Script:
@@ -10,15 +14,6 @@ const data = await fetch('https://api.opensauced.pizza/hot.json').then((res) => 
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let title = 'hot.opensauced.pizza';
-
-const options = { url: `https://github.com/${data[6].repo_name}` };
-const repo = await ogs(options)
-  .then((data) => {
-    const { error, result } = data;
-    console.log('error:', error);  // This returns true or false. True if there was an error. The error itself is inside the results object.
-    console.log('result:', result.ogImage.url); // This contains all of the Open Graph results
-    return result
-  })
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -30,38 +25,16 @@ const repo = await ogs(options)
     <title>{title}</title>
 
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    
-    <link rel="stylesheet" href="/style/global.css">
-    <link rel="stylesheet" href="/style/home.css">
 
-    <style>
-        header {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-            max-width: min(100%, 68ch);
-        }
-    </style>
+    <link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
+    <link rel="stylesheet" href={Astro.resolve('../styles/home.css')}>
 </head>
 <body>
+<!-- page -->
     <main>
-        <header>
-            <div>
-                <h1>Hot Open Sauced</h1>
-            </div>
-        </header>
-
-        <SocialImage data={repo} />
-
-        <!--
-           - You can also use imported framework components directly in your markup!
-           -
-           - Note: by default, these components are NOT interactive on the client.
-           - The `:visible` directive tells Astro to make it interactive.
-           -
-           - See https://docs.astro.build/core-concepts/component-hydration/ 
-           -->
-
+<Navbar />
+<Navbar2 />
+<PostsWrap client:load />
     </main>
 </body>
 </html>

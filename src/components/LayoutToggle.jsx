@@ -18,14 +18,14 @@ function LayoutToggle({ gridState, setGridState }) {
             className=" z-10 flex-1 flex justify-center "
           >
             {" "}
-            <i className="fas fa-th-large transition ">Grid</i>{" "}
+            <i className="fas fa-th-large transition "></i>{" "}
           </div>
           <div
             onClick={() => setGridState(false)}
             className=" z-10 flex-1 flex justify-center "
           >
             {" "}
-            <i className="fas fa-th-list ">List</i>{" "}
+            <i className="fas fa-th-list "></i>{" "}
           </div>
         </div>
       </div>

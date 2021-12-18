@@ -1,8 +1,8 @@
 ---
 // Component Imports
 
-import Navbar from '../components/Navbar.astro';
-import Navbar2 from '../components/Navbar2.astro';
+import PrimaryNav from '../components/PrimaryNav.astro';
+import SecondaryNav from '../components/SecondaryNav.astro';
 import PostsWrap from '../components/PostsWrap.jsx';
 
 
@@ -24,17 +24,18 @@ let title = 'hot.opensauced.pizza';
     <meta name="viewport" content="width=device-width">
     <title>{title}</title>
 
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"  />
 
     <link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
     <link rel="stylesheet" href={Astro.resolve('../styles/home.css')}>
 </head>
 <body>
 <!-- page -->
-    <main>
-<Navbar />
-<Navbar2 />
-<PostsWrap client:load />
-    </main>
+  <main>
+    <PrimaryNav />
+    <SecondaryNav />
+    <PostsWrap client:load />
+  </main>
 </body>
 </html>

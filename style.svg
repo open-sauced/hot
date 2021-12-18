@@ -2,9 +2,9 @@
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml">
       <style>
-        .markdown-body>p:first-child,
-        .markdown-body>p:first-child+h1,
-        .markdown-body>p:first-child+h1+blockquote+p{
+        .markdown-body>p,
+        .markdown-body>p+h1,
+        .markdown-body>p+h1+blockquote+p{
           text-align: center;
         }
       </style>

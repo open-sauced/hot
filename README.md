@@ -1,3 +1,5 @@
+<img src="style.svg" width="0" height="0" alt="custom CSS placeholder">
+
 [![Open Sauced](https://i.ibb.co/7jPXt0Z/logo1-92f1a87f.png)](https://hot.opensauced.pizza)
 
 # 🍕 Hot Sauce 🍕
@@ -41,6 +43,3 @@ Find Open Sauced videos and release overviews on our [YouTube Channel](https://w
 ## ⚖️ LICENSE
 
 MIT © [Open Sauced](LICENSE)
-
-
-<img src="style.svg" width="0" height="0" alt="custom CSS placeholder">

@@ -1,6 +1,4 @@
-# hot.opensauced.pizza
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+# [hot.opensauced.pizza](https://hot.opensauced.pizza)
 
 ## 🚀 Project Structure
 

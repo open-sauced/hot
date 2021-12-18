@@ -18,17 +18,14 @@
   <a href="https://github.com/open-sauced/hot-sauce/actions/workflows/release.yml">
     <img src="https://github.com/open-sauced/hot-sauce/actions/workflows/release.yml/badge.svg" alt="Release" style="max-width: 100%;">
   </a>
-  <a href="https://app.netlify.com/sites/open-sauced/deploys">
-    <img src="https://api.netlify.com/api/v1/badges/76a3de8e-270c-4adf-89d5-3a3863da74e6/deploy-status" alt="Netlify Status">
+  <img src="https://badgen.net/dependabot/open-sauced/hot-sauce?icon=dependabot" alt="Dependabot Badge">
+  <img src="https://img.shields.io/github/languages/code-size/open-sauced/hot-sauce" alt="GitHub code size in bytes">
+  <img src="https://img.shields.io/github/commit-activity/w/open-sauced/hot-sauce" alt="GitHub commit activity">
+  <a href="https://github.com/open-sauced/hot-sauce/issues">
+    <img src="https://img.shields.io/github/issues/open-sauced/hot-sauce" alt="GitHub issues">
   </a>
-  <img src="https://badgen.net/dependabot/open-sauced/open-sauced?icon=dependabot" alt="Dependabot Badge">
-  <img src="https://img.shields.io/github/languages/code-size/open-sauced/open-sauced" alt="GitHub code size in bytes">
-  <img src="https://img.shields.io/github/commit-activity/w/open-sauced/open-sauced" alt="GitHub commit activity">
-  <a href="https://github.com/open-sauced/open-sauced/issues">
-    <img src="https://img.shields.io/github/issues/open-sauced/open-sauced" alt="GitHub issues">
-  </a>
-  <a href="https://github.com/open-sauced/open-sauced/releases">
-    <img src="https://img.shields.io/github/v/release/open-sauced/open-sauced.svg?style=flat" alt="GitHub Release">
+  <a href="https://github.com/open-sauced/hot-sauce/releases">
+    <img src="https://img.shields.io/github/v/release/open-sauced/hot-sauce.svg?style=flat" alt="GitHub Release">
   </a>
   <a href="https://discord.gg/U2peSNf23P">
     <img src="https://img.shields.io/discord/714698561081704529.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" alt="Discord">

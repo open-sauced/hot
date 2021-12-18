@@ -4,6 +4,7 @@ import PostGrid from "./PostGrid.jsx";
 import PostList from "./PostList.jsx";
 import postData from '../data/posts.json';
 import Modal from '../components/Modal';
+
 const PostsWrap = () => {
   const [isGrid, setIsGrid] = useState(true);
 

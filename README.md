@@ -4,14 +4,11 @@
   <h1>🍕 Hot Sauce 🍕</h1>
   <strong>The site that recommends the hottest sauce</strong>
 </div>
-<br>
 
-<div markdown="1" style="text-align: center">
 [![Release](https://github.com/open-sauced/hot-sauce/actions/workflows/release.yml/badge.svg)](https://github.com/open-sauced/hot-sauce/actions/workflows/release.yml)
 [![Compliance](https://github.com/open-sauced/hot-sauce/actions/workflows/compliance.yml/badge.svg)](https://github.com/open-sauced/hot-sauce/actions/workflows/compliance.yml)
 [![CodeQL](https://github.com/open-sauced/hot-sauce/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/open-sauced/hot-sauce/actions/workflows/codeql-analysis.yml)
 [![Release](https://github.com/open-sauced/hot-sauce/actions/workflows/release.yml/badge.svg)](https://github.com/open-sauced/hot-sauce/actions/workflows/release.yml)
-</div>
 
 <p align="center">
   <img src="https://badgen.net/dependabot/open-sauced/hot-sauce?icon=dependabot" alt="Dependabot Badge">

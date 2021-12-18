@@ -1,8 +1,8 @@
 ---
 // Component Imports
 
-import Navbar from '../components/Navbar.astro';
-import Navbar2 from '../components/Navbar2.astro';
+import PrimaryNav from '../components/PrimaryNav.astro';
+import SecondaryNav from '../components/SecondaryNav.astro';
 import PostsWrap from '../components/PostsWrap.jsx';
 
 
@@ -33,8 +33,8 @@ let title = 'hot.opensauced.pizza';
 <body>
 <!-- page -->
   <main>
-    <Navbar />
-    <Navbar2 />
+    <PrimaryNav />
+    <SecondaryNav />
     <PostsWrap client:load />
   </main>
 </body>

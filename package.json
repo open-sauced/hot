@@ -24,9 +24,12 @@
     "dev": "npm run astro -- dev",
     "start": "npm run astro -- dev",
     "build": "npm run astro -- build",
-    "preview": "npm run astro -- preview"
+    "preview": "npm run astro -- preview",
+    "lint": "npx eslint . --report-unused-disable-directives",
+    "format": "npm run lint -- --fix"
   },
   "devDependencies": {
+    "@astronomer/eslint-config-astro": "^1.0.3",
     "@open-sauced/check-engines": "^1.2.0",
     "@open-sauced/conventional-commit": "^1.0.1",
     "astro": "^0.21.13",

@@ -1,9 +1,8 @@
-<div align="center">
-  <br>
-  <img alt="Open Sauced" src="https://i.ibb.co/7jPXt0Z/logo1-92f1a87f.png" width="300px">
-  <h1>🍕 Hot Sauce 🍕</h1>
-  <strong>The site that recommends the hottest sauce</strong>
-</div>
+[![Open Sauced](https://i.ibb.co/7jPXt0Z/logo1-92f1a87f.png)](https://hot.opensauced.pizza)
+
+# 🍕 Hot Sauce 🍕
+
+> The site that recommends the hottest sauce
 
 [![Release](https://github.com/open-sauced/hot-sauce/actions/workflows/release.yml/badge.svg)](https://github.com/open-sauced/hot-sauce/actions/workflows/release.yml)
 [![Compliance](https://github.com/open-sauced/hot-sauce/actions/workflows/compliance.yml/badge.svg)](https://github.com/open-sauced/hot-sauce/actions/workflows/compliance.yml)
@@ -27,7 +26,5 @@
     <img src="https://img.shields.io/twitter/follow/saucedopen?label=Follow&style=social" alt="Twitter">
   </a>
 </p>
-
-The site that recommends the hottest sauce
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/starter)

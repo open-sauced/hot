@@ -1,18 +1,41 @@
 {
-  "name": "@example/starter",
-  "version": "0.0.1",
+  "name": "@open-sauced/hot",
+  "description": "",
+  "version": "1.0.0",
   "private": true,
+  "license": "MIT",
+  "files": [
+    "build/**/*"
+  ],
+  "bugs": "https://github.com/open-sauced/hot-sauce/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/open-sauced/hot-sauce.git"
+  },
+  "engines": {
+    "node": ">=14",
+    "npm": ">=7"
+  },
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "preinstall": "npx @open-sauced/check-engines",
+    "prestart": "npx @open-sauced/check-engines",
+    "push": "npx @open-sauced/conventional-commit",
+    "astro": "npx astro",
+    "dev": "npm run astro -- dev",
+    "start": "npm run astro -- dev",
+    "build": "npm run astro -- build",
+    "preview": "npm run astro -- preview",
+    "lint": "npx eslint . --report-unused-disable-directives",
+    "format": "npm run lint -- --fix"
   },
   "devDependencies": {
-    "astro": "^0.21.0-next.3",
-    "tailwindcss": "^3.0.5"
+    "@astronomer/eslint-config-astro": "^1.0.3",
+    "@open-sauced/check-engines": "^1.2.0",
+    "@open-sauced/conventional-commit": "^1.0.1",
+    "astro": "^0.21.13",
+    "tailwindcss": "^3.0.7"
   },
   "dependencies": {
-    "open-graph-scraper": "^4.10.0"
+    "open-graph-scraper": "^4.11.0"
   }
 }

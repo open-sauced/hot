@@ -1,18 +1,25 @@
-# build output
-dist
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-node_modules/
-.snowpack/
+node_modules
 
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# testing
+coverage
 
-# environment variables
-.env
-.env.production
+# production
+build
 
-# macOS-specific files
+# production
+storybook-static
+
+# misc
 .DS_Store
+.env
+npm-debug.log
+
+# jest test
+src/tests/__snapshots__/
+
+.DS_Store
+../.DS_Store
+../../.DS_Store

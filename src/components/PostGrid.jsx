@@ -4,31 +4,23 @@ import av2 from "./placeholders/av02.jpg";
 import cover2 from "./placeholders/cover2.jpg";
 
 function PostGrid({ data }) {
+  const repoLink = `https://github.com/${data.repo_name}`;
+  const handleClick = () => {
+    window.open(repoLink);
+  };
   return (
     <div className=" bg-offWhite rounded-xl p-6 font-roboto cursor-pointer ">
       {/* Avator Container */}
       <div className=" w-full flex  mb-3 ">
         <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mr-3 ">
-          <img
-            className="object-cover"
-            src={av1}
-            alt="Avatar 01"
-            width={500}
-            height={500}
-          />
+          <img className="object-cover" src={av1} alt="Avatar 01" width={500} height={500} />
         </div>
         <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mr-3 ">
-          <img
-            className="object-cover"
-            src={av2}
-            alt="Avatar 02"
-            width={500}
-            height={500}
-          />
+          <img className="object-cover" src={av2} alt="Avatar 02" width={500} height={500} />
         </div>
       </div>
       {/* Title */}
-      <div className=" text-grey text-md font-medium mb-6 h-14 overflow-hidden ">
+      <div className=" text-grey text-md font-medium mb-6 h-14 overflow-hidden cursor-pointer" onClick={handleClick}>
         <h1>{data.repo_name} </h1>
       </div>
       {/* Date and Time */}
@@ -37,13 +29,7 @@ function PostGrid({ data }) {
       </div>
       {/* Cover photo */}
       <div className="w-full bg-blue-400 h-28 overflow-hidden rounded-md mb-2 ">
-        <img
-          className="object-cover"
-          src={cover2}
-          alt="Avatar 02"
-          width={1000}
-          height={1000}
-        />
+        <img className="object-cover" src={cover2} alt="Avatar 02" width={1000} height={1000} />
       </div>
       {/* Action Button Container */}
       <div className=" flex justify-between w-full ">

@@ -13,23 +13,11 @@ function PostList({ data }) {
         <div className=" flex flex-col ">
           {/* Avatar */}
           <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mb-2 ">
-            <img
-              className="object-cover"
-              src={av1}
-              alt="Avatar 01"
-              width={500}
-              height={500}
-            />
+            <img className="object-cover" src={av1} alt="Avatar 01" width={500} height={500} />
           </div>
           {/* Avatar */}
           <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full ">
-            <img
-              className="object-cover"
-              src={av2}
-              alt="Avatar 02"
-              width={500}
-              height={500}
-            />
+            <img className="object-cover" src={av2} alt="Avatar 02" width={500} height={500} />
           </div>
         </div>
 

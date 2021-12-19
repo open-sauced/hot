@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.0.1](https://github.com/open-sauced/hot-sauce/compare/v1.0.0...v1.0.1) (2021-12-19)
+
+
+### 🐛 Bug Fixes
+
+* Linked title to its respective github page ([#24](https://github.com/open-sauced/hot-sauce/issues/24)) ([88ea8c5](https://github.com/open-sauced/hot-sauce/commit/88ea8c5bf7b261186b9564fc767fe9901d0e3e38))
+
 ## 1.0.0 (2021-12-18)
 
 

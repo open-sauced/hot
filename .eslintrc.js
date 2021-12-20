@@ -4,7 +4,7 @@ module.exports = {
   extends: [
     '@astronomer/eslint-config-astro',
   ],
-  plugins: 'prettier',
+  plugins: ['prettier'],
 
   ignorePatterns: [
     'build',

@@ -8,8 +8,8 @@ const doc_id1 = "a0722788-adb0-4731-96fb-9e50c72a2528"; // RepoQuery
 
 // TODO: Move this entire file to an npm package
 function makeFetch(doc_id, requiredVariables = [], operationName = false) {
-  return async function(variables = {}) {
-    const body = {doc_id};
+  return async function (variables = {}) {
+    const body = { doc_id };
     if (operationName) body.operationName = operationName;
     // Validate required variables by presence
     if (requiredVariables.length > 0) {
@@ -22,12 +22,12 @@ function makeFetch(doc_id, requiredVariables = [], operationName = false) {
     }
     if (variables) body.variables = variables;
     const options = {
-      method:"POST",
-      body: JSON.stringify(body)
+      method: "POST",
+      body: JSON.stringify(body),
     };
     const response = await fetch(url, options)
-      .then(res => res.json())
-      .then(json => json);
+      .then((res) => res.json())
+      .then((json) => json);
     return response;
   };
 }

@@ -1,12 +1,64 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import av1 from "./placeholders/av01.jpg";
 import av2 from "./placeholders/av02.jpg";
 import cover1 from "./placeholders/cover1.jpg";
 import cover2 from "./placeholders/cover2.jpg";
+import api from "../lib/persistedGraphQL";
 
 function PostList({ data }) {
+  const [repository, setRepository] = useState(null);
+  const [repoOwner, repoName]= data.repo_name.split("/");
+  const [error, setError] = useState(null);
+
+  const repoLink = `https://github.com/${data.repo_name}`;
+  const handleClick = () => {
+    window.open(repoLink);
+  };
+
+  useEffect(() => {
+  api
+    .persistedRepoDataFetch({owner:repoOwner, repo:repoName})
+    .then(res => {
+      const {errors, data} = res;
+
+      // console.log(res)
+      if (errors && errors.length > 0) {
+        setError(`"${errors[0].message}"`);
+      }
+
+      const repo = data.gitHub.repositoryOwner.repository;
+
+      if (repo === null) {
+        setError(`Repository "${repoOwner}/${repoName}" not found`);
+      }
+
+      setRepository(repo);
+    })
+    .catch(e => {
+      console.log(e);
+    });
+  }, []);
+
+  const {
+    url,
+    stargazers,
+    forks,
+    description,
+    issues,
+    pullRequests,
+    name,
+    nameWithOwner,
+    owner,
+    hasIssuesEnabled,
+    contributors_oneGraph,
+    licenseInfo,
+  } = repository || {};
+
+  // stargazers && console.log(stargazers.totalCount);
+  // stargazers && console.log(contributors_oneGraph);
+
   return (
-    <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full">
+    <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full cursor-pointer">
       {/* Flex container */}
       <div className="flex ">
         {/* Avatar Container */}
@@ -23,12 +75,12 @@ function PostList({ data }) {
 
         {/* Content */}
         <div className=" ml-5 border-l-2 pl-5">
-          <div className=" text-grey text-md font-medium  overflow-hidden ">
+          <div className=" text-grey text-md font-medium  overflow-hidden cursor-pointer " onClick={handleClick}>
             <h1>{data.repo_name} </h1>
           </div>
           {/* Date and Time */}
           <div className=" text-lightGrey text-sm mb-2 ">
-            <h3> Yesterday - 5 m read time </h3>
+            <h3> {description} </h3>
           </div>
           {/* Action Button Container */}
           <div className=" flex justify-between w-full ">
@@ -45,9 +97,9 @@ function PostList({ data }) {
               <p className="font-bold">55</p>
             </div>
 
-            {/* Bookmark */}
+            {/* Stars */}
             <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 ">
-              <i className="fas fa-bookmark mr-2 "></i>
+              <i className="fas fa-star mr-2 "></i>
               <p className="font-bold">14</p>
             </div>
           </div>

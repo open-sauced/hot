@@ -46,9 +46,9 @@ function PostGrid({ data }) {
           <p className="font-bold">55</p>
         </div>
 
-        {/* Bookmark */}
+        {/* Stars */}
         <div className=" flex justify-center items-center text-xltext-grey hover:text-saucyRed cursor-pointer transition-all duration-200 ">
-          <i className="fas fa-bookmark mr-2 "></i>
+          <i className="fas fa-star mr-2 "></i>
           <p className="font-bold">14</p>
         </div>
       </div>

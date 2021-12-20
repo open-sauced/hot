@@ -1,21 +1,21 @@
-import { humanizeNumber } from "./humanizeNumber";
+import humanizeNumber from './humanizeNumber';
 
-describe("Test: humanizeNumber()", () => {
-  test("1000 should humanize", () => {
+describe('Test: humanizeNumber()', () => {
+  test('1000 should humanize', () => {
     const num = 1000;
     const result = humanizeNumber(num);
-    expect(result).toBe("1k");
+    expect(result).toBe('1k');
   });
 
   test("'100' should not humanize", () => {
-    const num = "100";
+    const num = '100';
     const result = humanizeNumber(num);
-    expect(result).toBe("100");
+    expect(result).toBe('100');
   });
 
-  test("1234 should humanize", () => {
+  test('1234 should humanize', () => {
     const num = 1000;
     const result = humanizeNumber(num);
-    expect(result).toBe("1.2k");
+    expect(result).toBe('1.2k');
   });
 });

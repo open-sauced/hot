@@ -4,7 +4,7 @@ import av2 from "./placeholders/av02.jpg";
 import cover1 from "./placeholders/cover1.jpg";
 import cover2 from "./placeholders/cover2.jpg";
 import api from "../lib/persistedGraphQL";
-import {humanizeNumber} from "../lib/humanizeNumber";
+import humanizeNumber from "../lib/humanizeNumber";
 
 function PostList({ data }) {
   const [repository, setRepository] = useState(null);
@@ -18,7 +18,7 @@ function PostList({ data }) {
 
   useEffect(() => {
   api
-    .persistedRepoDataFetch({owner:repoOwner, repo:repoName})
+    .persistedRepoDataFetch({owner: repoOwner, repo: repoName})
     .then(res => {
       const {errors, data} = res;
 

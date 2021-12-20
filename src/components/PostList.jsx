@@ -4,6 +4,7 @@ import av2 from "./placeholders/av02.jpg";
 import cover1 from "./placeholders/cover1.jpg";
 import cover2 from "./placeholders/cover2.jpg";
 import api from "../lib/persistedGraphQL";
+import {humanizeNumber} from "../lib/humanizeNumber";
 
 function PostList({ data }) {
   const [repository, setRepository] = useState(null);
@@ -40,22 +41,11 @@ function PostList({ data }) {
   }, []);
 
   const {
-    url,
     stargazers,
-    forks,
     description,
     issues,
-    pullRequests,
-    name,
-    nameWithOwner,
-    owner,
-    hasIssuesEnabled,
     contributors_oneGraph,
-    licenseInfo,
   } = repository || {};
-
-  // stargazers && console.log(stargazers.totalCount);
-  // stargazers && console.log(contributors_oneGraph);
 
   return (
     <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full cursor-pointer">
@@ -78,7 +68,7 @@ function PostList({ data }) {
           <div className=" text-grey text-md font-medium  overflow-hidden cursor-pointer " onClick={handleClick}>
             <h1>{data.repo_name} </h1>
           </div>
-          {/* Date and Time */}
+          {/* Description */}
           <div className=" text-lightGrey text-sm mb-2 ">
             <h3> {description} </h3>
           </div>
@@ -90,17 +80,17 @@ function PostList({ data }) {
               <p className="font-bold">5</p>
             </div>
 
-            {/* Comment */}
+            {/* Issues */}
             <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
               <i className="fas fa-comment-dots mr-2 "></i>
 
-              <p className="font-bold">55</p>
+              {issues && <p className="font-bold">{humanizeNumber(issues.totalCount)}</p>}
             </div>
 
             {/* Stars */}
             <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 ">
               <i className="fas fa-star mr-2 "></i>
-              <p className="font-bold">14</p>
+              {stargazers && <p className="font-bold">{humanizeNumber(stargazers.totalCount)}</p>}
             </div>
           </div>
         </div>

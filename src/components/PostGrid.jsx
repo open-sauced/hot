@@ -2,7 +2,6 @@ import React from "react";
 import av1 from "./placeholders/av01.jpg";
 import av2 from "./placeholders/av02.jpg";
 import cover2 from "./placeholders/cover2.jpg";
-import api from "../lib/persistedGraphQL";
 import humanizeNumber from "../lib/humanizeNumber";
 
 function PostGrid({ data }) {

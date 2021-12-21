@@ -3,10 +3,18 @@ import av1 from "./placeholders/av01.jpg";
 import av2 from "./placeholders/av02.jpg";
 import cover1 from "./placeholders/cover1.jpg";
 import cover2 from "./placeholders/cover2.jpg";
+import humanizeNumber from "../lib/humanizeNumber";
 
 function PostList({ data }) {
+  const [repoOwner, repoName]= data.repo_name.split("/");
+
+  const repoLink = `https://github.com/${data.repo_name}`;
+  const handleClick = () => {
+    window.open(repoLink);
+  };
+
   return (
-    <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full">
+    <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full cursor-pointer">
       {/* Flex container */}
       <div className="flex ">
         {/* Avatar Container */}
@@ -23,12 +31,12 @@ function PostList({ data }) {
 
         {/* Content */}
         <div className=" ml-5 border-l-2 pl-5">
-          <div className=" text-grey text-md font-medium  overflow-hidden ">
+          <div className=" text-grey text-md font-medium  overflow-hidden cursor-pointer " onClick={handleClick}>
             <h1>{data.repo_name} </h1>
           </div>
-          {/* Date and Time */}
+          {/* Description */}
           <div className=" text-lightGrey text-sm mb-2 ">
-            <h3> Yesterday - 5 m read time </h3>
+            <h3> {data.description} </h3>
           </div>
           {/* Action Button Container */}
           <div className=" flex justify-between w-full ">
@@ -38,17 +46,17 @@ function PostList({ data }) {
               <p className="font-bold">5</p>
             </div>
 
-            {/* Comment */}
+            {/* Issues */}
             <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
               <i className="fas fa-comment-dots mr-2 "></i>
 
-              <p className="font-bold">55</p>
+              {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
             </div>
 
-            {/* Bookmark */}
+            {/* Stars */}
             <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 ">
-              <i className="fas fa-bookmark mr-2 "></i>
-              <p className="font-bold">14</p>
+              <i className="fas fa-star mr-2 "></i>
+              {data.total_stars && <p className="font-bold">{humanizeNumber(data.total_stars)}</p>}
             </div>
           </div>
         </div>

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.1.0](https://github.com/open-sauced/hot-sauce/compare/v1.0.1...v1.1.0) (2021-12-21)
+
+
+### 🍕 Features
+
+* add contributor data ([#25](https://github.com/open-sauced/hot-sauce/issues/25)) ([156907c](https://github.com/open-sauced/hot-sauce/commit/156907cf72496f03a3fcb4fd8b1bdc01ec93c8b0))
+
 ### [1.0.1](https://github.com/open-sauced/hot-sauce/compare/v1.0.0...v1.0.1) (2021-12-19)
 
 

@@ -14,7 +14,7 @@ describe('Test: humanizeNumber()', () => {
   });
 
   test('1234 should humanize', () => {
-    const num = 1000;
+    const num = 1234;
     const result = humanizeNumber(num);
     expect(result).toBe('1.2k');
   });

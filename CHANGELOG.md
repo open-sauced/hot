@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.2.0](https://github.com/open-sauced/hot-sauce/compare/v1.1.0...v1.2.0) (2021-12-22)
+
+
+### 🍕 Features
+
+* replace placeholder avatars with contributor avatars ([#28](https://github.com/open-sauced/hot-sauce/issues/28)) ([c817a98](https://github.com/open-sauced/hot-sauce/commit/c817a9822e166578387164a5d292290699d61c22)), closes [#21](https://github.com/open-sauced/hot-sauce/issues/21)
+
 ## [1.1.0](https://github.com/open-sauced/hot-sauce/compare/v1.0.1...v1.1.0) (2021-12-21)
 
 

@@ -31,8 +31,6 @@
   },
   "devDependencies": {
     "@astronomer/eslint-config-astro": "^1.0.3",
-    "@babel/preset-env": "^7.16.5",
-    "@babel/preset-react": "^7.16.5",
     "@open-sauced/check-engines": "^1.2.0",
     "@open-sauced/conventional-commit": "^1.0.1",
     "@testing-library/jest-dom": "^5.16.1",

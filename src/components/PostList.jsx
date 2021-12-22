@@ -1,12 +1,11 @@
 import React from "react";
-import av1 from "./placeholders/av01.jpg";
-import av2 from "./placeholders/av02.jpg";
 import cover1 from "./placeholders/cover1.jpg";
 import cover2 from "./placeholders/cover2.jpg";
 import humanizeNumber from "../lib/humanizeNumber";
+import getAvatar from "../lib/getAvatar";
 
 function PostList({ data }) {
-  const [repoOwner, repoName]= data.repo_name.split("/");
+  const [repoOwner, repoName] = data.repo_name.split("/");
 
   const repoLink = `https://github.com/${data.repo_name}`;
   const handleClick = () => {
@@ -21,11 +20,23 @@ function PostList({ data }) {
         <div className=" flex flex-col ">
           {/* Avatar */}
           <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mb-2 ">
-            <img className="object-cover" src={av1} alt="Avatar 01" width={500} height={500} />
+            <img
+              className="object-cover"
+              src={getAvatar(data?.contributors[0])}
+              alt="Avatar 01"
+              width={500}
+              height={500}
+            />
           </div>
           {/* Avatar */}
           <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full ">
-            <img className="object-cover" src={av2} alt="Avatar 02" width={500} height={500} />
+            <img
+              className="object-cover"
+              src={getAvatar(data?.contributors[1])}
+              alt="Avatar 02"
+              width={500}
+              height={500}
+            />
           </div>
         </div>
 

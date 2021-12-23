@@ -8,8 +8,8 @@ function PostList({ data }) {
   const [repoOwner, repoName] = data.repo_name.split("/");
 
   const repoLink = `https://github.com/${data.repo_name}`;
-  const handleClick = () => {
-    window.open(repoLink);
+  const handleClick = (option) => {
+    option === "issues" ? window.open(`${repoLink}/issues`) : window.open(repoLink);
   };
 
   return (
@@ -58,14 +58,14 @@ function PostList({ data }) {
             </div>
 
             {/* Issues */}
-            <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
+            <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  " onClick={() => handleClick("issues")}>
               <i className="fas fa-comment-dots mr-2 "></i>
 
               {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
             </div>
 
             {/* Stars */}
-            <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 ">
+            <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 " onClick={handleClick}>
               <i className="fas fa-star mr-2 "></i>
               {data.total_stars && <p className="font-bold">{humanizeNumber(data.total_stars)}</p>}
             </div>

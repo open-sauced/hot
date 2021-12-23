@@ -25,8 +25,8 @@ function Modal() {
                 <div className={" z-20 bg-darkestGrey relative -top-5 rounded-2xl border-2 px-4 pt-14 pb-8 border-offWhite shadow-2xl flex  flex-col justify-center items-center font-roboto text-offWhite " + show }>
                     {/* Heading */}
                     <div className="flex flex-col justify-center items-center mb-5 ">
-                        <h1 className="text-3xl">YOUR WEEKLY GOAL</h1>
-                        <h2 className="text-lg text-lightGrey ">Read content you love to stay updated</h2>
+                        <h1 className="text-3xl">HOT SAUCED</h1>
+                        <h2 className="text-lg text-lightGrey ">Find the hottest Open Source projects.</h2>
                     </div>
                     
                     {/* Content List*/}
@@ -38,7 +38,7 @@ function Modal() {
                             </div>
                             <div className="flex flex-col">
                                 <h1 className="text-sm" > Bronze Level</h1>
-                                <h3 className="text-sm text-lightGrey">Read at least one article on different days</h3>
+                                <h3 className="text-sm text-lightGrey">Star at least one repository on 3 different days</h3>
                             </div>
                         </div>
 
@@ -47,8 +47,8 @@ function Modal() {
                                 <i className="fas fa-angle-double-up"></i>
                             </div>
                             <div className="flex flex-col">
-                                <h1 className="text-sm" > Bronze Level</h1>
-                                <h3 className="text-sm text-lightGrey">Read at least one article on different days</h3>
+                                <h1 className="text-sm" > Silver Level</h1>
+                                <h3 className="text-sm text-lightGrey">Star at least one repository on 4 different days</h3>
                             </div>
                         </div>
 
@@ -57,8 +57,8 @@ function Modal() {
                                 <i className="fas fa-angle-double-up"></i>
                             </div>
                             <div className="flex flex-col">
-                                <h1 className="text-sm" > Bronze Level</h1>
-                                <h3 className="text-sm text-lightGrey">Read at least one article on different days</h3>
+                                <h1 className="text-sm" > Gold Level</h1>
+                                <h3 className="text-sm text-lightGrey">Star at least one repository on 6 different days</h3>
                             </div>
                         </div> 
                     </div>

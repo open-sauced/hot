@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.2.1](https://github.com/open-sauced/hot-sauce/compare/v1.2.0...v1.2.1) (2021-12-22)
+
+
+### ✅ Tests
+
+* fix jest configuration ([#27](https://github.com/open-sauced/hot-sauce/issues/27)) ([69d3c44](https://github.com/open-sauced/hot-sauce/commit/69d3c447155ed9eaa58d9018326380da2ef01c9e)), closes [#26](https://github.com/open-sauced/hot-sauce/issues/26)
+
 ## [1.2.0](https://github.com/open-sauced/hot-sauce/compare/v1.1.0...v1.2.0) (2021-12-22)
 
 

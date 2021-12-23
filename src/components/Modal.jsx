@@ -25,7 +25,7 @@ function Modal() {
                 <div className={" z-20 bg-darkestGrey relative -top-5 rounded-2xl border-2 px-4 pt-14 pb-8 border-offWhite shadow-2xl flex  flex-col justify-center items-center font-roboto text-offWhite " + show }>
                     {/* Heading */}
                     <div className="flex flex-col justify-center items-center mb-5 ">
-                        <h1 className="text-3xl">HOT SAUCED</h1>
+                        <h1 className="text-3xl">HOT SAUCE</h1>
                         <h2 className="text-lg text-lightGrey ">Find the hottest Open Source projects.</h2>
                     </div>
                     

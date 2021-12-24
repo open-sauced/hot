@@ -106,5 +106,41 @@
       "ahejlsberg",
       "sheetalkamat"
     ]
+  },
+  {
+    "repo_name": "florinpop17/app-ideas",
+    "description": "A Collection of application ideas which can be used to improve your coding skills.",
+    "stars": 46656,
+    "issues": 283,
+    "total_stars": 5,
+    "avg_recency_score": 9.8,
+    "contributors": [
+      "florinpop17",
+      "jdmedlock"
+    ]
+  },
+  {
+    "repo_name": "trekhleb/javascript-algorithms",
+    "description": "📝 Algorithms and data structures implemented in JavaScript with explanations and links to further readings",
+    "stars": 129753,
+    "issues": 269,
+    "total_stars": 5,
+    "avg_recency_score": 16.8,
+    "contributors": [
+      "trekhleb",
+      "m-maksyutin"
+    ]
+  },
+  {
+    "repo_name": "storybookjs/storybook",
+    "description": "📓 The UI component explorer. Develop, document, & test React, Vue, Angular, Web Components, Ember, Svelte & more!",
+    "stars": 67618,
+    "issues": 1641,
+    "total_stars": 5,
+    "avg_recency_score": 14.8,
+    "contributors": [
+      "shilman",
+      "ndelangen"
+    ]
   }
 ]

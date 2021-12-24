@@ -66,7 +66,7 @@ function PostGrid({ data }) {
         {/* Stars */}
         <div className=" flex justify-center items-center text-xltext-grey hover:text-saucyRed cursor-pointer transition-all duration-200 " onClick={handleClick}>
           <i className="fas fa-star mr-2 "></i>
-          {data.total_stars && <p className="font-bold">{humanizeNumber(data.total_stars)}</p>}
+          {data.total_stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
         </div>
       </div>
     </div>

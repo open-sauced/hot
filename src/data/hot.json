@@ -1,0 +1,146 @@
+[
+  {
+    "repo_name": "open-sauced/open-sauced",
+    "description": "🍕  This is a project to identify your next open source contribution. ",
+    "stars": 555,
+    "issues": 29,
+    "total_stars": 23,
+    "avg_recency_score": 9.91304347826087,
+    "contributors": [
+      "bdougie",
+      "0-vortex"
+    ]
+  },
+  {
+    "repo_name": "MunGell/awesome-for-beginners",
+    "description": "A list of awesome beginners-friendly projects.",
+    "stars": 37280,
+    "issues": 51,
+    "total_stars": 8,
+    "avg_recency_score": 15.125,
+    "contributors": [
+      "MunGell",
+      "JefMari"
+    ]
+  },
+  {
+    "repo_name": "jwasham/coding-interview-university",
+    "description": "A complete computer science study plan to become a software engineer.",
+    "stars": 201722,
+    "issues": 41,
+    "total_stars": 6,
+    "avg_recency_score": 13,
+    "contributors": [
+      "jwasham",
+      "avizmarlon"
+    ]
+  },
+  {
+    "repo_name": "supabase/supabase",
+    "description": "The open source Firebase alternative. Follow to stay updated about our public Beta.",
+    "stars": 25417,
+    "issues": 243,
+    "total_stars": 5,
+    "avg_recency_score": 9.4,
+    "contributors": [
+      "kiwicopple",
+      "MildTomato"
+    ]
+  },
+  {
+    "repo_name": "vercel/hyper",
+    "description": "A terminal built on web technologies",
+    "stars": 37531,
+    "issues": 744,
+    "total_stars": 5,
+    "avg_recency_score": 10.2,
+    "contributors": [
+      "rauchg",
+      "LabhanshAgrawal"
+    ]
+  },
+  {
+    "repo_name": "11ty/eleventy",
+    "description": "A simpler static site generator. An alternative to Jekyll. Transforms a directory of templates (of varying types) into HTML.",
+    "stars": 10904,
+    "issues": 440,
+    "total_stars": 5,
+    "avg_recency_score": 12.4,
+    "contributors": [
+      "zachleat",
+      "MadeByMike"
+    ]
+  },
+  {
+    "repo_name": "typescript-cheatsheets/react",
+    "description": "Cheatsheets for experienced React developers getting started with TypeScript",
+    "stars": 30539,
+    "issues": 5,
+    "total_stars": 5,
+    "avg_recency_score": 16.4,
+    "contributors": [
+      "sw-yx",
+      "eps1lon"
+    ]
+  },
+  {
+    "repo_name": "redwoodjs/redwood",
+    "description": "The App Framework for Startups",
+    "stars": 10371,
+    "issues": 264,
+    "total_stars": 5,
+    "avg_recency_score": 10.8,
+    "contributors": [
+      "peterp",
+      "thedavidprice"
+    ]
+  },
+  {
+    "repo_name": "microsoft/TypeScript",
+    "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
+    "stars": 76824,
+    "issues": 5374,
+    "total_stars": 5,
+    "avg_recency_score": 14.8,
+    "contributors": [
+      "ahejlsberg",
+      "sheetalkamat"
+    ]
+  },
+  {
+    "repo_name": "florinpop17/app-ideas",
+    "description": "A Collection of application ideas which can be used to improve your coding skills.",
+    "stars": 46656,
+    "issues": 283,
+    "total_stars": 5,
+    "avg_recency_score": 9.8,
+    "contributors": [
+      "florinpop17",
+      "jdmedlock"
+    ]
+  },
+  {
+    "repo_name": "trekhleb/javascript-algorithms",
+    "description": "📝 Algorithms and data structures implemented in JavaScript with explanations and links to further readings",
+    "stars": 129753,
+    "issues": 269,
+    "total_stars": 5,
+    "avg_recency_score": 16.8,
+    "contributors": [
+      "trekhleb",
+      "m-maksyutin"
+    ]
+  },
+  {
+    "repo_name": "storybookjs/storybook",
+    "description": "📓 The UI component explorer. Develop, document, & test React, Vue, Angular, Web Components, Ember, Svelte & more!",
+    "stars": 67618,
+    "issues": 1641,
+    "total_stars": 5,
+    "avg_recency_score": 14.8,
+    "contributors": [
+      "shilman",
+      "ndelangen"
+    ]
+  }
+]

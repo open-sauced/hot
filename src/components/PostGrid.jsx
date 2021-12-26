@@ -3,6 +3,7 @@ import av1 from "./placeholders/av01.jpg";
 import av2 from "./placeholders/av02.jpg";
 import cover2 from "./placeholders/cover2.jpg";
 import humanizeNumber from "../lib/humanizeNumber";
+import truncate from "../lib/truncate";
 import getAvatar from "../lib/getAvatar";
 
 function PostGrid({ data }) {
@@ -37,12 +38,12 @@ function PostGrid({ data }) {
         </div>
       </div>
       {/* Title */}
-      <div className=" text-grey text-md font-medium mb-6 h-14 overflow-hidden cursor-pointer" onClick={handleClick}>
+      <div className=" text-grey text-md font-medium mb-1 h-14 overflow-hidden cursor-pointer" onClick={handleClick}>
         <h1>{data.repo_name} </h1>
       </div>
       {/* Description */}
       <div className=" text-lightGrey text-sm mb-2 ">
-        <h3> {data.description} </h3>{" "}
+        <h3> {truncate(data.description)} </h3>{" "}
       </div>
       {/* Cover photo */}
       <div className="w-full bg-blue-400 h-28 overflow-hidden rounded-md mb-2 ">

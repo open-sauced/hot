@@ -122,8 +122,8 @@ jobs:
           name: build
           path: build
 
-      - if: jobs.build.outputs.build-artifact
-        name: "📂 download diagram artifacts"
+      - name: "📂 download diagram artifacts"
+        if: needs.build.outputs.build-artifact
         uses: actions/download-artifact@v2
         with:
           name: diagram

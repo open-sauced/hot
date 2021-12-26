@@ -10,7 +10,7 @@ export default {
     devOptions: {
         hostname: 'localhost',
         port: 3000,
-        tailwindConfig: './tailwind.config.csj',
+        tailwindConfig: './tailwind.config.cjs',
     },
     renderers: [
         '@astrojs/renderer-react'

@@ -14,6 +14,8 @@ import PostsWrap from '../components/PostsWrap.jsx';
 // It will run during the build, but never in the browser.
 // All variables are available to use in the HTML template below.
 let title = 'hot.opensauced.pizza';
+let description = 'The path to your next open-source contribution.';
+let social_card = 'https://repository-images.githubusercontent.com/71359796/179eca00-061e-11eb-9b57-856a179db1a1';
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -23,23 +25,22 @@ let title = 'hot.opensauced.pizza';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>{title}</title>
-    <meta name="description" content="The path to your next open-source contribution.">
+    <meta name="description" content={description} />
 
-    //Open Graph Protocol Meta
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="The path to your next open-source contribution." />
-    <meta property="og:image" content="https://repository-images.githubusercontent.com/71359796/179eca00-061e-11eb-9b57-856a179db1a1" />
-    <meta property="og:url" content="https://opensauced.pizza/" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={social_card} />
+    <meta property="og:url" content="https://hot.opensauced.pizza/" />
     <meta property="og:type" content="website" />
 
-    //Twitter Meta
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content=The path to your next open-source contribution." />
-    <meta property="twitter:image" content="https://repository-images.githubusercontent.com/71359796/179eca00-061e-11eb-9b57-856a179db1a1" /
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image"
+    content={social_card} />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
 
     <link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
     <link rel="stylesheet" href={Astro.resolve('../styles/home.css')}>

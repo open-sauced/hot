@@ -12,6 +12,11 @@ function PostList({ data }) {
     option === "issues" ? window.open(`${repoLink}/issues`) : window.open(repoLink);
   };
 
+  const handleRedirect = (contributor) => {
+    window.open(`https://github.com/${contributor}`);
+    // console.log("This workss");
+  };
+
   return (
     <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full cursor-pointer">
       {/* Flex container */}
@@ -26,6 +31,7 @@ function PostList({ data }) {
               alt="Avatar 01"
               width={500}
               height={500}
+              onClick={() => handleRedirect(data?.contributors[0])}
             />
           </div>
           {/* Avatar */}
@@ -36,6 +42,7 @@ function PostList({ data }) {
               alt="Avatar 02"
               width={500}
               height={500}
+              onClick={() => handleRedirect(data?.contributors[1])}
             />
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
-import av1 from "./placeholders/av01.jpg";
-import av2 from "./placeholders/av02.jpg";
-import cover2 from "./placeholders/cover2.jpg";
+// import av1 from "./placeholders/av01.jpg";
+// import av2 from "./placeholders/av02.jpg";
+// import cover2 from "./placeholders/cover2.jpg";
 import humanizeNumber from "../lib/humanizeNumber";
 import truncate from "../lib/truncate";
 import getAvatar from "../lib/getAvatar";
@@ -14,7 +14,8 @@ function PostGrid({ data }) {
   };
 
   const handleRedirect = (contributor) => {
-    // window.open(`https://github.com/${contributor}`);
+    window.open(`https://github.com/${contributor}`);
+    // console.log("This workss");
   };
 
   return (
@@ -29,7 +30,7 @@ function PostGrid({ data }) {
               alt="Avatar 01"
               width={500}
               height={500}
-              onClick={handleRedirect(data?.contributors[0])}
+              onClick={() => handleRedirect(data?.contributors[0])}
             />
           </div>
           <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mr-3 ">
@@ -39,7 +40,7 @@ function PostGrid({ data }) {
               alt="Avatar 02"
               width={500}
               height={500}
-              onClick={handleRedirect(data?.contributors[1])}
+              onClick={() => handleRedirect(data?.contributors[1])}
             />
           </div>
         </div>

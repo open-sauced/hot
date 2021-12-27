@@ -1,3 +1,4 @@
+/**  'linebreak-style': ['error', 'windows'] */
 process.env.NODE_ENV = 'development';
 
 module.exports = {
@@ -40,5 +41,6 @@ module.exports = {
     'testing-library/await-async-query': 'error',
     'testing-library/no-await-sync-query': 'error',
     'testing-library/no-dom-import': 'off',
+    'linebreak-style': 0,
   },
 };

@@ -1,9 +1,11 @@
-import { useState } from "react";
-import LayoutToggle from "./LayoutToggle";
-import PostGrid from "./PostGrid.jsx";
-import PostList from "./PostList.jsx";
-import postData from "../data/hot.json";
-import Modal from "../components/Modal";
+import React, { useState } from 'react';
+
+import Modal from './Modal.jsx';
+import PostGrid from './PostGrid.jsx';
+import PostList from './PostList.jsx';
+import LayoutToggle from './LayoutToggle.jsx';
+
+import postData from '../data/hot.json';
 
 const PostsWrap = () => {
   const [isGrid, setIsGrid] = useState(true);
@@ -15,7 +17,7 @@ const PostsWrap = () => {
         {isGrid ? (
           <div className=" container grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 ">
             {postData.map((item, i) => (
-              <PostGrid data={item} key={i} />
+              <PostGrid data={item} key={i} contri={item.contributors[0]}/>
             ))}
           </div>
         ) : (

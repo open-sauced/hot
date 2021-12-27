@@ -1,41 +1,29 @@
+/* eslint-disable */
 import React from "react";
-import av1 from "./placeholders/av01.jpg";
-import av2 from "./placeholders/av02.jpg";
+
 import cover2 from "./placeholders/cover2.jpg";
-import humanizeNumber from "../lib/humanizeNumber";
+
 import truncate from "../lib/truncate";
-import getAvatar from "../lib/getAvatar";
+import humanizeNumber from "../lib/humanizeNumber";
+
+import HotAvatar from "./Avatar.jsx";
 
 function PostGrid({ data }) {
-  const [repoOwner, repoName] = data.repo_name.split("/");
-
+  // const [repoOwner, repoName] = data.repo_name.split('/');
   const repoLink = `https://github.com/${data.repo_name}`;
   const handleClick = (option) => {
-    option === "issues" ? window.open(`${repoLink}/issues`) : window.open(repoLink);
+    if (option === "issues") {
+      return window.open(`${repoLink}/issues`);
+    }
+    return window.open(repoLink);
   };
 
   return (
-    <div className=" bg-offWhite rounded-xl p-6 font-roboto cursor-pointer ">
+    <div className=" bg-offWhite rounded-xl p-6 font-roboto cursor-pointer">
       {/* Avator Container */}
-      <div className=" w-full flex  mb-3 ">
-        <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mr-3 ">
-          <img
-            className="object-cover"
-            src={getAvatar(data?.contributors[0])}
-            alt="Avatar 01"
-            width={500}
-            height={500}
-          />
-        </div>
-        <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mr-3 ">
-          <img
-            className="object-cover"
-            src={getAvatar(data?.contributors[1])}
-            alt="Avatar 02"
-            width={500}
-            height={500}
-          />
-        </div>
+      <div className="w-full flex  mb-3">
+        <HotAvatar contributor={data?.contributors[0]} />
+        <HotAvatar contributor={data?.contributors[1]} />
       </div>
       {/* Title */}
       <div className=" text-grey text-md font-medium mb-1 h-14 overflow-hidden cursor-pointer" onClick={handleClick}>
@@ -43,7 +31,7 @@ function PostGrid({ data }) {
       </div>
       {/* Description */}
       <div className=" text-lightGrey text-sm mb-2 ">
-        <h3> {truncate(data.description)} </h3>{" "}
+        <h3> {truncate(data.description)} </h3>
       </div>
       {/* Cover photo */}
       <div className="w-full bg-blue-400 h-28 overflow-hidden rounded-md mb-2 ">
@@ -58,14 +46,20 @@ function PostGrid({ data }) {
         </div>
 
         {/* Issues */}
-        <div className=" flex justify-center items-center text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  "  onClick={() => handleClick("issues")}>
+        <div
+          className=" flex justify-center items-center text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  "
+          onClick={() => handleClick("issues")}
+        >
           <i className="fas fa-comment-dots mr-2 "></i>
 
           {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
         </div>
 
         {/* Stars */}
-        <div className=" flex justify-center items-center text-xltext-grey hover:text-saucyRed cursor-pointer transition-all duration-200 " onClick={handleClick}>
+        <div
+          className=" flex justify-center items-center text-xltext-grey hover:text-saucyRed cursor-pointer transition-all duration-200 "
+          onClick={handleClick}
+        >
           <i className="fas fa-star mr-2 "></i>
           {data.total_stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
         </div>

@@ -5,6 +5,34 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.2.1](https://github.com/open-sauced/hot-sauce/compare/v1.2.0...v1.2.1) (2021-12-22)
+
+
+### ✅ Tests
+
+* fix jest configuration ([#27](https://github.com/open-sauced/hot-sauce/issues/27)) ([69d3c44](https://github.com/open-sauced/hot-sauce/commit/69d3c447155ed9eaa58d9018326380da2ef01c9e)), closes [#26](https://github.com/open-sauced/hot-sauce/issues/26)
+
+## [1.2.0](https://github.com/open-sauced/hot-sauce/compare/v1.1.0...v1.2.0) (2021-12-22)
+
+
+### 🍕 Features
+
+* replace placeholder avatars with contributor avatars ([#28](https://github.com/open-sauced/hot-sauce/issues/28)) ([c817a98](https://github.com/open-sauced/hot-sauce/commit/c817a9822e166578387164a5d292290699d61c22)), closes [#21](https://github.com/open-sauced/hot-sauce/issues/21)
+
+## [1.1.0](https://github.com/open-sauced/hot-sauce/compare/v1.0.1...v1.1.0) (2021-12-21)
+
+
+### 🍕 Features
+
+* add contributor data ([#25](https://github.com/open-sauced/hot-sauce/issues/25)) ([156907c](https://github.com/open-sauced/hot-sauce/commit/156907cf72496f03a3fcb4fd8b1bdc01ec93c8b0))
+
+### [1.0.1](https://github.com/open-sauced/hot-sauce/compare/v1.0.0...v1.0.1) (2021-12-19)
+
+
+### 🐛 Bug Fixes
+
+* Linked title to its respective github page ([#24](https://github.com/open-sauced/hot-sauce/issues/24)) ([88ea8c5](https://github.com/open-sauced/hot-sauce/commit/88ea8c5bf7b261186b9564fc767fe9901d0e3e38))
+
 ## 1.0.0 (2021-12-18)
 
 

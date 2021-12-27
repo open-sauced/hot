@@ -46,20 +46,27 @@ function PostGrid({ data }) {
         <h3> {truncate(data.description)} </h3>{" "}
       </div>
       {/* Cover photo */}
-      <div className="w-full bg-blue-400 h-28 overflow-hidden rounded-md mb-2 ">
-        <img className="object-cover" src={cover2} alt="Avatar 02" width={1000} height={1000} />
+
+      <div className="w-full bg-transparent h-28 overflow-hidden rounded-md mb-2">
+        <img
+          className="object-cover"
+          src={`https://opengraph.githubassets.com/1/${data.repo_name}`}
+          alt="Avatar 02"
+          width={500}
+          height={500}
+        />
       </div>
       {/* Action Button Container */}
       <div className=" flex justify-between w-full ">
         {/* Upvote */}
-        <div className=" flex justify-center items-center text-xltext-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
+        <div className=" flex justify-center items-center text-lg text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
           <i className="fas fa-arrow-alt-circle-up mr-2 "></i>
           <p className="font-bold">5</p>
         </div>
 
         {/* Issues */}
         <div
-          className=" flex justify-center items-center text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  "
+          className=" flex justify-center items-center text-lg text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  "
           onClick={() => handleClick("issues")}
         >
           <i className="fas fa-comment-dots mr-2 "></i>
@@ -69,7 +76,7 @@ function PostGrid({ data }) {
 
         {/* Stars */}
         <div
-          className=" flex justify-center items-center text-xltext-grey hover:text-saucyRed cursor-pointer transition-all duration-200 "
+          className=" flex justify-center items-center text-lg text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 "
           onClick={handleClick}
         >
           <i className="fas fa-star mr-2 "></i>

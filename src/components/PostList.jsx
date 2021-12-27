@@ -5,6 +5,10 @@ import cover1 from "./placeholders/cover1.jpg";
 import cover2 from "./placeholders/cover2.jpg";
 
 function PostList({ data }) {
+  const repoLink = `https://github.com/${data.repo_name}`;
+  const handleClick = () => {
+    window.open(repoLink);
+  };
   return (
     <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full">
       {/* Flex container */}
@@ -23,7 +27,7 @@ function PostList({ data }) {
 
         {/* Content */}
         <div className=" ml-5 border-l-2 pl-5">
-          <div className=" text-grey text-md font-medium  overflow-hidden ">
+          <div className=" text-grey text-md font-medium  overflow-hidden " onClick={handleClick}>
             <h1>{data.repo_name} </h1>
           </div>
           {/* Date and Time */}

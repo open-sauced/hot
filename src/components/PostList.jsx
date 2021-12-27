@@ -1,8 +1,7 @@
 import React from "react";
-import cover1 from "./placeholders/cover1.jpg";
-import cover2 from "./placeholders/cover2.jpg";
+
 import humanizeNumber from "../lib/humanizeNumber";
-import getAvatar from "../lib/getAvatar";
+import HotAvatar from "./Avatar.jsx"
 
 function PostList({ data }) {
   const [repoOwner, repoName] = data.repo_name.split("/");
@@ -19,25 +18,8 @@ function PostList({ data }) {
         {/* Avatar Container */}
         <div className=" flex flex-col ">
           {/* Avatar */}
-          <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mb-2 ">
-            <img
-              className="object-cover"
-              src={getAvatar(data?.contributors[0])}
-              alt="Avatar 01"
-              width={500}
-              height={500}
-            />
-          </div>
-          {/* Avatar */}
-          <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full ">
-            <img
-              className="object-cover"
-              src={getAvatar(data?.contributors[1])}
-              alt="Avatar 02"
-              width={500}
-              height={500}
-            />
-          </div>
+          <HotAvatar contributor={data?.contributors[0]} type={'list'}/>
+          <HotAvatar contributor={data?.contributors[1]} type={'list'}/>
         </div>
 
         {/* Content */}

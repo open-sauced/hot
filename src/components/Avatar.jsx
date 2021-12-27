@@ -4,9 +4,9 @@ import ReactTooltip from "react-tooltip";
 
 import getAvatar from "../lib/getAvatar";
 
-const Avatar = ({contributor}) => (
+const Avatar = ({contributor, type = false}) => (
   <div
-    className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mr-3"
+    className= {`bg-blue-400 w-10 h-10 overflow-hidden rounded-full ${!type ? 'mr-3' : 'mb-2'}`}
     data-tip={contributor}
     data-for={contributor}
   >

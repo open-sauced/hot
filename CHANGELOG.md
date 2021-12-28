@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.3.1](https://github.com/open-sauced/hot-sauce/compare/v1.3.0...v1.3.1) (2021-12-28)
+
+
+### 🐛 Bug Fixes
+
+* avatar redirects to GitHub profile ([#48](https://github.com/open-sauced/hot-sauce/issues/48)) ([2a99c9d](https://github.com/open-sauced/hot-sauce/commit/2a99c9d7826b46cac89afd9d387c304ef8489085))
+
 ## [1.3.0](https://github.com/open-sauced/hot-sauce/compare/v1.2.1...v1.3.0) (2021-12-28)
 
 

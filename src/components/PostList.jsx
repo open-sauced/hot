@@ -11,6 +11,9 @@ function PostList({ data }) {
   const handleClick = (option) => {
     option === "issues" ? window.open(`${repoLink}/issues`) : window.open(repoLink);
   };
+  const handleRedirect = (contributor) => {
+    window.open(`https://github.com/${contributor}`);
+  };
 
   return (
     <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full cursor-pointer">
@@ -26,6 +29,7 @@ function PostList({ data }) {
               alt="Avatar 01"
               width={500}
               height={500}
+              onClick={() => handleRedirect(data?.contributors[0])}
             />
           </div>
           {/* Avatar */}
@@ -36,6 +40,7 @@ function PostList({ data }) {
               alt="Avatar 02"
               width={500}
               height={500}
+              onClick={() => handleRedirect(data?.contributors[1])}
             />
           </div>
         </div>
@@ -58,14 +63,20 @@ function PostList({ data }) {
             </div>
 
             {/* Issues */}
-            <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  " onClick={() => handleClick("issues")}>
+            <div
+              className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  "
+              onClick={() => handleClick("issues")}
+            >
               <i className="fas fa-comment-dots mr-2 "></i>
 
               {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
             </div>
 
             {/* Stars */}
-            <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 " onClick={handleClick}>
+            <div
+              className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 "
+              onClick={handleClick}
+            >
               <i className="fas fa-star mr-2 "></i>
               {data.total_stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
             </div>

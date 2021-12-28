@@ -23,7 +23,6 @@
         "astro": "^0.21.13",
         "babel-jest": "^27.4.5",
         "babel-preset-react-app": "^10.0.1",
-        "esbuild-windows-64": "^0.14.5",
         "eslint-plugin-import": "^2.25.3",
         "eslint-plugin-jest": "^25.3.0",
         "eslint-plugin-jest-dom": "^3.9.2",
@@ -6895,6 +6894,7 @@
         "x64"
       ],
       "dev": true,
+      "optional": true,
       "os": [
         "win32"
       ]

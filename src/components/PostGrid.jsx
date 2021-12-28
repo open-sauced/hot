@@ -21,9 +21,9 @@ function PostGrid({ data }) {
   return (
     <div className=" bg-offWhite rounded-xl pt-6 px-4 pb-2 font-roboto cursor-pointer ">
       {/* Avator Container */}
-      <div className=" w-full flex justify-between items-center mb-3 ">
+      <div className=" w-full flex justify-between items-center mb-3">
         <div className="flex w-full">
-          <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mr-3 ">
+          <div className="bg-blue-400 w-10 h-10 overflow-hidden rounded-full mr-3">
             <img
               className="object-cover"
               src={getAvatar(data?.contributors[0])}

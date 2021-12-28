@@ -23,7 +23,7 @@
         "astro": "^0.21.13",
         "babel-jest": "^27.4.5",
         "babel-preset-react-app": "^10.0.1",
-        "esbuild-windows-64": "^0.14.8",
+        "esbuild-windows-64": "^0.14.5",
         "eslint-plugin-import": "^2.25.3",
         "eslint-plugin-jest": "^25.3.0",
         "eslint-plugin-jest-dom": "^3.9.2",
@@ -6888,9 +6888,9 @@
       ]
     },
     "node_modules/esbuild-windows-64": {
-      "version": "0.14.8",
-      "resolved": "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.8.tgz",
-      "integrity": "sha512-/3pllNoy8mrz/E1rYalwiwwhzJBrYQhEapwAteHZbFVhGzYuB8F80e8x5eA8dhFHxDiZh1VzK+hREwwSt8UTQA==",
+      "version": "0.14.5",
+      "resolved": "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.5.tgz",
+      "integrity": "sha512-ZM9rlBDsPEeMVJ1wcpNMXUad9VzYOFeOBUXBi+16HZTvFPy2DkcC2ZWcrByP3IESToD5lvHdjSX/w8rxphjqig==",
       "cpu": [
         "x64"
       ],
@@ -16435,19 +16435,6 @@
       "integrity": "sha512-OTZvuAc1JBnwmeT+hR1+Vmgz6LOD7DggpnwtKMAExruSLxUMl02Z3pyalJ7zKh3gJ/KBRM1JQZLSk4/mFWijeQ==",
       "cpu": [
         "ia32"
-      ],
-      "dev": true,
-      "optional": true,
-      "os": [
-        "win32"
-      ]
-    },
-    "node_modules/tsm/node_modules/esbuild-windows-64": {
-      "version": "0.14.5",
-      "resolved": "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.5.tgz",
-      "integrity": "sha512-ZM9rlBDsPEeMVJ1wcpNMXUad9VzYOFeOBUXBi+16HZTvFPy2DkcC2ZWcrByP3IESToD5lvHdjSX/w8rxphjqig==",
-      "cpu": [
-        "x64"
       ],
       "dev": true,
       "optional": true,

@@ -5,6 +5,31 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.3.0](https://github.com/open-sauced/hot-sauce/compare/v1.2.1...v1.3.0) (2021-12-28)
+
+
+### 🔁 Continuous Integration
+
+* adopt reusable open-sauced development workflows ([#32](https://github.com/open-sauced/hot-sauce/issues/32)) ([fa5f8ba](https://github.com/open-sauced/hot-sauce/commit/fa5f8bab3a33fbdc1e053cbee33112fbbf01846f)), closes [#31](https://github.com/open-sauced/hot-sauce/issues/31)
+* make diagram download optional as it can apparently fail ([#33](https://github.com/open-sauced/hot-sauce/issues/33)) ([fe9ad5b](https://github.com/open-sauced/hot-sauce/commit/fe9ad5bd0317a6e6941afc16f28e586a95330fd9))
+
+
+### 🐛 Bug Fixes
+
+* fix pizza and limit description ([#40](https://github.com/open-sauced/hot-sauce/issues/40)) ([226768f](https://github.com/open-sauced/hot-sauce/commit/226768ffbb8220e6888b8ed9f0a7044bba1e55cd))
+* Small fixes to nav and links ([#34](https://github.com/open-sauced/hot-sauce/issues/34)) ([52dbf3c](https://github.com/open-sauced/hot-sauce/commit/52dbf3cb21779d5a93cb003d2e2afa04841e216e))
+
+
+### 🍕 Features
+
+* adds social card ([#42](https://github.com/open-sauced/hot-sauce/issues/42)) ([184fdb9](https://github.com/open-sauced/hot-sauce/commit/184fdb9570966ca241a66ad1763f02e6c5664fc8))
+* rename file hot.json ([#39](https://github.com/open-sauced/hot-sauce/issues/39)) ([05f5c5a](https://github.com/open-sauced/hot-sauce/commit/05f5c5a28bf4a0ed99ecbac647397b83d1ba646a))
+
+
+### 🤖 Build System
+
+* consolidate production build dependencies ([#44](https://github.com/open-sauced/hot-sauce/issues/44)) ([4e6b2e2](https://github.com/open-sauced/hot-sauce/commit/4e6b2e2c4cab215b232e99f45eb967521a430efa))
+
 ### [1.2.1](https://github.com/open-sauced/hot-sauce/compare/v1.2.0...v1.2.1) (2021-12-22)
 
 

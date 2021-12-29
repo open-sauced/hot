@@ -1,22 +1,24 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import humanizeNumber from "../lib/humanizeNumber";
-import HotAvatar from "./Avatar.jsx"
+import humanizeNumber from '../lib/humanizeNumber';
+import HotAvatar from './Avatar.jsx';
 
 function PostList({ data }) {
-  const [repoOwner, repoName] = data.repo_name.split("/");
+  // const [repoOwner, repoName] = data.repo_name.split('/');
 
   const repoLink = `https://github.com/${data.repo_name}`;
   const handleClick = (option) => {
-    option === "issues" ? window.open(`${repoLink}/issues`) : window.open(repoLink);
+    if (option === 'issues') return window.open(`${repoLink}/issues`);
+    return window.open(repoLink);
   };
 
   return (
-    <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full cursor-pointer">
+    <div className=' bg-offWhite rounded-xl p-6 font-roboto w-full cursor-pointer'>
       {/* Flex container */}
-      <div className="flex ">
+      <div className='flex '>
         {/* Avatar Container */}
-        <div className=" flex flex-col ">
+        <div className=' flex flex-col '>
           {/* Avatar */}
           <HotAvatar contributor={data?.contributors[0]} type={'list'}/>
           <HotAvatar contributor={data?.contributors[1]} type={'list'}/>
@@ -40,7 +42,7 @@ function PostList({ data }) {
             </div>
 
             {/* Issues */}
-            <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  " onClick={() => handleClick("issues")}>
+            <div className=" flex justify-center items-center text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  " onClick={() => handleClick('issues')}>
               <i className="fas fa-comment-dots mr-2 "></i>
 
               {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
@@ -57,5 +59,9 @@ function PostList({ data }) {
     </div>
   );
 }
+
+PostList.propTypes = {
+  data: PropTypes.object,
+};
 
 export default PostList;

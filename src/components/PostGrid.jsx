@@ -1,32 +1,32 @@
 /* eslint-disable */
-import React from "react";
+import React from 'react';
 
-import cover2 from "./placeholders/cover2.jpg";
+import cover2 from './placeholders/cover2.jpg';
 
-import truncate from "../lib/truncate";
-import humanizeNumber from "../lib/humanizeNumber";
+import truncate from '../lib/truncate';
+import humanizeNumber from '../lib/humanizeNumber';
 
-import HotAvatar from "./Avatar.jsx";
+import HotAvatar from './Avatar.jsx';
 
 function PostGrid({ data }) {
   // const [repoOwner, repoName] = data.repo_name.split('/');
   const repoLink = `https://github.com/${data.repo_name}`;
   const handleClick = (option) => {
-    if (option === "issues") {
+    if (option === 'issues') {
       return window.open(`${repoLink}/issues`);
     }
     return window.open(repoLink);
   };
 
   return (
-    <div className=" bg-offWhite rounded-xl p-6 font-roboto cursor-pointer">
+    <div className=' bg-offWhite rounded-xl p-6 font-roboto cursor-pointer'>
       {/* Avator Container */}
-      <div className="w-full flex  mb-3">
+      <div className='w-full flex  mb-3'>
         <HotAvatar contributor={data?.contributors[0]} />
         <HotAvatar contributor={data?.contributors[1]} />
       </div>
       {/* Title */}
-      <div className=" text-grey text-md font-medium mb-1 h-14 overflow-hidden cursor-pointer" onClick={handleClick}>
+      <div className=' text-grey text-md font-medium mb-1 h-14 overflow-hidden cursor-pointer' onClick={handleClick}>
         <h1>{data.repo_name} </h1>
       </div>
       {/* Description */}

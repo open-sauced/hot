@@ -42,4 +42,7 @@ module.exports = {
     'testing-library/no-dom-import': 'off',
     'linebreak-style': 0,
   },
+  env: {
+    browser: true,
+  },
 };

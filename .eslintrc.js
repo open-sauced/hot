@@ -1,4 +1,3 @@
-/**  'linebreak-style': ['error', 'windows'] */
 process.env.NODE_ENV = 'development';
 
 module.exports = {

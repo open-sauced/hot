@@ -1,5 +1,5 @@
-/* eslint-disable */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import cover2 from './placeholders/cover2.jpg';
 
@@ -12,9 +12,7 @@ function PostGrid({ data }) {
   // const [repoOwner, repoName] = data.repo_name.split('/');
   const repoLink = `https://github.com/${data.repo_name}`;
   const handleClick = (option) => {
-    if (option === 'issues') {
-      return window.open(`${repoLink}/issues`);
-    }
+    if (option === 'issues') return window.open(`${repoLink}/issues`);
     return window.open(repoLink);
   };
 
@@ -48,7 +46,7 @@ function PostGrid({ data }) {
         {/* Issues */}
         <div
           className=" flex justify-center items-center text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  "
-          onClick={() => handleClick("issues")}
+          onClick={() => handleClick('issues')}
         >
           <i className="fas fa-comment-dots mr-2 "></i>
 
@@ -68,4 +66,7 @@ function PostGrid({ data }) {
   );
 }
 
+PostGrid.propTypes = {
+  data: PropTypes.object,
+};
 export default PostGrid;

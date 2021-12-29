@@ -10,7 +10,6 @@
       "hasInstallScript": true,
       "license": "MIT",
       "dependencies": {
-        "esbuild-windows-64": "^0.14.5",
         "open-graph-scraper": "^4.11.0",
         "prop-types": "^15.7.2",
         "react": "^17.0.2",
@@ -6897,6 +6896,8 @@
       "cpu": [
         "x64"
       ],
+      "dev": true,
+      "optional": true,
       "os": [
         "win32"
       ]

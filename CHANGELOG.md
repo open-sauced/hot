@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.3.2](https://github.com/open-sauced/hot-sauce/compare/v1.3.1...v1.3.2) (2021-12-30)
+
+
+### 🤖 Build System
+
+* **deps-dev:** bump astro from 0.21.13 to 0.22.1 ([#52](https://github.com/open-sauced/hot-sauce/issues/52)) ([28f57e5](https://github.com/open-sauced/hot-sauce/commit/28f57e5c0c394c8974b307d40b637916803ae747))
+
 ### [1.3.1](https://github.com/open-sauced/hot-sauce/compare/v1.3.0...v1.3.1) (2021-12-28)
 
 

@@ -17,7 +17,7 @@ const Avatar = ({contributor, type = false}) => (
       width={500}
       height={500}
     />
-    <ReactTooltip id={contributor} className="flex flex-row items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] bg-gray-50"/>
+    <ReactTooltip id={contributor} type='light' className="flex flex-row items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)]"/>
   </div>
 );
 export default Avatar;

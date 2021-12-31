@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.3.3](https://github.com/open-sauced/hot-sauce/compare/v1.3.2...v1.3.3) (2021-12-31)
+
+
+### 🐛 Bug Fixes
+
+* added the right repo social image. ([#49](https://github.com/open-sauced/hot-sauce/issues/49)) ([8dfc57e](https://github.com/open-sauced/hot-sauce/commit/8dfc57ec447bdd75f44c06c561d2033d79830d8b))
+
 ### [1.3.2](https://github.com/open-sauced/hot-sauce/compare/v1.3.1...v1.3.2) (2021-12-30)
 
 

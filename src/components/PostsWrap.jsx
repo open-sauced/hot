@@ -19,7 +19,7 @@ const PostsWrap = () => {
             ))}
           </div>
         ) : (
-          <div className=" container grid gap-3 ">
+          <div className=" container space-y-3 ">
             {postData.map((item, i) => (
               <PostList data={item} key={i} />
             ))}

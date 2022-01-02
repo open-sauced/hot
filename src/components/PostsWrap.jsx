@@ -22,7 +22,11 @@ const PostsWrap = () => {
         {isGrid ? (
           <GridDisplay fetchedData={fetchedData} activeLink={activeLink} />
         ) : (
-          <ListDisplay fetchedData={fetchedData} activeLink={activeLink} />
+          <div className=" container space-y-3 ">
+            {postData.map((item, i) => (
+              <PostList data={item} key={i} />
+            ))}
+          </div>
         )}
       </div>
     </>

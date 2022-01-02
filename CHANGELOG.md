@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.3.5](https://github.com/open-sauced/hot-sauce/compare/v1.3.4...v1.3.5) (2022-01-02)
+
+
+### 🐛 Bug Fixes
+
+* correct post list overlapping view ([#55](https://github.com/open-sauced/hot-sauce/issues/55)) ([9ead58e](https://github.com/open-sauced/hot-sauce/commit/9ead58e5fd22376e36df28444a521bb8c942a901)), closes [#53](https://github.com/open-sauced/hot-sauce/issues/53)
+
 ### [1.3.4](https://github.com/open-sauced/hot-sauce/compare/v1.3.3...v1.3.4) (2022-01-02)
 
 

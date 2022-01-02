@@ -60,8 +60,8 @@ function PostList({ data }) {
           {/* Action Button Container */}
           <div className=" flex justify-between w-full ">
             {/* Upvote */}
-            <div className=" flex justify-center items-center text-xs sm:text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
-              <i className="fas fa-arrow-alt-circle-up mr-2 "></i>
+            <div className=" flex justify-center items-center text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
+              <i className="far fa-dot-circle mr-2 "></i>
               <p className="font-bold">5</p>
             </div>
 
@@ -74,7 +74,6 @@ function PostList({ data }) {
 
               {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
             </div>
-
             {/* Stars */}
             <div
               className=" flex justify-center items-center text-xs sm:text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 "

@@ -12,7 +12,7 @@ const ListDisplay = ({ fetchedData, activeLink }) => {
           : activeLink == "discussed"
           ? fetchedData.sort((a, b) => b.issues - a.issues).map((item, i) => <PostList data={item} key={i} />)
           : fetchedData
-              .sort((a, b) => b.avg_recency_score - a.avg_recency_score)
+              .sort((a, b) => a.avg_recency_score - b.avg_recency_score)
               .map((item, i) => <PostList data={item} key={i} />)}
       </div>
     </div>

@@ -60,9 +60,9 @@ function PostList({ data }) {
           {/* Action Button Container */}
           <div className=" flex justify-between w-full ">
             {/* Upvote */}
-            <div className=" flex justify-center items-center text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
+            <div className=" flex justify-center items-center text-xs sm:text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
               <i className="far fa-dot-circle mr-2 "></i>
-              <p className="font-bold">5</p>
+              <p className="font-bold">{data.issues}</p>
             </div>
 
             {/* Issues */}

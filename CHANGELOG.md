@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.3.6](https://github.com/open-sauced/hot-sauce/compare/v1.3.5...v1.3.6) (2022-01-04)
+
+
+### 🐛 Bug Fixes
+
+* unusal size of svg icon and issue number hardcoded ([#59](https://github.com/open-sauced/hot-sauce/issues/59)) ([69fb04a](https://github.com/open-sauced/hot-sauce/commit/69fb04a7447d872b3011144f574c8d2c43aba7ba)), closes [#58](https://github.com/open-sauced/hot-sauce/issues/58)
+
 ### [1.3.5](https://github.com/open-sauced/hot-sauce/compare/v1.3.4...v1.3.5) (2022-01-02)
 
 

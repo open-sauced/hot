@@ -5,6 +5,66 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.3.5](https://github.com/open-sauced/hot-sauce/compare/v1.3.4...v1.3.5) (2022-01-02)
+
+
+### 🐛 Bug Fixes
+
+* correct post list overlapping view ([#55](https://github.com/open-sauced/hot-sauce/issues/55)) ([9ead58e](https://github.com/open-sauced/hot-sauce/commit/9ead58e5fd22376e36df28444a521bb8c942a901)), closes [#53](https://github.com/open-sauced/hot-sauce/issues/53)
+
+### [1.3.4](https://github.com/open-sauced/hot-sauce/compare/v1.3.3...v1.3.4) (2022-01-02)
+
+
+### 🐛 Bug Fixes
+
+* replace the discussion svg with github issue icon ([#56](https://github.com/open-sauced/hot-sauce/issues/56)) ([6c58104](https://github.com/open-sauced/hot-sauce/commit/6c5810469f6219a943e257f99ea03d435fe74270)), closes [#54](https://github.com/open-sauced/hot-sauce/issues/54)
+
+### [1.3.3](https://github.com/open-sauced/hot-sauce/compare/v1.3.2...v1.3.3) (2021-12-31)
+
+
+### 🐛 Bug Fixes
+
+* added the right repo social image. ([#49](https://github.com/open-sauced/hot-sauce/issues/49)) ([8dfc57e](https://github.com/open-sauced/hot-sauce/commit/8dfc57ec447bdd75f44c06c561d2033d79830d8b))
+
+### [1.3.2](https://github.com/open-sauced/hot-sauce/compare/v1.3.1...v1.3.2) (2021-12-30)
+
+
+### 🤖 Build System
+
+* **deps-dev:** bump astro from 0.21.13 to 0.22.1 ([#52](https://github.com/open-sauced/hot-sauce/issues/52)) ([28f57e5](https://github.com/open-sauced/hot-sauce/commit/28f57e5c0c394c8974b307d40b637916803ae747))
+
+### [1.3.1](https://github.com/open-sauced/hot-sauce/compare/v1.3.0...v1.3.1) (2021-12-28)
+
+
+### 🐛 Bug Fixes
+
+* avatar redirects to GitHub profile ([#48](https://github.com/open-sauced/hot-sauce/issues/48)) ([2a99c9d](https://github.com/open-sauced/hot-sauce/commit/2a99c9d7826b46cac89afd9d387c304ef8489085))
+
+## [1.3.0](https://github.com/open-sauced/hot-sauce/compare/v1.2.1...v1.3.0) (2021-12-28)
+
+
+### 🔁 Continuous Integration
+
+* adopt reusable open-sauced development workflows ([#32](https://github.com/open-sauced/hot-sauce/issues/32)) ([fa5f8ba](https://github.com/open-sauced/hot-sauce/commit/fa5f8bab3a33fbdc1e053cbee33112fbbf01846f)), closes [#31](https://github.com/open-sauced/hot-sauce/issues/31)
+* make diagram download optional as it can apparently fail ([#33](https://github.com/open-sauced/hot-sauce/issues/33)) ([fe9ad5b](https://github.com/open-sauced/hot-sauce/commit/fe9ad5bd0317a6e6941afc16f28e586a95330fd9))
+
+
+### 🐛 Bug Fixes
+
+* fix pizza and limit description ([#40](https://github.com/open-sauced/hot-sauce/issues/40)) ([226768f](https://github.com/open-sauced/hot-sauce/commit/226768ffbb8220e6888b8ed9f0a7044bba1e55cd))
+* Small fixes to nav and links ([#34](https://github.com/open-sauced/hot-sauce/issues/34)) ([52dbf3c](https://github.com/open-sauced/hot-sauce/commit/52dbf3cb21779d5a93cb003d2e2afa04841e216e))
+
+
+### 🍕 Features
+
+* adds social card ([#42](https://github.com/open-sauced/hot-sauce/issues/42)) ([184fdb9](https://github.com/open-sauced/hot-sauce/commit/184fdb9570966ca241a66ad1763f02e6c5664fc8))
+* rename file hot.json ([#39](https://github.com/open-sauced/hot-sauce/issues/39)) ([05f5c5a](https://github.com/open-sauced/hot-sauce/commit/05f5c5a28bf4a0ed99ecbac647397b83d1ba646a))
+
+
+### 🤖 Build System
+
+* consolidate production build dependencies ([#44](https://github.com/open-sauced/hot-sauce/issues/44)) ([4e6b2e2](https://github.com/open-sauced/hot-sauce/commit/4e6b2e2c4cab215b232e99f45eb967521a430efa))
+
 ### [1.2.1](https://github.com/open-sauced/hot-sauce/compare/v1.2.0...v1.2.1) (2021-12-22)
 
 

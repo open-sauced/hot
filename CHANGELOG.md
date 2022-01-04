@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.3.7](https://github.com/open-sauced/hot-sauce/compare/v1.3.6...v1.3.7) (2022-01-04)
+
+
+### 🐛 Bug Fixes
+
+* correct dependabot breaking lock and jest config ([#60](https://github.com/open-sauced/hot-sauce/issues/60)) ([a4173ec](https://github.com/open-sauced/hot-sauce/commit/a4173ecee0b6ee394092727f1ed6a268c271ae3a))
+
 ### [1.3.6](https://github.com/open-sauced/hot-sauce/compare/v1.3.5...v1.3.6) (2022-01-04)
 
 

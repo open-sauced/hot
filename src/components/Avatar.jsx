@@ -18,11 +18,7 @@ const Avatar = ({contributor, type = false, handleRedirect}) => (
       height={500}
       onClick={() => handleRedirect(contributor)}
     />
-<<<<<<< HEAD
     <ReactTooltip id={contributor} type='light' className='flex flex-row items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] !opacity-100'/>
-=======
-    <ReactTooltip id={contributor} type='light' className="flex flex-row items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)]"/>
->>>>>>> 0e911ea8ac81c074bab84ffd92ea66962da84025
   </div>
 );
 export default Avatar;

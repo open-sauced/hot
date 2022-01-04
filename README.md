@@ -15,9 +15,6 @@
   <a href="https://github.com/open-sauced/hot/actions/workflows/codeql-analysis.yml">
     <img src="https://github.com/open-sauced/hot/actions/workflows/codeql-analysis.yml/badge.svg" alt="CodeQL" style="max-width: 100%;">
   </a>
-  <a href="https://github.com/open-sauced/hot/actions/workflows/release.yml">
-    <img src="https://github.com/open-sauced/hot/actions/workflows/release.yml/badge.svg" alt="Release" style="max-width: 100%;">
-  </a>
   <img src="https://badgen.net/dependabot/open-sauced/hot?icon=dependabot" alt="Dependabot Badge">
   <img src="https://img.shields.io/github/languages/code-size/open-sauced/hot" alt="GitHub code size in bytes">
   <img src="https://img.shields.io/github/commit-activity/w/open-sauced/hot" alt="GitHub commit activity">
@@ -35,23 +32,96 @@
   </a>
 </p>
 
-## 🤝 Contributing
+## Prerequisites
+
+In order to run the project from a container we need `node>=14`, `npm>=7` and `docker>=20` installed on our development machines or
+use one of the listed cloud providers we support:
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/open-sauced/hot)
 
+## 🖥️ Local development
+
+To install the application:
+
+```shell
+npm ci
+```
+
+To start a local copy of the app on port `3000`:
+
+```shell
+npm start
+```
+
+### 🧪 Test
+
+For running the test suite, use the following command. Since the tests run in watch mode by default, some users may encounter errors about too many files being open. In this case, it may be beneficial to [install watchman](https://facebook.github.io/watchman/docs/install.html).
+
+```shell
+npm test
+```
+
+You can request a coverage report by running the following command:
+
+```shell
+npm run test:coverage
+```
+
+### 📦 Docker builds
+
+A development preview can also be run from docker:
+
+```shell
+docker build -t open-sauced-hot .
+docker run -p 8080:80 open-sauced-hot
+```
+
+Alternatively you can pull the production container and skip all builds:
+
+```shell
+docker run -dit -p 8080:80 ghcr.io/open-sauced/hot
+```
+
+### 🎨 Code linting
+
+To check the code and styles quality, use the following command:
+
+```shell
+npm run lint
+```
+
+This will also display during development, but not break on errors.
+
+To fix the linting errors, use the following command:
+
+```shell
+npm run format
+```
+
+### 🚀 Production deployment
+
+A production deployment is a complete build of the project, including the build of the static assets.
+
+```shell
+npm run build
+```
+
+## 🤝 Contributing
+
 We encourage you to contribute to Open Sauced! Please check out the [Contributing guide](https://docs.opensauced.pizza/contributing/introduction-to-contributing/) for guidelines about how to proceed.
 
-<img align="right" src="https://i.ibb.co/CJfW18H/ship.gif" width="200"/>
+We have a commit utility called [@open-sauced/conventional-commit](https://github.com/open-sauced/conventional-commit) that helps you write your commits in a way that is easy to understand and process by others.
 
-### 📖 Prerequisites
+It is generally integrated as an `npm` script but you can run it with `npx` as well:
 
-In order to run the project from a container we need `node>=14`, `npm>=7` and `docker>=20` installed on our development machines.
+```shell
+npm run push
+```
 
-### 🖥️ Local development
+For any other npm based project or dotnpmrc defaulting to `--yes`:
 
-```sh
-npm ci
-npm start
+```shell
+npx -y @open-sauced/conventional-commit
 ```
 
 ## 🍕 Community

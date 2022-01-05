@@ -32,7 +32,6 @@ const SecondaryNav = ({ activeLink, setActiveLink }) => {
             <li
               data-name="discussed"
               onClick={(e) => handleChange(e)}
-              // className="hover:text-saucyRed transition-all duration-300 mr-3 sm:mr-11"
               className={`${
                 activeLink === "discussed" ? "bg-cheesyYellow rounded-xl text-grey " : " "
               } hover:text-saucyRed transition-all duration-300 mr-3 p-2 sm:mr-11`}

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.4.0](https://github.com/open-sauced/hot-sauce/compare/v1.3.7...v1.4.0) (2022-01-05)
+
+
+### 🍕 Features
+
+* Implemented the filter logic on the nav links ([#57](https://github.com/open-sauced/hot-sauce/issues/57)) ([dd860fe](https://github.com/open-sauced/hot-sauce/commit/dd860febcbc0937e16b7577fe58b23efd0daa038))
+
 ### [1.3.7](https://github.com/open-sauced/hot-sauce/compare/v1.3.6...v1.3.7) (2022-01-04)
 
 

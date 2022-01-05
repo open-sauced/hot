@@ -1,12 +1,8 @@
 import React from "react";
-import cover1 from "./placeholders/cover1.jpg";
-import cover2 from "./placeholders/cover2.jpg";
 import humanizeNumber from "../lib/humanizeNumber";
 import getAvatar from "../lib/getAvatar";
 
 function PostList({ data }) {
-  const [repoOwner, repoName] = data.repo_name.split("/");
-
   const repoLink = `https://github.com/${data.repo_name}`;
   const handleClick = (option) => {
     option === "issues" ? window.open(`${repoLink}/issues`) : window.open(repoLink);

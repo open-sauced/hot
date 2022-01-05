@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const SecondaryNav = ({ activeLink, setActiveLink }) => {
-  // console.log(activeLink);
   const handleChange = (e) => {
     e.preventDefault();
     const linkName = e.target.getAttribute("data-name");

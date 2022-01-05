@@ -37,7 +37,15 @@
 In order to run the project from a container we need `node>=14`, `npm>=7` and `docker>=20` installed on our development machines or
 use one of the listed cloud providers we support:
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/open-sauced/hot)
+
+[![Open in Replit](https://repl.it/badge/github/open-sauced/hot)](https://repl.it/github/open-sauced/hot)
+
+[![Open in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/open-sauced/hot?fontsize=14&hidenavigation=1&theme=dark&previewwindow=console&runonclick=1)
+
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/open-sauced/hot)
+
+[![Remix on Glitch](https://raw.githubusercontent.com/open-sauced/open-sauced/main/src/icons/remix-button.svg)](https://glitch.com/edit/#!/import/github/open-sauced/hot)
 
 ## 🖥️ Local development
 

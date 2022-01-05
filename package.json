@@ -61,5 +61,10 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-tooltip": "^4.2.21"
+  },
+  "eslintConfig": {
+    "globals": {
+      "window": true
+   }
   }
 }

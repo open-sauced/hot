@@ -12,9 +12,21 @@
     ]
   },
   {
+    "repo_name": "lydiahallie/javascript-questions",
+    "description": "A long list of (advanced) JavaScript questions, and their explanations :sparkles:  ",
+    "stars": 39905,
+    "issues": 69,
+    "total_stars": 8,
+    "avg_recency_score": 16.25,
+    "contributors": [
+      "lydiahallie",
+      "Tarabass"
+    ]
+  },
+  {
     "repo_name": "MunGell/awesome-for-beginners",
     "description": "A list of awesome beginners-friendly projects.",
-    "stars": 37280,
+    "stars": 37303,
     "issues": 51,
     "total_stars": 8,
     "avg_recency_score": 15.125,
@@ -24,33 +36,57 @@
     ]
   },
   {
-    "repo_name": "jwasham/coding-interview-university",
-    "description": "A complete computer science study plan to become a software engineer.",
-    "stars": 201722,
-    "issues": 41,
-    "total_stars": 6,
-    "avg_recency_score": 13,
+    "repo_name": "typescript-cheatsheets/react",
+    "description": "Cheatsheets for experienced React developers getting started with TypeScript",
+    "stars": 30556,
+    "issues": 5,
+    "total_stars": 8,
+    "avg_recency_score": 13.5,
     "contributors": [
-      "jwasham",
-      "avizmarlon"
+      "sw-yx",
+      "eps1lon"
     ]
   },
   {
     "repo_name": "supabase/supabase",
     "description": "The open source Firebase alternative. Follow to stay updated about our public Beta.",
-    "stars": 25417,
-    "issues": 243,
-    "total_stars": 5,
-    "avg_recency_score": 9.4,
+    "stars": 25465,
+    "issues": 244,
+    "total_stars": 7,
+    "avg_recency_score": 8.142857142857142,
     "contributors": [
       "kiwicopple",
       "MildTomato"
     ]
   },
   {
+    "repo_name": "florinpop17/app-ideas",
+    "description": "A Collection of application ideas which can be used to improve your coding skills.",
+    "stars": 46668,
+    "issues": 282,
+    "total_stars": 5,
+    "avg_recency_score": 9.8,
+    "contributors": [
+      "florinpop17",
+      "jdmedlock"
+    ]
+  },
+  {
+    "repo_name": "microsoft/TypeScript",
+    "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
+    "stars": 76844,
+    "issues": 5382,
+    "total_stars": 5,
+    "avg_recency_score": 16.2,
+    "contributors": [
+      "ahejlsberg",
+      "sheetalkamat"
+    ]
+  },
+  {
     "repo_name": "vercel/hyper",
     "description": "A terminal built on web technologies",
-    "stars": 37531,
+    "stars": 37545,
     "issues": 744,
     "total_stars": 5,
     "avg_recency_score": 10.2,
@@ -62,8 +98,8 @@
   {
     "repo_name": "11ty/eleventy",
     "description": "A simpler static site generator. An alternative to Jekyll. Transforms a directory of templates (of varying types) into HTML.",
-    "stars": 10904,
-    "issues": 440,
+    "stars": 10908,
+    "issues": 441,
     "total_stars": 5,
     "avg_recency_score": 12.4,
     "contributors": [
@@ -72,21 +108,45 @@
     ]
   },
   {
-    "repo_name": "typescript-cheatsheets/react",
-    "description": "Cheatsheets for experienced React developers getting started with TypeScript",
-    "stars": 30539,
-    "issues": 5,
+    "repo_name": "jwasham/coding-interview-university",
+    "description": "A complete computer science study plan to become a software engineer.",
+    "stars": 201789,
+    "issues": 41,
     "total_stars": 5,
-    "avg_recency_score": 16.4,
+    "avg_recency_score": 15,
     "contributors": [
-      "sw-yx",
-      "eps1lon"
+      "jwasham",
+      "avizmarlon"
+    ]
+  },
+  {
+    "repo_name": "freeCodeCamp/freeCodeCamp",
+    "description": "freeCodeCamp.org's open-source codebase and curriculum. Learn to code for free.",
+    "stars": 337699,
+    "issues": 122,
+    "total_stars": 5,
+    "avg_recency_score": 19.2,
+    "contributors": [
+      "QuincyLarson",
+      "raisedadead"
+    ]
+  },
+  {
+    "repo_name": "leonardomso/33-js-concepts",
+    "description": "📜 33 JavaScript concepts every developer should know.",
+    "stars": 45617,
+    "issues": 9,
+    "total_stars": 5,
+    "avg_recency_score": 14.6,
+    "contributors": [
+      "leonardomso",
+      "ilker0"
     ]
   },
   {
     "repo_name": "redwoodjs/redwood",
     "description": "The App Framework for Startups",
-    "stars": 10371,
+    "stars": 10379,
     "issues": 264,
     "total_stars": 5,
     "avg_recency_score": 10.8,
@@ -96,51 +156,63 @@
     ]
   },
   {
-    "repo_name": "microsoft/TypeScript",
-    "description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output.",
-    "stars": 76824,
-    "issues": 5374,
-    "total_stars": 5,
-    "avg_recency_score": 14.8,
+    "repo_name": "golang/go",
+    "description": "The Go programming language",
+    "stars": 93649,
+    "issues": 7473,
+    "total_stars": 4,
+    "avg_recency_score": 14,
     "contributors": [
-      "ahejlsberg",
-      "sheetalkamat"
+      "rsc",
+      "griesemer"
     ]
   },
   {
-    "repo_name": "florinpop17/app-ideas",
-    "description": "A Collection of application ideas which can be used to improve your coding skills.",
-    "stars": 46656,
-    "issues": 283,
-    "total_stars": 5,
-    "avg_recency_score": 9.8,
+    "repo_name": "vitejs/vite",
+    "description": "Next generation frontend tooling. It's fast!",
+    "stars": 35335,
+    "issues": 771,
+    "total_stars": 4,
+    "avg_recency_score": 9.75,
     "contributors": [
-      "florinpop17",
-      "jdmedlock"
+      "yyx990803",
+      "patak-dev"
     ]
   },
   {
-    "repo_name": "trekhleb/javascript-algorithms",
-    "description": "📝 Algorithms and data structures implemented in JavaScript with explanations and links to further readings",
-    "stars": 129753,
-    "issues": 269,
-    "total_stars": 5,
-    "avg_recency_score": 16.8,
+    "repo_name": "practical-tutorials/project-based-learning",
+    "description": "Curated list of project-based tutorials",
+    "stars": 60354,
+    "issues": 28,
+    "total_stars": 4,
+    "avg_recency_score": 11.25,
     "contributors": [
-      "trekhleb",
-      "m-maksyutin"
+      "tuvtran",
+      "sayands"
     ]
   },
   {
-    "repo_name": "storybookjs/storybook",
-    "description": "📓 The UI component explorer. Develop, document, & test React, Vue, Angular, Web Components, Ember, Svelte & more!",
-    "stars": 67618,
-    "issues": 1641,
-    "total_stars": 5,
-    "avg_recency_score": 14.8,
+    "repo_name": "sveltejs/kit",
+    "description": "The fastest way to build Svelte apps",
+    "stars": 6089,
+    "issues": 398,
+    "total_stars": 4,
+    "avg_recency_score": 12.25,
     "contributors": [
-      "shilman",
-      "ndelangen"
+      "Rich-Harris",
+      "benmccann"
+    ]
+  },
+  {
+    "repo_name": "slidevjs/slidev",
+    "description": "Presentation Slides for Developers (Beta)",
+    "stars": 16821,
+    "issues": 48,
+    "total_stars": 4,
+    "avg_recency_score": 9.5,
+    "contributors": [
+      "antfu",
+      "nico-bachner"
     ]
   }
 ]

@@ -17,7 +17,7 @@ function Modal() {
                 {/* Button */}
                 <div className=" z-40 ">
                     <div onClick={()=> setIsOpen(!isOpen)} className=" bg-grey h-14 w-14 rounded-full border-dashed border-4 border-cheesyYellow flex justify-center items-center text-2xl transition-all duration-200 transform hover:scale-105  cursor-pointer  ">
-                        <i className="fas fa-medal text-offWhite hover:text-accent "></i>
+                        <i className="fas fa-pizza-slice text-offWhite hover:text-accent "></i>
                     </div>
                 </div>
 

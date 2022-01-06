@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 import getAvatar from "../lib/getAvatar";
 
 
+// probably should move these to an env.
 const supabase = createClient('https://ibcwmlhcimymasokhgvn.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTkzMDc3OCwiZXhwIjoxOTQ1NTA2Nzc4fQ.zcdbd7kDhk7iNSMo8SjsTaXi0wlLNNQcSZkzZ84NUDg')
 
 async function fetchVotesByRepo(repoName) {
@@ -11,8 +12,8 @@ async function fetchVotesByRepo(repoName) {
     .select('votes')
     .eq('repo_name', repoName);
 
-    console.log(recommendations[0].votes);
     console.error(error);
+
     return recommendations[0].votes ? recommendations[0].votes : 0;
 }
 
@@ -23,6 +24,17 @@ function PostGrid({ data }) {
   useEffect(() => {
     fetchVotesByRepo(data.repo_name).then(votes => updateVotes(votes));
   }, []);
+
+  async function handleVoteUpdateByRepo(repoName, votes) {
+    const { data: recommendations, error } = await supabase
+      .from('recommendations')
+      .update({'votes': votes + 1})
+      .eq('repo_name', repoName);
+
+      console.error(error);
+
+      updateVotes(recommendations[0].votes);
+  }
 
   const repoLink = `https://github.com/${data.repo_name}`;
   const handleClick = (option) => {
@@ -63,6 +75,7 @@ function PostGrid({ data }) {
         {/* Upvote container */}
         <div className="flex">
           <div
+            onClick={() => handleVoteUpdateByRepo(data.repo_name, votes)}
             className=" flex justify-center items-center text-base space-x-1 text-grey
         hover:text-saucyRed cursor-pointer transition-all duration-200  "
           >

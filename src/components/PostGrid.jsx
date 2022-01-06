@@ -1,39 +1,18 @@
 import React, {useState, useEffect} from "react";
-import { createClient } from '@supabase/supabase-js';
 import getAvatar from "../lib/getAvatar";
-
-
-// probably should move these to an env.
-const supabase = createClient('https://ibcwmlhcimymasokhgvn.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTkzMDc3OCwiZXhwIjoxOTQ1NTA2Nzc4fQ.zcdbd7kDhk7iNSMo8SjsTaXi0wlLNNQcSZkzZ84NUDg')
-
-async function fetchVotesByRepo(repoName) {
-  const { data: recommendations, error } = await supabase
-    .from('recommendations')
-    .select('votes')
-    .eq('repo_name', repoName);
-
-    console.error(error);
-
-    return recommendations[0].votes ? recommendations[0].votes : 0;
-}
+import { fetchVotesByRepo, updateVotesByRepo } from "../lib/database";
 
 function PostGrid({ data }) {
   const [repoOwner, repoName] = data.repo_name.split("/");
-  const [votes, updateVotes] = useState(0);
+  const [votes, updateVotesState] = useState(0);
 
   useEffect(() => {
-    fetchVotesByRepo(data.repo_name).then(votes => updateVotes(votes));
+    fetchVotesByRepo(data.repo_name).then(votes => updateVotesState(votes));
   }, []);
 
   async function handleVoteUpdateByRepo(repoName, votes) {
-    const { data: recommendations, error } = await supabase
-      .from('recommendations')
-      .update({'votes': votes + 1})
-      .eq('repo_name', repoName);
-
-      console.error(error);
-
-      updateVotes(recommendations[0].votes);
+    const updatedVotes = await updateVotesByRepo(repoName, votes)
+    updateVotesState(updatedVotes);
   }
 
   const repoLink = `https://github.com/${data.repo_name}`;

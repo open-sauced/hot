@@ -1,9 +1,28 @@
-import React from "react";
-
+import React, {useState, useEffect} from "react";
+import { createClient } from '@supabase/supabase-js';
 import getAvatar from "../lib/getAvatar";
+
+
+const supabase = createClient('https://ibcwmlhcimymasokhgvn.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTkzMDc3OCwiZXhwIjoxOTQ1NTA2Nzc4fQ.zcdbd7kDhk7iNSMo8SjsTaXi0wlLNNQcSZkzZ84NUDg')
+
+async function fetchVotesByRepo(repoName) {
+  const { data: recommendations, error } = await supabase
+    .from('recommendations')
+    .select('votes')
+    .eq('repo_name', repoName);
+
+    console.log(recommendations[0].votes);
+    console.error(error);
+    return recommendations[0].votes ? recommendations[0].votes : 0;
+}
 
 function PostGrid({ data }) {
   const [repoOwner, repoName] = data.repo_name.split("/");
+  const [votes, updateVotes] = useState(0);
+
+  useEffect(() => {
+    fetchVotesByRepo(data.repo_name).then(votes => updateVotes(votes));
+  }, []);
 
   const repoLink = `https://github.com/${data.repo_name}`;
   const handleClick = (option) => {
@@ -44,11 +63,11 @@ function PostGrid({ data }) {
         {/* Upvote container */}
         <div className="flex">
           <div
-            className=" flex justify-center items-center text-base space-x-1 text-grey 
+            className=" flex justify-center items-center text-base space-x-1 text-grey
         hover:text-saucyRed cursor-pointer transition-all duration-200  "
           >
             <i className="fas fa-arrow-alt-circle-up "></i>
-            <p className="font-bold">5</p>
+            <p className="font-bold">{votes}</p>
           </div>
         </div>
       </div>

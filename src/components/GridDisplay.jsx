@@ -4,7 +4,7 @@ import PostGrid from "./PostGrid";
 const GridDisplay = ({ fetchedData, activeLink }) => {
   return (
     <div>
-      <div className=" container grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ">
+      <div className=" container grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-screen-xl mx-auto">
         {activeLink == "popular"
           ? fetchedData.map((item, i) => <PostGrid data={item} key={i} />)
           : activeLink == "upvoted"

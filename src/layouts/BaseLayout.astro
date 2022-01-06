@@ -1,7 +1,6 @@
 ---
 import PrimaryNav from '../components/PrimaryNav.astro';
-import SecondaryNav from '../components/SecondaryNav.astro';
-import HotHead from './../components/HotHead.astro'
+import HotHead from './../components/HotHead.astro';
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
@@ -23,7 +22,6 @@ const { title, description } = Astro.props;
 <!-- page -->
   <main>
     <PrimaryNav />
-    <SecondaryNav />
     <slot />
   </main>
 </body>

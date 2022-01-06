@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.4.1](https://github.com/open-sauced/hot-sauce/compare/v1.4.0...v1.4.1) (2022-01-06)
+
+
+### 🐛 Bug Fixes
+
+* update repo name in readme ([aa30de9](https://github.com/open-sauced/hot-sauce/commit/aa30de931a0bbc2d9ecb41981239e7cb162f748b))
+
 ## [1.4.0](https://github.com/open-sauced/hot-sauce/compare/v1.3.7...v1.4.0) (2022-01-05)
 
 

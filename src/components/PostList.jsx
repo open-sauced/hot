@@ -1,12 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import humanizeNumber from "../lib/humanizeNumber";
 import getAvatar from "../lib/getAvatar";
+import { fetchVotesByRepo, updateVotesByRepo } from "../lib/database";
 
 function PostList({ data }) {
   const repoLink = `https://github.com/${data.repo_name}`;
+  const [votes, updateVotesState] = useState(0);
+
+  useEffect(() => {
+    fetchVotesByRepo(data.repo_name).then(votes => updateVotesState(votes));
+  }, []);
+
+  async function handleVoteUpdateByRepo(repoName, votes) {
+    const updatedVotes = await updateVotesByRepo(repoName, votes)
+    updateVotesState(updatedVotes);
+  }
+
   const handleClick = (option) => {
     option === "issues" ? window.open(`${repoLink}/issues`) : window.open(repoLink);
   };
+
   const handleRedirect = (contributor) => {
     window.open(`https://github.com/${contributor}`);
   };
@@ -56,9 +69,12 @@ function PostList({ data }) {
           {/* Action Button Container */}
           <div className=" flex justify-between w-full ">
             {/* Upvote */}
-            <div className=" flex justify-center items-center text-xs sm:text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
+            <div
+              onClick={() => handleVoteUpdateByRepo(data.repo_name, votes)}
+              className=" flex justify-center items-center text-xs sm:text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  "
+            >
               <i className="far fa-arrow-alt-circle-up mr-2 "></i>
-              <p className="font-bold">5</p>
+              <p className="font-bold">{votes}</p>
             </div>
 
             {/* Issues */}

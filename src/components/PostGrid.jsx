@@ -4,7 +4,7 @@ import { fetchVotesByRepo, updateVotesByRepo } from "../lib/database";
 
 function PostGrid({ data }) {
   const [repoOwner, repoName] = data.repo_name.split("/");
-  const [votes, updateVotesState] = useState(0);
+  const [votes, updateVotesState] = useState("~");
 
   useEffect(() => {
     fetchVotesByRepo(data.repo_name).then(votes => updateVotesState(votes));

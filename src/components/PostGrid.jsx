@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
 import HotAvatar from "./Avatar.jsx";
-import { fetchVotesByRepo, updateVotesByRepo } from "../lib/database";
+import { fetchVotesByRepo, updateVotesByRepo, fetchRepoByRepoName } from "../lib/database";
 
 function PostGrid({ data }) {
   const [repoOwner, repoName] = data.repo_name.split("/");
   const [votes, updateVotesState] = useState("~");
 
+  console.log(fetchRepoByRepoName(data.repo_name));
   useEffect(() => {
     fetchVotesByRepo(data.repo_name).then(votes => updateVotesState(votes));
   }, []);

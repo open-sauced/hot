@@ -43,7 +43,7 @@ function PostGrid({ data }) {
       {/* Cover photo */}
       <div className="w-full bg-transparent h-32 overflow-hidden rounded-md mb-2 flex justify-center">
         <img
-          className="object-contain w-full"
+          className="object-cover w-full"
           src={`https://opengraph.githubassets.com/1/${data.repo_name}`}
           alt="Avatar 02"
         />

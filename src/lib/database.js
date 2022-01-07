@@ -1,7 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
 // probably should move these to an env.
-const supabase = createClient('https://ibcwmlhcimymasokhgvn.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyOTkzMDc3OCwiZXhwIjoxOTQ1NTA2Nzc4fQ.zcdbd7kDhk7iNSMo8SjsTaXi0wlLNNQcSZkzZ84NUDg');
+const supabase = createClient(import.meta.env.PUBLIC_SUPABASE_URL,
+  import.meta.env.PUBLIC_SUPABASE_API_KEY);
 
 export async function fetchVotesByRepo(repoName) {
   const { data: recommendations, error } = await supabase

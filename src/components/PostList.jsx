@@ -28,6 +28,7 @@ function PostList({ data }) {
 
         {/* Content */}
         <div className=" ml-5 border-l-2 pl-3 space-y-2">
+          {/* Repo Name */}
           <div
             className=" text-grey text-xs sm:text-lg font-medium  overflow-hidden cursor-pointer"
             onClick={handleClick}
@@ -39,29 +40,40 @@ function PostList({ data }) {
             <h3> {data.description} </h3>
           </div>
           {/* Action Button Container */}
-          <div className=" flex justify-between w-full ">
+          <div className=" flex justify-start max-w-sm space-x-1">
+            {/* <div className=" grid grid-cols-3 w-full max-w-xs border-2"> */}
             {/* Upvote */}
-            <div className=" flex justify-center items-center text-xs sm:text-xl text-grey hover:text-saucyRed cursor-pointer transition-all duration-200  ">
-              <i className="far fa-arrow-alt-circle-up mr-2 "></i>
-              <p className="font-bold">5</p>
+            <div
+              className=" flex justify-start text-xs sm:text-xl text-grey  transition-all duration-200 w-16 sm:w-24 "
+              // style={{ minWidth: "20px" }}
+            >
+              <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
+                <i className="fas fa-arrow-alt-circle-up mr-1 "></i>
+                <p className="font-bold">5</p>
+              </div>
             </div>
 
             {/* Issues */}
             <div
-              className='flex justify-center items-center text-xs sm:text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200'
-              onClick={() => handleClick('issues')}
+              className=" flex justify-start  text-xs sm:text-xl text-grey  transition-all duration-200 w-16 sm:w-24 "
+              onClick={() => handleClick("issues")}
             >
-              <i className="fas fa-dot-circle mr-2 "></i>
+              <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
+                <i className="fas fa-dot-circle mr-1 "></i>
 
-              {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
+                {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
+              </div>
             </div>
             {/* Stars */}
             <div
-              className=" flex justify-center items-center text-xs sm:text-xl  text-grey hover:text-saucyRed cursor-pointer transition-all duration-200 "
+              className=" flex justify-start  text-xs sm:text-xl text-grey  transition-all duration-200 w-16 sm:w-24 "
+              // style={{ minWidth: "20px" }}
               onClick={handleClick}
             >
-              <i className="fas fa-star mr-2 "></i>
-              {data.total_stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
+              <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
+                <i className="fas fa-star mr-1 "></i>
+                {data.total_stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
+              </div>
             </div>
           </div>
         </div>

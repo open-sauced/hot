@@ -4,7 +4,7 @@ import PostList from "./PostList";
 const ListDisplay = ({ fetchedData, activeLink }) => {
   return (
     <div>
-      <div className=" container space-y-3 ">
+      <div className=" container space-y-3 max-w-screen-xl mx-auto ">
         {activeLink == "popular"
           ? fetchedData.map((item, i) => <PostList data={item} key={i} />)
           : activeLink == "upvoted"

@@ -1,17 +1,20 @@
 {
   "name": "@open-sauced/hot",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "@open-sauced/hot",
-      "version": "1.4.1",
+      "version": "1.4.2",
       "hasInstallScript": true,
       "license": "MIT",
       "dependencies": {
         "@supabase/supabase-js": "^1.24.0",
-        "open-graph-scraper": "^4.11.0"
+        "open-graph-scraper": "^4.11.0",
+        "prop-types": "^15.7.2",
+        "react": "^17.0.2",
+        "react-tooltip": "^4.2.21"
       },
       "devDependencies": {
         "@astronomer/eslint-config-astro": "^1.0.3",
@@ -11626,8 +11629,7 @@
     "node_modules/js-tokens": {
       "version": "4.0.0",
       "resolved": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",
-      "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==",
-      "dev": true
+      "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
     },
     "node_modules/js-yaml": {
       "version": "3.14.1",
@@ -11921,7 +11923,6 @@
       "version": "1.4.0",
       "resolved": "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz",
       "integrity": "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==",
-      "dev": true,
       "dependencies": {
         "js-tokens": "^3.0.0 || ^4.0.0"
       },
@@ -13272,7 +13273,6 @@
       "version": "4.1.1",
       "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
       "integrity": "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=",
-      "dev": true,
       "engines": {
         "node": ">=0.10.0"
       }
@@ -13927,7 +13927,6 @@
       "version": "15.8.0",
       "resolved": "https://registry.npmjs.org/prop-types/-/prop-types-15.8.0.tgz",
       "integrity": "sha512-fDGekdaHh65eI3lMi5OnErU6a8Ighg2KjcjQxO7m8VHyWjcPyj5kiOgV1LQDOOOgVy3+5FgjXvdSSX7B8/5/4g==",
-      "dev": true,
       "dependencies": {
         "loose-envify": "^1.4.0",
         "object-assign": "^4.1.1",
@@ -13937,8 +13936,7 @@
     "node_modules/prop-types/node_modules/react-is": {
       "version": "16.13.1",
       "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
-      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==",
-      "dev": true
+      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
     },
     "node_modules/property-information": {
       "version": "6.1.1",
@@ -14018,7 +14016,6 @@
       "version": "17.0.2",
       "resolved": "https://registry.npmjs.org/react/-/react-17.0.2.tgz",
       "integrity": "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==",
-      "dev": true,
       "dependencies": {
         "loose-envify": "^1.1.0",
         "object-assign": "^4.1.1"
@@ -14031,7 +14028,6 @@
       "version": "17.0.2",
       "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz",
       "integrity": "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==",
-      "dev": true,
       "dependencies": {
         "loose-envify": "^1.1.0",
         "object-assign": "^4.1.1",
@@ -14089,6 +14085,30 @@
       },
       "peerDependencies": {
         "react": "17.0.2"
+      }
+    },
+    "node_modules/react-tooltip": {
+      "version": "4.2.21",
+      "resolved": "https://registry.npmjs.org/react-tooltip/-/react-tooltip-4.2.21.tgz",
+      "integrity": "sha512-zSLprMymBDowknr0KVDiJ05IjZn9mQhhg4PRsqln0OZtURAJ1snt1xi5daZfagsh6vfsziZrc9pErPTDY1ACig==",
+      "dependencies": {
+        "prop-types": "^15.7.2",
+        "uuid": "^7.0.3"
+      },
+      "engines": {
+        "npm": ">=6.13"
+      },
+      "peerDependencies": {
+        "react": ">=16.0.0",
+        "react-dom": ">=16.0.0"
+      }
+    },
+    "node_modules/react-tooltip/node_modules/uuid": {
+      "version": "7.0.3",
+      "resolved": "https://registry.npmjs.org/uuid/-/uuid-7.0.3.tgz",
+      "integrity": "sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==",
+      "bin": {
+        "uuid": "dist/bin/uuid"
       }
     },
     "node_modules/readdirp": {
@@ -14743,7 +14763,6 @@
       "version": "0.20.2",
       "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.20.2.tgz",
       "integrity": "sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==",
-      "dev": true,
       "dependencies": {
         "loose-envify": "^1.1.0",
         "object-assign": "^4.1.1"

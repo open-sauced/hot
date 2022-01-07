@@ -41,4 +41,7 @@ module.exports = {
     'testing-library/no-await-sync-query': 'error',
     'testing-library/no-dom-import': 'off',
   },
+  env: {
+    browser: true,
+  },
 };

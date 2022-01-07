@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import getAvatar from "../lib/getAvatar";
+import HotAvatar from "./Avatar.jsx";
 import { fetchVotesByRepo, updateVotesByRepo } from "../lib/database";
 
 function PostGrid({ data }) {
@@ -15,11 +15,6 @@ function PostGrid({ data }) {
     updateVotesState(updatedVotes);
   }
 
-  const repoLink = `https://github.com/${data.repo_name}`;
-  const handleClick = (option) => {
-    option === "issues" ? window.open(`${repoLink}/issues`) : window.open(repoLink);
-  };
-
   const handleRedirect = (contributor) => {
     window.open(`https://github.com/${contributor}`);
   };
@@ -30,26 +25,8 @@ function PostGrid({ data }) {
       <div className=" w-full flex justify-between items-center mb-3">
         {/* Avator Container */}
         <div className="flex w-full">
-          <div className="bg-blue-400 w-10 h-10 overflow-hidden rounded-full mr-3">
-            <img
-              className="object-cover"
-              src={getAvatar(data?.contributors[0])}
-              alt="Avatar 01"
-              width={500}
-              height={500}
-              onClick={() => handleRedirect(data?.contributors[0])}
-            />
-          </div>
-          <div className="bg-blue-400 w-10 h-10 overflow-hidden  rounded-full mr-3 ">
-            <img
-              className="object-cover"
-              src={getAvatar(data?.contributors[1])}
-              alt="Avatar 02"
-              width={500}
-              height={500}
-              onClick={() => handleRedirect(data?.contributors[1])}
-            />
-          </div>
+          <HotAvatar contributor={data?.contributors[0]} handleRedirect={handleRedirect} />
+          <HotAvatar contributor={data?.contributors[1]} handleRedirect={handleRedirect} />
         </div>
         {/* Upvote container */}
         <div className="flex">

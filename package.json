@@ -1,7 +1,7 @@
 {
   "name": "@open-sauced/hot",
-  "description": "",
-  "version": "1.4.1",
+  "description": "🍕The site that recommends the hottest sauce.",
+  "version": "1.4.2",
   "private": true,
   "license": "MIT",
   "files": [
@@ -58,6 +58,8 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.24.0",
-    "open-graph-scraper": "^4.11.0"
+    "open-graph-scraper": "^4.11.0",
+    "react": "^17.0.2",
+    "react-tooltip": "^4.2.21"
   }
 }

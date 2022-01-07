@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.4.2](https://github.com/open-sauced/hot-sauce/compare/v1.4.1...v1.4.2) (2022-01-07)
+
+
+### 🐛 Bug Fixes
+
+* adjusting post list view action buttons ([#69](https://github.com/open-sauced/hot-sauce/issues/69)) ([4fd1f15](https://github.com/open-sauced/hot-sauce/commit/4fd1f15ea34717a1631dfc984c335f5ee1c22cb7)), closes [#61](https://github.com/open-sauced/hot-sauce/issues/61)
+
 ### [1.4.1](https://github.com/open-sauced/hot-sauce/compare/v1.4.0...v1.4.1) (2022-01-06)
 
 

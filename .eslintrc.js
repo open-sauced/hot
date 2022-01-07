@@ -40,6 +40,5 @@ module.exports = {
     'testing-library/await-async-query': 'error',
     'testing-library/no-await-sync-query': 'error',
     'testing-library/no-dom-import': 'off',
-    'linebreak-style': 0,
   },
 };

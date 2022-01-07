@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+  PUBLIC_SUPABASE_API_KEY: ${{ secrets.PUBLIC_SUPABASE_API_KEY }}
+
 jobs:
   test:
     name: Test and lint

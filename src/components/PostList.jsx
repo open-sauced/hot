@@ -60,7 +60,7 @@ function PostList({ data }) {
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
                 <i className="fas fa-arrow-alt-circle-up mr-1 "></i>
-                <p className="font-bold">5</p>
+                <p className="font-bold">{votes}</p>
               </div>
             </div>
 

@@ -1,16 +1,15 @@
-import { useState } from "react";
-import LayoutToggle from "./LayoutToggle";
-import PostGrid from "./PostGrid.jsx";
-import PostList from "./PostList.jsx";
-import postData from "../data/hot.json";
-import Modal from "../components/Modal";
-import SecondaryNav from "./SecondaryNav";
-import GridDisplay from "./GridDisplay";
-import ListDisplay from "./ListDisplay";
+import React, { useState } from 'react';
+import LayoutToggle from './LayoutToggle.jsx';
+
+import postData from '../data/hot.json';
+import Modal from './Modal.jsx';
+import SecondaryNav from './SecondaryNav.jsx';
+import GridDisplay from './GridDisplay.jsx';
+import ListDisplay from './ListDisplay.jsx';
 
 const PostsWrap = () => {
   const [isGrid, setIsGrid] = useState(true);
-  const [activeLink, setActiveLink] = useState("popular");
+  const [activeLink, setActiveLink] = useState('popular');
   const fetchedData = [...postData];
 
   return (

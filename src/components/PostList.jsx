@@ -1,44 +1,29 @@
-import React from "react";
-import humanizeNumber from "../lib/humanizeNumber";
-import getAvatar from "../lib/getAvatar";
+/* eslint-disable */
+import React from 'react';
+
+import humanizeNumber from '../lib/humanizeNumber';
+import HotAvatar from './Avatar.jsx';
 
 function PostList({ data }) {
+
   const repoLink = `https://github.com/${data.repo_name}`;
   const handleClick = (option) => {
-    option === "issues" ? window.open(`${repoLink}/issues`) : window.open(repoLink);
+    if (option === 'issues') return window.open(`${repoLink}/issues`);
+    return window.open(repoLink);
   };
   const handleRedirect = (contributor) => {
     window.open(`https://github.com/${contributor}`);
   };
 
   return (
-    <div className=" bg-offWhite rounded-xl p-6 font-roboto w-full cursor-pointer">
+    <div className=' bg-offWhite rounded-xl p-6 font-roboto w-full cursor-pointer'>
       {/* Flex container */}
-      <div className="flex">
+      <div className='flex'>
         {/* Avatar Container */}
-        <div className=" flex flex-col justify-center items-center">
+        <div className='flex flex-col justify-center items-center'>
           {/* Avatar */}
-          <div className="bg-blue-400 w-7 sm:w-10 h-7 sm:h-10 overflow-hidden  rounded-full mb-2 ">
-            <img
-              className="object-cover"
-              src={getAvatar(data?.contributors[0])}
-              alt="Avatar 01"
-              width={500}
-              height={500}
-              onClick={() => handleRedirect(data?.contributors[0])}
-            />
-          </div>
-          {/* Avatar */}
-          <div className="bg-blue-400 w-7 sm:w-10 h-7 sm:h-10 overflow-hidden  rounded-full ">
-            <img
-              className="object-cover"
-              src={getAvatar(data?.contributors[1])}
-              alt="Avatar 02"
-              width={500}
-              height={500}
-              onClick={() => handleRedirect(data?.contributors[1])}
-            />
-          </div>
+          <HotAvatar contributor={data?.contributors[0]} type={'list'} handleRedirect = {handleRedirect} />
+          <HotAvatar contributor={data?.contributors[1]} type={'list'} handleRedirect = {handleRedirect}/>
         </div>
 
         {/* Content */}
@@ -71,7 +56,6 @@ function PostList({ data }) {
             {/* Issues */}
             <div
               className=" flex justify-start  text-xs sm:text-xl text-grey  transition-all duration-200 w-16 sm:w-24 "
-              // style={{ minWidth: "70px" }}
               onClick={() => handleClick("issues")}
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
@@ -97,5 +81,6 @@ function PostList({ data }) {
     </div>
   );
 }
+
 
 export default PostList;

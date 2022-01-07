@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.5.0](https://github.com/open-sauced/hot-sauce/compare/v1.4.2...v1.5.0) (2022-01-07)
+
+
+### 🍕 Features
+
+* Fix tooltip and add favicon ([#63](https://github.com/open-sauced/hot-sauce/issues/63)) ([197fbe5](https://github.com/open-sauced/hot-sauce/commit/197fbe5f818dd249e5fc2964b07d47fa0a77a180))
+
 ### [1.4.2](https://github.com/open-sauced/hot-sauce/compare/v1.4.1...v1.4.2) (2022-01-07)
 
 

@@ -28,6 +28,7 @@ module.exports = {
   ],
   rules: {
     'no-restricted-globals': [1],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'jest/no-disabled-tests': 'warn',
     'jest/no-focused-tests': 'error',
     'jest/no-identical-title': 'error',

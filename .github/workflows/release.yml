@@ -5,10 +5,6 @@ on:
     branches:
       - main
 
-env:
-  PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
-  PUBLIC_SUPABASE_API_KEY: ${{ secrets.PUBLIC_SUPABASE_API_KEY }}
-
 jobs:
   test:
     name: Test and lint
@@ -38,6 +34,11 @@ jobs:
         with:
           images: ${{ github.repository }}
           tags: latest
+
+      - name: "🔧 synthetic environment variables"
+        run: |
+          echo "PUBLIC_SUPABASE_URL=${{ secrets.PUBLIC_SUPABASE_URL }}" >> ~/.env.production
+          echo "PUBLIC_SUPABASE_API_KEY=${{ secrets.PUBLIC_SUPABASE_API_KEY }}" >> ~/.env.production
 
       - name: "📦 docker build"
         uses: docker/build-push-action@v2
@@ -86,6 +87,9 @@ jobs:
 
       - name: "🚀 static app"
         run: npm run build
+        env:
+          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_API_KEY: ${{ secrets.PUBLIC_SUPABASE_API_KEY }}
 
       - name: "📂 production artifacts"
         uses: actions/upload-artifact@v2

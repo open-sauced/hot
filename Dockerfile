@@ -1,8 +1,5 @@
 FROM node:16-alpine as development
 
-ENV PUBLIC_SUPABASE_URL;
-ENV PUBLIC_SUPABASE_API_KEY;
-
 WORKDIR /app
 
 COPY package.json ./
@@ -10,6 +7,7 @@ COPY npm-shrinkwrap.json ./
 COPY .npmrc ./
 COPY *config.?js ./
 COPY *config.json ./
+COPY .env* ./
 
 RUN ls -lahH .
 

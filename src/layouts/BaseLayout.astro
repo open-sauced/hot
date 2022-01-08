@@ -1,0 +1,28 @@
+---
+import PrimaryNav from '../components/PrimaryNav.jsx';
+import HotHead from './../components/HotHead.astro';
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+export interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+<html lang="en">
+<head>
+    <HotHead title={title} description={description} />
+</head>
+<body>
+<!-- page -->
+  <main>
+    <PrimaryNav client:load />
+    <slot />
+  </main>
+</body>
+</html>

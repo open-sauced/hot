@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import netlifyIdentity from "netlify-identity-widget";
 
 export const useNetlifyAuth = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     netlifyIdentity.init();

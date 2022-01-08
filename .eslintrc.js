@@ -28,6 +28,7 @@ module.exports = {
   ],
   rules: {
     'no-restricted-globals': [1],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     'jest/no-disabled-tests': 'warn',
     'jest/no-focused-tests': 'error',
     'jest/no-identical-title': 'error',
@@ -40,5 +41,8 @@ module.exports = {
     'testing-library/await-async-query': 'error',
     'testing-library/no-await-sync-query': 'error',
     'testing-library/no-dom-import': 'off',
+  },
+  env: {
+    browser: true,
   },
 };

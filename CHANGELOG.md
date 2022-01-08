@@ -5,6 +5,41 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.6.0](https://github.com/open-sauced/hot-sauce/compare/v1.5.0...v1.6.0) (2022-01-07)
+
+
+### 🍕 Features
+
+* Implement voting logic ([#67](https://github.com/open-sauced/hot-sauce/issues/67)) ([cef849e](https://github.com/open-sauced/hot-sauce/commit/cef849e4edb9bed40e304d41f1cd6a7f61e3ec1d))
+
+## [1.5.0](https://github.com/open-sauced/hot-sauce/compare/v1.4.2...v1.5.0) (2022-01-07)
+
+
+### 🍕 Features
+
+* Fix tooltip and add favicon ([#63](https://github.com/open-sauced/hot-sauce/issues/63)) ([197fbe5](https://github.com/open-sauced/hot-sauce/commit/197fbe5f818dd249e5fc2964b07d47fa0a77a180))
+
+### [1.4.2](https://github.com/open-sauced/hot-sauce/compare/v1.4.1...v1.4.2) (2022-01-07)
+
+
+### 🐛 Bug Fixes
+
+* adjusting post list view action buttons ([#69](https://github.com/open-sauced/hot-sauce/issues/69)) ([4fd1f15](https://github.com/open-sauced/hot-sauce/commit/4fd1f15ea34717a1631dfc984c335f5ee1c22cb7)), closes [#61](https://github.com/open-sauced/hot-sauce/issues/61)
+
+### [1.4.1](https://github.com/open-sauced/hot-sauce/compare/v1.4.0...v1.4.1) (2022-01-06)
+
+
+### 🐛 Bug Fixes
+
+* update repo name in readme ([aa30de9](https://github.com/open-sauced/hot-sauce/commit/aa30de931a0bbc2d9ecb41981239e7cb162f748b))
+
+## [1.4.0](https://github.com/open-sauced/hot-sauce/compare/v1.3.7...v1.4.0) (2022-01-05)
+
+
+### 🍕 Features
+
+* Implemented the filter logic on the nav links ([#57](https://github.com/open-sauced/hot-sauce/issues/57)) ([dd860fe](https://github.com/open-sauced/hot-sauce/commit/dd860febcbc0937e16b7577fe58b23efd0daa038))
+
 ### [1.3.7](https://github.com/open-sauced/hot-sauce/compare/v1.3.6...v1.3.7) (2022-01-04)
 
 

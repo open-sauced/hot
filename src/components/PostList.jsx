@@ -1,16 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import humanizeNumber from "../lib/humanizeNumber";
 import HotAvatar from './Avatar.jsx';
-import { fetchVotesByRepo, updateVotesByRepo } from "../lib/database";
+import {updateVotesByRepo } from "../lib/database";
 
 function PostList({ data }) {
 
   const repoLink = `https://github.com/${data.repo_name}`;
-  const [votes, updateVotesState] = useState(0);
-
-  useEffect(() => {
-    fetchVotesByRepo(data.repo_name).then(votes => updateVotesState(votes));
-  }, []);
+  const [votes, updateVotesState] = useState(data.votes || 0);
 
   async function handleVoteUpdateByRepo(repoName, votes) {
     const updatedVotes = await updateVotesByRepo(repoName, votes)

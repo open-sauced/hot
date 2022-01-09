@@ -27,6 +27,7 @@ export async function fetchRepoByRepoName(repoName) {
 }
 
 export async function updateVotesByRepo(repoName, votes) {
+  console.log(votes)
   const { data: recommendations, error } = await supabase
     .from('recommendations')
     .update({ votes: votes + 1 })
@@ -35,4 +36,16 @@ export async function updateVotesByRepo(repoName, votes) {
   console.error(error);
 
   return recommendations[0].votes;
+}
+
+export async function fetchRecommendations() {
+  const { data: recommendations, error } = await supabase
+    .from('recommendations')
+    .select('repo_name, description,stars,issues, total_stars, avg_recency_score, contributors, votes')
+    .limit(25)
+    .order('total_stars', { ascending: false });
+
+  console.error(error);
+
+  return recommendations;
 }

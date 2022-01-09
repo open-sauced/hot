@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.7.0](https://github.com/open-sauced/hot-sauce/compare/v1.6.0...v1.7.0) (2022-01-08)
+
+
+### 🍕 Features
+
+* implement local development variables through vite dotenv ([#72](https://github.com/open-sauced/hot-sauce/issues/72)) ([a4e70c6](https://github.com/open-sauced/hot-sauce/commit/a4e70c6d0278f0e2f9eec266c5067b14fa962a58)), closes [#70](https://github.com/open-sauced/hot-sauce/issues/70)
+
+
+### 🔁 Continuous Integration
+
+* implement variable overload for release workflow ([#73](https://github.com/open-sauced/hot-sauce/issues/73)) ([0998a95](https://github.com/open-sauced/hot-sauce/commit/0998a95e3b10eafc13deef7390e69ae2820484f0)), closes [#70](https://github.com/open-sauced/hot-sauce/issues/70)
+
 ## [1.6.0](https://github.com/open-sauced/hot-sauce/compare/v1.5.0...v1.6.0) (2022-01-07)
 
 

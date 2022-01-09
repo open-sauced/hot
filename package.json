@@ -59,7 +59,6 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.24.0",
-    "netlify-identity-widget": "^1.9.2",
     "open-graph-scraper": "^4.11.0",
     "react": "^17.0.2",
     "react-tooltip": "^4.2.21"

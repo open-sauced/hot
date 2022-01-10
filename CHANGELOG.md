@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.7.1](https://github.com/open-sauced/hot-sauce/compare/v1.7.0...v1.7.1) (2022-01-10)
+
+
+### 🐛 Bug Fixes
+
+* content related to take action update ([#77](https://github.com/open-sauced/hot-sauce/issues/77)) ([9507b7e](https://github.com/open-sauced/hot-sauce/commit/9507b7eb78ac2d930b3c14cd832ce04acb160239))
+
 ## [1.7.0](https://github.com/open-sauced/hot-sauce/compare/v1.6.0...v1.7.0) (2022-01-08)
 
 

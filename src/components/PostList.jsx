@@ -1,19 +1,18 @@
-import React, {useState, useEffect} from "react";
-import humanizeNumber from "../lib/humanizeNumber";
+import React, { useState, useEffect } from 'react';
+import humanizeNumber from '../lib/humanizeNumber';
 import HotAvatar from './Avatar.jsx';
-import { fetchVotesByRepo, updateVotesByRepo } from "../lib/database";
+import { fetchVotesByRepo, updateVotesByRepo } from '../lib/database';
 
 function PostList({ data }) {
-
   const repoLink = `https://github.com/${data.repo_name}`;
   const [votes, updateVotesState] = useState(0);
 
   useEffect(() => {
-    fetchVotesByRepo(data.repo_name).then(votes => updateVotesState(votes));
+    fetchVotesByRepo(data.repo_name).then((votes) => updateVotesState(votes));
   }, []);
 
   async function handleVoteUpdateByRepo(repoName, votes) {
-    const updatedVotes = await updateVotesByRepo(repoName, votes)
+    const updatedVotes = await updateVotesByRepo(repoName, votes);
     updateVotesState(updatedVotes);
   }
 
@@ -67,7 +66,7 @@ function PostList({ data }) {
             {/* Issues */}
             <div
               className=" flex justify-start  text-xs sm:text-xl text-grey  transition-all duration-200 w-16 sm:w-24 "
-              onClick={() => handleClick("issues")}
+              onClick={() => handleClick('issues')}
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
                 <i className="fas fa-dot-circle mr-1 "></i>
@@ -92,6 +91,5 @@ function PostList({ data }) {
     </div>
   );
 }
-
 
 export default PostList;

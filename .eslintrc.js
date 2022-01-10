@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'development';
-
 module.exports = {
   settings: {
     react: {
@@ -13,6 +11,24 @@ module.exports = {
     'plugin:testing-library/react',
     'plugin:react/recommended',
     '@astronomer/eslint-config-astro',
+  ],
+  overrides: [
+    {
+      files: [
+        '*.jsx',
+        '*.js',
+      ],
+    },
+    // astro doesn't currently have a parser, only prettier html-format
+    // {
+    //   files: [
+    //     '*.astro',
+    //   ],
+    //   parser: '@astrojs/compiler',
+    //   parserOptions: {
+    //     sourceType: 'commonjs',
+    //   },
+    // },
   ],
   plugins: [
     'jest',

@@ -1,6 +1,6 @@
 import av1 from "./placeholders/av01.jpg";
 import logo from "./logo.svg";
-import { useSupabaseAuth } from "../hooks/useSupabaseAuth";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 
 const PrimaryNav = () => {
   const { signIn, user, signOut } = useSupabaseAuth();
@@ -18,10 +18,10 @@ const PrimaryNav = () => {
             src={logo}
           />
         </a>
-        <button>aaaa</button>
       </div>
 
       <div className="items-center">
+        <button onClick={signOut}>sign out</button>
         <div
           className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-red-800"
           onClick={async () => {

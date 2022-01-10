@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { supabase } from "../lib/database";
+import { useState, useEffect } from 'react';
+import { supabase } from '../lib/database';
 
-export const useSupabaseAuth = () => {
+const useSupabaseAuth = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const session = supabase.auth.session();
-    setUser(session?.user ?? null);
+    const currentUser = supabase.auth.session();
+    setUser(currentUser?.user ?? null);
 
-    const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {
       setUser(session?.user ?? null);
     });
 
@@ -23,3 +23,5 @@ export const useSupabaseAuth = () => {
     user,
   };
 };
+
+export default useSupabaseAuth;

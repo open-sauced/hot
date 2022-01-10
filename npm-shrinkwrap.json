@@ -6644,13 +6644,14 @@
       ]
     },
     "node_modules/esbuild-darwin-arm64": {
-      "version": "0.14.1",
-      "resolved": "https://registry.npmjs.org/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.14.1.tgz",
-      "integrity": "sha512-/fiSSOkOEa3co6yYtwgXouz8jZrG0qnXPEKiktFf2BQE8NON3ARTw43ZegaH+xMRFNgYBJEOOZIdzI3sIFEAxw==",
+      "version": "0.13.7",
+      "resolved": "https://registry.npmjs.org/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.13.7.tgz",
+      "integrity": "sha512-tuP+dpIzXj17UC17VkHFDAH5nB7MajJK7sF8Fz4iVo8cml8YXj3MeNtjjLmx9YFvPs4XW3hFw1eqZJ06h2ssIA==",
       "cpu": [
         "arm64"
       ],
       "dev": true,
+      "optional": true,
       "os": [
         "darwin"
       ]
@@ -6848,19 +6849,6 @@
       "optional": true,
       "os": [
         "win32"
-      ]
-    },
-    "node_modules/esbuild/node_modules/esbuild-darwin-arm64": {
-      "version": "0.13.7",
-      "resolved": "https://registry.npmjs.org/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.13.7.tgz",
-      "integrity": "sha512-tuP+dpIzXj17UC17VkHFDAH5nB7MajJK7sF8Fz4iVo8cml8YXj3MeNtjjLmx9YFvPs4XW3hFw1eqZJ06h2ssIA==",
-      "cpu": [
-        "arm64"
-      ],
-      "dev": true,
-      "optional": true,
-      "os": [
-        "darwin"
       ]
     },
     "node_modules/escalade": {

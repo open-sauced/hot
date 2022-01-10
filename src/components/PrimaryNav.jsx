@@ -1,6 +1,7 @@
-import av1 from "./placeholders/av01.jpg";
-import logo from "./logo.svg";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import React from 'react';
+import av1 from './placeholders/av01.jpg';
+import logo from './logo.svg';
+import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
 const PrimaryNav = () => {
   const { signIn } = useSupabaseAuth();
@@ -22,7 +23,7 @@ const PrimaryNav = () => {
         <div
           className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-red-800"
           onClick={async () => {
-            await signIn({ provider: "github" });
+            await signIn({ provider: 'github' });
           }}
         >
           <img className="object-cover w-[500] h-[500]" src={av1} alt="Avatar 02" />

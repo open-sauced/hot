@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import HotAvatar from './Avatar.jsx';
 import { fetchVotesByRepo, updateVotesByRepo } from '../lib/database';
 
 function PostGrid({ data }) {
-  const [repoOwner, repoName] = data.repo_name.split('/');
   const [votes, updateVotesState] = useState(0);
 
   useEffect(() => {
-    fetchVotesByRepo(data.repo_name).then((votes) => updateVotesState(votes));
+    fetchVotesByRepo(data.repo_name).then((noOfVotes) => updateVotesState(noOfVotes));
   }, []);
 
-  async function handleVoteUpdateByRepo(repoName, votes) {
-    const updatedVotes = await updateVotesByRepo(repoName, votes);
+  async function handleVoteUpdateByRepo(repoName, noOfVotes) {
+    const updatedVotes = await updateVotesByRepo(repoName, noOfVotes);
     updateVotesState(updatedVotes);
   }
 
@@ -51,5 +51,9 @@ function PostGrid({ data }) {
     </div>
   );
 }
+
+PostGrid.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default PostGrid;

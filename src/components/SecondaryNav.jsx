@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const SecondaryNav = ({ activeLink, setActiveLink }) => {
   const handleChange = (e) => {
@@ -52,6 +53,11 @@ const SecondaryNav = ({ activeLink, setActiveLink }) => {
       </div>
     </div>
   );
+};
+
+SecondaryNav.propTypes = {
+  activeLink: PropTypes.string.isRequired,
+  setActiveLink: PropTypes.func.isRequired,
 };
 
 export default SecondaryNav;

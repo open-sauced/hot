@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function LayoutToggle({ gridState, setGridState }) {
   const position = gridState ? 'left-0' : 'right-0';
@@ -21,5 +22,10 @@ function LayoutToggle({ gridState, setGridState }) {
     </div>
   );
 }
+
+LayoutToggle.propTypes = {
+  gridState: PropTypes.bool.isRequired,
+  setGridState: PropTypes.func.isRequired,
+};
 
 export default LayoutToggle;

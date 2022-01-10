@@ -1,5 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function SocialImage({ data }) {
-  return <img src={data.ogImage.url} alt={data.title} />;
-}
+const SocialImage = ({ data }) => (
+  <img src={data.ogImage.url} alt={data.title} />
+);
+
+SocialImage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+export default SocialImage;

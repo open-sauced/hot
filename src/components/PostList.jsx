@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import humanizeNumber from '../lib/humanizeNumber';
 import HotAvatar from './Avatar.jsx';
 import { fetchVotesByRepo, updateVotesByRepo } from '../lib/database';
@@ -8,11 +9,11 @@ function PostList({ data }) {
   const [votes, updateVotesState] = useState(0);
 
   useEffect(() => {
-    fetchVotesByRepo(data.repo_name).then((votes) => updateVotesState(votes));
+    fetchVotesByRepo(data.repo_name).then((noOfVotes) => updateVotesState(noOfVotes));
   }, []);
 
-  async function handleVoteUpdateByRepo(repoName, votes) {
-    const updatedVotes = await updateVotesByRepo(repoName, votes);
+  async function handleVoteUpdateByRepo(repoName, noOfVotes) {
+    const updatedVotes = await updateVotesByRepo(repoName, noOfVotes);
     updateVotesState(updatedVotes);
   }
 
@@ -91,5 +92,9 @@ function PostList({ data }) {
     </div>
   );
 }
+
+PostList.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default PostList;

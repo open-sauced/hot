@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.7.2](https://github.com/open-sauced/hot-sauce/compare/v1.7.1...v1.7.2) (2022-01-10)
+
+
+### 🤖 Build System
+
+* fix eslint issues ([#79](https://github.com/open-sauced/hot-sauce/issues/79)) ([c29312e](https://github.com/open-sauced/hot-sauce/commit/c29312e384b686766f039e5c0430cfb61c82f65e)), closes [#78](https://github.com/open-sauced/hot-sauce/issues/78)
+
 ### [1.7.1](https://github.com/open-sauced/hot-sauce/compare/v1.7.0...v1.7.1) (2022-01-10)
 
 

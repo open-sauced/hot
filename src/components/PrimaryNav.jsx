@@ -3,9 +3,7 @@ import logo from "./logo.svg";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 
 const PrimaryNav = () => {
-  const { signIn, user, signOut } = useSupabaseAuth();
-
-  console.log("user", user);
+  const { signIn } = useSupabaseAuth();
 
   return (
     <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-4 py-4 sm:py-2">
@@ -21,7 +19,6 @@ const PrimaryNav = () => {
       </div>
 
       <div className="items-center">
-        <button onClick={signOut}>sign out</button>
         <div
           className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-red-800"
           onClick={async () => {

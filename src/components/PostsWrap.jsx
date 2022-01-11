@@ -8,11 +8,11 @@ import ListDisplay from './ListDisplay.jsx';
 import { fetchRecommendations } from '../lib/database';
 
 const activeLinkColumns = {
-  'popular': {orderBy: 'total_stars'},
-  'upvoted': {orderBy: 'votes'},
-  'discussed': {orderBy: 'issues'},
-  'recent': {orderBy: 'avg_recency_score'}
-}
+  popular: { orderBy: 'total_stars' },
+  upvoted: { orderBy: 'votes' },
+  discussed: { orderBy: 'issues' },
+  recent: { orderBy: 'avg_recency_score' },
+};
 
 const PostsWrap = () => {
   const [isGrid, setIsGrid] = useState(true);
@@ -20,7 +20,7 @@ const PostsWrap = () => {
   const [fetchedData, setFetchedData] = useState([]);
 
   useEffect(() => {
-    const orderBy = activeLinkColumns[activeLink].orderBy;
+    const { orderBy } = activeLinkColumns[activeLink];
     fetchRecommendations(orderBy).then((data) => {
       setFetchedData(data);
     });

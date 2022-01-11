@@ -1,9 +1,9 @@
-import React, {useState} from "react";
-import HotAvatar from "./Avatar.jsx";
-import {updateVotesByRepo } from "../lib/database";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import HotAvatar from './Avatar.jsx';
+import { updateVotesByRepo } from '../lib/database';
 
 function PostGrid({ data }) {
-  const [repoOwner, repoName] = data.repo_name.split("/");
   const [votes, updateVotesState] = useState(data.votes || 0);
 
   async function handleVoteUpdateByRepo(repoName, noOfVotes) {

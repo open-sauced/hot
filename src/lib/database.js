@@ -7,12 +7,23 @@ const supabase = createClient(import.meta.env.PUBLIC_SUPABASE_URL,
 export async function fetchVotesByRepo(repoName) {
   const { data: recommendations, error } = await supabase
     .from('recommendations')
-    .select('votes')
+    .select('votes, issues')
     .eq('repo_name', repoName);
 
   console.error(error);
 
   return recommendations[0].votes ? recommendations[0].votes : 0;
+}
+
+export async function fetchRepoByRepoName(repoName) {
+  const { data: recommendations, error } = await supabase
+    .from('recommendations')
+    .select('votes, avg_recency_score')
+    .eq('repo_name', repoName);
+
+  console.error(error);
+
+  return recommendations[0];
 }
 
 export async function updateVotesByRepo(repoName, votes) {

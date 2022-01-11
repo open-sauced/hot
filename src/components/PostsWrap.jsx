@@ -7,16 +7,24 @@ import GridDisplay from './GridDisplay.jsx';
 import ListDisplay from './ListDisplay.jsx';
 import { fetchRecommendations } from '../lib/database';
 
+const activeLinkColumns = {
+  popular: { orderBy: 'total_stars' },
+  upvoted: { orderBy: 'votes' },
+  discussed: { orderBy: 'issues' },
+  recent: { orderBy: 'avg_recency_score' },
+};
+
 const PostsWrap = () => {
   const [isGrid, setIsGrid] = useState(true);
   const [activeLink, setActiveLink] = useState('popular');
   const [fetchedData, setFetchedData] = useState([]);
 
   useEffect(() => {
-    fetchRecommendations().then((data) => {
+    const { orderBy } = activeLinkColumns[activeLink];
+    fetchRecommendations(orderBy).then((data) => {
       setFetchedData(data);
     });
-  }, []);
+  }, [activeLink]);
 
   return (
     <>

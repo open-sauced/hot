@@ -37,12 +37,12 @@ export async function updateVotesByRepo(repoName, votes) {
   return recommendations[0].votes;
 }
 
-export async function fetchRecommendations() {
+export async function fetchRecommendations(orderBy = 'total_stars') {
   const { data: recommendations, error } = await supabase
     .from('recommendations')
     .select('repo_name, description,stars,issues, total_stars, avg_recency_score, contributors, votes')
     .limit(25)
-    .order('total_stars', { ascending: false });
+    .order(orderBy, { ascending: false });
 
   console.error(error);
 

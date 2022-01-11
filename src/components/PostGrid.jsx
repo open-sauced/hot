@@ -6,8 +6,8 @@ function PostGrid({ data }) {
   const [repoOwner, repoName] = data.repo_name.split("/");
   const [votes, updateVotesState] = useState(data.votes || 0);
 
-  async function handleVoteUpdateByRepo(repoName, votes) {
-    const updatedVotes = await updateVotesByRepo(repoName, votes)
+  async function handleVoteUpdateByRepo(repoName, noOfVotes) {
+    const updatedVotes = await updateVotesByRepo(repoName, noOfVotes);
     updateVotesState(updatedVotes);
   }
 

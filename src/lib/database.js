@@ -27,7 +27,6 @@ export async function fetchRepoByRepoName(repoName) {
 }
 
 export async function updateVotesByRepo(repoName, votes) {
-  console.log(votes);
   const { data: recommendations, error } = await supabase
     .from('recommendations')
     .update({ votes: votes + 1 })

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.9.0](https://github.com/open-sauced/hot-sauce/compare/v1.8.0...v1.9.0) (2022-01-11)
+
+
+### 🍕 Features
+
+* implemented upvoted filter ([#82](https://github.com/open-sauced/hot-sauce/issues/82)) ([e79fe2a](https://github.com/open-sauced/hot-sauce/commit/e79fe2a298e58c29879638776785791cdf7bec74))
+
 ## [1.8.0](https://github.com/open-sauced/hot-sauce/compare/v1.7.2...v1.8.0) (2022-01-11)
 
 

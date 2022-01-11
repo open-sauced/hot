@@ -7,6 +7,7 @@ COPY npm-shrinkwrap.json ./
 COPY .npmrc ./
 COPY *config.?js ./
 COPY *config.json ./
+COPY .env* ./
 
 RUN ls -lahH .
 

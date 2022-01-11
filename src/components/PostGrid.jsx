@@ -1,18 +1,18 @@
 import React, {useState, useEffect} from "react";
 import HotAvatar from "./Avatar.jsx";
+import PropTypes from 'prop-types';
 import { fetchVotesByRepo, updateVotesByRepo, fetchRepoByRepoName } from "../lib/database";
 
 function PostGrid({ data }) {
   const [repoOwner, repoName] = data.repo_name.split("/");
   const [votes, updateVotesState] = useState("~");
 
-  console.log(fetchRepoByRepoName(data.repo_name));
   useEffect(() => {
-    fetchVotesByRepo(data.repo_name).then(votes => updateVotesState(votes));
+    fetchVotesByRepo(data.repo_name).then((noOfVotes) => updateVotesState(noOfVotes));
   }, []);
 
-  async function handleVoteUpdateByRepo(repoName, votes) {
-    const updatedVotes = await updateVotesByRepo(repoName, votes)
+  async function handleVoteUpdateByRepo(repoName, noOfVotes) {
+    const updatedVotes = await updateVotesByRepo(repoName, noOfVotes);
     updateVotesState(updatedVotes);
   }
 
@@ -52,5 +52,9 @@ function PostGrid({ data }) {
     </div>
   );
 }
+
+PostGrid.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default PostGrid;

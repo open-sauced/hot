@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import humanizeNumber from '../lib/humanizeNumber';
 import HotAvatar from './Avatar.jsx';
-import {updateVotesByRepo } from "../lib/database";
+import { updateVotesByRepo } from '../lib/database';
 
 function PostList({ data }) {
   const repoLink = `https://github.com/${data.repo_name}`;

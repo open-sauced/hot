@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import HotAvatar from './Avatar.jsx';
-import { fetchVotesByRepo, updateVotesByRepo } from '../lib/database';
+import { updateVotesByRepo } from '../lib/database';
 
 function PostGrid({ data }) {
-  const [votes, updateVotesState] = useState(0);
-
-  useEffect(() => {
-    fetchVotesByRepo(data.repo_name).then((noOfVotes) => updateVotesState(noOfVotes));
-  }, []);
+  const [votes, updateVotesState] = useState(data.votes || 0);
 
   async function handleVoteUpdateByRepo(repoName, noOfVotes) {
     const updatedVotes = await updateVotesByRepo(repoName, noOfVotes);

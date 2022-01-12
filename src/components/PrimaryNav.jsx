@@ -36,7 +36,7 @@ const PrimaryNav = () => {
             await signOut();
           }}
         >
-          {user && <img className="object-cover w-[500] h-[500]" src={user.user_metadata.avatar_url} alt="Avatar 02" />}
+          {user && <img className="object-cover w-[500] h-[500]" src={user.user_metadata.avatar_url} altalt={`${user.user_metadata.user_name}-avatar`} />}
         </div>
       </div>}
     </nav>

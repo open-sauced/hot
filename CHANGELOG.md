@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.11.0](https://github.com/open-sauced/hot-sauce/compare/v1.10.0...v1.11.0) (2022-01-12)
+
+
+### 🍕 Features
+
+* Logged in user avatar ([#85](https://github.com/open-sauced/hot-sauce/issues/85)) ([2b12c97](https://github.com/open-sauced/hot-sauce/commit/2b12c97ddb5e16a90f623914067b487a22c7fb5f))
+
 ## [1.10.0](https://github.com/open-sauced/hot-sauce/compare/v1.9.0...v1.10.0) (2022-01-12)
 
 

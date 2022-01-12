@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.10.0](https://github.com/open-sauced/hot-sauce/compare/v1.9.0...v1.10.0) (2022-01-12)
+
+
+### 🍕 Features
+
+* implement github login ([#76](https://github.com/open-sauced/hot-sauce/issues/76)) ([d454b53](https://github.com/open-sauced/hot-sauce/commit/d454b53d7529637bc5ffae2261432faee933167c)), closes [#20](https://github.com/open-sauced/hot-sauce/issues/20)
+
 ## [1.9.0](https://github.com/open-sauced/hot-sauce/compare/v1.8.0...v1.9.0) (2022-01-11)
 
 

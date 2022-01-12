@@ -5,6 +5,6 @@ import PostsWrap from '../components/PostsWrap.jsx';
 let title = 'Hot & Ready';
 let description = 'The path to your next open-source contribution.';
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} client:load>
   <PostsWrap client:load />
 </BaseLayout>

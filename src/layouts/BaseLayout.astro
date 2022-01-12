@@ -1,5 +1,5 @@
 ---
-import PrimaryNav from '../components/PrimaryNav.astro';
+import PrimaryNav from '../components/PrimaryNav.jsx';
 import HotHead from './../components/HotHead.astro';
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -11,6 +11,7 @@ export interface Props {
 }
 const { title, description } = Astro.props;
 
+
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
@@ -21,7 +22,7 @@ const { title, description } = Astro.props;
 <body>
 <!-- page -->
   <main>
-    <PrimaryNav />
+    <PrimaryNav client:load />
     <slot />
   </main>
 </body>

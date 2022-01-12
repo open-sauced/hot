@@ -26,7 +26,9 @@ export async function fetchRepoByRepoName(repoName) {
   return recommendations[0];
 }
 
-export async function updateVotesByRepo(repoName, votes) {
+export async function updateVotesByRepo(repoName, votes, user) {
+  // send user id to a vote update, check if vote was received and remove vote
+// if so
   const { data: recommendations, error } = await supabase
     .from('recommendations')
     .update({ votes: votes + 1 })

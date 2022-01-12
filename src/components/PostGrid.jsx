@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import HotAvatar from './Avatar.jsx';
 import { updateVotesByRepo } from '../lib/database';
 
-function PostGrid({ data }) {
+function PostGrid({ data, user }) {
   const [votes, updateVotesState] = useState(data.votes || 0);
 
   async function handleVoteUpdateByRepo(repoName, noOfVotes) {
-    const updatedVotes = await updateVotesByRepo(repoName, noOfVotes);
+    const updatedVotes = await updateVotesByRepo(repoName, noOfVotes, user);
     updateVotesState(updatedVotes);
   }
 

@@ -6,6 +6,7 @@ import SecondaryNav from './SecondaryNav.jsx';
 import GridDisplay from './GridDisplay.jsx';
 import ListDisplay from './ListDisplay.jsx';
 import { fetchRecommendations } from '../lib/database';
+import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
 const activeLinkColumns = {
   popular: { orderBy: 'total_stars' },
@@ -18,6 +19,7 @@ const PostsWrap = () => {
   const [isGrid, setIsGrid] = useState(true);
   const [activeLink, setActiveLink] = useState('popular');
   const [fetchedData, setFetchedData] = useState([]);
+  const { user } = useSupabaseAuth();
 
   useEffect(() => {
     const { orderBy } = activeLinkColumns[activeLink];
@@ -33,9 +35,9 @@ const PostsWrap = () => {
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
         {isGrid ? (
-          <GridDisplay fetchedData={fetchedData} activeLink={activeLink} />
+          <GridDisplay user={user} fetchedData={fetchedData} activeLink={activeLink} />
         ) : (
-          <ListDisplay fetchedData={fetchedData} activeLink={activeLink} />
+          <ListDisplay user={user} fetchedData={fetchedData} activeLink={activeLink} />
         )}
       </div>
     </>

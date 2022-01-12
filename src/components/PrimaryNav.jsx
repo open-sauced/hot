@@ -1,11 +1,9 @@
 import React from 'react';
-import av1 from './placeholders/av01.jpg';
 import logo from './logo.svg';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
 const PrimaryNav = () => {
   const { signIn, signOut, user } = useSupabaseAuth();
-  user && console.log(user.user_metadata.avatar_url)
 
   return (
     <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-4 py-4 sm:py-2">
@@ -22,6 +20,7 @@ const PrimaryNav = () => {
 
       {!user && <div className="items-center">
         <div
+          className="cursor-pointer"
           onClick={async () => {
             await signIn({ provider: 'github' });
           }}

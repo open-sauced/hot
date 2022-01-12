@@ -4,7 +4,8 @@ import logo from './logo.svg';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
 const PrimaryNav = () => {
-  const { signIn } = useSupabaseAuth();
+  const { signIn, signOut, user } = useSupabaseAuth();
+  user && console.log(user.user_metadata.avatar_url)
 
   return (
     <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-4 py-4 sm:py-2">
@@ -19,16 +20,26 @@ const PrimaryNav = () => {
         </a>
       </div>
 
-      <div className="items-center">
+      {!user && <div className="items-center">
         <div
-          className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-red-800"
           onClick={async () => {
             await signIn({ provider: 'github' });
           }}
         >
-          <img className="object-cover w-[500] h-[500]" src={av1} alt="Avatar 02" />
+          Login
         </div>
-      </div>
+      </div>}
+
+      {user && <div className="items-center">
+        <div
+          className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-red-800"
+          onClick={async () => {
+            await signOut();
+          }}
+        >
+          {user && <img className="object-cover w-[500] h-[500]" src={user.user_metadata.avatar_url} alt="Avatar 02" />}
+        </div>
+      </div>}
     </nav>
   );
 };

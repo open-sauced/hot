@@ -32,7 +32,8 @@ const PostsWrap = () => {
       <SecondaryNav activeLink={activeLink} setActiveLink={setActiveLink} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
-        {isGrid ? <GridDisplay fetchedData={fetchedData} /> : <ListDisplay fetchedData={fetchedData} />}
+        {isGrid ? <GridDisplay fetchedData={fetchedData} />
+          : <ListDisplay fetchedData={fetchedData} />}
       </div>
     </>
   );

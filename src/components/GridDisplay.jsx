@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import PostGrid from "./PostGrid.jsx";
+import React from 'react';
+import PropTypes from 'prop-types';
+import PostGrid from './PostGrid.jsx';
 
 const GridDisplay = ({ fetchedData }) => (
   <div>

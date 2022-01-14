@@ -37,7 +37,10 @@ function PostGrid({ data }) {
         </div>
       </div>
       {/* Cover photo */}
-      <div className="w-full bg-transparent h-32 overflow-hidden rounded-md mb-2 flex justify-center">
+      <div
+        className="w-full bg-transparent h-32 overflow-hidden rounded-md mb-2 flex justify-center"
+        onClick={() => handleRedirect(data.repo_name)}
+      >
         <img
           className="object-cover w-full"
           src={`https://opengraph.githubassets.com/1/${data.repo_name}`}

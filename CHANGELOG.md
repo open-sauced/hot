@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.12.0](https://github.com/open-sauced/hot-sauce/compare/v1.11.0...v1.12.0) (2022-01-14)
+
+
+### 🍕 Features
+
+* PostGrid social image to redirect to repo ([#88](https://github.com/open-sauced/hot-sauce/issues/88)) ([963dab5](https://github.com/open-sauced/hot-sauce/commit/963dab588cf19cc27b79d14c5f056e74f3da197b))
+
 ## [1.11.0](https://github.com/open-sauced/hot-sauce/compare/v1.10.0...v1.11.0) (2022-01-12)
 
 

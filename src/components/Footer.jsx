@@ -16,7 +16,7 @@ const Footer = () => (
             <li
               className="p-2 sm:mr-5"
             >
-              <a target="_blank" href="https://twitter.com/sauceopen" rel="noreferrer">
+              <a target="_blank" href="https://twitter.com/saucedopen" rel="noreferrer">
                 <i className="fab fa-twitter text-offWhite hover:text-accent "></i>
               </a>
             </li>

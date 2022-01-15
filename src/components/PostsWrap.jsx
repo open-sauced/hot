@@ -3,6 +3,7 @@ import LayoutToggle from './LayoutToggle.jsx';
 
 import Modal from './Modal.jsx';
 import SecondaryNav from './SecondaryNav.jsx';
+import Footer from './Footer.jsx';
 import GridDisplay from './GridDisplay.jsx';
 import ListDisplay from './ListDisplay.jsx';
 import { fetchRecommendations } from '../lib/database';
@@ -34,12 +35,10 @@ const PostsWrap = () => {
       <SecondaryNav activeLink={activeLink} setActiveLink={setActiveLink} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
-        {isGrid ? (
-          <GridDisplay user={user} fetchedData={fetchedData} activeLink={activeLink} />
-        ) : (
-          <ListDisplay user={user} fetchedData={fetchedData} activeLink={activeLink} />
-        )}
+        {isGrid ? <GridDisplay user={user} fetchedData={fetchedData} />
+          : <ListDisplay user={user} fetchedData={fetchedData} />}
       </div>
+      <Footer />
     </>
   );
 };

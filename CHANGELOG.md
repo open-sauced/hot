@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.14.1](https://github.com/open-sauced/hot-sauce/compare/v1.14.0...v1.14.1) (2022-01-15)
+
+
+### 🐛 Bug Fixes
+
+* whoops wrong twitter url ([f1bc2a9](https://github.com/open-sauced/hot-sauce/commit/f1bc2a9d3baccd31ec4a39fbf30fb12c4c65d98d))
+
 ## [1.14.0](https://github.com/open-sauced/hot-sauce/compare/v1.13.0...v1.14.0) (2022-01-15)
 
 

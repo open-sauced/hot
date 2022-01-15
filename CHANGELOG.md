@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.13.0](https://github.com/open-sauced/hot-sauce/compare/v1.12.0...v1.13.0) (2022-01-15)
+
+
+### 🍕 Features
+
+* leverages the reusable workflow ([#89](https://github.com/open-sauced/hot-sauce/issues/89)) ([31ef8d1](https://github.com/open-sauced/hot-sauce/commit/31ef8d1ce91144262572de6332fe893b510f94a5))
+
 ## [1.12.0](https://github.com/open-sauced/hot-sauce/compare/v1.11.0...v1.12.0) (2022-01-14)
 
 

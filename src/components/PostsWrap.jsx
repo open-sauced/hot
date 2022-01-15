@@ -3,6 +3,7 @@ import LayoutToggle from './LayoutToggle.jsx';
 
 import Modal from './Modal.jsx';
 import SecondaryNav from './SecondaryNav.jsx';
+import Footer from './Footer.jsx';
 import GridDisplay from './GridDisplay.jsx';
 import ListDisplay from './ListDisplay.jsx';
 import { fetchRecommendations } from '../lib/database';
@@ -35,6 +36,7 @@ const PostsWrap = () => {
         {isGrid ? <GridDisplay fetchedData={fetchedData} />
           : <ListDisplay fetchedData={fetchedData} />}
       </div>
+      <Footer />
     </>
   );
 };

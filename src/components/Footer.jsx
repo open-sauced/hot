@@ -1,8 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
-
-  return (
+const Footer = () => (
  <div>
       <div className="bg-darkestGrey py-14 md:py-16">
         <nav className="container">
@@ -11,21 +9,21 @@ const Footer = () => {
               className="p-2 sm:mr-5"
             >
 
-              <a target="_blank" href="https://github.com/open-sauced/hot">
+              <a target="_blank" href="https://github.com/open-sauced/hot" rel="noreferrer">
                 <i className="fab fa-github text-offWhite hover:text-accent "></i>
               </a>
             </li>
             <li
               className="p-2 sm:mr-5"
             >
-              <a target="_blank" href="https://twitter.com/sauceopen">
+              <a target="_blank" href="https://twitter.com/sauceopen" rel="noreferrer">
                 <i className="fab fa-twitter text-offWhite hover:text-accent "></i>
               </a>
             </li>
             <li
               className="p-2 sm:mr-5"
             >
-              <a target="_blank" href="https://discord.com/invite/U2peSNf23P">
+              <a target="_blank" href="https://discord.com/invite/U2peSNf23P" rel="noreferrer">
                 <i className="fab fa-discord text-offWhite hover:text-accent "></i>
               </a>
             </li>
@@ -33,8 +31,6 @@ const Footer = () => {
         </nav>
       </div>
     </div>
-  );
-};
+);
 
 export default Footer;
-

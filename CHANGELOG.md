@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.14.0](https://github.com/open-sauced/hot-sauce/compare/v1.13.0...v1.14.0) (2022-01-15)
+
+
+### 🍕 Features
+
+* add a footer and remove some bloat ([#90](https://github.com/open-sauced/hot-sauce/issues/90)) ([ae44f06](https://github.com/open-sauced/hot-sauce/commit/ae44f06125d92fefe318c34e2045563b261a80a9))
+
 ## [1.13.0](https://github.com/open-sauced/hot-sauce/compare/v1.12.0...v1.13.0) (2022-01-15)
 
 

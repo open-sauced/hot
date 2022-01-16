@@ -14,7 +14,7 @@ const GridDisplay = ({ fetchedData, user }) => (
 
 GridDisplay.propTypes = {
   fetchedData: PropTypes.array.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default GridDisplay;

@@ -55,7 +55,7 @@ function PostGrid({ data, user }) {
 
 PostGrid.propTypes = {
   data: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default PostGrid;

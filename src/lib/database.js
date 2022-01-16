@@ -33,24 +33,27 @@ async function authVote(userId, repoName) {
       { github_user_id: userId, repo_name: repoName, vote_code: `${userId}-${repoName}` },
     ]);
 
-  // send user id to a vote update, check if vote was received and remove vote
-  // if so
+  // check error to see if vote was already received and then remove vote
   if (error && error.code === '23505') {
     await supabase
       .from('votes')
       .delete()
       .eq('vote_code', `${userId}-${repoName}`);
+
+      return -1
   }
+
+  return 1
 }
 
 export async function updateVotesByRepo(repoName, votes, user) {
   const githubId = user.user_metadata.sub;
 
-  authVote(githubId, repoName);
+  const voteTally = await authVote(githubId, repoName);
 
   const { data: recommendations, error } = await supabase
     .from('recommendations')
-    .update({ votes: votes + 1 })
+    .update({ votes: votes + voteTally })
     .eq('repo_name', repoName);
 
   console.error(error);

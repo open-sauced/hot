@@ -26,7 +26,7 @@ export async function fetchRepoByRepoName(repoName) {
   return recommendations[0];
 }
 
-async function authVote(userId, repoName) {
+async function authenticatedVote(userId, repoName) {
   const { error } = await supabase
     .from('votes')
     .insert([
@@ -49,7 +49,7 @@ async function authVote(userId, repoName) {
 export async function updateVotesByRepo(repoName, votes, user) {
   const githubId = user.user_metadata.sub;
 
-  const voteTally = await authVote(githubId, repoName);
+  const voteTally = await authenticatedVote(githubId, repoName);
 
   const { data: recommendations, error } = await supabase
     .from('recommendations')

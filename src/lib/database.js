@@ -26,10 +26,34 @@ export async function fetchRepoByRepoName(repoName) {
   return recommendations[0];
 }
 
-export async function updateVotesByRepo(repoName, votes) {
+async function authenticatedVote(userId, repoName) {
+  const { error } = await supabase
+    .from('votes')
+    .insert([
+      { github_user_id: userId, repo_name: repoName, vote_code: `${userId}-${repoName}` },
+    ]);
+
+  // check error to see if vote was already received and then remove vote
+  if (error && error.code === '23505') {
+    await supabase
+      .from('votes')
+      .delete()
+      .eq('vote_code', `${userId}-${repoName}`);
+
+    return -1;
+  }
+
+  return 1;
+}
+
+export async function updateVotesByRepo(repoName, votes, user) {
+  const githubId = user.user_metadata.sub;
+
+  const voteTally = await authenticatedVote(githubId, repoName);
+
   const { data: recommendations, error } = await supabase
     .from('recommendations')
-    .update({ votes: votes + 1 })
+    .update({ votes: votes + voteTally })
     .eq('repo_name', repoName);
 
   console.error(error);

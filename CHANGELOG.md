@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.15.0](https://github.com/open-sauced/hot-sauce/compare/v1.14.1...v1.15.0) (2022-01-16)
+
+
+### 🍕 Features
+
+* Authenticated voting  ([#92](https://github.com/open-sauced/hot-sauce/issues/92)) ([b16683b](https://github.com/open-sauced/hot-sauce/commit/b16683b1ebbd64e4ca7937c6e973c82cea978cc3))
+
 ### [1.14.1](https://github.com/open-sauced/hot-sauce/compare/v1.14.0...v1.14.1) (2022-01-15)
 
 

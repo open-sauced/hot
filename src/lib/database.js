@@ -26,10 +26,27 @@ export async function fetchRepoByRepoName(repoName) {
   return recommendations[0];
 }
 
-export async function updateVotesByRepo(repoName, votes, user) {
-  const githubId = user.user_metadata.sub
+async function authVote(userId, repoName) {
+  const { error } = await supabase
+    .from('votes')
+    .insert([
+      { github_user_id: userId, repo_name: repoName, vote_code: `${userId}-${repoName}` },
+    ]);
 
-  authVote(githubId, repoName)
+  // send user id to a vote update, check if vote was received and remove vote
+  // if so
+  if (error && error.code === '23505') {
+    await supabase
+      .from('votes')
+      .delete()
+      .eq('vote_code', `${userId}-${repoName}`);
+  }
+}
+
+export async function updateVotesByRepo(repoName, votes, user) {
+  const githubId = user.user_metadata.sub;
+
+  authVote(githubId, repoName);
 
   const { data: recommendations, error } = await supabase
     .from('recommendations')
@@ -39,25 +56,6 @@ export async function updateVotesByRepo(repoName, votes, user) {
   console.error(error);
 
   return recommendations[0].votes;
-}
-
-async function authVote(userId, repoName) {
-  const { data, error } = await supabase
-    .from('votes')
-    .insert([
-      { github_user_id: userId, repo_name: repoName, vote_code: `${userId}-${repoName}` },
-  ])
-
-  // send user id to a vote update, check if vote was received and remove vote
-  // if so
-  if (error && error.code === '23505') {
-    const removed = await supabase
-      .from('votes')
-      .delete()
-      .eq('vote_code', `${userId}-${repoName}`)
-
-    console.log(removed);
-  }
 }
 
 export async function fetchRecommendations(orderBy = 'total_stars') {

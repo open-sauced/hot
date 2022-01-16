@@ -91,6 +91,7 @@ function PostList({ data, user }) {
 
 PostList.propTypes = {
   data: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default PostList;

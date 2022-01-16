@@ -6,7 +6,7 @@ import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
 function PostGrid({ data, user }) {
   const [votes, updateVotesState] = useState(data.votes || 0);
-  const { signIn} = useSupabaseAuth();
+  const { signIn } = useSupabaseAuth();
 
   async function handleVoteUpdateByRepo(repoName, noOfVotes) {
     const updatedVotes = await updateVotesByRepo(repoName, noOfVotes, user);
@@ -29,7 +29,7 @@ function PostGrid({ data, user }) {
         {/* Upvote container */}
         <div className="flex">
           <div
-            onClick={() => user ? handleVoteUpdateByRepo(data.repo_name, votes) : signIn({ provider: 'github' }) }
+            onClick={() => (user ? handleVoteUpdateByRepo(data.repo_name, votes) : signIn({ provider: 'github' })) }
             className=" flex justify-center items-center text-base space-x-1 text-grey
             hover:text-saucyRed cursor-pointer transition-all duration-200  "
           >
@@ -55,6 +55,7 @@ function PostGrid({ data, user }) {
 
 PostGrid.propTypes = {
   data: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default PostGrid;

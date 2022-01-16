@@ -13,6 +13,7 @@ const ListDisplay = ({ fetchedData, user }) => (
 ListDisplay.propTypes = {
   fetchedData: PropTypes.array.isRequired,
   activeLink: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default ListDisplay;

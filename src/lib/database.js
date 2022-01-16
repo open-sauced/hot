@@ -40,10 +40,10 @@ async function authVote(userId, repoName) {
       .delete()
       .eq('vote_code', `${userId}-${repoName}`);
 
-      return -1
+    return -1;
   }
 
-  return 1
+  return 1;
 }
 
 export async function updateVotesByRepo(repoName, votes, user) {

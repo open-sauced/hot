@@ -5,6 +5,41 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.15.0](https://github.com/open-sauced/hot-sauce/compare/v1.14.1...v1.15.0) (2022-01-16)
+
+
+### 🍕 Features
+
+* Authenticated voting  ([#92](https://github.com/open-sauced/hot-sauce/issues/92)) ([b16683b](https://github.com/open-sauced/hot-sauce/commit/b16683b1ebbd64e4ca7937c6e973c82cea978cc3))
+
+### [1.14.1](https://github.com/open-sauced/hot-sauce/compare/v1.14.0...v1.14.1) (2022-01-15)
+
+
+### 🐛 Bug Fixes
+
+* whoops wrong twitter url ([f1bc2a9](https://github.com/open-sauced/hot-sauce/commit/f1bc2a9d3baccd31ec4a39fbf30fb12c4c65d98d))
+
+## [1.14.0](https://github.com/open-sauced/hot-sauce/compare/v1.13.0...v1.14.0) (2022-01-15)
+
+
+### 🍕 Features
+
+* add a footer and remove some bloat ([#90](https://github.com/open-sauced/hot-sauce/issues/90)) ([ae44f06](https://github.com/open-sauced/hot-sauce/commit/ae44f06125d92fefe318c34e2045563b261a80a9))
+
+## [1.13.0](https://github.com/open-sauced/hot-sauce/compare/v1.12.0...v1.13.0) (2022-01-15)
+
+
+### 🍕 Features
+
+* leverages the reusable workflow ([#89](https://github.com/open-sauced/hot-sauce/issues/89)) ([31ef8d1](https://github.com/open-sauced/hot-sauce/commit/31ef8d1ce91144262572de6332fe893b510f94a5))
+
+## [1.12.0](https://github.com/open-sauced/hot-sauce/compare/v1.11.0...v1.12.0) (2022-01-14)
+
+
+### 🍕 Features
+
+* PostGrid social image to redirect to repo ([#88](https://github.com/open-sauced/hot-sauce/issues/88)) ([963dab5](https://github.com/open-sauced/hot-sauce/commit/963dab588cf19cc27b79d14c5f056e74f3da197b))
+
 ## [1.11.0](https://github.com/open-sauced/hot-sauce/compare/v1.10.0...v1.11.0) (2022-01-12)
 
 

@@ -4,13 +4,13 @@ import humanizeNumber from '../lib/humanizeNumber';
 import HotAvatar from './Avatar.jsx';
 import { updateVotesByRepo } from '../lib/database';
 
-function PostList({ data }) {
+function PostList({ data, user }) {
   const repoLink = `https://github.com/${data.repo_name}`;
   const [votes, updateVotesState] = useState(data.votes || 0);
 
   async function handleVoteUpdateByRepo(repoName, noOfVotes) {
     const updatedVotes = await updateVotesByRepo(repoName, noOfVotes);
-    updateVotesState(updatedVotes);
+    updateVotesState(updatedVotes, user);
   }
 
   const handleClick = (option) => {
@@ -91,6 +91,7 @@ function PostList({ data }) {
 
 PostList.propTypes = {
   data: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default PostList;

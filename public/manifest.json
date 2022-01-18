@@ -1,7 +1,7 @@
 {
     "name":"Hot Open Sauced Piza",
     "short_name":"Sauced",
-    "description":" App that shows hottest github projects ",
+    "description":" App that shows hottest github projects in the world",
     "display":"standalone",
     "theme_color":"#FFF05B",
     "background_color":"#2c3137",

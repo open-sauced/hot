@@ -11,7 +11,7 @@ const {title, description} = Astro.props;
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/open-sauced/open-sauced/main/public/favicon.ico" />
-
+<link rel="manifest" href="../../public/manifest.json"/>
 <!-- Primary Metas-->
 <title>{title}</title>
 <meta name="title" content={title}>
@@ -34,3 +34,4 @@ const {title, description} = Astro.props;
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
 <link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
 <link rel="stylesheet" href={Astro.resolve('../styles/home.css')}>
+

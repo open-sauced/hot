@@ -23,6 +23,9 @@ const PostsWrap = () => {
   const { user } = useSupabaseAuth();
 
   useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../../public/sw.js');
+    }
     const { orderBy } = activeLinkColumns[activeLink];
     fetchRecommendations(orderBy).then((data) => {
       setFetchedData(data);

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.16.0](https://github.com/open-sauced/hot-sauce/compare/v1.15.0...v1.16.0) (2022-01-19)
+
+
+### 🍕 Features
+
+* Dev and Youtube added to the footer ([#97](https://github.com/open-sauced/hot-sauce/issues/97)) ([fa8d7f4](https://github.com/open-sauced/hot-sauce/commit/fa8d7f48806b29190e4553870aeffaa9b69454b9))
+
 ## [1.15.0](https://github.com/open-sauced/hot-sauce/compare/v1.14.1...v1.15.0) (2022-01-16)
 
 

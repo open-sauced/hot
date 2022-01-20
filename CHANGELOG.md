@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.17.0](https://github.com/open-sauced/hot-sauce/compare/v1.16.1...v1.17.0) (2022-01-20)
+
+
+### 📝 Documentation
+
+* add better dependabot README badge ([#102](https://github.com/open-sauced/hot-sauce/issues/102)) ([4add989](https://github.com/open-sauced/hot-sauce/commit/4add989c9c6b339b9acc2d883b3590e115a67a03)), closes [#101](https://github.com/open-sauced/hot-sauce/issues/101)
+
 ### [1.16.1](https://github.com/open-sauced/hot-sauce/compare/v1.16.0...v1.16.1) (2022-01-20)
 
 

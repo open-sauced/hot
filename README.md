@@ -15,7 +15,7 @@
   <a href="https://github.com/open-sauced/hot/actions/workflows/codeql-analysis.yml">
     <img src="https://github.com/open-sauced/hot/actions/workflows/codeql-analysis.yml/badge.svg" alt="CodeQL" style="max-width: 100%;">
   </a>
-  <img src="https://badgen.net/dependabot/open-sauced/hot?icon=dependabot" alt="Dependabot Badge">
+  <img src="https://badgen.net/badge/icon/dependabot?icon=dependabot&label" alt="Dependabot Badge">
   <img src="https://img.shields.io/github/languages/code-size/open-sauced/hot" alt="GitHub code size in bytes">
   <img src="https://img.shields.io/github/commit-activity/w/open-sauced/hot" alt="GitHub commit activity">
   <a href="https://github.com/open-sauced/hot/issues">

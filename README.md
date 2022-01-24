@@ -52,6 +52,34 @@ To start a local copy of the app on port `3000`:
 ```shell
 npm start
 ```
+## 🔑 Database commands
+
+Starting the [Supabase Studio](https://supabase.com/docs/guides/local-development) locally at [localhost:54321](http://localhost:54321):
+
+```shell
+npm run db:start
+```
+If you are adding a new table structure, first do it visually in the Supabase Studio and test locally with the following command:
+
+```shell
+npm run db:changes
+```
+
+If everything is fine we can run the following command to apply the changes to the database:
+
+```shell
+npm run db:commit add_table_name
+```
+Test migrations are working is to reset the local database:
+
+```shell
+npm run db:reset
+```
+Push changes if everything is fine we can push the changes to the remote database:
+
+```shell
+npm run db:push
+```
 
 ### 🧪 Test
 

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.18.0](https://github.com/open-sauced/hot-sauce/compare/v1.17.0...v1.18.0) (2022-01-24)
+
+
+### 🍕 Features
+
+* Supabase Studio & Local migrations ([#103](https://github.com/open-sauced/hot-sauce/issues/103)) ([fdfd51b](https://github.com/open-sauced/hot-sauce/commit/fdfd51b11e7ec4174fa8bb3aa0d5936e7a16359f)), closes [#68](https://github.com/open-sauced/hot-sauce/issues/68) [#104](https://github.com/open-sauced/hot-sauce/issues/104)
+
 ## [1.17.0](https://github.com/open-sauced/hot-sauce/compare/v1.16.1...v1.17.0) (2022-01-20)
 
 

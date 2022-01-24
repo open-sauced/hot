@@ -25,7 +25,7 @@ GRANT ALL ON TABLE public.votes TO service_role;
 GRANT ALL ON TABLE public.votes TO supabase_admin;
 
 COMMENT ON TABLE public.votes
-  IS 'A collection of votes fro users';
+  IS 'A collection of votes from users';
 
 CREATE POLICY "Enable access to all users"
   ON public.votes

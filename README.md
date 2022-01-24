@@ -52,6 +52,19 @@ To start a local copy of the app on port `3000`:
 ```shell
 npm start
 ```
+### 🧪 Test
+
+For running the test suite, use the following command. Since the tests run in watch mode by default, some users may encounter errors about too many files being open. In this case, it may be beneficial to [install watchman](https://facebook.github.io/watchman/docs/install.html).
+
+```shell
+npm test
+```
+
+You can request a coverage report by running the following command:
+
+```shell
+npm run test:coverage
+```
 ## 🔑 Database commands
 
 Starting the [Supabase Studio](https://supabase.com/docs/guides/local-development) locally at [localhost:54321](http://localhost:54321):
@@ -79,20 +92,6 @@ Push changes if everything is fine we can push the changes to the remote databas
 
 ```shell
 npm run db:push
-```
-
-### 🧪 Test
-
-For running the test suite, use the following command. Since the tests run in watch mode by default, some users may encounter errors about too many files being open. In this case, it may be beneficial to [install watchman](https://facebook.github.io/watchman/docs/install.html).
-
-```shell
-npm test
-```
-
-You can request a coverage report by running the following command:
-
-```shell
-npm run test:coverage
 ```
 
 ### 📦 Docker builds

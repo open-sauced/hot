@@ -15,7 +15,7 @@
   <a href="https://github.com/open-sauced/hot/actions/workflows/codeql-analysis.yml">
     <img src="https://github.com/open-sauced/hot/actions/workflows/codeql-analysis.yml/badge.svg" alt="CodeQL" style="max-width: 100%;">
   </a>
-  <img src="https://badgen.net/badge/icon/dependabot?icon=dependabot&label" alt="Dependabot Badge">
+  <img src="https://img.shields.io/badge/Dependabot-active-brightgreen.svg" alt="Dependabot Badge">
   <img src="https://img.shields.io/github/languages/code-size/open-sauced/hot" alt="GitHub code size in bytes">
   <img src="https://img.shields.io/github/commit-activity/w/open-sauced/hot" alt="GitHub commit activity">
   <a href="https://github.com/open-sauced/hot/issues">
@@ -52,7 +52,6 @@ To start a local copy of the app on port `3000`:
 ```shell
 npm start
 ```
-
 ### 🧪 Test
 
 For running the test suite, use the following command. Since the tests run in watch mode by default, some users may encounter errors about too many files being open. In this case, it may be beneficial to [install watchman](https://facebook.github.io/watchman/docs/install.html).
@@ -65,6 +64,34 @@ You can request a coverage report by running the following command:
 
 ```shell
 npm run test:coverage
+```
+## 🔑 Database commands
+
+Starting the [Supabase Studio](https://supabase.com/docs/guides/local-development) locally at [localhost:54321](http://localhost:54321):
+
+```shell
+npm run db:start
+```
+If you are adding a new table structure, first do it visually in the Supabase Studio and test locally with the following command:
+
+```shell
+npm run db:changes
+```
+
+If everything is fine we can run the following command to apply the changes to the database:
+
+```shell
+npm run db:commit add_table_name
+```
+Test migrations are working is to reset the local database:
+
+```shell
+npm run db:reset
+```
+Push changes if everything is fine we can push the changes to the remote database:
+
+```shell
+npm run db:push
 ```
 
 ### 📦 Docker builds

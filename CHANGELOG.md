@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.19.0](https://github.com/open-sauced/hot-sauce/compare/v1.18.0...v1.19.0) (2022-01-25)
+
+
+### 🍕 Features
+
+* add menu UI from header avatar with username ([#107](https://github.com/open-sauced/hot-sauce/issues/107)) ([0396087](https://github.com/open-sauced/hot-sauce/commit/03960879a6a2dc5e897c8262638b36ded8801095)), closes [#105](https://github.com/open-sauced/hot-sauce/issues/105)
+
 ## [1.18.0](https://github.com/open-sauced/hot-sauce/compare/v1.17.0...v1.18.0) (2022-01-24)
 
 

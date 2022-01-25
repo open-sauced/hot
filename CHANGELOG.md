@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.19.1](https://github.com/open-sauced/hot-sauce/compare/v1.19.0...v1.19.1) (2022-01-25)
+
+
+### 🐛 Bug Fixes
+
+* correct astro/vite production build loader issues ([#109](https://github.com/open-sauced/hot-sauce/issues/109)) ([cdb25ca](https://github.com/open-sauced/hot-sauce/commit/cdb25ca41aa438709dc9d546db3478e5a525bde8))
+
 ## [1.19.0](https://github.com/open-sauced/hot-sauce/compare/v1.18.0...v1.19.0) (2022-01-25)
 
 

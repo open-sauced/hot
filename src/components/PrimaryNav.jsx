@@ -1,13 +1,12 @@
 import React from 'react';
 import { Menu } from '@headlessui/react';
 import logo from './logo.svg';
-import app from "../../package.json"
+import app from '../../package.json';
 import getAppVersion from '../lib/getAppVersion';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
 const PrimaryNav = () => {
   const { signIn, signOut, user } = useSupabaseAuth();
-
 
   return (
     <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-4 py-4 sm:py-2">
@@ -63,8 +62,8 @@ const PrimaryNav = () => {
             )}
           </Menu.Item>
           <Menu.Item onClick={async () => {
-              await signOut();
-             }}>
+            await signOut();
+          }}>
             {({ active }) => (
               <span
                 className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200 cursor-pointer`}

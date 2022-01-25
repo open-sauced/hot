@@ -22,7 +22,7 @@ const PrimaryNav = () => {
         </a>
       </div>
 
-      {false && <div className="items-center">
+      {!user && <div className="items-center">
         <div
           className="cursor-pointer"
           onClick={async () => {
@@ -32,7 +32,7 @@ const PrimaryNav = () => {
           Login
         </div>
       </div>}
-     {true && (
+     {user && (
         <Menu as="div" className="relative inline-block text-left">
         <Menu.Button>
         <div className="items-center">
@@ -49,7 +49,7 @@ const PrimaryNav = () => {
               <span
                 className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200`}
               >
-                nulfrost
+               {user.user_metadata.user_name}
               </span>
             )}
           </Menu.Item>

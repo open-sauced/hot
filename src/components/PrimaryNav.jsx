@@ -1,4 +1,5 @@
 import React from 'react';
+import { Menu } from '@headlessui/react';
 import logo from './logo.svg';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
@@ -28,17 +29,50 @@ const PrimaryNav = () => {
           Login
         </div>
       </div>}
-
-      {user && <div className="items-center">
-        <div
-          className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-red-800"
-          onClick={async () => {
-            await signOut();
-          }}
-        >
-          {user && <img className="object-cover w-[500] h-[500]" src={user.user_metadata.avatar_url} altalt={`${user.user_metadata.user_name}-avatar`} />}
+     {user && (
+        <Menu as="div" className="relative inline-block text-left">
+        <Menu.Button>
+        <div className="items-center">
+          <div
+            className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-red-800"
+          >
+            {user && <img className="object-cover w-[500] h-[500]" src={user.user_metadata.avatar_url} alt={`${user.user_metadata.user_name}-avatar`}/>}
+          </div>
         </div>
-      </div>}
+        </Menu.Button>
+        <Menu.Items className="absolute right-0 w-56 origin-top-right rounded-md shadow-lg shadow-gray-700/80 border-gray-700 border-2 focus:outline-none px-1 py-1 bg-darkestGrey text-sm font-semibold">
+          <Menu.Item>
+            {({ active }) => (
+              <span
+                className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200`}
+              >
+               {user.user_metadata.user_name}
+              </span>
+            )}
+          </Menu.Item>
+          <Menu.Item>
+            {({ active }) => (
+              <span
+                className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200`}
+              >
+                v{__APP_VERSION__}
+              </span>
+            )}
+          </Menu.Item>
+          <Menu.Item onClick={async () => {
+            await signOut();
+          }}>
+            {({ active }) => (
+              <span
+                className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200 cursor-pointer`}
+              >
+                Logout
+              </span>
+            )}
+          </Menu.Item>
+        </Menu.Items>
+      </Menu>
+     )}
     </nav>
   );
 };

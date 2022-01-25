@@ -4,6 +4,9 @@ module.exports = {
       version: 'detect',
     },
   },
+  globals: {
+    __APP_VERSION__: 'readonly',
+  },
   extends: [
     'plugin:jest/recommended',
     'plugin:jest/style',

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Menu } from '@headlessui/react';
 import logo from './logo.svg';
-import app from '../../package.json';
-import getAppVersion from '../lib/getAppVersion';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
 const PrimaryNav = () => {
@@ -57,7 +55,7 @@ const PrimaryNav = () => {
               <span
                 className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200`}
               >
-                v{getAppVersion(app)}
+                v{__APP_VERSION__}
               </span>
             )}
           </Menu.Item>

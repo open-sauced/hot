@@ -2,6 +2,7 @@ import React from 'react';
 import { Menu } from '@headlessui/react';
 import logo from './logo.svg';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
+import { version } from '../../package.json';
 
 const PrimaryNav = () => {
   const { signIn, signOut, user } = useSupabaseAuth();
@@ -55,7 +56,7 @@ const PrimaryNav = () => {
               <span
                 className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200`}
               >
-                v{__APP_VERSION__}
+                v{version}
               </span>
             )}
           </Menu.Item>

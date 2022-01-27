@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.19.2](https://github.com/open-sauced/hot-sauce/compare/v1.19.1...v1.19.2) (2022-01-27)
+
+
+### 🤖 Build System
+
+* correct dependabot broke lockfile ([#113](https://github.com/open-sauced/hot-sauce/issues/113)) ([75faf95](https://github.com/open-sauced/hot-sauce/commit/75faf95a6ad2968a0bd8dbfa5a564a462009d6e3))
+
 ### [1.19.1](https://github.com/open-sauced/hot-sauce/compare/v1.19.0...v1.19.1) (2022-01-25)
 
 

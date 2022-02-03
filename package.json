@@ -39,7 +39,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
-    "astro": "^0.22.18",
+    "astro": "^0.22.20",
     "babel-jest": "^27.4.6",
     "babel-preset-react-app": "^10.0.1",
     "eslint-plugin-import": "^2.25.4",

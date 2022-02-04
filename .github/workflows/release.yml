@@ -143,7 +143,6 @@ jobs:
           path: build
 
       - name: "📂 download diagram artifacts"
-        if: needs.build.outputs.build-artifact
         uses: actions/download-artifact@v2
         with:
           name: diagram

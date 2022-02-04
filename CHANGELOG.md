@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.20.1](https://github.com/open-sauced/hot-sauce/compare/v1.20.0...v1.20.1) (2022-02-04)
+
+
+### 🐛 Bug Fixes
+
+* correct dependabot update spam behaviour ([#120](https://github.com/open-sauced/hot-sauce/issues/120)) ([55e4f7b](https://github.com/open-sauced/hot-sauce/commit/55e4f7bffb82a019e3babddd38d60a6594ed4678))
+
 ## [1.20.0](https://github.com/open-sauced/hot-sauce/compare/v1.19.2...v1.20.0) (2022-01-29)
 
 

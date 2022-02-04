@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [1.20.2](https://github.com/open-sauced/hot-sauce/compare/v1.20.1...v1.20.2) (2022-02-04)
+
+
+### 🐛 Bug Fixes
+
+* remove diagram artifact condition ([#121](https://github.com/open-sauced/hot-sauce/issues/121)) ([769eea1](https://github.com/open-sauced/hot-sauce/commit/769eea19fb7a73be92a3013d5a2d37a828547fd3))
+
 ### [1.20.1](https://github.com/open-sauced/hot-sauce/compare/v1.20.0...v1.20.1) (2022-02-04)
 
 

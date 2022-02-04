@@ -1,7 +1,7 @@
 {
   "name": "@open-sauced/hot",
   "description": "🍕The site that recommends the hottest sauce.",
-  "version": "1.20.1",
+  "version": "1.20.2",
   "private": true,
   "license": "MIT",
   "files": [

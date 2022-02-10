@@ -30,6 +30,13 @@ const Footer = () => (
             <li
               className="p-2 sm:mr-5"
             >
+              <a target="_blank" href="https://discord.com/invite/U2peSNf23P" rel="noreferrer">
+                <i className="fab fa-discord text-offWhite hover:text-accent "></i>
+              </a>
+            </li>
+            <li
+              className="p-2 sm:mr-5"
+            >
               <a target="_blank" href="https://www.youtube.com/opensauced" rel="noreferrer">
                 <i className="fab fa-youtube text-offWhite hover:text-accent "></i>
               </a>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SecondaryNav = ({ activeLink, setActiveLink }) => {
+const SecondaryNav = ({ activeLink, setActiveLink, user }) => {
   const handleChange = (e) => {
     e.preventDefault();
     const linkName = e.target.getAttribute('data-name');
@@ -48,6 +48,17 @@ const SecondaryNav = ({ activeLink, setActiveLink }) => {
             >
               Recent
             </li>
+            {user && (
+              <li
+                data-name="myVotes"
+                onClick={(e) => handleChange(e)}
+                className={`${
+                  activeLink === 'myVotes' ? 'bg-cheesyYellow rounded-xl text-grey ' : ' '
+                } hover:text-saucyRed transition-all duration-300 mr-3 p-2 sm:mr-11`}
+              >
+                My Votes
+              </li>
+            )}
           </ul>
         </nav>
       </div>
@@ -58,6 +69,7 @@ const SecondaryNav = ({ activeLink, setActiveLink }) => {
 SecondaryNav.propTypes = {
   activeLink: PropTypes.string.isRequired,
   setActiveLink: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default SecondaryNav;

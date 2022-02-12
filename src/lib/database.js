@@ -77,7 +77,7 @@ export async function fetchMyVotes(user) {
   const githubId = user.user_metadata.sub;
 
   // First get the users votes
-  const { data: votedRepos } = await supabase
+  const { data: votes } = await supabase
     .from('votes')
     .select('repo_name')
     .like('vote_code', `${githubId}-%`);
@@ -87,12 +87,12 @@ export async function fetchMyVotes(user) {
    * Ideally this would be one query but we currently can
    * do joins when a foreign key exists
   */
-  const { data: votes, error } = await supabase
+  const { data: votedRepose, error } = await supabase
     .from('recommendations')
     .select()
-    .in('repo_name', votedRepos.map((v) => v.repo_name))
+    .in('repo_name', votes.map((v) => v.repo_name))
     .order('votes', { ascending: false });
 
   if (error) console.error(error);
-  return votes;
+  return votedRepose;
 }

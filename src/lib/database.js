@@ -87,12 +87,12 @@ export async function fetchMyVotes(user) {
    * Ideally this would be one query but we currently can
    * do joins when a foreign key exists
   */
-  const { data: votedRepose, error } = await supabase
+  const { data: votedRepos, error } = await supabase
     .from('recommendations')
     .select()
     .in('repo_name', votes.map((v) => v.repo_name))
     .order('votes', { ascending: false });
 
   if (error) console.error(error);
-  return votedRepose;
+  return votedRepos;
 }

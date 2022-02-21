@@ -25,8 +25,7 @@ const PostsWrap = () => {
   const { user } = useSupabaseAuth();
 
   const handleLoadingMore = () => {
-    console.log(limit)
-    setLimit(prevLimit => prevLimit + 25);
+    setLimit((prevLimit) => prevLimit + 25);
   };
 
   useEffect(() => {
@@ -48,8 +47,13 @@ const PostsWrap = () => {
       <SecondaryNav activeLink={activeLink} setActiveLink={setActiveLink} user={user} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
-        {isGrid ? <GridDisplay limit={limit} handleLoadingMore={handleLoadingMore} user={user} fetchedData={fetchedData} />
-          : <ListDisplay limit={limit} handleLoadingMore={handleLoadingMore} user={user} fetchedData={fetchedData} />}
+        {isGrid ? <GridDisplay limit={limit}
+          handleLoadingMore={handleLoadingMore} user={user}
+          fetchedData={fetchedData} />
+          : <ListDisplay limit={limit}
+              handleLoadingMore={handleLoadingMore} user={user}
+              fetchedData={fetchedData} />
+        }
       </div>
       <Footer />
     </>

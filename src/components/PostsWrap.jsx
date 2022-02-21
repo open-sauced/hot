@@ -21,7 +21,12 @@ const PostsWrap = () => {
   const [isGrid, setIsGrid] = useState(true);
   const [activeLink, setActiveLink] = useState('popular');
   const [fetchedData, setFetchedData] = useState([]);
+  const [limit, setLimit] = useState(25);
   const { user } = useSupabaseAuth();
+
+  const handleLoadingMore = () => {
+    setLimit((prevLimit) => prevLimit + 25);
+  };
 
   useEffect(() => {
     if (activeLink === 'myVotes') {
@@ -31,19 +36,29 @@ const PostsWrap = () => {
       return;
     }
     const { orderBy } = activeLinkColumns[activeLink];
-    fetchRecommendations(orderBy).then((data) => {
+    fetchRecommendations(orderBy, limit).then((data) => {
       setFetchedData(data);
     });
-  }, [activeLink]);
+  }, [activeLink, limit]);
 
   return (
     <>
       <Modal />
-      <SecondaryNav activeLink={activeLink} setActiveLink={setActiveLink} user={user} />
+      <SecondaryNav
+        setLimit={setLimit}
+        activeLink={activeLink}
+        setActiveLink={setActiveLink}
+        user={user}
+      />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
-        {isGrid ? <GridDisplay user={user} fetchedData={fetchedData} />
-          : <ListDisplay user={user} fetchedData={fetchedData} />}
+        {isGrid ? <GridDisplay limit={limit} activeLink={activeLink}
+          handleLoadingMore={handleLoadingMore} user={user}
+          fetchedData={fetchedData} />
+          : <ListDisplay limit={limit} activeLink={activeLink}
+              handleLoadingMore={handleLoadingMore} user={user}
+              fetchedData={fetchedData} />
+        }
       </div>
       <Footer />
     </>

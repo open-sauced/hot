@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SecondaryNav = ({ activeLink, setActiveLink, user }) => {
+const SecondaryNav = ({
+  setLimit, activeLink, setActiveLink, user,
+}) => {
   const handleChange = (e) => {
     e.preventDefault();
     const linkName = e.target.getAttribute('data-name');
+    setLimit(25);
     setActiveLink(linkName);
   };
   return (
@@ -69,6 +72,7 @@ const SecondaryNav = ({ activeLink, setActiveLink, user }) => {
 SecondaryNav.propTypes = {
   activeLink: PropTypes.string.isRequired,
   setActiveLink: PropTypes.func.isRequired,
+  setLimit: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
 };
 

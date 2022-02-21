@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.21.0](https://github.com/open-sauced/hot-sauce/compare/v1.20.2...v1.21.0) (2022-02-21)
+
+
+### 🍕 Features
+
+* Add ability for a user to see the repos they have voted for ([#125](https://github.com/open-sauced/hot-sauce/issues/125)) ([8b9cefc](https://github.com/open-sauced/hot-sauce/commit/8b9cefcfde3487e98653869c4123bba238f87ca4)), closes [#124](https://github.com/open-sauced/hot-sauce/issues/124)
+
 ### [1.20.2](https://github.com/open-sauced/hot-sauce/compare/v1.20.1...v1.20.2) (2022-02-04)
 
 

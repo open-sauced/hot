@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.22.0](https://github.com/open-sauced/hot-sauce/compare/v1.21.0...v1.22.0) (2022-02-21)
+
+
+### 🍕 Features
+
+* adds redirect for site_url ([#126](https://github.com/open-sauced/hot-sauce/issues/126)) ([1393e63](https://github.com/open-sauced/hot-sauce/commit/1393e632e9241aafa816634da23c466b5cc1a782)), closes [#108](https://github.com/open-sauced/hot-sauce/issues/108)
+
 ## [1.21.0](https://github.com/open-sauced/hot-sauce/compare/v1.20.2...v1.21.0) (2022-02-21)
 
 

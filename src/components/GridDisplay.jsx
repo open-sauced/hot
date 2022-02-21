@@ -10,8 +10,8 @@ const GridDisplay = ({
       {fetchedData.map((item, i) => (
         <PostGrid user={user} data={item} key={`${item.repo_name}_${i}`} />
       ))}
-        {fetchedData.length > 0 && activeLink !== 'myVotes' && limit <= 100 &&
-          <button onClick={() => handleLoadingMore()}
+        {fetchedData.length > 0 && activeLink !== 'myVotes' && limit <= 100
+          && <button onClick={() => handleLoadingMore()}
             className="bg-grey hover:bg-lightGrey text-white font-bold py-2 px-4 rounded-xl">
             Load More
           </button>

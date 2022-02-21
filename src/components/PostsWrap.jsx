@@ -47,10 +47,10 @@ const PostsWrap = () => {
       <SecondaryNav activeLink={activeLink} setActiveLink={setActiveLink} user={user} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
-        {isGrid ? <GridDisplay limit={limit}
+        {isGrid ? <GridDisplay limit={limit} activeLink={activeLink}
           handleLoadingMore={handleLoadingMore} user={user}
           fetchedData={fetchedData} />
-          : <ListDisplay limit={limit}
+          : <ListDisplay limit={limit} activeLink={activeLink}
               handleLoadingMore={handleLoadingMore} user={user}
               fetchedData={fetchedData} />
         }

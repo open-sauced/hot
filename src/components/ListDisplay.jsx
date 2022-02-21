@@ -17,7 +17,7 @@ ListDisplay.propTypes = {
   fetchedData: PropTypes.array.isRequired,
   user: PropTypes.object,
   limit: PropTypes.number,
-  handleLoadingMore: PropTypes.element,
+  handleLoadingMore: PropTypes.func,
   activeLink: PropTypes.string,
 };
 

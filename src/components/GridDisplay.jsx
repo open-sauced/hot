@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PostGrid from './PostGrid.jsx';
 
-const GridDisplay = ({ handleLoadingMore, fetchedData, user }) => (
+const GridDisplay = ({ limit, handleLoadingMore, fetchedData, user }) => (
   <div>
     <div className=" container grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-screen-xl mx-auto">
       {fetchedData.map((item, i) => (
         <PostGrid user={user} data={item} key={`${item.repo_name}_${i}`} />
       ))}
-        <button onClick={() => handleLoadingMore()} className="bg-grey hover:bg-lightGrey text-white font-bold py-2 px-4 rounded-xl">Load More</button>
+        {limit <= 100 && <button onClick={() => handleLoadingMore()} className="bg-grey hover:bg-lightGrey text-white font-bold py-2 px-4 rounded-xl">Load More</button>}
     </div>
   </div>
 );

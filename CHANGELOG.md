@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.23.0](https://github.com/open-sauced/hot-sauce/compare/v1.22.0...v1.23.0) (2022-02-21)
+
+
+### 🍕 Features
+
+* load more records ([#127](https://github.com/open-sauced/hot-sauce/issues/127)) ([e6232f5](https://github.com/open-sauced/hot-sauce/commit/e6232f5386df29426e4c00d2d336d12d0b04ddf8)), closes [#81](https://github.com/open-sauced/hot-sauce/issues/81)
+
 ## [1.22.0](https://github.com/open-sauced/hot-sauce/compare/v1.21.0...v1.22.0) (2022-02-21)
 
 

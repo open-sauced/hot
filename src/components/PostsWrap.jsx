@@ -49,7 +49,7 @@ const PostsWrap = () => {
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
         {isGrid ? <GridDisplay handleLoadingMore={handleLoadingMore} user={user} fetchedData={fetchedData} />
-          : <ListDisplay user={user} fetchedData={fetchedData} />}
+          : <ListDisplay handleLoadingMore={handleLoadingMore} user={user} fetchedData={fetchedData} />}
       </div>
       <Footer />
     </>

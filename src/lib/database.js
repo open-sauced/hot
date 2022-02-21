@@ -72,3 +72,27 @@ export async function fetchRecommendations(orderBy = 'total_stars') {
 
   return recommendations;
 }
+
+export async function fetchMyVotes(user) {
+  const githubId = user.user_metadata.sub;
+
+  // First get the users votes
+  const { data: votes } = await supabase
+    .from('votes')
+    .select('repo_name')
+    .like('vote_code', `${githubId}-%`);
+
+  /**
+   * Then get the recommendations based on the repo_name
+   * Ideally this would be one query but we currently can
+   * do joins when a foreign key exists
+  */
+  const { data: votedRepos, error } = await supabase
+    .from('recommendations')
+    .select()
+    .in('repo_name', votes.map((v) => v.repo_name))
+    .order('votes', { ascending: false });
+
+  if (error) console.error(error);
+  return votedRepos;
+}

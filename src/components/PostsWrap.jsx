@@ -6,7 +6,7 @@ import SecondaryNav from './SecondaryNav.jsx';
 import Footer from './Footer.jsx';
 import GridDisplay from './GridDisplay.jsx';
 import ListDisplay from './ListDisplay.jsx';
-import { fetchRecommendations } from '../lib/database';
+import { fetchRecommendations, fetchMyVotes } from '../lib/database';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
 const activeLinkColumns = {
@@ -14,6 +14,7 @@ const activeLinkColumns = {
   upvoted: { orderBy: 'votes' },
   discussed: { orderBy: 'issues' },
   recent: { orderBy: 'avg_recency_score' },
+  myVotes: { orderBy: 'my_votes' },
 };
 
 const PostsWrap = () => {
@@ -23,6 +24,12 @@ const PostsWrap = () => {
   const { user } = useSupabaseAuth();
 
   useEffect(() => {
+    if (activeLink === 'myVotes') {
+      fetchMyVotes(user).then((data) => {
+        setFetchedData(data);
+      });
+      return;
+    }
     const { orderBy } = activeLinkColumns[activeLink];
     fetchRecommendations(orderBy).then((data) => {
       setFetchedData(data);
@@ -32,7 +39,7 @@ const PostsWrap = () => {
   return (
     <>
       <Modal />
-      <SecondaryNav activeLink={activeLink} setActiveLink={setActiveLink} />
+      <SecondaryNav activeLink={activeLink} setActiveLink={setActiveLink} user={user} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
         {isGrid ? <GridDisplay user={user} fetchedData={fetchedData} />

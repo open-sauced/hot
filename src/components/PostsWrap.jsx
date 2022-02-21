@@ -44,7 +44,7 @@ const PostsWrap = () => {
   return (
     <>
       <Modal />
-      <SecondaryNav activeLink={activeLink} setActiveLink={setActiveLink} user={user} />
+      <SecondaryNav setLimit={setLimit} activeLink={activeLink} setActiveLink={setActiveLink} user={user} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
         {isGrid ? <GridDisplay limit={limit} activeLink={activeLink}

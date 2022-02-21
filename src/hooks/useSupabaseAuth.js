@@ -19,7 +19,7 @@ const useSupabaseAuth = () => {
 
   return {
     signIn: (data) => supabase.auth.signIn(data, {
-      redirectTo: import.meta.env.SITE_URL
+      redirectTo: import.meta.env.SITE_URL,
     }),
     signOut: () => supabase.auth.signOut(),
     user,

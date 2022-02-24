@@ -15,10 +15,10 @@ CREATE TABLE IF NOT EXISTS public.users
   CONSTRAINT users_login_key UNIQUE (login)
 )
 
-TABLESPACE pg_default;
+  TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.users
-  OWNER to supabase_admin;
+  OWNER to postgres;
 
 GRANT ALL ON TABLE public.users TO anon;
 

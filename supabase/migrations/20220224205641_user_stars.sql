@@ -18,10 +18,10 @@ CREATE TABLE IF NOT EXISTS public.user_stars
   CONSTRAINT user_stars_pkey PRIMARY KEY (id)
 )
 
-TABLESPACE pg_default;
+  TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.user_stars
-  OWNER to supabase_admin;
+  OWNER to postgres;
 
 GRANT ALL ON TABLE public.user_stars TO anon;
 

@@ -18,10 +18,10 @@ CREATE TABLE IF NOT EXISTS public.recommendations
   CONSTRAINT recommendations_pkey PRIMARY KEY (id)
 )
 
-TABLESPACE pg_default;
+  TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.recommendations
-  OWNER to supabase_admin;
+  OWNER to postgres;
 
 GRANT ALL ON TABLE public.recommendations TO anon;
 

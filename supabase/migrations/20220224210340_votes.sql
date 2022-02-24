@@ -14,10 +14,10 @@ CREATE TABLE IF NOT EXISTS public.votes
   CONSTRAINT votes_code_key UNIQUE (code)
 )
 
-TABLESPACE pg_default;
+  TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.votes
-  OWNER to supabase_admin;
+  OWNER to postgres;
 
 GRANT ALL ON TABLE public.votes TO anon;
 

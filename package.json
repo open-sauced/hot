@@ -22,7 +22,7 @@
     "push": "npx @open-sauced/conventional-commit",
     "db": "supabase",
     "db:start": "npm run db -- start",
-    "db:seed": "docker exec -it \"supabase_db_$(jq -r '.projectId' supabase/config.json)\" bash -c \"$(cat supabase/seed.sh)\"",
+    "db:seed": "docker exec -it \"supabase_db_hot.opensauced.pizza\" bash -c \"$(cat supabase/seed.sh)\"",
     "db:stop": "npm run db -- stop",
     "db:changes": "npm run db -- db changes",
     "db:commit": "npm run db -- db commit -- ",

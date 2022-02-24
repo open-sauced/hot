@@ -18,6 +18,6 @@ psql 'postgresql://postgres:postgres@localhost:5432/postgres' -c "\COPY recommen
 psql 'postgresql://postgres:postgres@localhost:5432/postgres' -c "\COPY stars(forks_count, stargazers_count, open_issues_count, full_name, id) FROM 'stars.csv' DELIMITER ',' CSV HEADER;"
 psql 'postgresql://postgres:postgres@localhost:5432/postgres' -c "\COPY user_stars(star_id, id, user_id, repo_name, recency_score, description, issues, stars, contributors) FROM 'user_stars.csv' DELIMITER ',' CSV HEADER;"
 psql 'postgresql://postgres:postgres@localhost:5432/postgres' -c "\COPY users(id, login, private, open_issues, stars_data) FROM 'users.csv' DELIMITER ',' CSV HEADER;"
-psql 'postgresql://postgres:postgres@localhost:5432/postgres' -c "\COPY votes(id, created_at, github_user_id, repo_name, vote_code) FROM 'votes.csv' DELIMITER ',' CSV HEADER;"
+psql 'postgresql://postgres:postgres@localhost:5432/postgres' -c "\COPY votes(id, created_at, github_user_id, repo_name, code) FROM 'votes.csv' DELIMITER ',' CSV HEADER;"
 
 ls -lahH .

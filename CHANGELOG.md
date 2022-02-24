@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.24.0](https://github.com/open-sauced/hot-sauce/compare/v1.23.0...v1.24.0) (2022-02-24)
+
+
+### 🍕 Features
+
+* add bootstrap script for supabase update and seeds ([#122](https://github.com/open-sauced/hot-sauce/issues/122)) ([091528d](https://github.com/open-sauced/hot-sauce/commit/091528d45363e130a8f610534c6efc7b3511eb8c)), closes [#93](https://github.com/open-sauced/hot-sauce/issues/93)
+
 ## [1.23.0](https://github.com/open-sauced/hot-sauce/compare/v1.22.0...v1.23.0) (2022-02-21)
 
 

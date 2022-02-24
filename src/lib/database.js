@@ -29,11 +29,16 @@ export async function fetchRepoByRepoName(repoName) {
 async function authenticatedVote(userId, repoName) {
   const { error } = await supabase
     .from('votes')
-    .insert([
-      { github_user_id: userId, repo_name: repoName, vote_code: `${userId}-${repoName}` },
-    ]);
+    .upsert([
+      {
+        github_user_id: userId,
+        repo_name: repoName,
+        code: `${userId}-${repoName}`,
+      }], {
+      onConflict: 'code',
+    });
 
-  // check error to see if vote was already received and then remove vote
+  // check error as duplicating is disabled now
   if (error && error.code === '23505') {
     await supabase
       .from('votes')
@@ -64,7 +69,7 @@ export async function updateVotesByRepo(repoName, votes, user) {
 export async function fetchRecommendations(orderBy = 'total_stars', limit = 25) {
   const { data: recommendations, error } = await supabase
     .from('recommendations')
-    .select('repo_name, description,stars,issues, total_stars, avg_recency_score, contributors, votes')
+    .select('repo_name, description, stars, issues, total_stars, avg_recency_score, contributors, votes')
     .limit(limit)
     .order(orderBy, { ascending: false });
 
@@ -80,7 +85,7 @@ export async function fetchMyVotes(user) {
   const { data: votes } = await supabase
     .from('votes')
     .select('repo_name')
-    .like('vote_code', `${githubId}-%`);
+    .like('code', `${githubId}-%`);
 
   /**
    * Then get the recommendations based on the repo_name

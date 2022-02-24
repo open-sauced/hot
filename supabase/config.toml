@@ -1,0 +1,39 @@
+project_id = "hot.opensauced.pizza"
+
+[api]
+port = 54321
+schemas = []
+extra_search_path = ["extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+major_version = 14
+
+[studio]
+port = 54323
+
+[inbucket]
+port = 54324
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://localhost:3000"]
+jwt_expiry = 3600
+enable_signup = true
+
+[auth.email]
+# Allow/disallow new user signups via email to your project.
+enable_signup = true
+# If enabled, a user will be required to confirm any email change on both the old, and new email
+# addresses. If disabled, only the new email is required to confirm.
+double_confirm_changes = true
+# If enabled, users need to confirm their email address before signing in.
+enable_confirmations = true
+
+# Use an external OAuth provider. The full list of providers are: apple, azure, bitbucket,
+# discord, facebook, github, gitlab, google, twitch, twitter, slack, spotify.
+[auth.external.apple]
+enabled = false
+client_id = ""
+secret = ""

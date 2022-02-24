@@ -73,7 +73,7 @@ SecondaryNav.propTypes = {
   activeLink: PropTypes.string.isRequired,
   setActiveLink: PropTypes.func.isRequired,
   setLimit: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default SecondaryNav;

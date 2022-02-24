@@ -35,13 +35,15 @@ async function authenticatedVote(userId, repoName) {
         repo_name: repoName,
         code: `${userId}-${repoName}`,
       }], {
-      ignoreDuplicates: true,
+      onConflict: 'code',
     });
 
   // check error as duplicating is disabled now
-  if (error) {
-    // unlikely this can leak private data
-    console.error(error);
+  if (error && error.code === '23505') {
+    await supabase
+      .from('votes')
+      .delete()
+      .eq('vote_code', `${userId}-${repoName}`);
 
     return -1;
   }

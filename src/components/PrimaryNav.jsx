@@ -19,7 +19,6 @@ const PrimaryNav = () => {
           />
         </a>
       </div>
-
       {!user && (
         <div className="items-center">
           <div

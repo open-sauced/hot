@@ -1,15 +1,3 @@
-export function isValidRepoUrl(url) {
-  url = url.trim();
-  url = url.substr(0, 1) === '/' ? url.substr(1) : url;
-
-  const isRelativeUrl = !(url.substr(0, 4) === 'http' || url.includes('.com') || url.includes('www.'));
-  if (isRelativeUrl) {
-    return relativeUrlValidator(url);
-  }
-
-  return absoluteUrlValidator(url);
-}
-
 function relativeUrlValidator(url) {
   try {
     const githubLink = 'github.com/';
@@ -46,4 +34,16 @@ function absoluteUrlValidator(url) {
   } catch (failedToConstructURL) {
     return [false, null];
   }
+}
+
+export default function isValidRepoUrl(url) {
+  const trimmedUrl = url.trim();
+  const urlString = trimmedUrl.substr(0, 1) === '/' ? trimmedUrl.substr(1) : trimmedUrl;
+
+  const isRelativeUrl = !(urlString.substr(0, 4) === 'http' || urlString.includes('.com') || urlString.includes('www.'));
+  if (isRelativeUrl) {
+    return relativeUrlValidator(urlString);
+  }
+
+  return absoluteUrlValidator(urlString);
 }

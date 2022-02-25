@@ -1,9 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
-import fetchContributorNames from './lib/contributorNameHelper.js'
-import { isValidRepoUrl } from "./validateUrl.js";
-import api from './lib/persistedGraphQL.js'
+import fetchContributorNames from './contributorHelper';
+import isValidRepoUrl from './validateUrl';
+import api from './persistedGraphQL';
 
-// probably should move these to an env.
 export const supabase = createClient(import.meta.env.PUBLIC_SUPABASE_URL,
   import.meta.env.PUBLIC_SUPABASE_API_KEY);
 
@@ -29,11 +28,11 @@ export async function fetchRepoByRepoName(repoName) {
   return recommendations[0];
 }
 
-async function authenticatedRecommendation(userId, repoUrl) {
+export async function authenticatedRecommendation(userId, repoUrl) {
   const [isValid, repoName] = isValidRepoUrl(repoUrl);
 
   // TODO: check if repo is already in the database
-  // TODO: Upvote if already in the database or if valid + submitted
+  // TODO: upvote if already in the database or if valid + submitted
   // TODO: Add to the most recent recommendation list if valid + submitted
 
   if (!isValid) {
@@ -41,14 +40,14 @@ async function authenticatedRecommendation(userId, repoUrl) {
   }
 
   const { owner, repo } = repoName;
-  const {data, errors} = await api.persistedRepoDataFetch({ owner, repo })
+  const { data } = await api.persistedRepoDataFetch({ owner, repo });
   const {
     contributors_oneGraph: contributorsOG,
     description,
     stargazers,
     issues,
-    id
-  } = data.gitHub.repositoryOwner.repository
+    id,
+  } = data.gitHub.repositoryOwner.repository;
 
   const contributorNames = await fetchContributorNames(contributorsOG.nodes)
 
@@ -59,18 +58,19 @@ async function authenticatedRecommendation(userId, repoUrl) {
         user_id: userId,
         repo_name: repoName,
         code: `${userId}-${repoName}`,
-        contributors: contributorNames.slice(0,2); // grab first two names only
+        contributors: contributorNames.slice(0,2), // grab first two names only
         recency_score: 0,
-        issues: issues,
-        stargazers: stargazers,
-        description: description,
+        issues: issues.total_count,
+        stargazers: stargazers.total_count,
+        description,
         repo_id: id,
       }], {
       onConflict: 'code',
     });
+    // console.log(error);
 }
 
-async function authenticatedVote(userId, repoName) {
+export async function authenticatedVote(userId, repoName) {
   const { error } = await supabase
     .from('votes')
     .upsert([

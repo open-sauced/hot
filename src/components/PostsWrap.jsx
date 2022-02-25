@@ -6,7 +6,7 @@ import SecondaryNav from './SecondaryNav.jsx';
 import Footer from './Footer.jsx';
 import GridDisplay from './GridDisplay.jsx';
 import ListDisplay from './ListDisplay.jsx';
-import { fetchRecommendations, fetchMyVotes } from '../lib/database';
+import { authenticatedRecommendation, fetchRecommendations, fetchMyVotes } from '../lib/database';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
 const activeLinkColumns = {
@@ -27,6 +27,11 @@ const PostsWrap = () => {
   const handleLoadingMore = () => {
     setLimit((prevLimit) => prevLimit + 25);
   };
+
+  const handleSubmitRecommendation = (userId, repo) => {
+    console.log(user);
+    authenticatedRecommendation(userId, repo);
+  }
 
   useEffect(() => {
     if (activeLink === 'myVotes') {
@@ -50,6 +55,7 @@ const PostsWrap = () => {
         setActiveLink={setActiveLink}
         user={user}
       />
+      <button onClick={() => handleSubmitRecommendation("123", "https://github.com/open-sauced/hot")}>SUBMIT</button>
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
         {isGrid ? <GridDisplay limit={limit} activeLink={activeLink}

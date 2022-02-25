@@ -1,8 +1,8 @@
-import React from "react";
-import { Menu } from "@headlessui/react";
-import logo from "./logo.svg";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import { version } from "../../package.json";
+import React from 'react';
+import { Menu } from '@headlessui/react';
+import logo from './logo.svg';
+import useSupabaseAuth from '../hooks/useSupabaseAuth';
+import { version } from '../../package.json';
 
 const PrimaryNav = () => {
   const { signIn, signOut, user } = useSupabaseAuth();
@@ -33,7 +33,7 @@ const PrimaryNav = () => {
             <div
               className="cursor-pointer"
               onClick={async () => {
-                await signIn({ provider: "github" });
+                await signIn({ provider: 'github' });
               }}
             >
               Login
@@ -73,7 +73,7 @@ const PrimaryNav = () => {
             <Menu.Item>
               {({ active }) => (
                 <a href={`https://github.com/${user.user_metadata.user_name}`}>
-                  <span className={`${active && "bg-gray-700"} block px-4 py-2 rounded-md text-gray-200`}>
+                  <span className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200`}>
                     {user.user_metadata.user_name}
                   </span>
                 </a>
@@ -81,7 +81,7 @@ const PrimaryNav = () => {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <span className={`${active && "bg-gray-700"} block px-4 py-2 rounded-md text-gray-200`}>
+                <span className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200`}>
                   v{version}
                 </span>
               )}
@@ -92,7 +92,7 @@ const PrimaryNav = () => {
               }}
             >
               {({ active }) => (
-                <span className={`${active && "bg-gray-700"} block px-4 py-2 rounded-md text-gray-200 cursor-pointer`}>
+                <span className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200 cursor-pointer`}>
                   Logout
                 </span>
               )}

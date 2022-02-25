@@ -2,11 +2,12 @@
 // https://stackoverflow.com/questions/34954347/using-reduce-to-build-a-filter-function-in-javascript
 function reduce(array, combine, start) {
   let current = start;
+  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < array.length; i++) current = combine(current, array[i]);
   return current;
 }
 
-function filterForHumans(contributors, test) {
+function filterForHumans(contributors) {
   return reduce(contributors, (arr, el) => {
     // Only add to the array if the test function is true
     if (!el.login.includes('[bot]')) { // filter deependabot

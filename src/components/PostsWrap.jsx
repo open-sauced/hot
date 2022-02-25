@@ -28,10 +28,10 @@ const PostsWrap = () => {
     setLimit((prevLimit) => prevLimit + 25);
   };
 
-  const handleSubmitRecommendation = (userId, repo) => {
-    console.log(user);
-    authenticatedRecommendation(userId, repo);
-  }
+  // const handleSubmitRecommendation = (userId, repo) => {
+  //   console.log(user);
+  //   authenticatedRecommendation(userId, repo);
+  // }
 
   useEffect(() => {
     if (activeLink === 'myVotes') {
@@ -55,7 +55,7 @@ const PostsWrap = () => {
         setActiveLink={setActiveLink}
         user={user}
       />
-      <button onClick={() => handleSubmitRecommendation("123", "https://github.com/open-sauced/hot")}>SUBMIT</button>
+      <button onClick={() => authenticatedRecommendation('123', 'https://github.com/open-sauced/hot')}>SUBMIT</button>
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
         {isGrid ? <GridDisplay limit={limit} activeLink={activeLink}

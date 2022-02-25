@@ -49,16 +49,16 @@ export async function authenticatedRecommendation(userId, repoUrl) {
     id,
   } = data.gitHub.repositoryOwner.repository;
 
-  const contributorNames = await fetchContributorNames(contributorsOG.nodes)
+  const contributorNames = await fetchContributorNames(contributorsOG.nodes);
 
-  const { error } = await supabase
+  await supabase
     .from('user_submissions')
     .upsert([
       {
         user_id: userId,
         repo_name: repoName,
         code: `${userId}-${repoName}`,
-        contributors: contributorNames.slice(0,2), // grab first two names only
+        contributors: contributorNames.slice(0, 2), // grab first two names only
         recency_score: 0,
         issues: issues.total_count,
         stargazers: stargazers.total_count,
@@ -67,7 +67,7 @@ export async function authenticatedRecommendation(userId, repoUrl) {
       }], {
       onConflict: 'code',
     });
-    // console.log(error);
+  // console.log(error);
 }
 
 export async function authenticatedVote(userId, repoName) {

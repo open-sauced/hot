@@ -9,7 +9,7 @@ const docId1 = 'a0722788-adb0-4731-96fb-9e50c72a2528'; // RepoQuery
 
 // TODO: Move this entire file to an npm package
 // eslint-disable-next-line max-len
-const makeFetch = (docId, requiredVariables = [], operationName = false) => async function (variables = {}) {
+const makeFetch = (docId, requiredVariables = [], operationName = false) => async (variables = {}) => {
   const body = { doc_id: docId };
   if (operationName) body.operationName = operationName;
   // Validate required variables by presence

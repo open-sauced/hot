@@ -34,8 +34,13 @@
 
 ## Prerequisites
 
-In order to run the project from a container we need `node>=14`, `npm>=7` and `docker>=20` installed on our development machines or
-use one of the listed cloud providers we support:
+In order to run the project we need the following software binaries installed on our development machines:
+- `node>=16.7.0`
+- `npm>=8.0.0`
+- `docker>=20.10.12`
+- `supabase>=0.18.0` 
+
+We can also use one of the listed cloud providers we support:
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/open-sauced/hot)
 

@@ -5,6 +5,76 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.24.0](https://github.com/open-sauced/hot-sauce/compare/v1.23.0...v1.24.0) (2022-02-24)
+
+
+### 🍕 Features
+
+* add bootstrap script for supabase update and seeds ([#122](https://github.com/open-sauced/hot-sauce/issues/122)) ([091528d](https://github.com/open-sauced/hot-sauce/commit/091528d45363e130a8f610534c6efc7b3511eb8c)), closes [#93](https://github.com/open-sauced/hot-sauce/issues/93)
+
+## [1.23.0](https://github.com/open-sauced/hot-sauce/compare/v1.22.0...v1.23.0) (2022-02-21)
+
+
+### 🍕 Features
+
+* load more records ([#127](https://github.com/open-sauced/hot-sauce/issues/127)) ([e6232f5](https://github.com/open-sauced/hot-sauce/commit/e6232f5386df29426e4c00d2d336d12d0b04ddf8)), closes [#81](https://github.com/open-sauced/hot-sauce/issues/81)
+
+## [1.22.0](https://github.com/open-sauced/hot-sauce/compare/v1.21.0...v1.22.0) (2022-02-21)
+
+
+### 🍕 Features
+
+* adds redirect for site_url ([#126](https://github.com/open-sauced/hot-sauce/issues/126)) ([1393e63](https://github.com/open-sauced/hot-sauce/commit/1393e632e9241aafa816634da23c466b5cc1a782)), closes [#108](https://github.com/open-sauced/hot-sauce/issues/108)
+
+## [1.21.0](https://github.com/open-sauced/hot-sauce/compare/v1.20.2...v1.21.0) (2022-02-21)
+
+
+### 🍕 Features
+
+* Add ability for a user to see the repos they have voted for ([#125](https://github.com/open-sauced/hot-sauce/issues/125)) ([8b9cefc](https://github.com/open-sauced/hot-sauce/commit/8b9cefcfde3487e98653869c4123bba238f87ca4)), closes [#124](https://github.com/open-sauced/hot-sauce/issues/124)
+
+### [1.20.2](https://github.com/open-sauced/hot-sauce/compare/v1.20.1...v1.20.2) (2022-02-04)
+
+
+### 🐛 Bug Fixes
+
+* remove diagram artifact condition ([#121](https://github.com/open-sauced/hot-sauce/issues/121)) ([769eea1](https://github.com/open-sauced/hot-sauce/commit/769eea19fb7a73be92a3013d5a2d37a828547fd3))
+
+### [1.20.1](https://github.com/open-sauced/hot-sauce/compare/v1.20.0...v1.20.1) (2022-02-04)
+
+
+### 🐛 Bug Fixes
+
+* correct dependabot update spam behaviour ([#120](https://github.com/open-sauced/hot-sauce/issues/120)) ([55e4f7b](https://github.com/open-sauced/hot-sauce/commit/55e4f7bffb82a019e3babddd38d60a6594ed4678))
+
+## [1.20.0](https://github.com/open-sauced/hot-sauce/compare/v1.19.2...v1.20.0) (2022-01-29)
+
+
+### 🍕 Features
+
+* Linked to user profile in the user dropdown ([#114](https://github.com/open-sauced/hot-sauce/issues/114)) ([dd6ff37](https://github.com/open-sauced/hot-sauce/commit/dd6ff37f620b900e9480b6e290ac488bbb87318e)), closes [#111](https://github.com/open-sauced/hot-sauce/issues/111)
+
+### [1.19.2](https://github.com/open-sauced/hot-sauce/compare/v1.19.1...v1.19.2) (2022-01-27)
+
+
+### 🤖 Build System
+
+* correct dependabot broke lockfile ([#113](https://github.com/open-sauced/hot-sauce/issues/113)) ([75faf95](https://github.com/open-sauced/hot-sauce/commit/75faf95a6ad2968a0bd8dbfa5a564a462009d6e3))
+
+### [1.19.1](https://github.com/open-sauced/hot-sauce/compare/v1.19.0...v1.19.1) (2022-01-25)
+
+
+### 🐛 Bug Fixes
+
+* correct astro/vite production build loader issues ([#109](https://github.com/open-sauced/hot-sauce/issues/109)) ([cdb25ca](https://github.com/open-sauced/hot-sauce/commit/cdb25ca41aa438709dc9d546db3478e5a525bde8))
+
+## [1.19.0](https://github.com/open-sauced/hot-sauce/compare/v1.18.0...v1.19.0) (2022-01-25)
+
+
+### 🍕 Features
+
+* add menu UI from header avatar with username ([#107](https://github.com/open-sauced/hot-sauce/issues/107)) ([0396087](https://github.com/open-sauced/hot-sauce/commit/03960879a6a2dc5e897c8262638b36ded8801095)), closes [#105](https://github.com/open-sauced/hot-sauce/issues/105)
+
 ## [1.18.0](https://github.com/open-sauced/hot-sauce/compare/v1.17.0...v1.18.0) (2022-01-24)
 
 

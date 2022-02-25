@@ -1,4 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
+import fetchContributorNames from './lib/contributorNameHelper.js'
+import { isValidRepoUrl } from "./validateUrl.js";
+import api from './lib/persistedGraphQL.js'
 
 // probably should move these to an env.
 export const supabase = createClient(import.meta.env.PUBLIC_SUPABASE_URL,
@@ -24,6 +27,43 @@ export async function fetchRepoByRepoName(repoName) {
   console.error(error);
 
   return recommendations[0];
+}
+
+async function authenticatedRecommendation(userId, repoUrl) {
+  const [isValid, repoName] = isValidRepoUrl(repoUrl);
+
+  if (!isValid) {
+    return;
+  }
+
+  const { owner, repo } = repoName;
+  const {data, errors} = await api.persistedRepoDataFetch({ owner, repo })
+  const {
+    contributors_oneGraph: contributorsOG,
+    description,
+    stargazers,
+    issues,
+    id
+  } = data.gitHub.repositoryOwner.repository
+
+  const contributorNames = await fetchContributorNames(contributorsOG.nodes)
+
+  const { error } = await supabase
+    .from('user_submissions')
+    .upsert([
+      {
+        user_id: userId,
+        repo_name: repoName,
+        code: `${userId}-${repoName}`,
+        contributors: contributorNames.slice(0,2); // grab first two names only
+        recency_score: 0,
+        issues: issues,
+        stargazers: stargazers,
+        description: description,
+        repo_id: id,
+      }], {
+      onConflict: 'code',
+    });
 }
 
 async function authenticatedVote(userId, repoName) {

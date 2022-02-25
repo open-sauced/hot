@@ -1,10 +1,14 @@
 ---
 import BaseLayout from "./../layouts/BaseLayout.astro"
 import PostsWrap from '../components/PostsWrap.jsx';
-
+import DataContext from '../context/datacontext.jsx'
 let title = 'Hot & Ready';
 let description = 'The path to your next open-source contribution.';
 ---
 <BaseLayout title={title} description={description} client:load>
-  <PostsWrap client:load />
+<DataContext.Provider  >
+<PostsWrap client:load />
+</DataContext.Provider>
+
 </BaseLayout>
+

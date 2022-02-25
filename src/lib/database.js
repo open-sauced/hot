@@ -32,6 +32,10 @@ export async function fetchRepoByRepoName(repoName) {
 async function authenticatedRecommendation(userId, repoUrl) {
   const [isValid, repoName] = isValidRepoUrl(repoUrl);
 
+  // TODO: check if repo is already in the database
+  // TODO: Upvote if already in the database or if valid + submitted
+  // TODO: Add to the most recent recommendation list if valid + submitted
+
   if (!isValid) {
     return;
   }

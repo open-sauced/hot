@@ -42,7 +42,7 @@ const PrimaryNav = () => {
         )}
       </div>
 
-      {!user && (
+      {/* {!user && (
         <div className="items-center">
           <div
             className="cursor-pointer"
@@ -53,7 +53,7 @@ const PrimaryNav = () => {
             Login
           </div>
         </div>
-      )}
+      )} */}
       {user && (
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button>

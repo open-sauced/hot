@@ -29,5 +29,5 @@ enable_confirmations = false
 
 [auth.external.github]
 enabled = true
-client_id = "a8a233cae24bf1f6e786"
-secret = "511e9cddd82699e3fecfc4dbec0f9fd25c719469"
+client_id = "5ca1aaafdc16bd40cf92"
+secret = "aee782abf3148849ceb6c83bdade3ec0aea95af1"

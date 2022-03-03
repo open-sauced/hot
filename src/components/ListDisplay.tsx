@@ -6,7 +6,7 @@ export declare interface ListDisplayProps {
   activeLink: string | null;
   limit: number;
   handleLoadingMore: () => void;
-  fetchedData: { repo_name: string }[];
+  fetchedData: DbRecomendation[];
   user: User | null;
 }
 

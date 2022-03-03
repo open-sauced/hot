@@ -7,7 +7,13 @@ import ListDisplay from './ListDisplay';
 import { fetchRecommendations, fetchMyVotes } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
-const activeLinkColumns = {
+export declare interface ActiveLinks {
+  [key: string]: {
+    orderBy: string,
+  };
+}
+
+const activeLinkColumns: ActiveLinks = {
   popular: { orderBy: 'total_stars' },
   upvoted: { orderBy: 'votes' },
   discussed: { orderBy: 'issues' },
@@ -17,7 +23,7 @@ const activeLinkColumns = {
 
 const PostsWrap = (): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
-  const [activeLink, setActiveLink] = useState<any>('popular');
+  const [activeLink, setActiveLink] = useState('popular');
   const [fetchedData, setFetchedData] = useState<DbRecomendation[] | DbVote[]>([]);
   const [limit, setLimit] = useState(25);
   const { user } = useSupabaseAuth();
@@ -32,7 +38,7 @@ const PostsWrap = (): JSX.Element => {
       });
       return;
     }
-    const { orderBy } = (activeLinkColumns as any)[activeLink];
+    const { orderBy } = activeLinkColumns[activeLink];
     fetchRecommendations(orderBy, limit).then((data) => {
       setFetchedData(data);
     });

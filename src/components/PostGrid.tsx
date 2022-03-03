@@ -7,7 +7,7 @@ import { User } from "@supabase/supabase-js";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 
 export declare interface PostGridProps {
-  data: any;
+  data: DbRecomendation;
   user: User | null;
 }
 

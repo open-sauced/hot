@@ -18,7 +18,7 @@ const activeLinkColumns = {
 const PostsWrap = (): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
   const [activeLink, setActiveLink] = useState<any>('popular');
-  const [fetchedData, setFetchedData] = useState<any>([]);
+  const [fetchedData, setFetchedData] = useState<DbRecomendation[] | DbVote[]>([]);
   const [limit, setLimit] = useState(25);
   const { user } = useSupabaseAuth();
   const handleLoadingMore = () => {

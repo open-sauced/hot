@@ -7,7 +7,7 @@ import { updateVotesByRepo } from '../lib/supabase';
 import {User} from "@supabase/supabase-js";
 
 export declare interface PostListProps {
-  data: any;
+  data: DbRecomendation;
   user: User | null;
 }
 

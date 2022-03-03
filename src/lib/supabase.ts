@@ -52,10 +52,10 @@ export async function fetchRecommendations(orderBy = 'total_stars', limit = 25) 
 
   error && console.error(error);
 
-  return recommendations;
+  return recommendations as DbRecomendation[] || [];
 }
 
-export async function fetchMyVotes(user: User | null) {
+export async function fetchMyVotes(user: User | null): Promise<DbRecomendation[]> {
   const githubId = user?.user_metadata.sub;
 
   // First get the users votes
@@ -76,5 +76,5 @@ export async function fetchMyVotes(user: User | null) {
     .order('votes', { ascending: false });
 
   if (error) console.error(error);
-  return votedRepos;
+  return votedRepos as DbRecomendation[] || [];
 }

@@ -29,7 +29,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
   const isGlitchBuild = process.env.PROJECT_REMIX_CHAIN || false;
   const isCloudIdeBuild = isGitpodBuild || isReplitBuild || isStackblitzBuild || isCodeSandboxBuild || isGlitchBuild;
   const isNetlifyBuild = process.env.NETLIFY || false;
-  const isNetlifyPreviewBuild = isNetlifyBuild && process.env.PULL_REQUEST;
+  const isNetlifyPreviewBuild = isNetlifyBuild && process.env.PULL_REQUEST == 'true';
 
   const config:UserConfig = {
     base: "/",

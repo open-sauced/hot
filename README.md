@@ -42,6 +42,7 @@ In order to run the project we need the following software binaries installed on
 
 We can also use one of the listed cloud providers we support:
 
+
 ## 🖥️ Local development
 
 To install the application:

@@ -42,8 +42,6 @@ In order to run the project we need the following software binaries installed on
 
 We can also use one of the listed cloud providers we support:
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/open-sauced/hot)
-
 ## 🖥️ Local development
 
 To install the application:

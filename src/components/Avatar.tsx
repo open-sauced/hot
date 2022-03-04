@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 import { getAvatarLink, getProfileLink } from '../lib/github';
-
+import * as HoverCard from '@radix-ui/react-hover-card';
+import cx from "classnames";
 export declare interface AvatarProps {
   contributor: string;
   list?: boolean;
@@ -13,23 +13,35 @@ const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
     data-tip={contributor}
     data-for={contributor}
   >
-    <a
-      href={getProfileLink(contributor)}
-      title={contributor}
-      target="_blank"
-    >
-      <img
-        className='object-cover'
-        src={getAvatarLink(contributor)}
-        alt={contributor}
-        width={500}
-        height={500}
-      />
-    </a>
-    <ReactTooltip
-      id={contributor}
-      type='light'
-      className='flex flex-row items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] !opacity-100'/>
+    <HoverCard.Root>
+      <HoverCard.Trigger>
+        <a
+          href={getProfileLink(contributor)}
+          title={contributor}
+          target="_blank"
+        >
+          <img
+            className='object-cover'
+            src={getAvatarLink(contributor)}
+            alt={contributor}
+            width={500}
+            height={500}
+          />
+        </a>
+      </HoverCard.Trigger>
+      <HoverCard.Content
+      align="center"
+      sideOffset={4}
+      className={cx(
+        " radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
+        "max-w-md rounded-lg p-4 md:w-full",
+        "bg-white dark:bg-gray-800",
+        "focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+      )}
+      >
+        {contributor}
+      </HoverCard.Content>
+    </HoverCard.Root>
   </div>
 );
 

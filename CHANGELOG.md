@@ -5,6 +5,19 @@
 
 > All notable changes to this project will be documented in this file
 
+## [1.26.0](https://github.com/open-sauced/hot-sauce/compare/v1.25.0...v1.26.0) (2022-03-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed astro
+
+* fix: correct true false text boolean
+
+### 🍕 Features
+
+* correct netlify build and test breaking change ([#142](https://github.com/open-sauced/hot-sauce/issues/142)) ([edd5ecc](https://github.com/open-sauced/hot-sauce/commit/edd5ecc9b5113e1980623e0e031161c5757501ed))
+
 ## [1.25.0](https://github.com/open-sauced/hot-sauce/compare/v1.24.0...v1.25.0) (2022-03-04)
 
 

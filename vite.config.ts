@@ -29,6 +29,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
   const isGlitchBuild = process.env.PROJECT_REMIX_CHAIN || false;
   const isCloudIdeBuild = isGitpodBuild || isReplitBuild || isStackblitzBuild || isCodeSandboxBuild || isGlitchBuild;
   const isNetlifyBuild = process.env.NETLIFY || false;
+  const isNetlifyPreviewBuild = isNetlifyBuild && process.env.PULL_REQUEST == 'true';
 
   const config:UserConfig = {
     base: "/",
@@ -118,7 +119,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
   }
 
   // deploy preview build options
-  if (isNetlifyBuild){
+  if (isNetlifyPreviewBuild) {
     config.base = `${process.env.DEPLOY_PRIME_URL}/`;
   }
 

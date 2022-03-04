@@ -119,7 +119,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
 
   // deploy preview build options
   if (isNetlifyBuild){
-    config.base = process.env.DEPLOY_PRIME_URL;
+    config.base = `${process.env.DEPLOY_PRIME_URL}/`;
   }
 
   return config;

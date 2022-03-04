@@ -20,7 +20,7 @@ export async function authenticatedVote(userId: number, repoName: string) {
     await supabase
       .from('votes')
       .delete()
-      .eq('vote_code', `${userId}-${repoName}`);
+      .eq('code', `${userId}-${repoName}`);
 
     return -1;
   }

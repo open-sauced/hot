@@ -5,6 +5,17 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.0.0](https://github.com/open-sauced/hot-sauce/compare/v1.26.0...v2.0.0) (2022-03-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* correctly signal ViteJS rewrite
+
+### 🐛 Bug Fixes
+
+* remove extraneous supabase and minor fixes ([#144](https://github.com/open-sauced/hot-sauce/issues/144)) ([7912c9d](https://github.com/open-sauced/hot-sauce/commit/7912c9d0bdc455e5277986fe97190f171d8113b1)), closes [#80](https://github.com/open-sauced/hot-sauce/issues/80)
+
 ## [1.26.0](https://github.com/open-sauced/hot-sauce/compare/v1.25.0...v1.26.0) (2022-03-04)
 
 

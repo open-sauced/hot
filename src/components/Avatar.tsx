@@ -17,6 +17,7 @@ const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
       href={getProfileLink(contributor)}
       title={contributor}
       target="_blank"
+      rel="noopener"
     >
       <img
         className='object-cover'

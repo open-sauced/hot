@@ -33,6 +33,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
             href={getRepoLink(data.repo_name)}
             title={`Visit ${data.repo_name}`}
             target="_blank"
+            rel="noopener"
           >
             {data.repo_name}
           </a>
@@ -65,6 +66,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
               href={getRepoIssuesLink(data.repo_name)}
               title={`Visit ${data.repo_name} issues`}
               target="_blank"
+              rel="noopener"
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
                 <FaDotCircle className="mr-1"/>
@@ -77,6 +79,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
               href={getRepoLink(data.repo_name)}
               title={`Add a star to ${data.repo_name}`}
               target="_blank"
+              rel="noopener"
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
                 <FaStar className="mr-1"/>

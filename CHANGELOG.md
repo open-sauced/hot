@@ -5,6 +5,41 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.0.0](https://github.com/open-sauced/hot-sauce/compare/v1.26.0...v2.0.0) (2022-03-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* correctly signal ViteJS rewrite
+
+### 🐛 Bug Fixes
+
+* remove extraneous supabase and minor fixes ([#144](https://github.com/open-sauced/hot-sauce/issues/144)) ([7912c9d](https://github.com/open-sauced/hot-sauce/commit/7912c9d0bdc455e5277986fe97190f171d8113b1)), closes [#80](https://github.com/open-sauced/hot-sauce/issues/80)
+
+## [1.26.0](https://github.com/open-sauced/hot-sauce/compare/v1.25.0...v1.26.0) (2022-03-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed astro
+
+* fix: correct true false text boolean
+
+### 🍕 Features
+
+* correct netlify build and test breaking change ([#142](https://github.com/open-sauced/hot-sauce/issues/142)) ([edd5ecc](https://github.com/open-sauced/hot-sauce/commit/edd5ecc9b5113e1980623e0e031161c5757501ed))
+
+## [1.25.0](https://github.com/open-sauced/hot-sauce/compare/v1.24.0...v1.25.0) (2022-03-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* removed astro.build
+
+### 🍕 Features
+
+* rewrite entire code base to vite open-sauced ([#140](https://github.com/open-sauced/hot-sauce/issues/140)) ([570f10f](https://github.com/open-sauced/hot-sauce/commit/570f10f7a26b19d950ed6bf9a5d89e1233fb5c33)), closes [#80](https://github.com/open-sauced/hot-sauce/issues/80)
+
 ## [1.24.0](https://github.com/open-sauced/hot-sauce/compare/v1.23.0...v1.24.0) (2022-02-24)
 
 

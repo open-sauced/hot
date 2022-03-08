@@ -276,8 +276,3 @@ build
 **/__snapshots__
 .env*
 !.env
-
-# Supabase
-**/supabase/.branches
-**/supabase/.temp
-**/supabase/.env

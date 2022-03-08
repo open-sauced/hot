@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.0.1](https://github.com/open-sauced/hot-sauce/compare/v2.0.0...v2.0.1) (2022-03-08)
+
+
+### 🐛 Bug Fixes
+
+* add a min-height to the load more button to match the card height ([#145](https://github.com/open-sauced/hot-sauce/issues/145)) ([0415039](https://github.com/open-sauced/hot-sauce/commit/0415039d9054ac5427872e747ea076c803d4c2b2)), closes [#128](https://github.com/open-sauced/hot-sauce/issues/128)
+
 ## [2.0.0](https://github.com/open-sauced/hot-sauce/compare/v1.26.0...v2.0.0) (2022-03-07)
 
 

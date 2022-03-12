@@ -2,11 +2,5 @@
 publish = "build"
 command = "npm run build"
 
-[context.production]
-environment = { CHANNEL = "production" }
-
-[context.deploy-preview]
-environment = { CHANNEL = "staging" }
-
 [context.beta]
 environment = { CHANNEL = "beta" }

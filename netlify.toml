@@ -2,9 +2,6 @@
 publish = "build"
 command = "npm run build"
 
-[[plugins]]
-package = "@netlify/plugin-lighthouse"
-
 [context.production]
 environment = { CHANNEL = "production" }
 

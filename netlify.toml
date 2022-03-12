@@ -1,0 +1,15 @@
+[build]
+publish = "build"
+command = "npm run build"
+
+[[plugins]]
+package = "@netlify/plugin-lighthouse"
+
+[context.production]
+environment = { CHANNEL = "production" }
+
+[context.deploy-preview]
+environment = { CHANNEL = "staging" }
+
+[context.beta]
+environment = { CHANNEL = "beta" }

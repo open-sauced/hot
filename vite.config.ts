@@ -128,8 +128,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
     } else {
       if (isNetlifyChannelBuild && ['alpha', 'beta'].includes(process.env.CHANNEL)) {
         const {protocol, hostname} = new URL(process.env.URL);
-        // https://beta--hot.opensauced.pizza
-        config.base = `${protocol}//${process.env.CHANNEL}--hot.${hostname}/`;
+        config.base = `${protocol}//${process.env.CHANNEL}.${hostname}/`;
       }
     }
   }

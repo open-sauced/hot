@@ -12,7 +12,7 @@ const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
   <HoverCardPrimitive.Trigger asChild>
     <div
       className={cx(
-        "inline-flex h-12 w-12 items-center justify-center rounded-full bg-white mr-3 dark:bg-white"
+        "inline-flex h-12 w-12 items-center justify-center rounded-full bg-white mr-3 dark:bg-white "
       )}
     >
        <img
@@ -30,10 +30,11 @@ const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
       " radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
       "max-w-md rounded-lg p-4 md:w-full",
       "bg-white dark:bg-gray-800",
-      "focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+      "focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75",
+      "items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] !opacity-100"
     )}
   >
-    <HoverCardPrimitive.Arrow className="fill-current text-white dark:text-gray-800" />
+  <HoverCardPrimitive.Arrow className="fill-current text-white dark:text-gray-800" />
 
   <div className="flex h-full w-full space-x-4">
     <div
@@ -41,19 +42,19 @@ const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
         "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900"
       )}
     >
-    <a
-      href={getProfileLink(contributor)}
-      title={contributor}
-      target="_blank"
-    >
-      <img
-        className='object-cover rounded-full'
-        src={getAvatarLink(contributor)}
-        alt={contributor}
-        width={500}
-        height={500}
-      />
-    </a>
+      <a
+        href={getProfileLink(contributor)}
+        title={contributor}
+        target="_blank"
+      >
+        <img
+          className='object-cover rounded-full'
+          src={getAvatarLink(contributor)}
+          alt={contributor}
+          width={500}
+          height={500}
+        />
+      </a>
     </div>
 
     <div>
@@ -65,7 +66,7 @@ const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
         Last contribution was X mins ago.
       </p>
     </div>
-    </div>
+  </div>
     </HoverCardPrimitive.Content>
     </HoverCardPrimitive.Root>
 );

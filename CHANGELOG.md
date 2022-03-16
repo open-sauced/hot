@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.2.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.1-beta.1...v2.2.0-beta.1) (2022-03-16)
+
+
+### 🍕 Features
+
+* **radix-ui:** adds radix primitives and tailwind ([#143](https://github.com/open-sauced/hot-sauce/issues/143)) ([0031704](https://github.com/open-sauced/hot-sauce/commit/0031704f8e53353b44e76c46f7ce64675fd1fa0d)), closes [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153)
+
 ### [2.1.1-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.0...v2.1.1-beta.1) (2022-03-16)
 
 

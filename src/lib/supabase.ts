@@ -48,7 +48,8 @@ export async function fetchRecommendations(orderBy = 'total_stars', limit = 25) 
     .from('recommendations')
     .select('repo_name, description, stars, issues, total_stars, avg_recency_score, contributors, votes')
     .limit(limit)
-    .order(orderBy, { ascending: false });
+    .order(orderBy, { ascending: false })
+    .order('id');
 
   error && console.error(error);
 
@@ -73,7 +74,8 @@ export async function fetchMyVotes(user: User | null): Promise<DbRecomendation[]
     .from('recommendations')
     .select()
     .in('repo_name', votes ? votes.map((v) => v.repo_name) : [])
-    .order('votes', { ascending: false });
+    .order('votes', { ascending: false })
+    .order('id');
 
   if (error) console.error(error);
   return votedRepos as DbRecomendation[] || [];

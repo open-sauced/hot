@@ -52,6 +52,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
         href={getRepoLink(data.repo_name)}
         title={`Visit ${data.repo_name}`}
         target="_blank"
+        rel="noopener"
       >
         <img
           className="object-cover w-full"

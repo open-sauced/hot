@@ -34,7 +34,7 @@ const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
       "items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] !opacity-100"
     )}
   >
-  <HoverCardPrimitive.Arrow className="fill-current text-white dark:text-gray-800" />
+  <HoverCardPrimitive.Arrow offset={12} className="fill-current text-white dark:text-gray-800" />
 
   <div className="flex h-full w-full space-x-4">
     <div

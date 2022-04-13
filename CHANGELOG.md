@@ -5,6 +5,27 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.1.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.0...v2.1.1) (2022-03-16)
+
+
+### 🐛 Bug Fixes
+
+* correct loading of items with normalized order by clause ([#151](https://github.com/open-sauced/hot-sauce/issues/151)) ([0ee8a6f](https://github.com/open-sauced/hot-sauce/commit/0ee8a6fff4504b56cbc9c88a8f7db49d7847b206)), closes [#129](https://github.com/open-sauced/hot-sauce/issues/129)
+
+### [2.1.1-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.0...v2.1.1-beta.1) (2022-03-16)
+
+
+### 🐛 Bug Fixes
+
+* correct loading of items with normalized order by clause ([#151](https://github.com/open-sauced/hot-sauce/issues/151)) ([0ee8a6f](https://github.com/open-sauced/hot-sauce/commit/0ee8a6fff4504b56cbc9c88a8f7db49d7847b206)), closes [#129](https://github.com/open-sauced/hot-sauce/issues/129)
+
+## [2.1.0](https://github.com/open-sauced/hot-sauce/compare/v2.0.1...v2.1.0) (2022-03-12)
+
+
+### 🍕 Features
+
+* implement minimal beta release ([#148](https://github.com/open-sauced/hot-sauce/issues/148)) ([de6dee9](https://github.com/open-sauced/hot-sauce/commit/de6dee908b33b239098c3601c2c0b7fb0f777fc4)), closes [#147](https://github.com/open-sauced/hot-sauce/issues/147)
+
 ### [2.0.1](https://github.com/open-sauced/hot-sauce/compare/v2.0.0...v2.0.1) (2022-03-08)
 
 

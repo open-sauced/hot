@@ -8,6 +8,17 @@ on:
       - beta
 
 jobs:
+  setup:
+    name: Set environment variables
+    runs-on: ubuntu-latest
+    outputs:
+      DEPLOY_ENVIRONMENT: ${{ steps.env.outputs.DEPLOY_ENVIRONMENT }}
+    steps:
+      - name: "☁️ compute environment variables"
+        id: env
+        run: |
+          echo "::set-output name=DEPLOY_ENVIRONMENT::$([[ ${{ github.ref_name }} == 'main' ]] && echo 'production' || echo ${{ github.ref_name }})"
+
   test:
     name: Test and lint
     uses: open-sauced/open-sauced/.github/workflows/development.yml@main
@@ -36,11 +47,6 @@ jobs:
         with:
           images: ${{ github.repository }}
           tags: latest
-
-      - name: "🔧 synthetic environment variables"
-        run: |
-          echo "PUBLIC_SUPABASE_URL=${{ secrets.PUBLIC_SUPABASE_URL }}" >> ~/.env.production
-          echo "PUBLIC_SUPABASE_API_KEY=${{ secrets.PUBLIC_SUPABASE_API_KEY }}" >> ~/.env.production
 
       - name: "📦 docker build"
         uses: docker/build-push-action@v2
@@ -94,9 +100,6 @@ jobs:
 
       - name: "🚀 static app"
         run: npm run build
-        env:
-          PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
-          PUBLIC_SUPABASE_API_KEY: ${{ secrets.PUBLIC_SUPABASE_API_KEY }}
 
       - name: "📂 production artifacts"
         uses: actions/upload-artifact@v2
@@ -106,10 +109,11 @@ jobs:
 
   release:
     environment:
-      name: production
+      name: ${{ needs.setup.outputs.DEPLOY_ENVIRONMENT }}
       url: https://github.com/${{ github.repository }}/releases/tag/${{ steps.semantic-release.outputs.release-tag }}
     name: Semantic release
     needs:
+      - setup
       - test
       - docker
       - build
@@ -123,7 +127,6 @@ jobs:
       - name: "♻️ clean up artifact paths"
         run: |
           rm -rf public/diagram.svg
-          rm -rf supabase/diagrams/
 
       - name: "📂 download docker artifacts"
         uses: actions/download-artifact@v2

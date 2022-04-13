@@ -1,0 +1,6 @@
+[build]
+publish = "build"
+command = "npm run build"
+
+[context.beta]
+environment = { CHANNEL = "beta" }

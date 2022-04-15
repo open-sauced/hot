@@ -2,7 +2,7 @@
   "name": "@open-sauced/hot",
   "description": "🍕The site that recommends the hottest sauce.",
   "keywords": [],
-  "version": "2.1.1",
+  "version": "2.2.0-beta.1",
   "author": "TED Vortex <ted.vortex@gmail.com>",
   "private": true,
   "license": "MIT",
@@ -42,12 +42,14 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
+    "@radix-ui/react-hover-card": "^0.1.5",
     "@supabase/supabase-js": "^1.30.7",
+    "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
-    "react-tooltip": "^4.2.21",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.0.23",
+    "tailwindcss-radix": "^1.6.0"
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^1.4.0",

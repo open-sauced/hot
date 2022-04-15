@@ -22,12 +22,31 @@ const PrimaryNav = (): JSX.Element => {
           aria-label="Search through repositories rendered out"
         />
       </div>
-
+      {!user && (
+        <div className="items-center">
+          <div
+            role="button"
+            tabIndex={0}
+            aria-pressed="false"
+            className="cursor-pointer"
+            onClick={async () => {
+              await signIn({ provider: 'github' });
+            }}
+            onKeyDown={async (e) => {
+              if (e.key === 'Enter') {
+                await signIn({ provider: 'github' });
+              }
+            }}
+          >
+            Login
+          </div>
+        </div>
+      )}
       {user && (
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button>
             <div className="items-center">
-              <div className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-cheesyYellow">
+              <div className="rounded-full shadow-md w-10 h-10 overflow-hidden ring-2 ring-saucyRed">
                 {user && (
                   <img
                     className="object-cover w-[500] h-[500]"

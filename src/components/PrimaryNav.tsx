@@ -14,7 +14,7 @@ const PrimaryNav = (): JSX.Element => {
           <img className="h-7 mr-4" alt="open sauced" src={logo} />
         </a>
         <input
-          className=" ring-1 rounded-lg shadow-md w-[120px] h-full p-2 text-[9px] sm:text-xs sm:w-40 "
+          className=" bg-gray-200 rounded-lg shadow-md w-[120px] h-full p-2 text-[9px] sm:text-xs sm:w-40 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
           type="search"
           placeholder="search or jump to...   "
           id="repo-search"
@@ -27,7 +27,7 @@ const PrimaryNav = (): JSX.Element => {
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button>
             <div className="items-center">
-              <div className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-red-800">
+              <div className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-cheesyYellow">
                 {user && (
                   <img
                     className="object-cover w-[500] h-[500]"

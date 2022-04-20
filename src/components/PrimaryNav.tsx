@@ -1,11 +1,59 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Menu } from "@headlessui/react";
 import logo from "../assets/logo.svg";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
+import { fetchWithSearch } from "../lib/supabase";
+
+// TODO: move to hooks/debounce.ts
+function useDebounce<T>(value: T, delay: number): T {
+  // State and setters for debounced value
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+  useEffect(
+    () => {
+      // Update debounced value after delay
+      const handler = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+      // Cancel the timeout if value changes (also on delay change or unmount)
+      // This is how we prevent debounced value from updating if value is changed ...
+      // .. within the delay period. Timeout gets cleared and restarted.
+      return () => {
+        clearTimeout(handler);
+      };
+    },
+    [value, delay] // Only re-call effect if value or delay changes
+  );
+  return debouncedValue;
+}
 
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [results, setResults] = useState<any[]>([]);
+  // TODO: Searching status (whether there is pending API request)
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+  const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
+
+  // Effect for API call
+  useEffect(
+    () => {
+      if (debouncedSearchTerm) {
+        setIsSearching(true);
+
+        fetchWithSearch("total_stars", 2, debouncedSearchTerm).then((results) => {
+          setIsSearching(false);
+          setResults(results);
+        });
+      } else {
+        setResults([]);
+      }
+    },
+    [debouncedSearchTerm] // Only call effect if debounced search term changes
+  );
+
+  // TODO: remove
+  console.log(results)
 
   return (
     <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-2 sm:px-4 py-4 sm:py-2 items-center">
@@ -18,6 +66,7 @@ const PrimaryNav = (): JSX.Element => {
           type="search"
           placeholder="search or jump to...   "
           id="repo-search"
+          onChange={(e) => setSearchTerm(e.target.value)}
           name="repo-search"
           aria-label="Search through repositories rendered out"
         />

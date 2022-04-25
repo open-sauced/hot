@@ -33,6 +33,7 @@ const PrimaryNav = (): JSX.Element => {
   const [results, setResults] = useState<any[]>([]);
   // TODO: Searching status (whether there is pending API request)
   const [isSearching, setIsSearching] = useState<boolean>(false);
+  const [hasFocus, setFocus] = useState<boolean>(false);
   const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
 
   // Effect for API call
@@ -61,15 +62,34 @@ const PrimaryNav = (): JSX.Element => {
         <a href="https://opensauced.pizza">
           <img className="h-7 mr-4" alt="open sauced" src={logo} />
         </a>
-        <input
-          className=" bg-gray-200 rounded-lg shadow-md w-[120px] h-full p-2 text-[9px] sm:text-xs sm:w-40 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
-          type="search"
-          placeholder="search or jump to...   "
-          id="repo-search"
-          onChange={(e) => setSearchTerm(e.target.value)}
-          name="repo-search"
-          aria-label="Search through repositories rendered out"
-        />
+        <div id="search-container" className="flex flex-col">
+          <input
+            className=" bg-gray-200 rounded-lg shadow-md w-[120px] h-full p-2 text-[9px] sm:text-xs sm:w-40 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
+            type="search"
+            placeholder="search or jump to...   "
+            id="repo-search"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
+            name="repo-search"
+            aria-label="Search through repositories rendered out"
+          />
+          {hasFocus && <div className="bg-offWhite rounded-xl p-6 font-roboto w-full">
+            <div className="flex">
+              <div className="ml-5 border-l-2 pl-3 space-y-2">
+                <a
+                  className="font-bold text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
+                  href="https://opensauced.pizza"
+                  title={`Visit placeholder`}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  placeholder
+                </a>
+              </div>
+            </div>
+          </div>}
+        </div>
       </div>
       {!user && (
         <div className="items-center">

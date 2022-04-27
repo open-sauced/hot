@@ -62,9 +62,9 @@ const PrimaryNav = (): JSX.Element => {
         <a href="https://opensauced.pizza">
           <img className="h-7 mr-4" alt="open sauced" src={logo} />
         </a>
-        <div id="search-container" className="flex flex-col">
+        <div id="search-container" className="flex flex-col relative w-full max-w-lg">
           <input
-            className=" bg-gray-200 rounded-lg shadow-md w-[120px] h-full p-2 text-[9px] sm:text-xs sm:w-40 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
+            className=" bg-gray-200 rounded-lg shadow-md h-full p-2 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
             type="search"
             placeholder="search or jump to...   "
             id="repo-search"
@@ -74,9 +74,9 @@ const PrimaryNav = (): JSX.Element => {
             name="repo-search"
             aria-label="Search through repositories rendered out"
           />
-          {hasFocus && <div className="bg-offWhite rounded-xl p-6 font-roboto w-full">
+          {hasFocus && <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
             <div className="flex">
-              <div className="ml-5 border-l-2 pl-3 space-y-2">
+              <div className="w-full">
                 <a
                   className="font-bold text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
                   href="https://opensauced.pizza"
@@ -84,7 +84,9 @@ const PrimaryNav = (): JSX.Element => {
                   target="_blank"
                   rel="noopener"
                 >
-                  placeholder
+                  <h1 className="text-lightGrey p-2 uppercase text-xs border-b-2 w-full">Repository</h1>
+                  <h2 className="pl-6 pt-2">dotansimha/reallylongnamewowsolong</h2>
+                  <p className="text-sm text-gray-500 pl-6">lorem ipsum some words</p>
                 </a>
               </div>
             </div>

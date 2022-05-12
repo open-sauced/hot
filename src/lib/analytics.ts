@@ -7,7 +7,7 @@ function initiatePostHog () {
 
 function capturePostHogAnayltics ( analyticsTitle: string,
                                    analyticsProperty: string,
-                                   analyticsValue: any
+                                   analyticsValue: string
 ) {
     const analyticsObject: {[key: string]: string} = {};
     analyticsObject[analyticsProperty] = analyticsValue;

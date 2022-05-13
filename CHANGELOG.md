@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.2.0](https://github.com/open-sauced/hot-sauce/compare/v2.1.1...v2.2.0) (2022-05-13)
+
+
+### 🍕 Features
+
+* Add posthog to hot sauced project. ([#156](https://github.com/open-sauced/hot-sauce/issues/156)) ([a5f3b3b](https://github.com/open-sauced/hot-sauce/commit/a5f3b3b5acac8d8f3c55c3559afe9c2858d30df9))
+
 ### [2.1.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.0...v2.1.1) (2022-03-16)
 
 

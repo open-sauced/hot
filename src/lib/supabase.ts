@@ -43,40 +43,71 @@ export async function updateVotesByRepo(repoName: string, votes: number, user?: 
   return recommendations ? recommendations[0].votes : 0;
 }
 
-export async function fetchRecommendations(orderBy = 'total_stars', limit = 25) {
+export async function fetchRecommendations(
+  orderBy = 'stars',
+  orderByOptions: { ascending?: any, nullsFirst?: any, foreignTable?: any } | undefined = { ascending: false },
+  limit = 25
+) {
   const { data: recommendations, error } = await supabase
-    .from('recommendations')
-    .select('repo_name, description, stars, issues, total_stars, avg_recency_score, contributors, votes')
+    .from('repos')
+    .select(`
+      full_name,
+      description,
+      stars,
+      issues,
+      starsRelation:users_to_repos_stars(starsCount:count),
+      votesRelation:users_to_repos_votes(votesCount:count),
+      contributions(
+        last_merged_at,
+        contributor,
+        url,
+        prsCount:count
+      )
+    `)
     .limit(limit)
-    .order(orderBy, { ascending: false })
-    .order('id');
+    .order(orderBy, orderByOptions)
+    .order('updated_at', { ascending: false })
 
   error && console.error(error);
 
   return recommendations as DbRecomendation[] || [];
 }
 
-export async function fetchMyVotes(user: User | null): Promise<DbRecomendation[]> {
+export async function fetchMyVotes(
+  user: User | null,
+  limit = 25
+): Promise<DbRecomendation[]> {
   const githubId = user?.user_metadata.sub;
 
-  // First get the users votes
-  const { data: votes } = await supabase
-    .from('votes')
-    .select('repo_name')
-    .like('code', `${githubId}-%`);
-
-  /**
-   * Then get the recommendations based on the repo_name
-   * Ideally this would be one query but we currently can
-   * do joins when a foreign key exists
-   */
-  const { data: votedRepos, error } = await supabase
-    .from('recommendations')
-    .select()
-    .in('repo_name', votes ? votes.map((v) => v.repo_name) : [])
-    .order('votes', { ascending: false })
-    .order('id');
+  const { data: recommendations, error } = await supabase
+    .from('repos')
+    .select(`
+      full_name,
+      description,
+      stars,
+      issues,
+      starsRelation:users_to_repos_stars(starsCount:count),
+      votesRelation:users_to_repos_votes(votesCount:count),
+      myVotesRelation:users_to_repos_votes!inner(myVotesCount:count),
+      myVotesFilter:users_to_repos_votes!inner(
+        user_id
+      ),
+      contributions(
+        last_merged_at,
+        contributor,
+        url,
+        prsCount:count
+      )
+    `)
+    .filter('myVotesFilter.user_id', 'eq', githubId)
+    .limit(limit)
+    .order('count', {
+      ascending: false,
+      foreignTable: 'myVotesRelation',
+    })
+    .order('updated_at', { ascending: false })
 
   if (error) console.error(error);
-  return votedRepos as DbRecomendation[] || [];
+
+  return recommendations as DbRecomendation[] || [];
 }

@@ -11,11 +11,12 @@ interface DbRecomendation {
   readonly id: number;
   readonly stars: number;
   readonly issues: number;
-  readonly total_stars: number;
-  readonly votes: number;
-  readonly avg_recency_score: number;
-  readonly repo_name: string;
+  // readonly votes: number;
+  // readonly avg_recency_score: number;
+  readonly full_name: string;
   readonly description: string;
-  readonly contributors: string[];
+  readonly contributions: any[];
   readonly created_at: string;
+  readonly starsRelation: {starsCount: number}[],
+  readonly votesRelation: {votesCount: number}[],
 }

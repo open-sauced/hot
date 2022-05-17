@@ -12,7 +12,12 @@ export declare interface PostListProps {
 }
 
 const PostList = ({ data, user }: PostListProps): JSX.Element => {
-  const [votes, updateVotesState] = useState(data.votes || 0);
+  const {
+    starsRelation: [{starsCount}],
+    votesRelation: [{votesCount}],
+  } = data;
+
+  const [votes, updateVotesState] = useState(votesCount || 0);
 
   async function handleVoteUpdateByRepo(repoName: string, noOfVotes: number) {
     const updatedVotes = await updateVotesByRepo(repoName, noOfVotes, user);
@@ -23,19 +28,19 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     <div className="bg-offWhite rounded-xl p-6 font-roboto w-full">
       <div className="flex">
         <div className="flex flex-col justify-center items-center">
-          <Avatar contributor={data?.contributors[0]} list/>
-          <Avatar contributor={data?.contributors[1]} list/>
+          <Avatar contributor={data?.contributions[0]}/>
+          <Avatar contributor={data?.contributions[1]}/>
         </div>
 
         <div className="ml-5 border-l-2 pl-3 space-y-2">
           <a
             className="font-bold text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
-            href={getRepoLink(data.repo_name)}
-            title={`Visit ${data.repo_name}`}
+            href={getRepoLink(data.full_name)}
+            title={`Visit ${data.full_name}`}
             target="_blank"
             rel="noopener"
           >
-            {data.repo_name}
+            {data.full_name}
           </a>
 
           <div className="text-lightGrey text-xs sm:text-base">
@@ -47,10 +52,10 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
               role="button"
               tabIndex={0}
               aria-pressed="false"
-              onClick={() => handleVoteUpdateByRepo(data.repo_name, votes)}
+              onClick={() => handleVoteUpdateByRepo(data.full_name, votes)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  return handleVoteUpdateByRepo(data.repo_name, votes);
+                  return handleVoteUpdateByRepo(data.full_name, votes);
                 }
               }}
               className="flex justify-start text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
@@ -63,8 +68,8 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
 
             <a
               className="flex justify-start  text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-              href={getRepoIssuesLink(data.repo_name)}
-              title={`Visit ${data.repo_name} issues`}
+              href={getRepoIssuesLink(data.full_name)}
+              title={`Visit ${data.full_name} issues`}
               target="_blank"
               rel="noopener"
             >
@@ -76,14 +81,14 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
 
             <a
               className="flex justify-start  text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-              href={getRepoLink(data.repo_name)}
-              title={`Add a star to ${data.repo_name}`}
+              href={getRepoLink(data.full_name)}
+              title={`Add a star to ${data.full_name}`}
               target="_blank"
               rel="noopener"
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
                 <FaStar className="mr-1"/>
-                {data.total_stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
+                {data.stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
               </div>
             </a>
           </div>

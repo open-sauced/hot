@@ -10,15 +10,27 @@ import useSupabaseAuth from '../hooks/useSupabaseAuth';
 export declare interface ActiveLinks {
   [key: string]: {
     orderBy: string,
+    orderByOptions?: {
+      [key: string]: any
+    }
   };
 }
 
 const activeLinkColumns: ActiveLinks = {
-  popular: { orderBy: 'total_stars' },
-  upvoted: { orderBy: 'votes' },
+  popular: {
+    orderBy: 'count',
+    orderByOptions: {
+      foreignTable: 'starsRelation'
+    }
+  },
+  upvoted: {
+    orderBy: 'count',
+    orderByOptions: {
+      foreignTable: 'votesRelation'
+    }
+  },
   discussed: { orderBy: 'issues' },
-  recent: { orderBy: 'avg_recency_score' },
-  myVotes: { orderBy: 'my_votes' },
+  recent: { orderBy: 'updated_at' },
 };
 
 const PostsWrap = (): JSX.Element => {
@@ -38,8 +50,8 @@ const PostsWrap = (): JSX.Element => {
       });
       return;
     }
-    const { orderBy } = activeLinkColumns[activeLink];
-    fetchRecommendations(orderBy, limit).then((data) => {
+    const { orderBy, orderByOptions } = activeLinkColumns[activeLink];
+    fetchRecommendations(orderBy, orderByOptions, limit).then((data) => {
       setFetchedData(data);
     });
   }, [activeLink, limit]);

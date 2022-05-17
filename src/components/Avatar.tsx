@@ -7,7 +7,7 @@ export declare interface AvatarProps {
   list?: boolean;
 }
 
-const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
+const Avatar = ({contributor}: AvatarProps): JSX.Element => (
   <HoverCardPrimitive.Root>
   <HoverCardPrimitive.Trigger asChild>
     <div
@@ -21,7 +21,8 @@ const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
         alt={contributor}
         width={500}
         height={500}
-      />    </div>
+      />
+    </div>
   </HoverCardPrimitive.Trigger>
   <HoverCardPrimitive.Content
     align="center"

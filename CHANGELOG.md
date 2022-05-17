@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.2.1](https://github.com/open-sauced/hot-sauce/compare/v2.2.0...v2.2.1) (2022-05-17)
+
+
+### 🐛 Bug Fixes
+
+* Updated posthog env variable to work with vite. ([#158](https://github.com/open-sauced/hot-sauce/issues/158)) ([df4a599](https://github.com/open-sauced/hot-sauce/commit/df4a599cc7fa974e4252125c90b95fc0d164768d))
+
 ## [2.2.0](https://github.com/open-sauced/hot-sauce/compare/v2.1.1...v2.2.0) (2022-05-13)
 
 

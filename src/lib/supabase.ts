@@ -99,3 +99,19 @@ export async function fetchRecommendations(
 
   return recommendations as DbRecomendation[] || [];
 }
+
+export async function fetchWithSearch(orderBy = 'total_stars', limit = 5, searchText) {
+  return new Promise(async (resolve, reject) => {
+  console.log(orderBy, limit, searchText);
+  const { data: recommendations, error } = await supabase
+    .from('recommendations')
+    .select('repo_name, description,stars,issues, total_stars, avg_recency_score, contributors, votes')
+    .textSearch('repo_name', `'${searchText}'`) // The string will need to be interpolated with the ''
+    .limit(limit)
+    .order(orderBy, { ascending: false });
+
+    if (error) reject(error);
+    return resolve(recommendations);
+  });
+
+}

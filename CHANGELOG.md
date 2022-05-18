@@ -5,6 +5,21 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.3.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.2.1...v2.3.0-beta.1) (2022-05-18)
+
+
+### 🐛 Bug Fixes
+
+* make votes work in the new structure ([9d1c8e4](https://github.com/open-sauced/hot-sauce/commit/9d1c8e46a55af902546754496191bdd15ab8c38f))
+* stop the avatars from breaking ([336b39c](https://github.com/open-sauced/hot-sauce/commit/336b39cdd37946ac98e0d8df1cde65a00bbaf3bf))
+
+
+### 🍕 Features
+
+* **radix-ui:** adds radix primitives and tailwind ([#143](https://github.com/open-sauced/hot-sauce/issues/143)) ([0031704](https://github.com/open-sauced/hot-sauce/commit/0031704f8e53353b44e76c46f7ce64675fd1fa0d)), closes [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153)
+* adjust repo lists queries to new structure ([5475c65](https://github.com/open-sauced/hot-sauce/commit/5475c6525cb016b98b0f0feb63983c4200a6dc4f))
+* make votes work and simplify query structure ([b9ba15a](https://github.com/open-sauced/hot-sauce/commit/b9ba15a90a3357f4712c106aed6dba8e208a567a))
+
 ### [2.2.1](https://github.com/open-sauced/hot-sauce/compare/v2.2.0...v2.2.1) (2022-05-17)
 
 

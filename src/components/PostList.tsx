@@ -4,7 +4,8 @@ import humanizeNumber from '../lib/humanizeNumber';
 import { getRepoLink, getRepoIssuesLink } from '../lib/github';
 import Avatar from './Avatar';
 import { updateVotesByRepo } from '../lib/supabase';
-import {User} from "@supabase/supabase-js";
+import { User } from "@supabase/supabase-js";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 
 export declare interface PostListProps {
   data: DbRecomendation;
@@ -12,10 +13,18 @@ export declare interface PostListProps {
 }
 
 const PostList = ({ data, user }: PostListProps): JSX.Element => {
-  const [votes, updateVotesState] = useState(data.votes || 0);
+  const { user_metadata: { sub: user_id }} = user || { user_metadata: { sub: null }};
+  const {
+    id: repo_id,
+    starsRelation: [{starsCount}],
+    votesRelation: [{votesCount}],
+  } = data;
 
-  async function handleVoteUpdateByRepo(repoName: string, noOfVotes: number) {
-    const updatedVotes = await updateVotesByRepo(repoName, noOfVotes, user);
+  const [votes, updateVotesState] = useState(votesCount || 0);
+  const { signIn } = useSupabaseAuth();
+
+  async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
+    const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
     updateVotesState(updatedVotes);
   }
 
@@ -23,19 +32,26 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     <div className="bg-offWhite rounded-xl p-6 font-roboto w-full">
       <div className="flex">
         <div className="flex flex-col justify-center items-center">
-          <Avatar contributor={data?.contributors[0]} list/>
-          <Avatar contributor={data?.contributors[1]} list/>
+          {data?.contributions[0] &&
+            <Avatar
+              contributor={data.contributions[0]?.contributor}
+              lastPr={data.contributions[0]?.last_merged_at}/>}
+
+          {data?.contributions[1] &&
+            <Avatar
+              contributor={data.contributions[1]?.contributor}
+              lastPr={data.contributions[1]?.last_merged_at}/>}
         </div>
 
         <div className="ml-5 border-l-2 pl-3 space-y-2">
           <a
             className="font-bold text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
-            href={getRepoLink(data.repo_name)}
-            title={`Visit ${data.repo_name}`}
+            href={getRepoLink(data.full_name)}
+            title={`Visit ${data.full_name}`}
             target="_blank"
             rel="noopener"
           >
-            {data.repo_name}
+            {data.full_name}
           </a>
 
           <div className="text-lightGrey text-xs sm:text-base">
@@ -47,10 +63,10 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
               role="button"
               tabIndex={0}
               aria-pressed="false"
-              onClick={() => handleVoteUpdateByRepo(data.repo_name, votes)}
+              onClick={() => user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' })}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  return handleVoteUpdateByRepo(data.repo_name, votes);
+                  return user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' });
                 }
               }}
               className="flex justify-start text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
@@ -63,8 +79,8 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
 
             <a
               className="flex justify-start  text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-              href={getRepoIssuesLink(data.repo_name)}
-              title={`Visit ${data.repo_name} issues`}
+              href={getRepoIssuesLink(data.full_name)}
+              title={`Visit ${data.full_name} issues`}
               target="_blank"
               rel="noopener"
             >
@@ -76,14 +92,14 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
 
             <a
               className="flex justify-start  text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-              href={getRepoLink(data.repo_name)}
-              title={`Add a star to ${data.repo_name}`}
+              href={getRepoLink(data.full_name)}
+              title={`Add a star to ${data.full_name}`}
               target="_blank"
               rel="noopener"
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
                 <FaStar className="mr-1"/>
-                {data.total_stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
+                {data.stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
               </div>
             </a>
           </div>

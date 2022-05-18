@@ -4,34 +4,8 @@ import Modal from './Modal';
 import SecondaryNav from './SecondaryNav';
 import GridDisplay from './GridDisplay';
 import ListDisplay from './ListDisplay';
-import { fetchRecommendations, fetchMyVotes } from '../lib/supabase';
+import { fetchRecommendations } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
-
-export declare interface ActiveLinks {
-  [key: string]: {
-    orderBy: string,
-    orderByOptions?: {
-      [key: string]: any
-    }
-  };
-}
-
-const activeLinkColumns: ActiveLinks = {
-  popular: {
-    orderBy: 'count',
-    orderByOptions: {
-      foreignTable: 'starsRelation'
-    }
-  },
-  upvoted: {
-    orderBy: 'count',
-    orderByOptions: {
-      foreignTable: 'votesRelation'
-    }
-  },
-  discussed: { orderBy: 'issues' },
-  recent: { orderBy: 'updated_at' },
-};
 
 const PostsWrap = (): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
@@ -44,14 +18,7 @@ const PostsWrap = (): JSX.Element => {
   };
 
   useEffect(() => {
-    if (activeLink === 'myVotes') {
-      fetchMyVotes(user).then((data) => {
-        setFetchedData(data);
-      });
-      return;
-    }
-    const { orderBy, orderByOptions } = activeLinkColumns[activeLink];
-    fetchRecommendations(orderBy, orderByOptions, limit).then((data) => {
+    fetchRecommendations(activeLink, limit, user).then((data) => {
       setFetchedData(data);
     });
   }, [activeLink, limit]);
@@ -68,7 +35,6 @@ const PostsWrap = (): JSX.Element => {
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
         {isGrid ?
-
           <GridDisplay
             limit={limit}
             activeLink={activeLink}

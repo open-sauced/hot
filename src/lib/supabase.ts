@@ -38,77 +38,61 @@ export async function updateVotesByRepo(votes: number, repo_id: number, user_id:
 }
 
 export async function fetchRecommendations(
-  orderBy = 'stars',
-  orderByOptions: { ascending?: any, nullsFirst?: any, foreignTable?: any } | undefined = { ascending: false },
-  limit = 25
+  activeLink = 'popular',
+  limit = 25,
+  user: User | null = null
 ) {
-  const { data: recommendations, error } = await supabase
-    .from('repos')
-    .select(`
-      id,
-      full_name,
-      description,
-      stars,
-      issues,
-      starsRelation:users_to_repos_stars(starsCount:count),
-      votesRelation:users_to_repos_votes(votesCount:count),
-      contributions(
-        last_merged_at,
-        contributor,
-        url,
-        prsCount:count
+  const orderBy = 'stars';
+  const orderByOptions: {
+    ascending?: boolean,
+    nullsFirst?: boolean,
+    foreignTable?: string
+  } | undefined = { ascending: false };
+  let selectStatement = `
+    id,
+    full_name,
+    description,
+    stars,
+    issues,
+    starsRelation:users_to_repos_stars(starsCount:count),
+    votesRelation:users_to_repos_votes(votesCount:count),
+    contributions(
+      last_merged_at,
+      contributor,
+      url,
+      prsCount:count
+    )
+  `;
+
+  if (activeLink === 'upvoted') {
+    selectStatement += `,
+      votes:users_to_repos_votes!inner(*)
+    `;
+  } else if (activeLink === 'myVotes') {
+    selectStatement += `,
+      myVotesRelation:users_to_repos_votes!inner(myVotesCount:count),
+      myVotesFilter:users_to_repos_votes!inner(
+        user_id
       )
-    `)
+    `;
+  }
+
+  const supabaseComposition = supabase
+    .from('repos')
+    .select(selectStatement)
+
+  if (user && activeLink === 'myVotes') {
+    supabaseComposition
+      .filter('myVotesFilter.user_id', 'eq', user?.user_metadata?.sub)
+  }
+
+  const { data: recommendations, error } = await supabaseComposition
     .limit(limit)
     .order('last_merged_at', {
       ascending: false,
       foreignTable: 'contributions',
     })
     .order(orderBy, orderByOptions)
-    .order('updated_at', { ascending: false })
-
-  error && console.error(error);
-
-  return recommendations as DbRecomendation[] || [];
-}
-
-export async function fetchMyVotes(
-  user: User | null,
-  limit = 25
-): Promise<DbRecomendation[]> {
-  const githubId = user?.user_metadata.sub;
-
-  const { data: recommendations, error } = await supabase
-    .from('repos')
-    .select(`
-      id,
-      full_name,
-      description,
-      stars,
-      issues,
-      starsRelation:users_to_repos_stars(starsCount:count),
-      votesRelation:users_to_repos_votes(votesCount:count),
-      myVotesRelation:users_to_repos_votes!inner(myVotesCount:count),
-      myVotesFilter:users_to_repos_votes!inner(
-        user_id
-      ),
-      contributions(
-        last_merged_at,
-        contributor,
-        url,
-        prsCount:count
-      )
-    `)
-    .filter('myVotesFilter.user_id', 'eq', githubId)
-    .limit(limit)
-    .order('last_merged_at', {
-      ascending: false,
-      foreignTable: 'contributions',
-    })
-    .order('count', {
-      ascending: false,
-      foreignTable: 'myVotesRelation',
-    })
     .order('updated_at', { ascending: false })
 
   error && console.error(error);

@@ -4,7 +4,7 @@ import { updateVotesByRepo } from '../lib/supabase';
 import { getRepoLink } from '../lib/github';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 import { User } from "@supabase/supabase-js";
-import { FaArrowAltCircleUp } from "react-icons/fa";
+import {FaArrowAltCircleUp} from "react-icons/fa";
 
 export declare interface PostGridProps {
   data: DbRecomendation;

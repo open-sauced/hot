@@ -12,7 +12,9 @@ export declare interface PostGridProps {
 }
 
 const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
+  const { user_metadata: { sub: user_id }} = user || { user_metadata: { sub: null }};
   const {
+    id: repo_id,
     starsRelation: [{starsCount}],
     votesRelation: [{votesCount}],
   } = data;
@@ -20,8 +22,8 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const [votes, updateVotesState] = useState(votesCount || 0);
   const { signIn } = useSupabaseAuth();
 
-  async function handleVoteUpdateByRepo(repoName: string, noOfVotes: number) {
-    const updatedVotes = await updateVotesByRepo(repoName, noOfVotes, user);
+  async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
+    const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
     updateVotesState(updatedVotes);
   }
 
@@ -30,11 +32,13 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
       <div className="w-full flex justify-between items-center mb-3">
         <div className="flex w-full">
           {data?.contributions[0] &&
-            <Avatar contributor={data.contributions[0]?.contributor}
+            <Avatar
+              contributor={data.contributions[0]?.contributor}
               lastPr={data.contributions[0]?.last_merged_at}/>}
 
           {data?.contributions[1] &&
-            <Avatar contributor={data.contributions[1]?.contributor}
+            <Avatar
+              contributor={data.contributions[1]?.contributor}
               lastPr={data.contributions[1]?.last_merged_at}/>}
         </div>
 
@@ -43,10 +47,10 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
             role="button"
             tabIndex={0}
             aria-pressed="false"
-            onClick={() => (user ? handleVoteUpdateByRepo(data.full_name, votes) : signIn({ provider: 'github' })) }
+            onClick={() => user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' })}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
-                return user ? handleVoteUpdateByRepo(data.full_name, votes) : signIn({ provider: 'github' });
+                return user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' });
               }
             }}
             className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"

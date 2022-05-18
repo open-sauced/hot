@@ -4,43 +4,37 @@ export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_API_KEY);
 
-export async function authenticatedVote(userId: number, repoName: string) {
-  const { error } = await supabase
-    .from('votes')
-    .upsert([
-      {
-        github_user_id: userId,
-        repo_name: repoName,
-        code: `${userId}-${repoName}`,
-      }], {
-      onConflict: 'code',
-    });
+export async function authenticatedVote(user_id: number, repo_id: number) {
+  const {error, count} = await supabase
+    .from('users_to_repos_votes')
+    .select('count', {count: 'exact'})
+    .eq('user_id', user_id)
+    .eq('repo_id', repo_id);
 
-  if (error && error.code === '23505') {
+  if (error || count === 0) {
     await supabase
-      .from('votes')
+      .from('users_to_repos_votes')
+      .upsert({
+        user_id,
+        repo_id
+      });
+
+    return 1;
+  } else {
+    await supabase
+      .from('users_to_repos_votes')
       .delete()
-      .eq('code', `${userId}-${repoName}`);
+      .eq('user_id', user_id)
+      .eq('repo_id', repo_id);
 
     return -1;
   }
-
-  return 1;
 }
 
-export async function updateVotesByRepo(repoName: string, votes: number, user?: User | null) {
-  const githubId = user?.user_metadata.sub;
+export async function updateVotesByRepo(votes: number, repo_id: number, user_id: number) {
+  const modifier = await authenticatedVote(user_id, repo_id);
 
-  const voteTally = await authenticatedVote(githubId, repoName);
-
-  const { data: recommendations, error } = await supabase
-    .from('recommendations')
-    .update({ votes: votes + voteTally })
-    .eq('repo_name', repoName);
-
-  error && console.error(error);
-
-  return recommendations ? recommendations[0].votes : 0;
+  return votes + modifier;
 }
 
 export async function fetchRecommendations(
@@ -51,6 +45,7 @@ export async function fetchRecommendations(
   const { data: recommendations, error } = await supabase
     .from('repos')
     .select(`
+      id,
       full_name,
       description,
       stars,
@@ -86,6 +81,7 @@ export async function fetchMyVotes(
   const { data: recommendations, error } = await supabase
     .from('repos')
     .select(`
+      id,
       full_name,
       description,
       stars,

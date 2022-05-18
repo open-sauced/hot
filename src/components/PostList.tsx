@@ -4,7 +4,8 @@ import humanizeNumber from '../lib/humanizeNumber';
 import { getRepoLink, getRepoIssuesLink } from '../lib/github';
 import Avatar from './Avatar';
 import { updateVotesByRepo } from '../lib/supabase';
-import {User} from "@supabase/supabase-js";
+import { User } from "@supabase/supabase-js";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 
 export declare interface PostListProps {
   data: DbRecomendation;
@@ -12,15 +13,18 @@ export declare interface PostListProps {
 }
 
 const PostList = ({ data, user }: PostListProps): JSX.Element => {
+  const { user_metadata: { sub: user_id }} = user || { user_metadata: { sub: null }};
   const {
+    id: repo_id,
     starsRelation: [{starsCount}],
     votesRelation: [{votesCount}],
   } = data;
 
   const [votes, updateVotesState] = useState(votesCount || 0);
+  const { signIn } = useSupabaseAuth();
 
-  async function handleVoteUpdateByRepo(repoName: string, noOfVotes: number) {
-    const updatedVotes = await updateVotesByRepo(repoName, noOfVotes, user);
+  async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
+    const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
     updateVotesState(updatedVotes);
   }
 
@@ -29,12 +33,14 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
       <div className="flex">
         <div className="flex flex-col justify-center items-center">
           {data?.contributions[0] &&
-            <Avatar contributor={data.contributions[0]?.contributor}
-                    lastPr={data.contributions[0]?.last_merged_at}/>}
+            <Avatar
+              contributor={data.contributions[0]?.contributor}
+              lastPr={data.contributions[0]?.last_merged_at}/>}
 
           {data?.contributions[1] &&
-            <Avatar contributor={data.contributions[1]?.contributor}
-                    lastPr={data.contributions[1]?.last_merged_at}/>}
+            <Avatar
+              contributor={data.contributions[1]?.contributor}
+              lastPr={data.contributions[1]?.last_merged_at}/>}
         </div>
 
         <div className="ml-5 border-l-2 pl-3 space-y-2">
@@ -57,10 +63,10 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
               role="button"
               tabIndex={0}
               aria-pressed="false"
-              onClick={() => handleVoteUpdateByRepo(data.full_name, votes)}
+              onClick={() => user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' })}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                  return handleVoteUpdateByRepo(data.full_name, votes);
+                  return user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' });
                 }
               }}
               className="flex justify-start text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"

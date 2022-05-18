@@ -28,8 +28,13 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     <div className="bg-offWhite rounded-xl p-6 font-roboto w-full">
       <div className="flex">
         <div className="flex flex-col justify-center items-center">
-          <Avatar contributor={data?.contributions[0]}/>
-          <Avatar contributor={data?.contributions[1]}/>
+          {data?.contributions[0] &&
+            <Avatar contributor={data.contributions[0]?.contributor}
+                    lastPr={data.contributions[0]?.last_merged_at}/>}
+
+          {data?.contributions[1] &&
+            <Avatar contributor={data.contributions[1]?.contributor}
+                    lastPr={data.contributions[1]?.last_merged_at}/>}
         </div>
 
         <div className="ml-5 border-l-2 pl-3 space-y-2">

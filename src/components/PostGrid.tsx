@@ -29,8 +29,13 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
     <div className="bg-offWhite rounded-xl pt-6 px-4 pb-2 font-roboto">
       <div className="w-full flex justify-between items-center mb-3">
         <div className="flex w-full">
-          <Avatar contributor={data?.contributions[0]}/>
-          <Avatar contributor={data?.contributions[1]}/>
+          {data?.contributions[0] &&
+            <Avatar contributor={data.contributions[0]?.contributor}
+              lastPr={data.contributions[0]?.last_merged_at}/>}
+
+          {data?.contributions[1] &&
+            <Avatar contributor={data.contributions[1]?.contributor}
+              lastPr={data.contributions[1]?.last_merged_at}/>}
         </div>
 
         <div className="flex">

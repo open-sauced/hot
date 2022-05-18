@@ -65,6 +65,10 @@ export async function fetchRecommendations(
       )
     `)
     .limit(limit)
+    .order('last_merged_at', {
+      ascending: false,
+      foreignTable: 'contributions',
+    })
     .order(orderBy, orderByOptions)
     .order('updated_at', { ascending: false })
 
@@ -101,13 +105,17 @@ export async function fetchMyVotes(
     `)
     .filter('myVotesFilter.user_id', 'eq', githubId)
     .limit(limit)
+    .order('last_merged_at', {
+      ascending: false,
+      foreignTable: 'contributions',
+    })
     .order('count', {
       ascending: false,
       foreignTable: 'myVotesRelation',
     })
     .order('updated_at', { ascending: false })
 
-  if (error) console.error(error);
+  error && console.error(error);
 
   return recommendations as DbRecomendation[] || [];
 }

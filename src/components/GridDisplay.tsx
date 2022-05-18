@@ -14,7 +14,7 @@ const GridDisplay = ({ activeLink, limit, handleLoadingMore, fetchedData, user }
   <div>
     <div className="container grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-screen-xl mx-auto auto-rows-fr">
       {fetchedData.map((item, i) => (
-        <PostGrid user={user} data={item} key={`${item.repo_name}_${i}`} />
+        <PostGrid user={user} data={item} key={`${item.full_name}_${i}`} />
       ))}
       {fetchedData.length > 0 && activeLink !== "myVotes" && limit <= 100 && (
         <button

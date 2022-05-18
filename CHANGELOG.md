@@ -5,12 +5,26 @@
 
 > All notable changes to this project will be documented in this file
 
-## [2.2.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.1-beta.1...v2.2.0-beta.1) (2022-03-16)
+### [2.2.1](https://github.com/open-sauced/hot-sauce/compare/v2.2.0...v2.2.1) (2022-05-17)
+
+
+### 🐛 Bug Fixes
+
+* Updated posthog env variable to work with vite. ([#158](https://github.com/open-sauced/hot-sauce/issues/158)) ([df4a599](https://github.com/open-sauced/hot-sauce/commit/df4a599cc7fa974e4252125c90b95fc0d164768d))
+
+## [2.2.0](https://github.com/open-sauced/hot-sauce/compare/v2.1.1...v2.2.0) (2022-05-13)
 
 
 ### 🍕 Features
 
-* **radix-ui:** adds radix primitives and tailwind ([#143](https://github.com/open-sauced/hot-sauce/issues/143)) ([0031704](https://github.com/open-sauced/hot-sauce/commit/0031704f8e53353b44e76c46f7ce64675fd1fa0d)), closes [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153)
+* Add posthog to hot sauced project. ([#156](https://github.com/open-sauced/hot-sauce/issues/156)) ([a5f3b3b](https://github.com/open-sauced/hot-sauce/commit/a5f3b3b5acac8d8f3c55c3559afe9c2858d30df9))
+
+### [2.1.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.0...v2.1.1) (2022-03-16)
+
+
+### 🐛 Bug Fixes
+
+* correct loading of items with normalized order by clause ([#151](https://github.com/open-sauced/hot-sauce/issues/151)) ([0ee8a6f](https://github.com/open-sauced/hot-sauce/commit/0ee8a6fff4504b56cbc9c88a8f7db49d7847b206)), closes [#129](https://github.com/open-sauced/hot-sauce/issues/129)
 
 ### [2.1.1-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.0...v2.1.1-beta.1) (2022-03-16)
 

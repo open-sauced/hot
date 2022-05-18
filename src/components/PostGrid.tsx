@@ -4,7 +4,8 @@ import { updateVotesByRepo } from '../lib/supabase';
 import { getRepoLink } from '../lib/github';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 import { User } from "@supabase/supabase-js";
-import {FaArrowAltCircleUp} from "react-icons/fa";
+import { FaArrowAltCircleUp } from "react-icons/fa";
+import { capturePostHogAnayltics } from '../lib/analytics';
 
 export declare interface PostGridProps {
   data: DbRecomendation;
@@ -23,6 +24,8 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const { signIn } = useSupabaseAuth();
 
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
+    user_id && capturePostHogAnayltics('User voted', 'voteClick', 'true');
+
     const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
     updateVotesState(updatedVotes);
   }

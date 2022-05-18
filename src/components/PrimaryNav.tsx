@@ -3,6 +3,7 @@ import { Menu } from '@headlessui/react';
 import logo from '../assets/logo.svg';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 import { version } from '../../package.json';
+import { capturePostHogAnayltics } from '../lib/analytics';
 
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
@@ -26,9 +27,13 @@ const PrimaryNav = (): JSX.Element => {
             aria-pressed="false"
             className="cursor-pointer"
             onClick={async () => {
+              capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
+
               await signIn({ provider: 'github' });
             }}
             onKeyDown={async (e) => {
+              capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
+
               if (e.key === 'Enter') {
                 await signIn({ provider: 'github' });
               }

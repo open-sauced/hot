@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.4.0](https://github.com/open-sauced/hot-sauce/compare/v2.3.0...v2.4.0) (2022-05-19)
+
+
+### 📝 Documentation
+
+* update docs ([#164](https://github.com/open-sauced/hot-sauce/issues/164)) ([d5b3a6b](https://github.com/open-sauced/hot-sauce/commit/d5b3a6bed3e633fe25a3f1456499bf6d3f199c13))
+
 ## [2.3.0](https://github.com/open-sauced/hot-sauce/compare/v2.2.1...v2.3.0) (2022-05-19)
 
 

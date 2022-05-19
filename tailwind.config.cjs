@@ -41,5 +41,9 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require("tailwindcss-radix")(),
+  ],
+
 };

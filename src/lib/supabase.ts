@@ -4,79 +4,98 @@ export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_API_KEY);
 
-export async function authenticatedVote(userId: number, repoName: string) {
-  const { error } = await supabase
-    .from('votes')
-    .upsert([
-      {
-        github_user_id: userId,
-        repo_name: repoName,
-        code: `${userId}-${repoName}`,
-      }], {
-      onConflict: 'code',
-    });
+export async function authenticatedVote(user_id: number, repo_id: number) {
+  const {error, count} = await supabase
+    .from('users_to_repos_votes')
+    .select('count', {count: 'exact'})
+    .eq('user_id', user_id)
+    .eq('repo_id', repo_id);
 
-  if (error && error.code === '23505') {
+  if (error || count === 0) {
     await supabase
-      .from('votes')
+      .from('users_to_repos_votes')
+      .upsert({
+        user_id,
+        repo_id
+      });
+
+    return 1;
+  } else {
+    await supabase
+      .from('users_to_repos_votes')
       .delete()
-      .eq('code', `${userId}-${repoName}`);
+      .eq('user_id', user_id)
+      .eq('repo_id', repo_id);
 
     return -1;
   }
-
-  return 1;
 }
 
-export async function updateVotesByRepo(repoName: string, votes: number, user?: User | null) {
-  const githubId = user?.user_metadata.sub;
+export async function updateVotesByRepo(votes: number, repo_id: number, user_id: number) {
+  const modifier = await authenticatedVote(user_id, repo_id);
 
-  const voteTally = await authenticatedVote(githubId, repoName);
-
-  const { data: recommendations, error } = await supabase
-    .from('recommendations')
-    .update({ votes: votes + voteTally })
-    .eq('repo_name', repoName);
-
-  error && console.error(error);
-
-  return recommendations ? recommendations[0].votes : 0;
+  return votes + modifier;
 }
 
-export async function fetchRecommendations(orderBy = 'total_stars', limit = 25) {
-  const { data: recommendations, error } = await supabase
-    .from('recommendations')
-    .select('repo_name, description, stars, issues, total_stars, avg_recency_score, contributors, votes')
+export async function fetchRecommendations(
+  activeLink = 'popular',
+  limit = 25,
+  user: User | null = null
+) {
+  const orderBy = 'stars';
+  const orderByOptions: {
+    ascending?: boolean,
+    nullsFirst?: boolean,
+    foreignTable?: string
+  } | undefined = { ascending: false };
+  let selectStatement = `
+    id,
+    full_name,
+    description,
+    stars,
+    issues,
+    starsRelation:users_to_repos_stars(starsCount:count),
+    votesRelation:users_to_repos_votes(votesCount:count),
+    contributions(
+      last_merged_at,
+      contributor,
+      url,
+      prsCount:count
+    )
+  `;
+
+  if (activeLink === 'upvoted') {
+    selectStatement += `,
+      votes:users_to_repos_votes!inner(*)
+    `;
+  } else if (activeLink === 'myVotes') {
+    selectStatement += `,
+      myVotesRelation:users_to_repos_votes!inner(myVotesCount:count),
+      myVotesFilter:users_to_repos_votes!inner(
+        user_id
+      )
+    `;
+  }
+
+  const supabaseComposition = supabase
+    .from('repos')
+    .select(selectStatement)
+
+  if (user && activeLink === 'myVotes') {
+    supabaseComposition
+      .filter('myVotesFilter.user_id', 'eq', user?.user_metadata?.sub)
+  }
+
+  const { data: recommendations, error } = await supabaseComposition
     .limit(limit)
-    .order(orderBy, { ascending: false })
-    .order('id');
+    .order('last_merged_at', {
+      ascending: false,
+      foreignTable: 'contributions',
+    })
+    .order(orderBy, orderByOptions)
+    .order('updated_at', { ascending: false })
 
   error && console.error(error);
 
   return recommendations as DbRecomendation[] || [];
-}
-
-export async function fetchMyVotes(user: User | null): Promise<DbRecomendation[]> {
-  const githubId = user?.user_metadata.sub;
-
-  // First get the users votes
-  const { data: votes } = await supabase
-    .from('votes')
-    .select('repo_name')
-    .like('code', `${githubId}-%`);
-
-  /**
-   * Then get the recommendations based on the repo_name
-   * Ideally this would be one query but we currently can
-   * do joins when a foreign key exists
-   */
-  const { data: votedRepos, error } = await supabase
-    .from('recommendations')
-    .select()
-    .in('repo_name', votes ? votes.map((v) => v.repo_name) : [])
-    .order('votes', { ascending: false })
-    .order('id');
-
-  if (error) console.error(error);
-  return votedRepos as DbRecomendation[] || [];
 }

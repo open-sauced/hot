@@ -36,9 +36,7 @@
 
 In order to run the project we need the following software binaries installed on our development machines:
 - `node>=16.7.0`
-- `npm>=8.0.0`
-- `docker>=20.10.12`
-- `supabase>=0.18.0` 
+- `npm>=8.0.0` 
 
 We can also use one of the listed cloud providers we support:
 

@@ -5,6 +5,23 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.4.1-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.4.0...v2.4.1-beta.1) (2022-05-20)
+
+
+### 🤖 Build System
+
+* Demo beta 3 ([#165](https://github.com/open-sauced/hot-sauce/issues/165)) ([13a067e](https://github.com/open-sauced/hot-sauce/commit/13a067eb9a79185458d9ec1b747c6d6620fde154)), closes [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153) [#164](https://github.com/open-sauced/hot-sauce/issues/164) [#164](https://github.com/open-sauced/hot-sauce/issues/164)
+
+
+### 🐛 Bug Fixes
+
+* correct beta releases ([#166](https://github.com/open-sauced/hot-sauce/issues/166)) ([706bf5a](https://github.com/open-sauced/hot-sauce/commit/706bf5a400fe736402a80f766c3f700a6c9d00a9))
+
+
+### 🧑‍💻 Code Refactoring
+
+* add proper types for current repo structure ([3dd4be1](https://github.com/open-sauced/hot-sauce/commit/3dd4be127d4b37fac47ac157148b707d39516af7))
+
 ## [2.4.0](https://github.com/open-sauced/hot-sauce/compare/v2.3.0...v2.4.0) (2022-05-19)
 
 

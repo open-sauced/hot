@@ -36,6 +36,12 @@ const PrimaryNav = (): JSX.Element => {
   const [hasFocus, setFocus] = useState<boolean>(false);
   const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
 
+
+  const clickHandler = (searchToText: string) => {
+    console.log(searchToText)
+    setResults([])
+  }
+
   // Effect for API call
   useEffect(
     () => {
@@ -73,9 +79,10 @@ const PrimaryNav = (): JSX.Element => {
             onBlur={() => setFocus(false)}
             name="repo-search"
             aria-label="Search through repositories rendered out"
+            
           />
           {
-            hasFocus && results.length >0 &&
+            results.length >0 &&
             <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
               <div className="flex">
                 <div className="w-full">
@@ -84,20 +91,24 @@ const PrimaryNav = (): JSX.Element => {
                       <div>
                         {
                           results.map( result => (
-                            <a
-
-                              className=" text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
-                              href="https://opensauced.pizza"
-                              title={`Visit placeholder`}
-                              target="_blank"
-                              rel="noopener"
+                            // <a
+                            //   key={result.full_name}
+                            //   className=" text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
+                            //   href="https://opensauced.pizza"
+                            //   title={`Visit placeholder`}
+                            //   target="_blank"
+                            //   rel="noopener"
                               
-                            >
-                              <div>
+                            // >
+                              <div
+                                key={result.full_name}
+                                className=" text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
+                                onClick={()=> clickHandler(result.full_name)}
+                                >
                                 <h2 className="pl-6 pt-2">{result.full_name}</h2>
                                 <p className="text-sm text-gray-500 pl-6">{result.description}</p>
                               </div>
-                            </a>
+                            // </a>
                           ))
 
                         }

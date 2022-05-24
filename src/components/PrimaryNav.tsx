@@ -42,9 +42,9 @@ const PrimaryNav = (): JSX.Element => {
       if (debouncedSearchTerm) {
         setIsSearching(true);
 
-        fetchWithSearch("total_stars", 2, debouncedSearchTerm).then((results) => {
+        fetchWithSearch("stars", 3, debouncedSearchTerm).then((results) => {
           setIsSearching(false);
-          setResults(results);
+          setResults(results as unknown as any[]);
         });
       } else {
         setResults([]);
@@ -74,23 +74,39 @@ const PrimaryNav = (): JSX.Element => {
             name="repo-search"
             aria-label="Search through repositories rendered out"
           />
-          {hasFocus && <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
-            <div className="flex">
-              <div className="w-full">
-                <a
-                  className="font-bold text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
-                  href="https://opensauced.pizza"
-                  title={`Visit placeholder`}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <h1 className="text-lightGrey p-2 uppercase text-xs border-b-2 w-full">Repository</h1>
-                  <h2 className="pl-6 pt-2">dotansimha/reallylongnamewowsolong</h2>
-                  <p className="text-sm text-gray-500 pl-6">lorem ipsum some words</p>
-                </a>
+          {
+            hasFocus && results.length >0 &&
+            <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
+              <div className="flex">
+                <div className="w-full">
+                      <h1 className="text-lightGrey p-2 uppercase text-xs border-b-2 w-full">Repository</h1>
+
+                      <div>
+                        {
+                          results.map( result => (
+                            <a
+
+                              className=" text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
+                              href="https://opensauced.pizza"
+                              title={`Visit placeholder`}
+                              target="_blank"
+                              rel="noopener"
+                              
+                            >
+                              <div>
+                                <h2 className="pl-6 pt-2">{result.full_name}</h2>
+                                <p className="text-sm text-gray-500 pl-6">{result.description}</p>
+                              </div>
+                            </a>
+                          ))
+
+                        }
+                      </div>
+
+                </div>
               </div>
             </div>
-          </div>}
+          }
         </div>
       </div>
       {!user && (

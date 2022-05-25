@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, ChangeEvent} from "react";
 import { Menu } from "@headlessui/react";
 import logo from "../assets/logo.svg";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
@@ -47,6 +47,13 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
     setResults([])
   }
 
+  const inputOnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value)
+    if(e.target.value == ""){
+      setTextToSearch("")
+    }
+  }
+
   // Effect for API call
   useEffect(
     () => {
@@ -80,7 +87,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
             type="search"
             placeholder="search or jump to...   "
             id="repo-search"
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={inputOnChangeHandler}
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}
             name="repo-search"

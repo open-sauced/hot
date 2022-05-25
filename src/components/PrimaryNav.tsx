@@ -5,6 +5,10 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
 import { fetchWithSearch } from "../lib/supabase";
 
+interface PostWrapProps{
+  setTextToSearch: any
+}
+
 // TODO: move to hooks/debounce.ts
 function useDebounce<T>(value: T, delay: number): T {
   // State and setters for debounced value
@@ -27,7 +31,7 @@ function useDebounce<T>(value: T, delay: number): T {
   return debouncedValue;
 }
 
-const PrimaryNav = (): JSX.Element => {
+const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [results, setResults] = useState<any[]>([]);
@@ -39,6 +43,7 @@ const PrimaryNav = (): JSX.Element => {
 
   const clickHandler = (searchToText: string) => {
     console.log(searchToText)
+    setTextToSearch(searchToText)
     setResults([])
   }
 
@@ -61,6 +66,7 @@ const PrimaryNav = (): JSX.Element => {
 
   // TODO: remove
   console.log(results)
+
 
   return (
     <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-2 sm:px-4 py-4 sm:py-2 items-center">

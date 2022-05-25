@@ -7,7 +7,11 @@ import ListDisplay from './ListDisplay';
 import { fetchRecommendations } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 
-const PostsWrap = (): JSX.Element => {
+interface PostWrapProps{
+  textToSearch: string
+}
+
+const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
   const [activeLink, setActiveLink] = useState('popular');
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
@@ -18,10 +22,10 @@ const PostsWrap = (): JSX.Element => {
   };
 
   useEffect(() => {
-    fetchRecommendations(activeLink, limit, user).then((data) => {
+    fetchRecommendations(activeLink, limit, user, textToSearch).then((data) => {
       setFetchedData(data);
     });
-  }, [activeLink, limit]);
+  }, [activeLink, limit, textToSearch]);
 
   return (
     <>

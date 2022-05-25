@@ -40,7 +40,8 @@ export async function updateVotesByRepo(votes: number, repo_id: number, user_id:
 export async function fetchRecommendations(
   activeLink = 'popular',
   limit = 25,
-  user: User | null = null
+  user: User | null = null,
+  textToSearchParam = '',
 ) {
   const orderBy = 'stars';
   const orderByOptions: {
@@ -86,8 +87,12 @@ export async function fetchRecommendations(
       .filter('myVotesFilter.user_id', 'eq', user?.user_metadata?.sub)
   }
 
+  const searchColumn = textToSearchParam == '' ? '' : 'full_name'
+  const textToSearch = textToSearchParam == '' ? '' : textToSearchParam
+
   const { data: recommendations, error } = await supabaseComposition
     .limit(limit)
+    .like(searchColumn, `%${textToSearch}%`)
     .order('last_merged_at', {
       ascending: false,
       foreignTable: 'contributions',

@@ -82,6 +82,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
           <img className="h-7 mr-4" alt="open sauced" src={logo} />
         </a>
         <div id="search-container" className="flex flex-col relative w-full max-w-lg">
+    
           <input
             className=" bg-gray-200 rounded-lg shadow-md h-full p-2 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
             type="search"
@@ -89,13 +90,15 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
             id="repo-search"
             onChange={inputOnChangeHandler}
             onFocus={() => setFocus(true)}
-            onBlur={() => setFocus(false)}
+            onBlur={() => setTimeout(() => {
+              setFocus(false)
+            }, 100)}
             name="repo-search"
             aria-label="Search through repositories rendered out"
             
           />
           {
-            results.length >0 &&
+            results.length >0 && hasFocus &&
             <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
               <div className="flex">
                 <div className="w-full">

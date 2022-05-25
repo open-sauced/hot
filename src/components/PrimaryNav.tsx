@@ -84,7 +84,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
         <div id="search-container" className="flex flex-col relative w-full max-w-lg">
     
           <input
-            className=" bg-gray-200 rounded-lg shadow-md h-full p-2 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
+            className=" bg-gray-200 rounded-lg shadow-md h-full py-2 px-3 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
             type="search"
             placeholder="search or jump to...   "
             id="repo-search"
@@ -102,7 +102,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
             <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
               <div className="flex">
                 <div className="w-full">
-                      <h1 className="text-lightGrey p-2 uppercase text-xs border-b-2 w-full">Repository</h1>
+                      <h1 className="text-lightGrey p-[15px] uppercase text-xs border-b-2 w-full">Repository</h1>
 
                       <div>
                         {
@@ -118,11 +118,11 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
                             // >
                               <div
                                 key={result.full_name}
-                                className=" text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
+                                className=" text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
                                 onClick={()=> clickHandler(result.full_name)}
                                 >
-                                <h2 className="pl-6 pt-2">{result.full_name}</h2>
-                                <p className="text-sm text-gray-500 pl-6">{result.description}</p>
+                                <h2 >{result.full_name}</h2>
+                                <p className="text-sm text-gray-500">{result.description}</p>
                               </div>
                             // </a>
                           ))

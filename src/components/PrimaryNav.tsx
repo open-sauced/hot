@@ -82,7 +82,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
           <img className="h-7 mr-4" alt="open sauced" src={logo} />
         </a>
         <div id="search-container" className="flex flex-col relative w-full max-w-lg">
-    
+
           <input
             className=" bg-gray-200 rounded-lg shadow-md h-full py-2 px-3 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
             type="search"
@@ -95,7 +95,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
             }, 100)}
             name="repo-search"
             aria-label="Search through repositories rendered out"
-            
+
           />
           {
             results.length >0 && hasFocus &&
@@ -107,6 +107,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
                       <div>
                         {
                           results.map( result => (
+<<<<<<< HEAD
                             // <a
                             //   key={result.full_name}
                             //   className=" text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
@@ -121,12 +122,27 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
                                 className=" text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
                                 onClick={()=> clickHandler(result.full_name) }
                                 >
+=======
+                            <div
+                              key={result.full_name}
+                              className=" text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
+                              >
+                              <a
+                              role="button"
+                              tabIndex={0}
+                              aria-pressed="false"
+                              onKeyDown={async (e)=> {
+                                if (e.key === 'Enter') {
+                                  await clickHandler(result.full_name)
+                                }
+                              }}
+                              target="_blank" href={`https://app.opensauced.pizza/repos/${result.full_name}`}>
+>>>>>>> ca8aa0e9d0b00a8f52dfa750c95d33377f177f6a
                                 <h2 >{result.full_name}</h2>
                                 <p className="text-sm text-gray-500">{result.description}</p>
-                              </div>
-                            // </a>
+                              </a>
+                            </div>
                           ))
-
                         }
                       </div>
 

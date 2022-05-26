@@ -2,6 +2,7 @@ import React, {useState, useEffect, ChangeEvent} from "react";
 import { Menu } from "@headlessui/react";
 import logo from "../assets/logo.svg";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import { capturePostHogAnayltics } from '../lib/analytics';
 import { version } from "../../package.json";
 import { fetchWithSearch } from "../lib/supabase";
 
@@ -92,7 +93,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
             onFocus={() => setFocus(true)}
             onBlur={() => setTimeout(() => {
               setFocus(false)
-            }, 100)}
+            }, 200)}
             name="repo-search"
             aria-label="Search through repositories rendered out"
 
@@ -107,11 +108,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
                       <div>
                         {
                           results.map( result => (
-                            <div
-                              key={result.full_name}
-                              className=" text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
-                              >
-                              <a
+                            <a
                               role="button"
                               tabIndex={0}
                               aria-pressed="false"
@@ -120,11 +117,17 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
                                   await clickHandler(result.full_name)
                                 }
                               }}
-                              target="_blank" href={`https://app.opensauced.pizza/repos/${result.full_name}`}>
-                                <h2 >{result.full_name}</h2>
-                                <p className="text-sm text-gray-500">{result.description}</p>
-                              </a>
-                            </div>
+                              target="_blank" href={`https://app.opensauced.pizza/repos/${result.full_name}`}
+                            >
+                              <div
+                                key={result.full_name}
+                                className=" text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
+                                >
+
+                                  <h2 >{result.full_name}</h2>
+                                  <p className="text-sm text-gray-500">{result.description}</p>
+                              </div>
+                            </a>
                           ))
                         }
                       </div>
@@ -143,9 +146,11 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
             aria-pressed="false"
             className="cursor-pointer"
             onClick={async () => {
+              capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
               await signIn({ provider: 'github' });
             }}
             onKeyDown={async (e) => {
+              capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
               if (e.key === 'Enter') {
                 await signIn({ provider: 'github' });
               }

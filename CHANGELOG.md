@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.5.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.4.1-beta.1...v2.5.0-beta.1) (2022-05-26)
+
+
+### 🍕 Features
+
+* Repository search extn ([#171](https://github.com/open-sauced/hot-sauce/issues/171)) ([5e44d80](https://github.com/open-sauced/hot-sauce/commit/5e44d803a4b413f311828d4a1cbfbf6b08051efa)), closes [#170](https://github.com/open-sauced/hot-sauce/issues/170)
+
 ### [2.4.1-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.4.0...v2.4.1-beta.1) (2022-05-20)
 
 

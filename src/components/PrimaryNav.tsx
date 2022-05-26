@@ -107,22 +107,6 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
                       <div>
                         {
                           results.map( result => (
-<<<<<<< HEAD
-                            // <a
-                            //   key={result.full_name}
-                            //   className=" text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
-                            //   href="https://opensauced.pizza"
-                            //   title={`Visit placeholder`}
-                            //   target="_blank"
-                            //   rel="noopener"
-                              
-                            // >
-                              <div
-                                key={result.full_name}
-                                className=" text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
-                                onClick={()=> clickHandler(result.full_name) }
-                                >
-=======
                             <div
                               key={result.full_name}
                               className=" text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
@@ -137,7 +121,6 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
                                 }
                               }}
                               target="_blank" href={`https://app.opensauced.pizza/repos/${result.full_name}`}>
->>>>>>> ca8aa0e9d0b00a8f52dfa750c95d33377f177f6a
                                 <h2 >{result.full_name}</h2>
                                 <p className="text-sm text-gray-500">{result.description}</p>
                               </a>

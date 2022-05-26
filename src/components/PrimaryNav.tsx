@@ -119,7 +119,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
                               <div
                                 key={result.full_name}
                                 className=" text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
-                                onClick={()=> clickHandler(result.full_name)}
+                                onClick={()=> clickHandler(result.full_name) }
                                 >
                                 <h2 >{result.full_name}</h2>
                                 <p className="text-sm text-gray-500">{result.description}</p>

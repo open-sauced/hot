@@ -40,7 +40,8 @@ export async function updateVotesByRepo(votes: number, repo_id: number, user_id:
 export async function fetchRecommendations(
   activeLink = 'popular',
   limit = 25,
-  user: User | null = null
+  user: User | null = null,
+  textToSearchParam = '',
 ) {
   const orderBy = 'stars';
   const orderByOptions: {
@@ -86,8 +87,12 @@ export async function fetchRecommendations(
       .filter('myVotesFilter.user_id', 'eq', user?.user_metadata?.sub)
   }
 
+  const searchColumn = textToSearchParam == '' ? '' : 'full_name'
+  const textToSearch = textToSearchParam == '' ? '' : textToSearchParam
+
   const { data: recommendations, error } = await supabaseComposition
     .limit(limit)
+    .like(searchColumn, `%${textToSearch}%`)
     .order('last_merged_at', {
       ascending: false,
       foreignTable: 'contributions',
@@ -98,4 +103,21 @@ export async function fetchRecommendations(
   error && console.error(error);
 
   return recommendations as DbRecomendation[] || [];
+}
+
+export async function fetchWithSearch(orderBy = 'stars', limit = 5, searchText: string) {
+  
+  return new Promise(async (resolve, reject) => {
+  console.log(orderBy, limit, searchText);
+  const { data: recommendations, error } = await supabase
+    .from('repos')
+    .select('full_name, name, description, stars, issues')
+    .like('full_name', `%${searchText}%`) // The string will need to be interpolated with the ''
+    .limit(limit)
+    .order(orderBy, { ascending: false });
+
+    if (error) reject(error);
+    return resolve(recommendations);
+  });
+
 }

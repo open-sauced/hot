@@ -1,23 +1,142 @@
-import React from 'react';
-import { Menu } from '@headlessui/react';
-import logo from '../assets/logo.svg';
-import useSupabaseAuth from '../hooks/useSupabaseAuth';
-import { version } from '../../package.json';
+import React, {useState, useEffect, ChangeEvent} from "react";
+import { Menu } from "@headlessui/react";
+import logo from "../assets/logo.svg";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { capturePostHogAnayltics } from '../lib/analytics';
+import { version } from "../../package.json";
+import { fetchWithSearch } from "../lib/supabase";
 
-const PrimaryNav = (): JSX.Element => {
+interface PostWrapProps{
+  setTextToSearch: any
+}
+
+// TODO: move to hooks/debounce.ts
+function useDebounce<T>(value: T, delay: number): T {
+  // State and setters for debounced value
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+  useEffect(
+    () => {
+      // Update debounced value after delay
+      const handler = setTimeout(() => {
+        setDebouncedValue(value);
+      }, delay);
+      // Cancel the timeout if value changes (also on delay change or unmount)
+      // This is how we prevent debounced value from updating if value is changed ...
+      // .. within the delay period. Timeout gets cleared and restarted.
+      return () => {
+        clearTimeout(handler);
+      };
+    },
+    [value, delay] // Only re-call effect if value or delay changes
+  );
+  return debouncedValue;
+}
+
+const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [results, setResults] = useState<any[]>([]);
+  // TODO: Searching status (whether there is pending API request)
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+  const [hasFocus, setFocus] = useState<boolean>(false);
+  const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
+
+
+  const clickHandler = (searchToText: string) => {
+    console.log(searchToText)
+    setTextToSearch(searchToText)
+    setResults([])
+  }
+
+  const inputOnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value)
+    if(e.target.value == ""){
+      setTextToSearch("")
+    }
+  }
+
+  // Effect for API call
+  useEffect(
+    () => {
+      if (debouncedSearchTerm) {
+        setIsSearching(true);
+
+        fetchWithSearch("stars", 3, debouncedSearchTerm).then((results) => {
+          setIsSearching(false);
+          setResults(results as unknown as any[]);
+        });
+      } else {
+        setResults([]);
+      }
+    },
+    [debouncedSearchTerm] // Only call effect if debounced search term changes
+  );
+
+  // TODO: remove
+  console.log(results)
+
 
   return (
-    <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-4 py-4 sm:py-2">
-      <div className="flex-1 flex text-2xl font-medium items-center">
+    <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-2 sm:px-4 py-4 sm:py-2 items-center">
+      <div className="flex-1 flex items-center">
         <a href="https://opensauced.pizza">
-          <img
-            className="h-7 mr-4"
-            alt="open sauced"
-            src={logo}
-          />
+          <img className="h-7 mr-4" alt="open sauced" src={logo} />
         </a>
+        <div id="search-container" className="flex flex-col relative w-full max-w-lg">
+
+          <input
+            className=" bg-gray-200 rounded-lg shadow-md h-full py-2 px-3 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
+            type="search"
+            placeholder="search or jump to...   "
+            id="repo-search"
+            onChange={inputOnChangeHandler}
+            onFocus={() => setFocus(true)}
+            onBlur={() => setTimeout(() => {
+              setFocus(false)
+            }, 200)}
+            name="repo-search"
+            aria-label="Search through repositories rendered out"
+
+          />
+          {
+            results.length >0 && hasFocus &&
+            <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
+              <div className="flex">
+                <div className="w-full">
+                      <h1 className="text-lightGrey p-[15px] uppercase text-xs border-b-2 w-full">Repository</h1>
+
+                      <div>
+                        {
+                          results.map( result => (
+                            <a
+                              role="button"
+                              tabIndex={0}
+                              aria-pressed="false"
+                              onKeyDown={async (e)=> {
+                                if (e.key === 'Enter') {
+                                  await clickHandler(result.full_name)
+                                }
+                              }}
+                              target="_blank" href={`https://app.opensauced.pizza/repos/${result.full_name}`}
+                            >
+                              <div
+                                key={result.full_name}
+                                className=" text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
+                                >
+
+                                  <h2 >{result.full_name}</h2>
+                                  <p className="text-sm text-gray-500">{result.description}</p>
+                              </div>
+                            </a>
+                          ))
+                        }
+                      </div>
+
+                </div>
+              </div>
+            </div>
+          }
+        </div>
       </div>
       {!user && (
         <div className="items-center">
@@ -28,12 +147,10 @@ const PrimaryNav = (): JSX.Element => {
             className="cursor-pointer"
             onClick={async () => {
               capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
-
               await signIn({ provider: 'github' });
             }}
             onKeyDown={async (e) => {
               capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
-
               if (e.key === 'Enter') {
                 await signIn({ provider: 'github' });
               }
@@ -47,7 +164,7 @@ const PrimaryNav = (): JSX.Element => {
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button>
             <div className="items-center">
-              <div className="rounded-full w-10 h-10 overflow-hidden ring-2 ring-red-800">
+              <div className="rounded-full shadow-md w-10 h-10 overflow-hidden ring-2 ring-saucyRed">
                 {user && (
                   <img
                     className="object-cover w-[500] h-[500]"
@@ -62,7 +179,7 @@ const PrimaryNav = (): JSX.Element => {
             <Menu.Item>
               {({ active }) => (
                 <a href={`https://github.com/${user.user_metadata.user_name}`}>
-                  <span className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200`}>
+                  <span className={`${active && "bg-gray-700"} block px-4 py-2 rounded-md text-gray-200`}>
                     {user.user_metadata.user_name}
                   </span>
                 </a>
@@ -70,7 +187,7 @@ const PrimaryNav = (): JSX.Element => {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <span className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200`}>
+                <span className={`${active && "bg-gray-700"} block px-4 py-2 rounded-md text-gray-200`}>
                   v{version}
                 </span>
               )}
@@ -81,7 +198,7 @@ const PrimaryNav = (): JSX.Element => {
               }}
             >
               {({ active }) => (
-                <span className={`${active && 'bg-gray-700'} block px-4 py-2 rounded-md text-gray-200 cursor-pointer`}>
+                <span className={`${active && "bg-gray-700"} block px-4 py-2 rounded-md text-gray-200 cursor-pointer`}>
                   Logout
                 </span>
               )}

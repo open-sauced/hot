@@ -104,7 +104,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
               <div className="flex">
                 <div className="w-full">
                       <h1 className="text-lightGrey p-[15px] uppercase text-xs border-b-2 w-full">Repository {
-                        isSearching && <FaSpinner aria-hidden="true" className="inline-block float-right" />
+                        isSearching && <FaSpinner aria-hidden="true" className="animate-spin inline-block float-right" />
                       }</h1>
 
                       <div>

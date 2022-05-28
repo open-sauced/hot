@@ -2,14 +2,19 @@ import React, {useState, useEffect, ChangeEvent} from "react";
 import { Menu } from "@headlessui/react";
 import logo from "../assets/logo.svg";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import { FaSpinner } from "react-icons/fa";
 import { capturePostHogAnayltics } from '../lib/analytics';
 import { version } from "../../package.json";
 import { fetchWithSearch } from "../lib/supabase";
 
 interface PostWrapProps{
-  setTextToSearch: any
+  setTextToSearch: (arg0:string) => void
 }
 
+type PostResult = {
+  full_name: string,
+  description: string
+}
 // TODO: move to hooks/debounce.ts
 function useDebounce<T>(value: T, delay: number): T {
   // State and setters for debounced value
@@ -35,8 +40,7 @@ function useDebounce<T>(value: T, delay: number): T {
 const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [results, setResults] = useState<any[]>([]);
-  // TODO: Searching status (whether there is pending API request)
+  const [results, setResults] = useState<PostResult[]>([]);
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [hasFocus, setFocus] = useState<boolean>(false);
   const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
@@ -63,7 +67,7 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
 
         fetchWithSearch("stars", 3, debouncedSearchTerm).then((results) => {
           setIsSearching(false);
-          setResults(results as unknown as any[]);
+          setResults(results as PostResult[]);
         });
       } else {
         setResults([]);
@@ -71,10 +75,6 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
     },
     [debouncedSearchTerm] // Only call effect if debounced search term changes
   );
-
-  // TODO: remove
-  console.log(results)
-
 
   return (
     <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-2 sm:px-4 py-4 sm:py-2 items-center">
@@ -103,7 +103,9 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
             <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
               <div className="flex">
                 <div className="w-full">
-                      <h1 className="text-lightGrey p-[15px] uppercase text-xs border-b-2 w-full">Repository</h1>
+                      <h1 className="text-lightGrey p-[15px] uppercase text-xs border-b-2 w-full">Repository {
+                        isSearching && <FaSpinner aria-hidden="true" className="inline-block float-right" />
+                      }</h1>
 
                       <div>
                         {

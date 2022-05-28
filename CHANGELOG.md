@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.6.0](https://github.com/open-sauced/hot-sauce/compare/v2.5.0...v2.6.0) (2022-05-28)
+
+
+### 🍕 Features
+
+* correct lint errors + search spinner ([#176](https://github.com/open-sauced/hot-sauce/issues/176)) ([2fb8f16](https://github.com/open-sauced/hot-sauce/commit/2fb8f167d73cde07756bcc080acb7275e72151e4))
+
 ## [2.5.0](https://github.com/open-sauced/hot-sauce/compare/v2.4.0...v2.5.0) (2022-05-27)
 
 

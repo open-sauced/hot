@@ -16,7 +16,6 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   const { user_metadata: { sub: user_id }} = user || { user_metadata: { sub: null }};
   const {
     id: repo_id,
-    starsRelation: [{starsCount}],
     votesRelation: [{votesCount}],
   } = data;
 

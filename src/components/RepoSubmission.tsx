@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react'
+import React, { FC, HTMLInputTypeAttribute, RefObject, useRef, useState } from 'react'
 
 
 const RepoSubmission: FC = ()  => {
@@ -8,7 +8,7 @@ const RepoSubmission: FC = ()  => {
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState<boolean>(false)
   const [submitted, setSubmitted] = useState<boolean>(false)
 
-  const submissionInputRef = useRef<string>("")
+  const submissionInputRef = useRef<RefObject>(null)
   
   
   const saveDataToDataBase = (url: string):void => {

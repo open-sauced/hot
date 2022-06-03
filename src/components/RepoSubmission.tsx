@@ -1,4 +1,4 @@
-import React, { FC, HTMLInputTypeAttribute, RefObject, useRef, useState } from 'react'
+import React, { FC, InputHTMLAttributes, LegacyRef, RefObject, useRef, useState } from 'react'
 
 
 const RepoSubmission: FC = ()  => {
@@ -7,8 +7,9 @@ const RepoSubmission: FC = ()  => {
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false)
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState<boolean>(false)
   const [submitted, setSubmitted] = useState<boolean>(false)
+  const [input, setInput] = useState("")
 
-  const submissionInputRef = useRef<RefObject>(null)
+  const submissionInputRef = useRef()
   
   
   const saveDataToDataBase = (url: string):void => {
@@ -32,8 +33,8 @@ const RepoSubmission: FC = ()  => {
     }
 
     if(isFormOpen && !submitted){
-      saveDataToDataBase(submissionInputRef.current.value as unknown as string )
-      console.log(submissionInputRef.current.value as unknown as string)
+      saveDataToDataBase(input)
+      console.log(input)
     }
     if(isFormOpen && submitted){
       setButtonPlaceHolder("Submit repo?")
@@ -49,7 +50,7 @@ const RepoSubmission: FC = ()  => {
           <div className='bg-white p-[15px] rounded-md min-w-[300px] '>
             <h6 className=' text-[18px] mb-[8px] text-gray-700 font-medium '>Suggest Repository</h6>
             <p className=' text-[12px] mb-[5px] text-gray-500 font-medium '>Repository URL</p>
-            <input ref={submissionInputRef} className='bg-gray-200 py-[4px] w-full px-[10px] rounded-md outline-yellow-300 text-gray-500 text-[12px]  ' type="text" placeholder='https://github.com/open-sauced' />
+            <input onChange={(e)=> setInput(e.target.value)} className='bg-gray-200 py-[4px] w-full px-[10px] rounded-md outline-yellow-300 text-gray-500 text-[12px]  ' type="text" placeholder='https://github.com/open-sauced' />
           </div>
         }
         {

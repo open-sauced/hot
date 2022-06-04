@@ -9,7 +9,6 @@ const RepoSubmission: FC = ()  => {
   const [submitted, setSubmitted] = useState<boolean>(false)
   const [input, setInput] = useState("")
 
-  const submissionInputRef = useRef()
   
   
   const saveDataToDataBase = (url: string):void => {
@@ -44,8 +43,16 @@ const RepoSubmission: FC = ()  => {
   
   }
 
+  //Listening outside focus
+  document.addEventListener("click", (e)=> {
+    if(!document.querySelector(".submission-form")?.contains(e.target as unknown as Node)){
+      setIsFormOpen(false)
+    }
+  })
+
+
   return (
-    <div className='fixed bottom-[40px] right-[40px] flex items-end flex-col gap-[10px] ' >
+    <div className='fixed bottom-[40px] right-[40px] flex items-end flex-col gap-[10px] submission-form ' >
         { isFormOpen && !isSubmissionInProcess && !submitted &&
           <div className='bg-white p-[15px] rounded-md min-w-[300px] '>
             <h6 className=' text-[18px] mb-[8px] text-gray-700 font-medium '>Suggest Repository</h6>

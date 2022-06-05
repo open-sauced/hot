@@ -1,4 +1,4 @@
-import React, { FC, InputHTMLAttributes, LegacyRef, RefObject, useRef, useState } from 'react'
+import React, { FC, useState } from 'react'
 
 
 const RepoSubmission: FC = ()  => {
@@ -26,7 +26,7 @@ const RepoSubmission: FC = ()  => {
   }
 
   const submitButtonHandler = ():void => {
-    if(!isFormOpen){
+    if(!isFormOpen && !submitted){
       setButtonPlaceHolder("Submit now")
       return setIsFormOpen(true) 
     }
@@ -35,7 +35,7 @@ const RepoSubmission: FC = ()  => {
       saveDataToDataBase(input)
       console.log(input)
     }
-    if(isFormOpen && submitted){
+    if(submitted){
       setButtonPlaceHolder("Submit repo?")
       setSubmitted(false)
       return setIsFormOpen(false)
@@ -44,17 +44,22 @@ const RepoSubmission: FC = ()  => {
   }
 
   //Listening outside focus
-  document.addEventListener("click", (e)=> {
-    if(!document.querySelector(".submission-form")?.contains(e.target as unknown as Node)){
-      setIsFormOpen(false)
-    }
+  document.querySelector(".App")?.addEventListener("click", (e)=> {
+      if(isSubmissionInProcess) return
+
+      if(!document.querySelector(".submission-form")?.contains(e.target as unknown as Node) ){
+        setIsFormOpen(false)
+        setSubmitted(false)
+        setButtonPlaceHolder("Submit repo?")
+      }
   })
 
 
   return (
     <div className='fixed bottom-[40px] right-[40px] flex items-end flex-col gap-[10px] submission-form ' >
+      {isFormOpen}
         { isFormOpen && !isSubmissionInProcess && !submitted &&
-          <div className='bg-white p-[15px] rounded-md min-w-[300px] '>
+          <div className='bg-white p-[15px] rounded-md min-w-[300px] shadow-xl '>
             <h6 className=' text-[18px] mb-[8px] text-gray-700 font-medium '>Suggest Repository</h6>
             <p className=' text-[12px] mb-[5px] text-gray-500 font-medium '>Repository URL</p>
             <input onChange={(e)=> setInput(e.target.value)} className='bg-gray-200 py-[4px] w-full px-[10px] rounded-md outline-yellow-300 text-gray-500 text-[12px]  ' type="text" placeholder='https://github.com/open-sauced' />
@@ -67,12 +72,12 @@ const RepoSubmission: FC = ()  => {
           </div>
         }
         {
-          submitted && 
+          submitted && !isSubmissionInProcess &&
           <div className='bg-white p-[15px] rounded-md min-w-[300px] '>
             <p className=' text-[12px] mb-[5px] text-gray-500 font-medium '>Submission succeeded!</p>
           </div>
         }
-        <button disabled={isSubmissionInProcess} onClick={submitButtonHandler} className='bg-saucyRed p-[10px] text-[12px] rounded-md text-white font-bold transform transition-all hover:bg-orange-700 ' > {buttonPlaceHolder} </button>
+        <button disabled={isSubmissionInProcess} onClick={submitButtonHandler} className='bg-saucyRed p-[10px] text-[12px] shadow-lg rounded-md text-white font-bold transform transition-all hover:bg-orange-700 ' > {buttonPlaceHolder} </button>
     </div>
   )
 }

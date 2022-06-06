@@ -11,7 +11,7 @@ const RepoSubmission: FC = ()  => {
 
   
   
-  const saveToDataBase = (url: string):void => {
+  const saveToDataBase = (repoUrl: string):void => {
     setIsSubmissionInProcess(true)
 
     // todo: import the summission function here instead
@@ -20,6 +20,7 @@ const RepoSubmission: FC = ()  => {
       setIsSubmissionInProcess(false)
       setSubmitted(true)
       setButtonPlaceHolder("Close")
+      console.log("Repo url: ",repoUrl)
       console.log("Data Submitted")
 
     }, 2000);

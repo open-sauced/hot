@@ -11,7 +11,7 @@ const RepoSubmission: FC = ()  => {
 
   
   
-  const saveDataToDataBase = (url: string):void => {
+  const saveToDataBase = (url: string):void => {
     setIsSubmissionInProcess(true)
 
     // todo: import the summission function here instead
@@ -32,7 +32,7 @@ const RepoSubmission: FC = ()  => {
     }
 
     if(isFormOpen && !submitted){
-      saveDataToDataBase(input)
+      saveToDataBase(input)
       console.log(input)
     }
     if(submitted){

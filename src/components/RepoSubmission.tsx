@@ -3,10 +3,10 @@ import React, { FC, useState } from 'react'
 
 const RepoSubmission: FC = ()  => {
   
-  const [buttonPlaceHolder, setButtonPlaceHolder] = useState<string>("Submit repo?")
-  const [isFormOpen, setIsFormOpen] = useState<boolean>(false)
-  const [isSubmissionInProcess, setIsSubmissionInProcess] = useState<boolean>(false)
-  const [submitted, setSubmitted] = useState<boolean>(false)
+  const [buttonPlaceHolder, setButtonPlaceHolder] = useState("Submit repo?")
+  const [isFormOpen, setIsFormOpen] = useState(false)
+  const [isSubmissionInProcess, setIsSubmissionInProcess] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
   const [input, setInput] = useState("")
 
   

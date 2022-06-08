@@ -3,6 +3,7 @@ import PrimaryNav from './components/PrimaryNav';
 import PostsWrap from './components/PostsWrap';
 import { initiatePostHog } from './lib/analytics';
 import { useState } from 'react';
+import RepoSubmission from './components/RepoSubmission';
 
 const App = (): JSX.Element => {
   initiatePostHog();
@@ -10,6 +11,7 @@ const App = (): JSX.Element => {
 
   return (
     <div className="App">
+      <RepoSubmission/>
       <PrimaryNav setTextToSearch={setTextToSearch} />
       <PostsWrap textToSearch={textToSearch} />
       <Footer/>

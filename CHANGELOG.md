@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.7.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.6.0...v2.7.0-beta.1) (2022-06-08)
+
+
+### 🍕 Features
+
+* Repository submission form UI ([#179](https://github.com/open-sauced/hot-sauce/issues/179)) ([f02363c](https://github.com/open-sauced/hot-sauce/commit/f02363c68cd3894e1259e3e141ae0864b757c674))
+
 ## [2.6.0](https://github.com/open-sauced/hot-sauce/compare/v2.5.0...v2.6.0) (2022-05-28)
 
 

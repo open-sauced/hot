@@ -11,6 +11,7 @@ import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 
 import { FaAngleRight, FaRegStar, FaRegDotCircle } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
+import TextHoverElement from "./TextHoverElement";
 
 interface PostWrapProps {
   setTextToSearch: (arg0: string) => void;
@@ -154,44 +155,16 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
                             </div>
                           </div>
                           <div className="flex items-center ml-auto">
-                            <HoverCardPrimitive.Root>
-                              <HoverCardPrimitive.Trigger asChild>
-                                <span>
-                                  <FaRegStar />
-                                </span>
-                              </HoverCardPrimitive.Trigger>
-                              <HoverCardPrimitive.Content
-                                align="center"
-                                side="top"
-                                sideOffset={2}
-                                className={"max-w-md rounded-lg p-2 md:w-full bg-white dark:bg-gray-800"}
-                              >
-                                <HoverCardPrimitive.Arrow
-                                  offset={12}
-                                  className="fill-current text-white dark:text-gray-800"
-                                />
-                                <h3 className="text-xs font-medium text-gray-900 dark:text-gray-100">Star this Repo</h3>
-                              </HoverCardPrimitive.Content>
-                            </HoverCardPrimitive.Root>
-                            <HoverCardPrimitive.Root>
-                              <HoverCardPrimitive.Trigger asChild>
-                                <span className="ml-2">
-                                  <FaAngleRight />
-                                </span>
-                              </HoverCardPrimitive.Trigger>
-                              <HoverCardPrimitive.Content
-                                align="center"
-                                side="top"
-                                sideOffset={2}
-                                className={"max-w-md rounded-lg p-2 md:w-full bg-white dark:bg-gray-800"}
-                              >
-                                <HoverCardPrimitive.Arrow
-                                  offset={12}
-                                  className="fill-current text-white dark:text-gray-800"
-                                />
-                                <h3 className="text-xs font-medium text-gray-900 dark:text-gray-100">View this Repo</h3>
-                              </HoverCardPrimitive.Content>
-                            </HoverCardPrimitive.Root>
+                            <TextHoverElement text="Star this Repo">
+                              <span>
+                                <FaRegStar />
+                              </span>
+                            </TextHoverElement>
+                            <TextHoverElement text="View this Repo">
+                              <span className="ml-2">
+                                <FaAngleRight />
+                              </span>
+                            </TextHoverElement>
                           </div>
                         </div>
                       </a>

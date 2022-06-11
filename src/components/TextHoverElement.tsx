@@ -1,6 +1,5 @@
 import React from "react";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
-import { FaAngleRight, FaRegStar, FaRegDotCircle } from "react-icons/fa";
 
 export declare interface TextHoverElementProps {
   text: string;

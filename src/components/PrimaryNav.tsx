@@ -7,7 +7,6 @@ import { capturePostHogAnayltics } from "../lib/analytics";
 import { version } from "../../package.json";
 import { fetchWithSearch } from "../lib/supabase";
 import Avatar from "./Avatar";
-import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 
 import { FaAngleRight, FaRegStar, FaRegDotCircle } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";

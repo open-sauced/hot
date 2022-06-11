@@ -138,11 +138,9 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
                             <p className="text-sm text-gray-500">{result.description}</p>
                             <div className="flex items-center mt-2 text-xs text-gray-500">
                               {result.contributions.map((contribution) => (
-                                <Avatar
-                                  size={6}
-                                  contributor={contribution.contributor}
-                                  lastPr={contribution.last_merged_at}
-                                />
+                                <div className="flex items-center overflow-hidden rounded-full w-8 h-8">
+                                  <Avatar contributor={contribution.contributor} lastPr={contribution.last_merged_at} />
+                                </div>
                               ))}
                               <span className="flex items-center ml-3">
                                 <FaRegStar />

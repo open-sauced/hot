@@ -3,17 +3,18 @@ import { getAvatarLink, getProfileLink } from '../lib/github';
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import cx from "classnames";
 export declare interface AvatarProps {
+  size?: number;
   contributor: string;
   lastPr?: string;
   list?: boolean;
 }
 
-const Avatar = ({contributor, lastPr}: AvatarProps): JSX.Element => (
+const Avatar = ({contributor, lastPr, size = 12 }: AvatarProps): JSX.Element => (
   <HoverCardPrimitive.Root>
     <HoverCardPrimitive.Trigger asChild>
       <div
         className={cx(
-          "inline-flex h-12 w-12 items-center justify-center rounded-full bg-white mr-3 dark:bg-white "
+          `inline-flex h-${size} w-${size} items-center justify-center rounded-full bg-white mr-3 dark:bg-white `
         )}
       >
          <img

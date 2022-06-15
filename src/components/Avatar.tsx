@@ -40,7 +40,7 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
             "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900"
           )}
         >
-          <a href={getProfileLink(contributor)} title={contributor} target="_blank">
+          <a href={getProfileLink(contributor)} title={contributor} rel="noreferrer" target="_blank">
             <img
               className="object-cover rounded-full"
               src={getAvatarLink(contributor)}

@@ -117,6 +117,7 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
                   <div>
                     {results.map((result) => (
                       <a
+                        rel="noreferrer"
                         role="button"
                         tabIndex={0}
                         aria-pressed="false"

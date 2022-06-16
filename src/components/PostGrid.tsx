@@ -6,6 +6,10 @@ import useSupabaseAuth from '../hooks/useSupabaseAuth';
 import { User } from "@supabase/supabase-js";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { capturePostHogAnayltics } from '../lib/analytics';
+import * as dayjs from 'dayjs' ;
+
+ import  relativeTime  from "dayjs/plugin/relativeTime";
+ dayjs.extend(relativeTime)
 
 export declare interface PostGridProps {
   data: DbRecomendation;
@@ -36,12 +40,13 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
           {data?.contributions[0] &&
             <Avatar
               contributor={data.contributions[0]?.contributor}
-              lastPr={data.contributions[0]?.last_merged_at}/>}
+              lastPr={dayjs(data.contributions[0]?.last_merged_at).fromNow()}/>}
 
           {data?.contributions[1] &&
             <Avatar
               contributor={data.contributions[1]?.contributor}
-              lastPr={data.contributions[1]?.last_merged_at}/>}
+              lastPr={dayjs(data.contributions[1]?.last_merged_at).fromNow()}/>}
+
         </div>
 
         <div className="flex">

@@ -6,6 +6,7 @@ import GridDisplay from './GridDisplay';
 import ListDisplay from './ListDisplay';
 import { fetchRecommendations } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
+import { useSearchParams } from 'react-router-dom';
 
 interface PostWrapProps{
   textToSearch: string
@@ -13,12 +14,23 @@ interface PostWrapProps{
 
 const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
-  const [activeLink, setActiveLink] = useState('popular');
+  const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
   const [limit, setLimit] = useState(25);
   const { user } = useSupabaseAuth();
+  
+  const activeLink = searchParams.get('filter') || "popular";
+  
   const handleLoadingMore = () => {
     setLimit((prevLimit) => prevLimit + 25);
+  };
+
+  const handleLinkChange = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const button: HTMLButtonElement = e.currentTarget;
+    const linkName = button.getAttribute("data-name") || "";
+    setLimit(25);
+    setSearchParams({ filter: linkName });
   };
 
   useEffect(() => {
@@ -27,13 +39,13 @@ const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
     });
   }, [activeLink, limit, textToSearch]);
 
+
   return (
     <>
       <Modal/>
       <SecondaryNav
-        setLimit={setLimit}
         activeLink={activeLink}
-        setActiveLink={setActiveLink}
+        handleLinkChange={handleLinkChange}
         user={user}
       />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />

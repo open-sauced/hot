@@ -2,20 +2,12 @@ import React from 'react';
 import {User} from "@supabase/supabase-js";
 
 export declare interface SecondaryNavProps {
-  setLimit: (limit: number) => void;
   activeLink: string | null;
-  setActiveLink: (link: string) => void;
+  handleLinkChange: (event: React.MouseEvent<HTMLButtonElement>) => void;
   user: User | null;
 }
 
-const SecondaryNav = ({setLimit, activeLink, setActiveLink, user}: SecondaryNavProps): JSX.Element => {
-  const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const button: HTMLButtonElement = e.currentTarget;
-    const linkName = button.getAttribute('data-name') || '';
-    setLimit(25);
-    setActiveLink(linkName);
-  };
+const SecondaryNav = ({activeLink, handleLinkChange, user}: SecondaryNavProps): JSX.Element => {
   const links = [
     {
       link: 'popular',
@@ -48,7 +40,7 @@ const SecondaryNav = ({setLimit, activeLink, setActiveLink, user}: SecondaryNavP
               <button
                 key={`${link}-nav-button`}
                 data-name={link}
-                onClick={(e) => handleChange(e)}
+                onClick={handleLinkChange}
                 className={`${
                   activeLink === link ? 'bg-cheesyYellow text-grey ' : ' '
                 } rounded-xl font-bold hover:text-saucyRed transition-all duration-300 mr-3 p-2 sm:mr-11`}

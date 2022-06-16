@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.7.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.1...v2.7.0-beta.2) (2022-06-16)
+
+
+### 🍕 Features
+
+* update avatar contib dates with dayjs component ([#185](https://github.com/open-sauced/hot-sauce/issues/185)) ([01f9aca](https://github.com/open-sauced/hot-sauce/commit/01f9aca7c294cccaa3bd513648a80e64b7171ff3)), closes [#174](https://github.com/open-sauced/hot-sauce/issues/174)
+
 ## [2.7.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.6.0...v2.7.0-beta.1) (2022-06-08)
 
 

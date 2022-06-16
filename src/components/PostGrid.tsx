@@ -6,10 +6,10 @@ import useSupabaseAuth from '../hooks/useSupabaseAuth';
 import { User } from "@supabase/supabase-js";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { capturePostHogAnayltics } from '../lib/analytics';
-import * as dayjs from 'dayjs' ;
 
- import  relativeTime  from "dayjs/plugin/relativeTime";
- dayjs.extend(relativeTime)
+import dayjs from 'dayjs/esm/index.js'
+import relativeTime  from "dayjs/esm/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 export declare interface PostGridProps {
   data: DbRecomendation;

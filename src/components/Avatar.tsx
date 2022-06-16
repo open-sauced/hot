@@ -65,7 +65,7 @@ const Avatar = ({contributor, lastPr}: AvatarProps): JSX.Element => (
           </h3>
 
           <p className="mt-1 text-sm font-normal text-gray-700 dark:text-gray-400">
-            Last contribution was at {lastPr}.
+            Last contribution was {lastPr}.
           </p>
         </div>
       </div>

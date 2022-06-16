@@ -6,9 +6,9 @@ import Avatar from './Avatar';
 import { updateVotesByRepo } from '../lib/supabase';
 import { User } from "@supabase/supabase-js";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import * as dayjs from 'dayjs';
 
-import  relativeTime  from "dayjs/plugin/relativeTime";
+import dayjs from 'dayjs/esm/index.js'
+import relativeTime  from "dayjs/esm/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 export declare interface PostListProps {

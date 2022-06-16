@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.7.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.2...v2.7.0-beta.3) (2022-06-16)
+
+
+### 🐛 Bug Fixes
+
+* correct dayjs imports ([60e7cf8](https://github.com/open-sauced/hot-sauce/commit/60e7cf895878afe7a9c95b6365ad92ba42168602))
+
 ## [2.7.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.1...v2.7.0-beta.2) (2022-06-16)
 
 

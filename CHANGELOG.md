@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.7.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.3...v2.7.0-beta.4) (2022-06-17)
+
+
+### 🍕 Features
+
+* adds new fields to search results ([#181](https://github.com/open-sauced/hot-sauce/issues/181)) ([e1242fa](https://github.com/open-sauced/hot-sauce/commit/e1242fa0ddd9e8c674beb5d28fde1c3b8e5984ba))
+
 ## [2.7.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.2...v2.7.0-beta.3) (2022-06-16)
 
 

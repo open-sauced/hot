@@ -13,11 +13,11 @@ interface PostWrapProps{
 }
 
 const locationsHash: { [index: string] : string | undefined } = {
-  "/most-popular-repositories": "popular",
-  "/most-upvoted-repositories": "upvoted",
-  "/most-discussed-repositories": "discussed",
-  "/most-recent-repositories": "recent",
-  "/my-votes-repositories": "myVotes",
+  "/popular": "popular",
+  "/upvoted": "upvoted",
+  "/discussed": "discussed",
+  "/recent": "recent",
+  "/myVotes": "myVotes",
 }
 
 const parseLimitValue = (limit: string | null) : number => {

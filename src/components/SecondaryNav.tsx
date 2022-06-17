@@ -12,28 +12,23 @@ const SecondaryNav = ({activeLink, user}: SecondaryNavProps): JSX.Element => {
     {
       link: 'popular',
       title: 'Popular',
-      path: '/most-popular-repositories',
     },
     {
       link: 'upvoted',
       title: 'Upvoted',
-      path: '/most-upvoted-repositories',
     },
     {
       link: 'discussed',
       title: 'Discussed',
-      path: "/most-discussed-repositories",
     },
     {
       link: 'recent',
       title: 'Recent',
-      path: "/most-recent-repositories",
     },
   ];
   user && links.push({
     link: 'myVotes',
     title: 'My Votes',
-    path: "/my-votes-repositories",
   });
 
   return (
@@ -41,8 +36,8 @@ const SecondaryNav = ({activeLink, user}: SecondaryNavProps): JSX.Element => {
       <div className="bg-darkestGrey py-14 md:py-16">
         <nav className="container">
           <div className="flex flex-col space-y-2 sm:flex-row text-xl font-righteous text-accent font-bold justify-center items-center cursor-pointer">
-            {links.map(({link, title, path}) => (
-              <Link to={path}>
+            {links.map(({link, title}) => (
+              <Link to={link}>
                 <span
                   className={`${
                     activeLink === link ? 'bg-cheesyYellow text-grey ' : ' '

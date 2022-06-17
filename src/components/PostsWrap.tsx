@@ -20,6 +20,20 @@ const locationsHash: { [index: string] : string | undefined } = {
   "/my-votes-repositories": "myVotes",
 }
 
+const parseLimitValue = (limit: string | null) : number => {
+  if(!limit) {
+    return 25;
+  }
+  const value = parseInt(limit)
+  if(isNaN(value) || value <= 0) {
+    return 25;
+  }
+  if(value > 100) {
+    return 125;
+  }
+  return value;
+}
+
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,7 +42,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const location = useLocation();
 
   const activeLink = locationsHash[location.pathname] || "popular";
-  const limit = Number(searchParams.get('limit')) || 25;
+  const limit = parseLimitValue(searchParams.get('limit'));
 
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 25) })

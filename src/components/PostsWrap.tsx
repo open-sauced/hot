@@ -6,31 +6,32 @@ import GridDisplay from './GridDisplay';
 import ListDisplay from './ListDisplay';
 import { fetchRecommendations } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 interface PostWrapProps{
   textToSearch: string
 }
 
-const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
+const locationsHash: { [index: string] : string | undefined } = {
+  "/most-popular-repositories": "popular",
+  "/most-upvoted-repositories": "upvoted",
+  "/most-discussed-repositories": "discussed",
+  "/most-recent-repositories": "recent",
+  "/my-votes-repositories": "myVotes",
+}
+
+const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
-  const [limit, setLimit] = useState(25);
   const { user } = useSupabaseAuth();
-  
-  const activeLink = searchParams.get('filter') || "popular";
-  
-  const handleLoadingMore = () => {
-    setLimit((prevLimit) => prevLimit + 25);
-  };
+  const location = useLocation();
 
-  const handleLinkChange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const button: HTMLButtonElement = e.currentTarget;
-    const linkName = button.getAttribute("data-name") || "";
-    setLimit(25);
-    setSearchParams({ filter: linkName });
+  const activeLink = locationsHash[location.pathname] || "popular";
+  const limit = Number(searchParams.get('limit')) || 25;
+
+  const handleLoadingMore = () => {
+    setSearchParams({ limit: String(limit + 25) })
   };
 
   useEffect(() => {
@@ -39,14 +40,12 @@ const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
     });
   }, [activeLink, limit, textToSearch]);
 
-
   return (
     <>
       <Modal/>
-      <SecondaryNav
-        activeLink={activeLink}
-        handleLinkChange={handleLinkChange}
-        user={user}
+      <SecondaryNav 
+        activeLink={activeLink} 
+        user={user} 
       />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
@@ -57,7 +56,6 @@ const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
             handleLoadingMore={handleLoadingMore}
             user={user}
             fetchedData={fetchedData} /> :
-
           <ListDisplay
             limit={limit}
             activeLink={activeLink}

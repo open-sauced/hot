@@ -24,7 +24,7 @@ const navs = [
 const Nav:FC = () => {
   return (
     <div className='min-h-[40px] relative overflow-hidden '>
-      <div className='max-w-[1200px] mx-auto'>
+      <div className='max-w-[950px] mx-auto'>
       <img className=' absolute top-0 left-[900px]' src={headerBG} alt="gradient background" />
 
       <div className='flex justify-between'>

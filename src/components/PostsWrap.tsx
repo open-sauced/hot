@@ -6,12 +6,13 @@ import GridDisplay from './GridDisplay';
 import ListDisplay from './ListDisplay';
 import { fetchRecommendations } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
+import PrimaryNav from './PrimaryNav';
 
 interface PostWrapProps{
   textToSearch: string
 }
 
-const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
+const PostsWrap = ({  } :PostWrapProps): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
   const [activeLink, setActiveLink] = useState('popular');
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
@@ -20,6 +21,7 @@ const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
   const handleLoadingMore = () => {
     setLimit((prevLimit) => prevLimit + 25);
   };
+  const [textToSearch, setTextToSearch ] = useState<string>("")
 
   useEffect(() => {
     fetchRecommendations(activeLink, limit, user, textToSearch).then((data) => {
@@ -27,8 +29,10 @@ const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
     });
   }, [activeLink, limit, textToSearch]);
 
+
   return (
     <>
+      <PrimaryNav setTextToSearch={setTextToSearch}  />
       <SecondaryNav
         setLimit={setLimit}
         activeLink={activeLink}

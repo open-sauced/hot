@@ -86,9 +86,6 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
   return (
     <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-2 sm:px-4 py-4 sm:py-2 items-center">
       <div className="flex-1 flex items-center">
-        <a href="https://opensauced.pizza">
-          <img className="h-7 mr-4" alt="open sauced" src={logo} />
-        </a>
         <div id="search-container" className="flex flex-col relative w-full max-w-lg">
           <input
             className=" bg-gray-200 rounded-lg shadow-md h-full py-2 px-3 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
@@ -174,7 +171,8 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
           )}
         </div>
       </div>
-      {!user && (
+
+      {/* {!user && (
         <div className="items-center">
           <div
             role="button"
@@ -241,7 +239,8 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
             </Menu.Item>
           </Menu.Items>
         </Menu>
-      )}
+      )} */}
+
     </nav>
   );
 };

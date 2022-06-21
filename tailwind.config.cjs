@@ -26,6 +26,7 @@ module.exports = {
         Righteous: ["Righteous"],
         Roboto: ["Roboto"],
         Ubuntu: ["Ubuntu", "sans-serif"],
+        Primary: ["Open Sans", "sans-serif"],
       },
       container: {
         center: true,

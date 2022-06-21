@@ -29,7 +29,6 @@ const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
 
   return (
     <>
-      <Modal/>
       <SecondaryNav
         setLimit={setLimit}
         activeLink={activeLink}

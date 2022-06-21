@@ -7,6 +7,7 @@ import ListDisplay from './ListDisplay';
 import { fetchRecommendations } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 import PrimaryNav from './PrimaryNav';
+import pizza from '../../public/pizza.svg'
 
 interface PostWrapProps{
   textToSearch: string
@@ -31,16 +32,26 @@ const PostsWrap = ({  } :PostWrapProps): JSX.Element => {
 
 
   return (
-    <>
-      <PrimaryNav setTextToSearch={setTextToSearch}  />
-      <SecondaryNav
-        setLimit={setLimit}
-        activeLink={activeLink}
-        setActiveLink={setActiveLink}
-        user={user}
-      />
-      <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
-      <div className="bg-darkestGrey py-6 w-full min-h-screen">
+    <div className='mx-auto max-w-6xl'>
+
+      <div className='flex items-center gap-[10px] py-[10px] mt-[165px] '>
+        <img src={pizza} alt="" />
+        <p className='uppercase font-bold text-gray50 text-[36px] leading-[54px] tracking-[-3%] '>project</p>
+
+      </div>
+
+      <div className='flex border-t-[2px] border-gray-200 pt-[20px] pb-[70px] '>
+        <PrimaryNav setTextToSearch={setTextToSearch}  />
+        <SecondaryNav
+          setLimit={setLimit}
+          activeLink={activeLink}
+          setActiveLink={setActiveLink}
+          user={user}
+        />
+        <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
+      </div>
+
+      <div className=" py-6 w-full min-h-screen">
         {isGrid ?
           <GridDisplay
             limit={limit}
@@ -57,7 +68,7 @@ const PostsWrap = ({  } :PostWrapProps): JSX.Element => {
             fetchedData={fetchedData} />
         }
       </div>
-    </>
+    </div>
   );
 };
 

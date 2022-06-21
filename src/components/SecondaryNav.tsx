@@ -41,7 +41,6 @@ const SecondaryNav = ({setLimit, activeLink, setActiveLink, user}: SecondaryNavP
 
   return (
     <div>
-      <div className="bg-darkestGrey py-14 md:py-16">
         <nav className="container">
           <div className="flex flex-col space-y-2 sm:flex-row text-xl font-righteous text-accent font-bold justify-center items-center cursor-pointer">
             {links.map(({link, title}) => (
@@ -58,7 +57,6 @@ const SecondaryNav = ({setLimit, activeLink, setActiveLink, user}: SecondaryNavP
             ))}
           </div>
         </nav>
-      </div>
     </div>
   );
 };

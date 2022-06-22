@@ -40,7 +40,7 @@ const PostsWrap = ({  } :PostWrapProps): JSX.Element => {
 
       </div>
 
-      <div className='flex border-t-[2px] border-gray-200 pt-[20px] pb-[70px] '>
+      <div className='flex border-t-[2px] justify-between border-gray-200 pt-[20px] pb-[70px] '>
         <PrimaryNav setTextToSearch={setTextToSearch}  />
         <SecondaryNav
           setLimit={setLimit}

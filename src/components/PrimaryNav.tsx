@@ -43,7 +43,6 @@ function useDebounce<T>(value: T, delay: number): T {
 }
 
 const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
-  const { signIn, signOut, user } = useSupabaseAuth();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [results, setResults] = useState<PostResult[]>([]);
   const [isSearching, setIsSearching] = useState<boolean>(false);
@@ -81,13 +80,12 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
   );
 
   return (
-    <nav className="flex ">
-      <div className="flex-1 flex items-center">
+    <nav className=" w-[230px] ">
         <div id="search-container" className="flex flex-col relative w-full max-w-lg">
           <input
-            className=" bg-gray-200 rounded-lg shadow-md h-full py-2 px-3 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
+            className=" bg-white rounded-[6px] border-[2px] border-gray-300   py-2 px-3 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 outline-none focus:border-saucyRed "
             type="search"
-            placeholder="search or jump to...   "
+            placeholder="Search or jump to...   "
             id="repo-search"
             onChange={inputOnChangeHandler}
             onFocus={() => setFocus(true)}
@@ -99,9 +97,11 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
             name="repo-search"
             aria-label="Search through repositories rendered out"
           />
+
           {results.length > 0 && hasFocus && (
             <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
               <div className="flex">
+                
                 <div className="w-full">
                   <h1 className="text-lightGrey p-[15px] uppercase text-xs border-b-2 w-full">
                     Repository
@@ -166,8 +166,9 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
               </div>
             </div>
           )}
+
         </div>
-      </div>
+
     </nav>
   );
 };

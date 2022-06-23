@@ -27,11 +27,10 @@ const navs = [
 
 const Nav:FC = () => {
   const { signIn, signOut, user } = useSupabaseAuth();
-  const userd = false
 
   return (
-    <div className='min-h-[50px] relative  '>
-      <img className='absolute  top-0 left-[750px]' src={headerBG} alt="gradient background" />
+    <div className='relative'>
+      <img className='absolute h-full w-full  top-0 left-[600px]' src={headerBG} alt="gradient background" />
 
       <div className='max-w-[950px] mx-auto'>
 
@@ -40,7 +39,7 @@ const Nav:FC = () => {
               <img src={brandLogo} alt="Open Sauced" className='w-full h-full' />
             </div>
 
-            <div className='z-10 flex gap-[50px] items-center text-white font-semibold leading-[20px] tracking-[-0.03em]'>
+            <div className='z-10 flex gap-[50px] text-[14px] items-center text-white font-semibold leading-[20px] tracking-[-0.03em]'>
               <ul className='flex gap-[50px]  '>
                 {
                   navs.map( nav => (

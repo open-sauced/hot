@@ -30,7 +30,7 @@ const Nav:FC = () => {
 
   return (
     <div className='relative'>
-      <img className='absolute h-full w-full  top-0 left-[600px]' src={headerBG} alt="gradient background" />
+      <img className='absolute h-full w-full  top-0 left-[400px]' src={headerBG} alt="gradient background" />
 
       <div className='max-w-[950px] mx-auto'>
 
@@ -39,7 +39,7 @@ const Nav:FC = () => {
               <img src={brandLogo} alt="Open Sauced" className='w-full h-full' />
             </div>
 
-            <div className='z-10 flex gap-[50px] text-[14px] items-center text-white font-semibold leading-[20px] tracking-[-0.03em]'>
+            <div className='z-10 py-[9px] flex gap-[50px] text-[14px] items-center text-white font-semibold leading-[20px] tracking-[-0.03em]'>
               <ul className='flex gap-[50px]  '>
                 {
                   navs.map( nav => (

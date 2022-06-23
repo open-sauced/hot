@@ -42,15 +42,15 @@ const SecondaryNav = ({setLimit, activeLink, setActiveLink, user}: SecondaryNavP
   return (
     <div>
         <nav className="container">
-          <div className="flex flex-col space-y-2 sm:flex-row text-xl font-righteous text-accent font-bold justify-center items-center cursor-pointer">
+          <div className="flex flex-col sm:flex-row text-[14px] text-gray-400 font-bold justify-center items-center cursor-pointer">
             {links.map(({link, title}) => (
               <button
                 key={`${link}-nav-button`}
                 data-name={link}
                 onClick={(e) => handleChange(e)}
                 className={`${
-                  activeLink === link ? 'bg-cheesyYellow text-grey ' : ' '
-                } rounded-xl font-bold hover:text-saucyRed transition-all duration-300 mr-3 p-2 sm:mr-11`}
+                  activeLink === link ? 'border-b-osSauce' : 'border-b-white '
+                }  border-b-[3px] font-bold hover:text-osSauce uppercase transition-all duration-300 mr-3 p-2 sm:mr-11`}
               >
                 {title}
               </button>

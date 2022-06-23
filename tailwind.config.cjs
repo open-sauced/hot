@@ -10,6 +10,7 @@ module.exports = {
         "regal-accent": "#faeace",
         "background:": "#fffbf5",
         saucyRed: "#d95c41",
+        osSauce: "#ED5332",
         cheesyYellow: "#f6d809",
         offWhite: "#fbfbfb",
         lightestGrey: "#e6e6e6",

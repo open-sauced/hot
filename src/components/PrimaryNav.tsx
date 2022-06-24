@@ -8,6 +8,7 @@ import Avatar from "./Avatar";
 import { FaAngleRight, FaRegStar, FaRegDotCircle } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import TextHoverElement from "./TextHoverElement";
+import { FaSearch } from 'react-icons/fa';
 
 interface PostWrapProps {
   setTextToSearch: (arg0: string) => void;
@@ -82,21 +83,25 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
   return (
     <nav className=" w-[230px] ">
         <div id="search-container" className="flex flex-col relative w-full max-w-lg">
-          <input
-            className=" bg-white rounded-[6px] border-[2px] border-gray-300   py-2 px-3 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 outline-none focus:border-saucyRed "
-            type="search"
-            placeholder="Search or jump to...   "
-            id="repo-search"
-            onChange={inputOnChangeHandler}
-            onFocus={() => setFocus(true)}
-            onBlur={() =>
-              setTimeout(() => {
-                setFocus(false);
-              }, 200)
-            }
-            name="repo-search"
-            aria-label="Search through repositories rendered out"
-          />
+          <div className="flex gap-[6px] px-[6px] py-[2px] items-center rounded-[6px] border-[2px] border-gray-300">
+            <input
+              className=" text-[14px] w-full outline-none focus:border-saucyRed "
+              type="search"
+              placeholder="Search or jump to...   "
+              id="repo-search"
+              onChange={inputOnChangeHandler}
+              onFocus={() => setFocus(true)}
+              onBlur={() =>
+                setTimeout(() => {
+                  setFocus(false);
+                }, 200)
+              }
+              name="repo-search"
+              aria-label="Search through repositories rendered out"
+            />
+            <FaSearch className="text-gray-300" />
+
+          </div>
 
           {results.length > 0 && hasFocus && (
             <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">

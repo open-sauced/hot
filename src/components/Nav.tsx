@@ -30,7 +30,7 @@ const Nav:FC = () => {
 
   return (
     <div className='relative'>
-      <img className='absolute h-full w-full  top-0 left-[400px]' src={headerBG} alt="gradient background" />
+      <img className='absolute h-full top-0 left-[700px] ' src={headerBG} alt="gradient background" />
 
       <div className='max-w-[950px] mx-auto'>
 

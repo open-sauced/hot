@@ -2,6 +2,11 @@ import React from "react";
 import { getAvatarLink, getProfileLink } from "../lib/github";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import cx from "classnames";
+import dayjs from 'dayjs/esm/index.js'
+import relativeTime  from "dayjs/esm/plugin/relativeTime";
+
+dayjs.extend(relativeTime);
+
 export declare interface AvatarProps {
   contributor: string;
   lastPr?: string;
@@ -55,7 +60,7 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
           <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">{contributor}</h3>
 
           <p className="mt-1 text-sm font-normal text-gray-700 dark:text-gray-400">
-            Last contribution was {lastPr}.
+            Last contribution was {dayjs(lastPr).fromNow()}.
           </p>
         </div>
       </div>

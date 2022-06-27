@@ -31,7 +31,7 @@ const Nav:FC = () => {
 
   return (
     <div className='relative h-fit'>
-      <div className="absolute w-[185vw]  laptop:w-[100vw] left-[270px] mobile:hidden tablet:block tablet:w-[210vw] laptop:left-[638px] overflow-hidden z-[-1]">
+      <div className="absolute w-[100vw]  laptop:w-[120vw] left-[270px] mobile:hidden tablet:block tablet:w-[210vw] laptop:left-[638px] overflow-hidden z-[-1]">
         <img src={headerBG} alt="" />
       </div>
       {/* <img className='absolute object-cover top-0 right-[-600px] ' src={headerBG} alt="gradient background" /> */}

@@ -5,6 +5,7 @@ import useSupabaseAuth from '../hooks/useSupabaseAuth'
 import { Menu } from "@headlessui/react";
 import { version } from "../../package.json";
 import { capturePostHogAnayltics } from "../lib/analytics";
+import MobileNav from './MobileNav';
 
 const navs = [
   {
@@ -30,18 +31,20 @@ const Nav:FC = () => {
 
   return (
     <div className='relative h-fit'>
-      <div className="absolute w-[180vw]  laptop:w-[90vw] left-[270px] laptop:left-[638px] overflow-hidden z-[-1]">
+      <div className="absolute w-[185vw]  laptop:w-[100vw] left-[270px] mobile:hidden tablet:block tablet:w-[210vw] laptop:left-[638px] overflow-hidden z-[-1]">
         <img src={headerBG} alt="" />
       </div>
       {/* <img className='absolute object-cover top-0 right-[-600px] ' src={headerBG} alt="gradient background" /> */}
       <div className='max-w-[950px] mx-auto px-[7px] '>
 
         <div className='flex items-center justify-between'>
-            <div className='z-10 w-[172px] h-[43px] '>
+            <div className='z-10 w-[172px] h-[43px]n py-[10px] '>
               <img src={brandLogo} alt="Open Sauced" className='w-full h-full' />
             </div>
 
-            <div className='z-10 py-[9px] flex gap-[50px] text-[14px] items-center text-white font-semibold leading-[20px] tracking-[-0.03em]'>
+            <MobileNav/>
+
+            <div className='z-10 py-[9px] flex mobile:hidden tablet:flex  gap-[50px] text-[14px] items-center text-white font-semibold leading-[20px] tracking-[-0.03em]'>
               <ul className='flex gap-[50px]  '>
                 {
                   navs.map( nav => (

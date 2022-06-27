@@ -5,6 +5,7 @@ import { initiatePostHog } from './lib/analytics';
 import { useState } from 'react';
 import RepoSubmission from './components/RepoSubmission';
 import Nav from './components/Nav';
+import MobileNav from './components/MobileNav';
 
 const App = (): JSX.Element => {
   initiatePostHog();

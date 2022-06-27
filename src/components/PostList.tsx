@@ -48,7 +48,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
 
         <div className="ml-5 border-l-2 pl-3 space-y-2">
           <a
-            className="font-bold text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
+            className="text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
             href={getRepoLink(data.full_name)}
             title={`Visit ${data.full_name}`}
             target="_blank"

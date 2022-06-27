@@ -34,13 +34,13 @@ const PostsWrap = ({  } :PostWrapProps): JSX.Element => {
   return (
     <div className='mx-auto max-w-6xl'>
 
-      <div className='flex items-center gap-[10px] py-[10px] mt-[165px] '>
+      <div className='flex items-center gap-[20px] px-[5px] tablet:px-0 mb-[20px] mt-[165px] '>
         <img src={pizza} alt="" />
         <p className='uppercase font-bold text-gray50 text-[36px] leading-[54px] tracking-[-3%] '>project</p>
 
       </div>
 
-      <div className='flex border-t-[2px] justify-between border-gray-200 pt-[20px] pb-[70px] '>
+      <div className='flex md:gap-y-0 gap-y-[15px] flex-col tablet:flex-row border-t-[1px] tablet:justify-between border-gray-200 pt-[20px] pb-[70px] '>
         <PrimaryNav setTextToSearch={setTextToSearch}  />
         <SecondaryNav
           setLimit={setLimit}

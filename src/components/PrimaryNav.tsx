@@ -81,9 +81,9 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
   );
 
   return (
-    <nav className=" w-[230px] ">
-        <div id="search-container" className="flex flex-col relative w-full max-w-lg">
-          <div className="flex gap-[6px] px-[6px] py-[2px] items-center rounded-[6px] border-[2px] border-gray-300">
+    <nav className=" tablet:w-[230px] w-full ">
+        <div id="search-container " className="flex flex-col relative w-full max-w-lg">
+          <div className="flex mx-auto gap-[6px] px-[15px] py-[6px] items-center rounded-[6px] border-[2px] border-gray-300">
             <input
               className=" text-[14px] w-full outline-none focus:border-saucyRed "
               type="search"

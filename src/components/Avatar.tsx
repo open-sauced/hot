@@ -11,7 +11,7 @@ export declare interface AvatarProps {
 const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
   <HoverCardPrimitive.Root>
     <HoverCardPrimitive.Trigger asChild>
-      <div className={cx("inline-flex h-12 w-12 items-center justify-center rounded-full bg-white dark:bg-white")}>
+      <div className={cx("inline-flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white dark:bg-white")}>
         <img
           className="object-cover rounded-full"
           src={getAvatarLink(contributor)}

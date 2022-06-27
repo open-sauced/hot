@@ -6,6 +6,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'tablet': '640px',
+        // => @media (min-width: 640px) { ... }
+  
+        'laptop': '1024px',
+        // => @media (min-width: 1024px) { ... }
+  
+        'desktop': '1280px',
+        // => @media (min-width: 1280px) { ... }
+      },
       colors: {
         "regal-accent": "#faeace",
         "background:": "#fffbf5",
@@ -21,7 +31,11 @@ module.exports = {
         darkGrey: "#171c1d",
         darkestGrey: "#2C3137",
         accent: "#FAEACE",
-        gray50: "#333333"
+        gray50: "#333333",
+        gray100: "#F3F3F3",
+        gray120: "#D9D9D9",
+        gray150: "#8C8C8C",
+
       },
       fontFamily: {
         Poppins: ["Poppins"],

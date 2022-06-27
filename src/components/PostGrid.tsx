@@ -34,9 +34,9 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   }
 
   return (
-    <div className="bg-offWhite rounded-xl pt-6 px-4 pb-2 font-roboto">
+    <div className="bg-gray100 rounded-xl border-gray120 border-[1px] pt-6 px-4 pb-2 font-roboto">
       <div className="w-full flex justify-between items-center mb-3">
-        <div className="flex w-full">
+        {/* <div className="flex w-full">
           {data?.contributions[0] &&
             <Avatar
               contributor={data.contributions[0]?.contributor}
@@ -47,9 +47,9 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
               contributor={data.contributions[1]?.contributor}
               lastPr={dayjs(data.contributions[1]?.last_merged_at).fromNow()}/>}
 
-        </div>
+        </div> */}
 
-        <div className="flex">
+        <div className="flex mb-[4px] ">
           <div
             role="button"
             tabIndex={0}
@@ -81,6 +81,31 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
           alt={data.full_name}
         />
       </a>
+      <div className="flex gap-[6px] my-[25px] w-full">
+          {data?.contributions[0] &&
+            <Avatar
+              contributor={data.contributions[0]?.contributor}
+              lastPr={dayjs(data.contributions[0]?.last_merged_at).fromNow()}/>}
+
+          {data?.contributions[1] &&
+            <Avatar
+              contributor={data.contributions[1]?.contributor}
+              lastPr={dayjs(data.contributions[1]?.last_merged_at).fromNow()}/>}
+          {data?.contributions[2] &&
+            <Avatar
+              contributor={data.contributions[2]?.contributor}
+              lastPr={dayjs(data.contributions[2]?.last_merged_at).fromNow()}/>}
+          {data?.contributions[3] &&
+            <Avatar
+              contributor={data.contributions[3]?.contributor}
+              lastPr={dayjs(data.contributions[3]?.last_merged_at).fromNow()}/>}
+          {data?.contributions[4] &&
+            <Avatar
+              contributor={data.contributions[4]?.contributor}
+              lastPr={dayjs(data.contributions[4]?.last_merged_at).fromNow()}/>}
+
+        <a className='text-gray-600 text-[15px] ml-[10px]' href={`https://github.com/${data.full_name}/contributors`}>more...</a>
+        </div>
     </div>
   );
 }

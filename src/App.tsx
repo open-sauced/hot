@@ -11,7 +11,7 @@ const App = (): JSX.Element => {
   const [textToSearch, setTextToSearch ] = useState<string>("")
 
   return (
-    <div className="App overflow-hidden ">
+    <div className="App overflow-hidden">
       <Nav/>
       <RepoSubmission/>
       {/* <PrimaryNav setTextToSearch={setTextToSearch} /> */}

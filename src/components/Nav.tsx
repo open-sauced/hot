@@ -29,10 +29,12 @@ const Nav:FC = () => {
   const { signIn, signOut, user } = useSupabaseAuth();
 
   return (
-    <div className='relative'>
-      <img className='absolute h-full top-0 left-[700px] ' src={headerBG} alt="gradient background" />
-
-      <div className='max-w-[950px] mx-auto'>
+    <div className='relative h-fit'>
+      <div className="absolute w-[180vw]  laptop:w-[90vw] left-[270px] laptop:left-[638px] overflow-hidden z-[-1]">
+        <img src={headerBG} alt="" />
+      </div>
+      {/* <img className='absolute object-cover top-0 right-[-600px] ' src={headerBG} alt="gradient background" /> */}
+      <div className='max-w-[950px] mx-auto px-[7px] '>
 
         <div className='flex items-center justify-between'>
             <div className='z-10 w-[172px] h-[43px] '>

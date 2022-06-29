@@ -36,7 +36,7 @@
     "test": "npx vitest",
     "test:watch": "npm run test -- --watch",
     "test:all": "npm run test -- --silent --watchAll=false",
-    "test:coverage": "npm run test:all -- --coverage",
+    "test:coverage": "npx vitest run --coverage",
     "lint": "npx eslint . --report-unused-disable-directives",
     "format": "npm run lint -- --fix"
   },
@@ -68,6 +68,7 @@
     "@typescript-eslint/parser": "^5.13.0",
     "@vitejs/plugin-legacy": "^1.7.1",
     "@vitejs/plugin-react": "^1.2.0",
+    "c8": "^7.11.3",
     "camelcase": "^6.3.0",
     "esbuild": "^0.14.25",
     "eslint": "^8.10.0",

@@ -1,4 +1,5 @@
 import humanizeNumber from './humanizeNumber';
+import { describe, test, expect } from 'vitest'
 
 describe('Test: humanizeNumber()', () => {
   test('1000 should humanize', () => {

@@ -23,7 +23,6 @@ module.exports = {
   "env": {
     "browser": true,
     "node": true,
-    "jest": true,
     "es2021": true
   },
   overrides: [

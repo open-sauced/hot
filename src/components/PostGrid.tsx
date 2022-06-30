@@ -4,7 +4,7 @@ import { updateVotesByRepo } from '../lib/supabase';
 import { getRepoLink } from '../lib/github';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 import { User } from "@supabase/supabase-js";
-import { FaArrowAltCircleUp } from "react-icons/fa";
+import { FaArrowAltCircleUp, FaStar } from "react-icons/fa";
 import { capturePostHogAnayltics } from '../lib/analytics';
 
 import dayjs from 'dayjs/esm/index.js'
@@ -54,7 +54,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
               }}
               className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"
             >
-              <FaArrowAltCircleUp/>
+              <img src="/UpvoteIcon.png" alt="" />
               <p className="font-bold">{votes}</p>
             </div>
           </div>
@@ -73,31 +73,49 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
           <p className='font-semibold text-[12px]'>{description.substring(0,100)}</p>
         </div>
       </div>
-          
-      <div className="flex gap-[6px] px-[30px] py-[15px] w-full">
-          {data?.contributions[0] &&
-            <Avatar
-              contributor={data.contributions[0]?.contributor}
-              lastPr={dayjs(data.contributions[0]?.last_merged_at).fromNow()}/>}
+      
+      <div className='flex justify-between py-[15px] w-full'>
+        <div className="flex gap-[6px] ">
+            {data?.contributions[0] &&
+              <Avatar
+                contributor={data.contributions[0]?.contributor}
+                lastPr={dayjs(data.contributions[0]?.last_merged_at).fromNow()}/>}
 
-          {data?.contributions[1] &&
-            <Avatar
-              contributor={data.contributions[1]?.contributor}
-              lastPr={dayjs(data.contributions[1]?.last_merged_at).fromNow()}/>}
-          {data?.contributions[2] &&
-            <Avatar
-              contributor={data.contributions[2]?.contributor}
-              lastPr={dayjs(data.contributions[2]?.last_merged_at).fromNow()}/>}
-          {data?.contributions[3] &&
-            <Avatar
-              contributor={data.contributions[3]?.contributor}
-              lastPr={dayjs(data.contributions[3]?.last_merged_at).fromNow()}/>}
-          {data?.contributions[4] &&
-            <Avatar
-              contributor={data.contributions[4]?.contributor}
-              lastPr={dayjs(data.contributions[4]?.last_merged_at).fromNow()}/>}
+            {data?.contributions[1] &&
+              <Avatar
+                contributor={data.contributions[1]?.contributor}
+                lastPr={dayjs(data.contributions[1]?.last_merged_at).fromNow()}/>}
+            {data?.contributions[2] &&
+              <Avatar
+                contributor={data.contributions[2]?.contributor}
+                lastPr={dayjs(data.contributions[2]?.last_merged_at).fromNow()}/>}
+            {data?.contributions[3] &&
+              <Avatar
+                contributor={data.contributions[3]?.contributor}
+                lastPr={dayjs(data.contributions[3]?.last_merged_at).fromNow()}/>}
+            {data?.contributions[4] &&
+              <Avatar
+                contributor={data.contributions[4]?.contributor}
+                lastPr={dayjs(data.contributions[4]?.last_merged_at).fromNow()}/>}
 
-        <a className='text-gray-600 text-[15px] ml-[10px]' href={`https://github.com/${data.full_name}/contributors`}>more...</a>
+          <a className='text-gray-600 text-[14px] ml-[10px] mr-[10px]' href={`https://github.com/${data.full_name}/contributors`}>more...</a>
+        </div>
+
+        <div className='flex gap-[10px] items-center'>
+          <div className='flex gap-[5px] items-center'>
+            <div className='w-[14px] h-auto'>
+              <img src="/IssuesIcon.png" alt="" />
+            </div>
+            <p className='text-[12px] font-semibold'>{"24.5K"}</p>
+          </div>
+
+          <div className='flex gap-[5px] items-center'>
+            <div className='w-[14px] h-auto'>
+              <img src="/StarIcon.png" alt="" />
+            </div>
+            <p className='text-[12px] font-semibold'>{"24.5K"}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

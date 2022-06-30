@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.7.0](https://github.com/open-sauced/hot-sauce/compare/v2.6.0...v2.7.0) (2022-06-30)
+
+
+### 🍕 Features
+
+* **vitest:** replace jest with vitest ([#191](https://github.com/open-sauced/hot-sauce/issues/191)) ([c14d0fe](https://github.com/open-sauced/hot-sauce/commit/c14d0fe5530d85e45631e51c3e464afcfce26fb6)), closes [#190](https://github.com/open-sauced/hot-sauce/issues/190)
+
 ## [2.6.0](https://github.com/open-sauced/hot-sauce/compare/v2.5.0...v2.6.0) (2022-05-28)
 
 

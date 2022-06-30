@@ -41,7 +41,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
       <div className='border-[1px] border-gray-100 rounded-[14px]'>
         <div className='flex flex-col rounded-t-[14px] bg-gray-100 p-[30px]'>
 
-          <div className='w-full flex justify-end'>
+          <div className='w-full flex justify-end '>
             <div
               role="button"
               tabIndex={0}
@@ -59,7 +59,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
             </div>
           </div>
 
-          <div className='flex items-center gap-[15px]'>
+          <div className='flex items-center min-h-[100px] gap-[15px]'>
             <div className='w-[50px] rounded-[14px] overflow-hidden'>
               <img className='w-full h-auto' src={`https://avatars.githubusercontent.com/u/${repo_id}`} alt="" />
             </div>
@@ -69,12 +69,12 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
           </div>
 
         </div>
-        <div className='p-[30px]'>
-          <p className='font-semibold text-[12px]'>{description}</p>
+        <div className='p-[30px] '>
+          <p className='font-semibold text-[12px]'>{description.substring(0,100)}</p>
         </div>
       </div>
           
-      <div className="flex gap-[6px] my-[25px] w-full">
+      <div className="flex gap-[6px] px-[30px] py-[15px] w-full">
           {data?.contributions[0] &&
             <Avatar
               contributor={data.contributions[0]?.contributor}

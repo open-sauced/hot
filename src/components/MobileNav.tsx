@@ -42,7 +42,7 @@ const MobileNav:FC = () => {
 
                       {
                         navs.map( nav => (
-                          <Menu.Item>
+                          <Menu.Item key={nav.placeholder}>
                             <div className='bg-w p-[5px] text-[14px] text-gray150 rounded-md hover:bg-gray100 '>
                               <a href={nav.links}>{nav.placeholder}</a>
                             </div>

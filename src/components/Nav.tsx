@@ -48,7 +48,7 @@ const Nav:FC = () => {
               <ul className='flex gap-[50px]  '>
                 {
                   navs.map( nav => (
-                    <li><a href={nav.links}>{nav.placeholder}</a></li>
+                    <li key={nav.placeholder} ><a href={nav.links}>{nav.placeholder}</a></li>
                   ))
                 }
 

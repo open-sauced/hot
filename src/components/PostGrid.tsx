@@ -21,6 +21,9 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const {
     id: repo_id,
     votesRelation: [{votesCount}],
+    stars,
+    description,
+    full_name
   } = data;
 
   const [votes, updateVotesState] = useState(votesCount || 0);
@@ -34,53 +37,43 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   }
 
   return (
-    <div className="bg-gray100 rounded-xl border-gray120 border-[1px] pt-6 px-4 pb-2 font-roboto">
-      <div className="w-full flex justify-between items-center mb-3">
-        {/* <div className="flex w-full">
-          {data?.contributions[0] &&
-            <Avatar
-              contributor={data.contributions[0]?.contributor}
-              lastPr={dayjs(data.contributions[0]?.last_merged_at).fromNow()}/>}
+    <div className="">
+      <div className='border-[1px] border-gray-100 rounded-[14px]'>
+        <div className='flex flex-col rounded-t-[14px] bg-gray-100 p-[30px]'>
 
-          {data?.contributions[1] &&
-            <Avatar
-              contributor={data.contributions[1]?.contributor}
-              lastPr={dayjs(data.contributions[1]?.last_merged_at).fromNow()}/>}
-
-        </div> */}
-
-        <div className="flex mb-[4px] ">
-          <div
-            role="button"
-            tabIndex={0}
-            aria-pressed="false"
-            onClick={() => user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' })}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                return user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' });
-              }
-            }}
-            className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"
-          >
-            <FaArrowAltCircleUp/>
-            <p className="font-bold">{votes}</p>
+          <div className='w-full flex justify-end'>
+            <div
+              role="button"
+              tabIndex={0}
+              aria-pressed="false"
+              onClick={() => user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' })}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  return user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' });
+                }
+              }}
+              className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"
+            >
+              <FaArrowAltCircleUp/>
+              <p className="font-bold">{votes}</p>
+            </div>
           </div>
+
+          <div className='flex items-center gap-[15px]'>
+            <div className='w-[50px] rounded-[14px] overflow-hidden'>
+              <img className='w-full h-auto' src={`https://avatars.githubusercontent.com/u/${repo_id}`} alt="" />
+            </div>
+            <div className=''>
+              <p className='text-[22px]' >{full_name}</p>
+            </div>
+          </div>
+
+        </div>
+        <div className='p-[30px]'>
+          <p className='font-semibold text-[12px]'>{description}</p>
         </div>
       </div>
-
-      <a
-        className="w-full bg-transparent h-32 overflow-hidden rounded-md mb-2 flex justify-center"
-        href={getRepoLink(data.full_name)}
-        title={`Visit ${data.full_name}`}
-        target="_blank"
-        rel="noopener"
-      >
-        <img
-          className="object-cover w-full"
-          src={`https://opengraph.githubassets.com/1/${data.full_name}`}
-          alt={data.full_name}
-        />
-      </a>
+          
       <div className="flex gap-[6px] my-[25px] w-full">
           {data?.contributions[0] &&
             <Avatar
@@ -105,7 +98,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
               lastPr={dayjs(data.contributions[4]?.last_merged_at).fromNow()}/>}
 
         <a className='text-gray-600 text-[15px] ml-[10px]' href={`https://github.com/${data.full_name}/contributors`}>more...</a>
-        </div>
+      </div>
     </div>
   );
 }

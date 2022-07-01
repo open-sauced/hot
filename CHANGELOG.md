@@ -5,6 +5,34 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.7.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.3...v2.7.0-beta.4) (2022-06-17)
+
+
+### 🍕 Features
+
+* adds new fields to search results ([#181](https://github.com/open-sauced/hot-sauce/issues/181)) ([e1242fa](https://github.com/open-sauced/hot-sauce/commit/e1242fa0ddd9e8c674beb5d28fde1c3b8e5984ba))
+
+## [2.7.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.2...v2.7.0-beta.3) (2022-06-16)
+
+
+### 🐛 Bug Fixes
+
+* correct dayjs imports ([60e7cf8](https://github.com/open-sauced/hot-sauce/commit/60e7cf895878afe7a9c95b6365ad92ba42168602))
+
+## [2.7.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.1...v2.7.0-beta.2) (2022-06-16)
+
+
+### 🍕 Features
+
+* update avatar contib dates with dayjs component ([#185](https://github.com/open-sauced/hot-sauce/issues/185)) ([01f9aca](https://github.com/open-sauced/hot-sauce/commit/01f9aca7c294cccaa3bd513648a80e64b7171ff3)), closes [#174](https://github.com/open-sauced/hot-sauce/issues/174)
+
+## [2.7.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.6.0...v2.7.0-beta.1) (2022-06-08)
+
+
+### 🍕 Features
+
+* Repository submission form UI ([#179](https://github.com/open-sauced/hot-sauce/issues/179)) ([f02363c](https://github.com/open-sauced/hot-sauce/commit/f02363c68cd3894e1259e3e141ae0864b757c674))
+
 ## [2.6.0](https://github.com/open-sauced/hot-sauce/compare/v2.5.0...v2.6.0) (2022-05-28)
 
 

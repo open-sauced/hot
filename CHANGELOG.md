@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.7.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.4...v2.7.0-beta.5) (2022-07-01)
+
+
+### 🍕 Features
+
+* add filter params ([#184](https://github.com/open-sauced/hot-sauce/issues/184)) ([87e7af0](https://github.com/open-sauced/hot-sauce/commit/87e7af0c7a92b6fc59fbe64769b5a444e57a0492)), closes [#167](https://github.com/open-sauced/hot-sauce/issues/167)
+
 ## [2.7.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.3...v2.7.0-beta.4) (2022-06-17)
 
 

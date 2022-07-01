@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.8.0](https://github.com/open-sauced/hot-sauce/compare/v2.7.0...v2.8.0) (2022-07-01)
+
+
+### 🍕 Features
+
+* **social-card:** add the meta tag for a social card ([#192](https://github.com/open-sauced/hot-sauce/issues/192)) ([9cd16ec](https://github.com/open-sauced/hot-sauce/commit/9cd16eca86349c465b304e7030613deee0f9fe69))
+
 ## [2.7.0](https://github.com/open-sauced/hot-sauce/compare/v2.6.0...v2.7.0) (2022-06-30)
 
 

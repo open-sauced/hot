@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.8.1](https://github.com/open-sauced/hot-sauce/compare/v2.8.0...v2.8.1) (2022-07-01)
+
+
+### 🐛 Bug Fixes
+
+* **social-card:** broken and missing meta tags ([#193](https://github.com/open-sauced/hot-sauce/issues/193)) ([33299a4](https://github.com/open-sauced/hot-sauce/commit/33299a45f4a79a579d9208e990e36c56da676e34))
+
 ## [2.8.0](https://github.com/open-sauced/hot-sauce/compare/v2.7.0...v2.8.0) (2022-07-01)
 
 

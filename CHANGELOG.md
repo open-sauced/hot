@@ -5,6 +5,14 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.8.2](https://github.com/open-sauced/hot-sauce/compare/v2.8.1...v2.8.2) (2022-07-02)
+
+
+### 🐛 Bug Fixes
+
+* correct extra word in index.html and adjust social card ([335accb](https://github.com/open-sauced/hot-sauce/commit/335accbbe24c51e76d736679c39698cbb31f4449))
+* correct html date injection ([a0f7417](https://github.com/open-sauced/hot-sauce/commit/a0f7417018b17ee0c14ad32102d1cffe57aaf807))
+
 ### [2.8.1](https://github.com/open-sauced/hot-sauce/compare/v2.8.0...v2.8.1) (2022-07-01)
 
 

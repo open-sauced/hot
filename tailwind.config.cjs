@@ -33,8 +33,10 @@ module.exports = {
         darkestGrey: "#2C3137",
         accent: "#FAEACE",
         gray50: "#333333",
+        gray60: "#8C8C8C",
         gray100: "#F3F3F3",
         gray120: "#D9D9D9",
+        gray130: "#595959",
         gray150: "#8C8C8C",
 
       },

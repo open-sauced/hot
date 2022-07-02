@@ -38,7 +38,7 @@ const Nav:FC = () => {
       <div className='max-w-[950px] mx-auto px-[7px] '>
 
         <div className='flex items-center justify-between'>
-            <div className='z-10 w-[172px] h-[43px]n py-[10px] '>
+            <div className='z-10 w-[172px] py-[10px] '>
               <img src={brandLogo} alt="Open Sauced" className='w-full h-full' />
             </div>
 

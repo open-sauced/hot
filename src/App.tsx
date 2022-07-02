@@ -17,7 +17,6 @@ const App = (): JSX.Element => {
       <RepoSubmission/>
       {/* <PrimaryNav setTextToSearch={setTextToSearch} /> */}
       <PostsWrap textToSearch={textToSearch} />
-      <Footer/>
     </div>
   )
 }

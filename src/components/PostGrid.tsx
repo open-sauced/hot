@@ -69,7 +69,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
           </div>
 
         </div>
-        <div className='p-[30px] '>
+        <div className='p-[30px] min-h-[108px] '>
           <p className='font-semibold text-[12px]'>{description.substring(0,100)}</p>
         </div>
       </div>

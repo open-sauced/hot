@@ -70,6 +70,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
       inject: {
         data: {
           title: `Hot Open Sauced v${process.env.npm_package_version}`,
+          date: new Date().toISOString(),
         },
       },
     })

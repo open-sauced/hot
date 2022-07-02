@@ -10,6 +10,7 @@ import { capturePostHogAnayltics } from '../lib/analytics';
 import dayjs from 'dayjs/esm/index.js'
 import relativeTime  from "dayjs/esm/plugin/relativeTime";
 dayjs.extend(relativeTime);
+import numToKformat from '../lib/numToKformat';
 
 export declare interface PostGridProps {
   data: DbRecomendation;
@@ -23,7 +24,8 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
     votesRelation: [{votesCount}],
     stars,
     description,
-    full_name
+    full_name,
+    issues,
   } = data;
 
   const [votes, updateVotesState] = useState(votesCount || 0);
@@ -52,7 +54,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
                   return user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' });
                 }
               }}
-              className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"
+              className="flex justify-center items-center text-base space-x-1 text-grey bg-gray-50 py-[2px] px-[5px] rounded-[5px] cursor-pointer transition-all duration-200"
             >
               <img src="/UpvoteIcon.png" alt="" />
               <p className="font-bold">{votes}</p>
@@ -69,7 +71,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
           </div>
 
         </div>
-        <div className='p-[30px] min-h-[108px] '>
+        <div className='p-[30px] min-h-[106px] '>
           <p className='font-semibold text-[12px]'>{description.substring(0,100)}</p>
         </div>
       </div>
@@ -97,8 +99,10 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
               <Avatar
                 contributor={data.contributions[4]?.contributor}
                 lastPr={dayjs(data.contributions[4]?.last_merged_at).fromNow()}/>}
-
-          <a className='text-gray-600 text-[14px] ml-[10px] mr-[10px]' href={`https://github.com/${data.full_name}/contributors`}>more...</a>
+          {
+            data.contributions.length > 0 &&
+            <a className='text-gray-600 text-[14px] ml-[10px] mr-[10px]' href={`https://github.com/${data.full_name}/contributors`}>more...</a>
+          }
         </div>
 
         <div className='flex gap-[10px] items-center'>
@@ -106,14 +110,14 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
             <div className='w-[14px] h-auto'>
               <img src="/IssuesIcon.png" alt="" />
             </div>
-            <p className='text-[12px] font-semibold'>{"24.5K"}</p>
+            <p className='text-[12px] font-semibold'>{numToKformat(issues)}</p>
           </div>
 
           <div className='flex gap-[5px] items-center'>
             <div className='w-[14px] h-auto'>
               <img src="/StarIcon.png" alt="" />
             </div>
-            <p className='text-[12px] font-semibold'>{"24.5K"}</p>
+            <p className='text-[12px] font-semibold'>{numToKformat(stars)}</p>
           </div>
         </div>
       </div>

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.9.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.9.0-beta.1...v2.9.0-beta.2) (2022-07-06)
+
+
+### ✅ Tests
+
+* **locationsHash:** Write filter tests ([#195](https://github.com/open-sauced/hot-sauce/issues/195)) ([a2fc817](https://github.com/open-sauced/hot-sauce/commit/a2fc8173806a438503bbb56af8b145c37da7f770)), closes [#64](https://github.com/open-sauced/hot-sauce/issues/64)
+
 ## [2.9.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.8.2...v2.9.0-beta.1) (2022-07-06)
 
 

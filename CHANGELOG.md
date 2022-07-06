@@ -5,6 +5,35 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.8.2](https://github.com/open-sauced/hot-sauce/compare/v2.8.1...v2.8.2) (2022-07-02)
+
+
+### 🐛 Bug Fixes
+
+* correct extra word in index.html and adjust social card ([335accb](https://github.com/open-sauced/hot-sauce/commit/335accbbe24c51e76d736679c39698cbb31f4449))
+* correct html date injection ([a0f7417](https://github.com/open-sauced/hot-sauce/commit/a0f7417018b17ee0c14ad32102d1cffe57aaf807))
+
+### [2.8.1](https://github.com/open-sauced/hot-sauce/compare/v2.8.0...v2.8.1) (2022-07-01)
+
+
+### 🐛 Bug Fixes
+
+* **social-card:** broken and missing meta tags ([#193](https://github.com/open-sauced/hot-sauce/issues/193)) ([33299a4](https://github.com/open-sauced/hot-sauce/commit/33299a45f4a79a579d9208e990e36c56da676e34))
+
+## [2.8.0](https://github.com/open-sauced/hot-sauce/compare/v2.7.0...v2.8.0) (2022-07-01)
+
+
+### 🍕 Features
+
+* **social-card:** add the meta tag for a social card ([#192](https://github.com/open-sauced/hot-sauce/issues/192)) ([9cd16ec](https://github.com/open-sauced/hot-sauce/commit/9cd16eca86349c465b304e7030613deee0f9fe69))
+
+## [2.7.0](https://github.com/open-sauced/hot-sauce/compare/v2.6.0...v2.7.0) (2022-06-30)
+
+
+### 🍕 Features
+
+* **vitest:** replace jest with vitest ([#191](https://github.com/open-sauced/hot-sauce/issues/191)) ([c14d0fe](https://github.com/open-sauced/hot-sauce/commit/c14d0fe5530d85e45631e51c3e464afcfce26fb6)), closes [#190](https://github.com/open-sauced/hot-sauce/issues/190)
+
 ## [2.7.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.7.0-beta.4...v2.7.0-beta.5) (2022-07-01)
 
 

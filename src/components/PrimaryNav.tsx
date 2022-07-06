@@ -45,13 +45,6 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
   const [hasFocus, setFocus] = useState<boolean>(false);
   const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
 
-
-  const clickHandler = (searchToText: string) => {
-    console.log(searchToText)
-    setTextToSearch(searchToText)
-    setResults([])
-  }
-
   const inputOnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value)
     if(e.target.value == ""){
@@ -111,14 +104,6 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
                         {
                           results.map( result => (
                             <a
-                              role="button"
-                              tabIndex={0}
-                              aria-pressed="false"
-                              onKeyDown={async (e)=> {
-                                if (e.key === 'Enter') {
-                                  await clickHandler(result.full_name)
-                                }
-                              }}
                               target="_blank" href={`https://app.opensauced.pizza/repos/${result.full_name}`}
                             >
                               <div
@@ -142,24 +127,15 @@ const PrimaryNav = ({setTextToSearch}:PostWrapProps): JSX.Element => {
       </div>
       {!user && (
         <div className="items-center">
-          <div
-            role="button"
-            tabIndex={0}
-            aria-pressed="false"
+          <button
             className="cursor-pointer"
             onClick={async () => {
               capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
               await signIn({ provider: 'github' });
             }}
-            onKeyDown={async (e) => {
-              capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
-              if (e.key === 'Enter') {
-                await signIn({ provider: 'github' });
-              }
-            }}
           >
             Login
-          </div>
+          </button>
         </div>
       )}
       {user && (

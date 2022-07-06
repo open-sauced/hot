@@ -6,18 +6,11 @@ import GridDisplay from './GridDisplay';
 import ListDisplay from './ListDisplay';
 import { fetchRecommendations } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
+import locationsHash from '../lib/locationsHash';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
 interface PostWrapProps{
   textToSearch: string
-}
-
-const locationsHash: { [index: string] : string | undefined } = {
-  "/popular": "popular",
-  "/upvoted": "upvoted",
-  "/discussed": "discussed",
-  "/recent": "recent",
-  "/myVotes": "myVotes",
 }
 
 const parseLimitValue = (limit: string | null) : number => {
@@ -57,9 +50,9 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   return (
     <>
       <Modal/>
-      <SecondaryNav 
-        activeLink={activeLink} 
-        user={user} 
+      <SecondaryNav
+        activeLink={activeLink}
+        user={user}
       />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">

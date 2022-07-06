@@ -1,12 +1,12 @@
 {
   "name": "@open-sauced/hot",
-  "version": "2.8.2",
+  "version": "2.9.0-beta.1",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "@open-sauced/hot",
-      "version": "2.8.2",
+      "version": "2.9.0-beta.1",
       "hasInstallScript": true,
       "license": "MIT",
       "dependencies": {
@@ -771,9 +771,9 @@
       }
     },
     "node_modules/@headlessui/react": {
-      "version": "1.6.5",
-      "resolved": "https://registry.npmjs.org/@headlessui/react/-/react-1.6.5.tgz",
-      "integrity": "sha512-3VkKteDxlxf3fE0KbfO9t60KC1lM7YNpZggLpwzVNg1J/zwL+h+4N7MBlFDVpInZI3rKlZGpNx0PWsG/9c2vQg==",
+      "version": "1.5.0",
+      "resolved": "https://registry.npmjs.org/@headlessui/react/-/react-1.5.0.tgz",
+      "integrity": "sha512-aaRnYxBb3MU2FNJf3Ut9RMTUqqU3as0aI1lQhgo2n9Fa67wRu14iOGqx93xB+uMNVfNwZ5B3y/Ndm7qZGuFeMQ==",
       "engines": {
         "node": ">=10"
       },

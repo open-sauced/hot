@@ -5,7 +5,7 @@ import { initiatePostHog } from './lib/analytics';
 import { useState } from 'react';
 import RepoSubmission from './components/RepoSubmission';
 import Nav from './components/Nav';
-import MobileNav from './components/MobileNav';
+
 
 const App = (): JSX.Element => {
   initiatePostHog();
@@ -15,7 +15,6 @@ const App = (): JSX.Element => {
     <div className="App overflow-hidden">
       <Nav/>
       <RepoSubmission/>
-      {/* <PrimaryNav setTextToSearch={setTextToSearch} /> */}
       <PostsWrap textToSearch={textToSearch} />
     </div>
   )

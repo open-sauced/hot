@@ -3,7 +3,7 @@ import useSupabaseAuth from '../hooks/useSupabaseAuth'
 import { version } from "../../package.json";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { Menu } from '@headlessui/react'
-import { CgMenuGridO } from 'react-icons/cg';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 
 
@@ -33,7 +33,7 @@ const MobileNav:FC = () => {
     <div className=' tablet:hidden'>
       <Menu as="div" className="relative">
         <Menu.Button>
-          <CgMenuGridO className='w-[35px] h-[35px] text-gray-600 ' />
+          <GiHamburgerMenu className='w-[35px] h-[35px] text-gray-600 ' />
         </Menu.Button>
 
         <Menu.Items className="absolute z-50 right-0 w-56 origin-top-right rounded-md shadow-sm border-gray-100 border-[1px] focus:outline-none px-1 py-1 bg-white text-sm font-semibold">

@@ -104,7 +104,7 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
         </div>
 
         {results.length > 0 && hasFocus && (
-          <div className="bg-offWhite rounded-xl font-roboto w-full tablet:w-[700px] absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
+          <div className="bg-offWhite rounded-xl font-roboto w-[10px] tablet:w-[700px] absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
             <div className="flex">
               <div className="w-full">
                 <h1 className="text-lightGrey p-[15px] uppercase text-xs border-b-2 w-full">

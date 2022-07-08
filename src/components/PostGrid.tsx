@@ -57,7 +57,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
               className="flex justify-center items-center text-base space-x-1 bg-gray-50 py-[2px] px-[5px] rounded-[5px] cursor-pointer transition-all duration-200"
             >
               <img src="/UpvoteIcon.png" alt="" />
-              <p className="font-bold text-gray130 ">{votes}</p>
+              <p className="font-bold text-grey130 ">{votes}</p>
             </div>
           </div>
 
@@ -72,7 +72,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
 
         </div>
         <div className='p-[30px] min-h-[106px] '>
-          <p className='font-semibold text-gray60 text-[12px]'>{description.substring(0,100)}</p>
+          <p className='font-semibold text-grey60 text-[12px]'>{description.substring(0,100)}</p>
         </div>
       </div>
       
@@ -101,7 +101,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
                 lastPr={dayjs(data.contributions[4]?.last_merged_at).fromNow()}/>}
           {
             data.contributions.length > 0 &&
-            <a className='text-gray-600 text-[14px] ml-[10px] mr-[10px]' href={`https://github.com/${data.full_name}/contributors`}>more...</a>
+            <a className='text-grey-600 text-[14px] ml-[10px] mr-[10px]' href={`https://github.com/${data.full_name}/contributors`}>more...</a>
           }
         </div>
 
@@ -110,10 +110,10 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
             <div className='w-[14px] h-auto'>
               <img src="/IssuesIcon.png" alt="" />
             </div>
-            <p className='text-[12px] text-gray130 font-semibold'>{numToKformat(issues)}</p>
+            <p className='text-[12px] text-grey130 font-semibold'>{numToKformat(issues)}</p>
           </div>
 
-          <div className='flex gap-[5px] text-gray130 items-center'>
+          <div className='flex gap-[5px] text-grey130 items-center'>
             <div className='w-[14px] h-auto'>
               <img src="/StarIcon.png" alt="" />
             </div>

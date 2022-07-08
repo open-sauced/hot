@@ -32,12 +32,12 @@ module.exports = {
         darkGrey: "#171c1d",
         darkestGrey: "#2C3137",
         accent: "#FAEACE",
-        gray50: "#333333",
-        gray60: "#8C8C8C",
-        gray100: "#F3F3F3",
-        gray120: "#D9D9D9",
-        gray130: "#595959",
-        gray150: "#8C8C8C",
+        grey50: "#333333",
+        grey60: "#8C8C8C",
+        grey100: "#F3F3F3",
+        grey120: "#D9D9D9",
+        grey130: "#595959",
+        grey150: "#8C8C8C",
 
       },
       fontFamily: {

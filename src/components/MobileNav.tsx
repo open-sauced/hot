@@ -50,7 +50,8 @@ const MobileNav:FC = () => {
           {
             !user && 
             <Menu.Item>
-              <a
+              <button
+              className='inline-block bg-white px-[15px] py-[5px] h rounded-md hover:bg-gray100 text-gray150   '
                 onClick={async () => {
                   capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
                   await signIn({ provider: "github" });
@@ -62,8 +63,8 @@ const MobileNav:FC = () => {
                   }
                 }}
                 >
-                  <button className='inline-block bg-white px-[15px] py-[5px] h rounded-md hover:bg-gray100 text-gray150   ' >Login</button>
-                </a>
+                Logins
+              </button>
             </Menu.Item>
           }
           {

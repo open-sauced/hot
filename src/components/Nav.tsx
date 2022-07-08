@@ -10,19 +10,19 @@ import MobileNav from './MobileNav';
 const navs = [
   {
     placeholder: 'Docs',
-    links: "#"
+    links: "https://docs.opensauced.pizza/"
   },
   {
     placeholder: 'Blog',
-    links: "#"
+    links: "https://dev.to/opensauced"
   },
   {
     placeholder: 'Github',
-    links: "#"
+    links: "https://github.com/open-sauced"
   },
   {
     placeholder: 'YouTube',
-    links: "#"
+    links: "https://www.youtube.com/opensauced"
   }
 ]
 
@@ -34,9 +34,7 @@ const Nav:FC = () => {
       <div className="absolute w-[100vw]  laptop:w-[120vw] left-[270px] mobile:hidden tablet:block tablet:w-[210vw] laptop:left-[638px] overflow-hidden z-[-1]">
         <img src={headerBG} alt="" />
       </div>
-      {/* <img className='absolute object-cover top-0 right-[-600px] ' src={headerBG} alt="gradient background" /> */}
       <div className='max-w-[950px] mx-auto px-[7px] '>
-
         <div className='flex items-center justify-between'>
             <div className='z-10 w-[172px] py-[10px] '>
               <img src={brandLogo} alt="Open Sauced" className='w-full h-full' />
@@ -53,10 +51,10 @@ const Nav:FC = () => {
                 }
 
               </ul>
-
               {
                 !user && 
-                <a
+                <button
+                className='uppercase inline-block bg-white bg-opacity-[.35] font-semibold px-[10px] py-[5px] rounded-md'
                 onClick={async () => {
                   capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
                   await signIn({ provider: "github" });
@@ -68,10 +66,9 @@ const Nav:FC = () => {
                   }
                 }}
                 >
-                  <button className='uppercase inline-block bg-white bg-opacity-[.35] font-semibold px-[10px] py-[5px] rounded-md  ' >Login</button>
-                </a>
+                  Login
+                </button>
               }
-
               {
                 user &&
                 <div className='mt-[4px]'>
@@ -123,7 +120,6 @@ const Nav:FC = () => {
                   </Menu.Items>
                 </Menu>
                 </div>
-                
               }
             </div>
           </div>

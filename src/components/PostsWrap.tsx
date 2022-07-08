@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import LayoutToggle from './LayoutToggle';
-import Modal from './Modal';
 import SecondaryNav from './SecondaryNav';
 import GridDisplay from './GridDisplay';
 import ListDisplay from './ListDisplay';

@@ -60,15 +60,17 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
               <p className="font-bold text-grey130 ">{votes}</p>
             </div>
           </div>
-
-          <div className='flex items-center min-h-[100px] gap-[15px]'>
-            <div className='w-[50px] rounded-[14px] overflow-hidden'>
-              <img className='w-full h-auto' src={`https://avatars.githubusercontent.com/u/${repo_id}`} alt="" />
+          
+          <a href={getRepoLink(full_name)}>
+            <div className='flex items-center min-h-[100px] gap-[15px]'>
+              <div className='w-[50px] rounded-[14px] overflow-hidden'>
+                <img className='w-full h-auto' src={`https://avatars.githubusercontent.com/u/${repo_id}`} alt="" />
+              </div>
+              <div className=''>
+                <p className='text-[22px]' >{full_name}</p>
+              </div>
             </div>
-            <div className=''>
-              <p className='text-[22px]' >{full_name}</p>
-            </div>
-          </div>
+          </a>
 
         </div>
         <div className='p-[30px] min-h-[106px] '>
@@ -108,14 +110,14 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
         <div className='flex gap-[10px] items-center'>
           <div className='flex gap-[5px] items-center'>
             <div className='w-[14px] h-auto'>
-              <img src="/IssuesIcon.png" alt="" />
+              <img src="/IssuesIcon.svg" alt="" />
             </div>
             <p className='text-[12px] text-grey130 font-semibold'>{numToKformat(issues)}</p>
           </div>
 
           <div className='flex gap-[5px] text-grey130 items-center'>
             <div className='w-[14px] h-auto'>
-              <img src="/StarIcon.png" alt="" />
+              <img src="/StarIcon.svg" alt="" />
             </div>
             <p className='text-[12px] font-semibold'>{numToKformat(stars)}</p>
           </div>

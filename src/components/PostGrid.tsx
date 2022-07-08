@@ -4,7 +4,6 @@ import { updateVotesByRepo } from '../lib/supabase';
 import { getRepoLink } from '../lib/github';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 import { User } from "@supabase/supabase-js";
-import { FaArrowAltCircleUp, FaStar } from "react-icons/fa";
 import { capturePostHogAnayltics } from '../lib/analytics';
 
 import dayjs from 'dayjs/esm/index.js'
@@ -42,7 +41,6 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
     <div className="">
       <div className='border-[1px] border-gray-100 rounded-[14px]'>
         <div className='flex flex-col rounded-t-[14px] bg-gray-100 p-[30px]'>
-
           <div className='w-full flex justify-end '>
             <div
               role="button"
@@ -62,18 +60,18 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
           </div>
           
           <a href={getRepoLink(full_name)}>
-            <div className='flex flex-wrap break-words items-center min-h-[100px] gap-[15px]'>
+            <div className='flex break-words items-center min-h-[100px] gap-[15px]'>
               <div className='w-[50px] rounded-[14px] overflow-hidden'>
                 <img className='w-full h-auto' src={`https://avatars.githubusercontent.com/u/${repo_id}`} alt="" />
               </div>
-              <div className='w-full '>
+              <div className='w-full break-all '>
                 <h6 className='text-[18px] tablet:text[22px] ' >{full_name}</h6>
               </div>
             </div>
           </a>
 
         </div>
-        <div className='p-[30px] min-h-[106px] break-words '>
+        <div className='p-[30px] min-h-[106px] break-all'>
           <p className='font-semibold text-grey60 text-[12px]'>{description.substring(0,100)}</p>
         </div>
       </div>

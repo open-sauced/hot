@@ -35,10 +35,11 @@ function Modal() {
 
           <div className="z-40">
             <button
+              aria-label="More about starring repos"
               onClick={() => setIsOpen(!isOpen)}
               className=" bg-grey h-14 w-14 rounded-full border-dashed border-4 border-cheesyYellow flex justify-center items-center text-2xl transition-all duration-200 transform hover:scale-105 cursor-pointer"
             >
-              <FaPizzaSlice className="text-offWhite hover:text-accent"/>
+              <FaPizzaSlice aria-hidden="true" className="text-offWhite hover:text-accent"/>
             </button>
           </div>
 

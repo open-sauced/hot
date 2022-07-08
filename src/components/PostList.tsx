@@ -62,23 +62,15 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
           </div>
 
           <div className="flex justify-start max-w-sm space-x-1">
-            <div
-              role="button"
-              tabIndex={0}
-              aria-pressed="false"
+            <button
               onClick={() => user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' })}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  return user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' });
-                }
-              }}
               className="flex justify-start text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
-                <FaArrowAltCircleUp className="mr-1"/>
+                <FaArrowAltCircleUp aria-hidden="true" className="mr-1"/>
                 <p className="font-bold">{votes}</p>
               </div>
-            </div>
+            </button>
 
             <a
               className="flex justify-start  text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
@@ -88,7 +80,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
               rel="noopener"
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
-                <FaDotCircle className="mr-1"/>
+                <FaDotCircle aria-hidden="true" className="mr-1"/>
                 {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
               </div>
             </a>
@@ -101,7 +93,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
               rel="noopener"
             >
               <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
-                <FaStar className="mr-1"/>
+                <FaStar aria-hidden="true" className="mr-1"/>
                 {data.stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
               </div>
             </a>

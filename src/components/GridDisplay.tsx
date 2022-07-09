@@ -19,7 +19,7 @@ const GridDisplay = ({ activeLink, limit, handleLoadingMore, fetchedData, user }
       {fetchedData.length > 0 && activeLink !== "myVotes" && limit <= 100 && (
         <button
           onClick={() => handleLoadingMore()}
-          className="bg-gray100 uppercase border-[1px] hover:text-white border-gray120 hover:bg-gray150 text-gray150 font-bold py-2 px-4 rounded-xl"
+          className="bg-grey100 uppercase border-[1px] hover:text-white border-grey120 hover:bg-grey150 text-grey150 font-bold py-2 px-4 rounded-xl"
         >
           Load More
         </button>

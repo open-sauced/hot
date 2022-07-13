@@ -51,6 +51,7 @@ export async function fetchRecommendations(
   } | undefined = { ascending: false };
   let selectStatement = `
     id,
+    user_id,
     full_name,
     description,
     stars,

@@ -48,7 +48,6 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
   const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
 
   const clickHandler = (searchToText: string) => {
-    console.log(searchToText);
     setTextToSearch(searchToText);
     setResults([]);
   };

@@ -40,7 +40,7 @@ const SecondaryNav = ({setLimit, activeLink, setActiveLink, user}: SecondaryNavP
   });
 
   return (
-    <div>{console.log(activeLink)}
+    <div>
         <nav className="container">
           <div className="flex flex-col sm:flex-row text-[14px] text-gray-400 font-bold justify-center items-center cursor-pointer">
             {links.map(({link, title}) => (

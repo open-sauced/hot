@@ -29,6 +29,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
 
   const [votes, updateVotesState] = useState(votesCount || 0);
   const { signIn } = useSupabaseAuth();
+  const _5contributions = data?.contributions.slice(0,5) || []
 
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
     user_id && capturePostHogAnayltics('User voted', 'voteClick', 'true');
@@ -78,27 +79,14 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
       
       <div className='flex justify-between py-[15px] w-full'>
         <div className="flex gap-[6px] ">
-            {data?.contributions[0] &&
+          {
+            _5contributions.map (contribution => (
               <Avatar
-                contributor={data.contributions[0]?.contributor}
-                lastPr={dayjs(data.contributions[0]?.last_merged_at).fromNow()}/>}
-
-            {data?.contributions[1] &&
-              <Avatar
-                contributor={data.contributions[1]?.contributor}
-                lastPr={dayjs(data.contributions[1]?.last_merged_at).fromNow()}/>}
-            {data?.contributions[2] &&
-              <Avatar
-                contributor={data.contributions[2]?.contributor}
-                lastPr={dayjs(data.contributions[2]?.last_merged_at).fromNow()}/>}
-            {data?.contributions[3] &&
-              <Avatar
-                contributor={data.contributions[3]?.contributor}
-                lastPr={dayjs(data.contributions[3]?.last_merged_at).fromNow()}/>}
-            {data?.contributions[4] &&
-              <Avatar
-                contributor={data.contributions[4]?.contributor}
-                lastPr={dayjs(data.contributions[4]?.last_merged_at).fromNow()}/>}
+                contributor={contribution.contributor}
+                lastPr={dayjs(contribution.last_merged_at).fromNow()}
+              />
+            ))
+          }
           {
             data.contributions.length > 0 &&
             <a className='text-grey-600 text-[14px] ml-[10px] mr-[10px]' href={`https://github.com/${data.full_name}/contributors`}>more...</a>

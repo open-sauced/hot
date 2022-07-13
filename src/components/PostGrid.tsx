@@ -82,6 +82,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
           {
             _5contributions.map (contribution => (
               <Avatar
+                key={contribution.contributor}
                 contributor={contribution.contributor}
                 lastPr={dayjs(contribution.last_merged_at).fromNow()}
               />

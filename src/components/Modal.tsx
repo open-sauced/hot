@@ -32,7 +32,6 @@ function Modal() {
 
       <div className="flex justify-center">
         <div className="absolute top-14 flex justify-center flex-col items-center sm:top-10">
-
           <div className="z-40">
             <button
               onClick={() => setIsOpen(!isOpen)}

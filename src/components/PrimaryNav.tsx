@@ -1,10 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
-import { Menu } from "@headlessui/react";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { FaSpinner } from "react-icons/fa";
 import { fetchWithSearch } from "../lib/supabase";
 import Avatar from "./Avatar";
-
 import { FaAngleRight, FaRegStar, FaRegDotCircle } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import TextHoverElement from "./TextHoverElement";
@@ -129,7 +126,7 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
                     >
                       <div
                         key={result.full_name}
-                        className="flex text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
+                        className="flex text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200"
                       >
                         <div>
                           <h2>{result.full_name}</h2>

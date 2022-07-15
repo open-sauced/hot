@@ -63,7 +63,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
           <a href={getRepoLink(full_name)}>
             <div className='flex break-words items-center min-h-[100px] gap-[15px]'>
               <div className='w-[50px] rounded-[14px] overflow-hidden'>
-                <img className='w-full h-auto' src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="" />
+                <img className='w-full h-auto' src={`https://avatars.githubusercontent.com/u/${data?.user_id}`} alt="" />
               </div>
               <div className='w-full break-all '>
                 <h6 className='text-[18px] tablet:text[22px] ' >{full_name}</h6>

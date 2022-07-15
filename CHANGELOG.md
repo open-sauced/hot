@@ -5,6 +5,14 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.9.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.9.0-beta.2...v2.9.0-beta.3) (2022-07-15)
+
+
+### 🐛 Bug Fixes
+
+* accessibility tweaks ([#194](https://github.com/open-sauced/hot-sauce/issues/194)) ([7ef03cf](https://github.com/open-sauced/hot-sauce/commit/7ef03cff4b007745fc12085fa91777b930652682)), closes [#173](https://github.com/open-sauced/hot-sauce/issues/173) [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153) [#164](https://github.com/open-sauced/hot-sauce/issues/164) [#164](https://github.com/open-sauced/hot-sauce/issues/164) [#166](https://github.com/open-sauced/hot-sauce/issues/166) [#170](https://github.com/open-sauced/hot-sauce/issues/170) [#176](https://github.com/open-sauced/hot-sauce/issues/176) [#176](https://github.com/open-sauced/hot-sauce/issues/176) [#191](https://github.com/open-sauced/hot-sauce/issues/191) [#190](https://github.com/open-sauced/hot-sauce/issues/190) [#190](https://github.com/open-sauced/hot-sauce/issues/190) [#192](https://github.com/open-sauced/hot-sauce/issues/192) [#192](https://github.com/open-sauced/hot-sauce/issues/192) [#193](https://github.com/open-sauced/hot-sauce/issues/193) [#193](https://github.com/open-sauced/hot-sauce/issues/193)
+* relative date is part of Avatar component ([#199](https://github.com/open-sauced/hot-sauce/issues/199)) ([1904923](https://github.com/open-sauced/hot-sauce/commit/190492378daa2fd8d98d31893679a8c77ee65f74))
+
 ## [2.9.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.9.0-beta.1...v2.9.0-beta.2) (2022-07-06)
 
 

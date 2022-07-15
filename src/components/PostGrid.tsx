@@ -10,7 +10,7 @@ import dayjs from 'dayjs/esm/index.js'
 import relativeTime  from "dayjs/esm/plugin/relativeTime";
 dayjs.extend(relativeTime);
 // eslint-disable-next-line
-import numToK from '../lib/numToKFormat';
+import numToK from '../lib/numToK';
 
 export declare interface PostGridProps {
   data: DbRecomendation;

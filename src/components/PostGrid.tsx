@@ -9,6 +9,7 @@ import { capturePostHogAnayltics } from '../lib/analytics';
 import dayjs from 'dayjs/esm/index.js'
 import relativeTime  from "dayjs/esm/plugin/relativeTime";
 dayjs.extend(relativeTime);
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import numToKFormat from '../lib/numToKFormat';
 
 export declare interface PostGridProps {

@@ -11,4 +11,4 @@ const numToKFormat = (num: number): string => {
     }
 }
 
-export default numToKFormat
+export default numToKFormat;

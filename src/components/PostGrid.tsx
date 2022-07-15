@@ -9,7 +9,7 @@ import { capturePostHogAnayltics } from '../lib/analytics';
 import dayjs from 'dayjs/esm/index.js'
 import relativeTime  from "dayjs/esm/plugin/relativeTime";
 dayjs.extend(relativeTime);
-// import numToKFormat from '../lib/numToKFormat';
+import numToKFormat from '../lib/numToKFormat';
 
 export declare interface PostGridProps {
   data: DbRecomendation;
@@ -99,14 +99,14 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
             <div className='w-[14px] h-auto'>
               <img src="/IssuesIcon.svg" alt="" />
             </div>
-            {/* <p className='text-[12px] text-grey130 font-semibold'>{numToKFormat(issues)}</p> */}
+            <p className='text-[12px] text-grey130 font-semibold'>{numToKFormat(issues)}</p>
           </div>
 
           <div className='flex gap-[5px] text-grey130 items-center'>
             <div className='w-[14px] h-auto'>
               <img src="/StarIcon.svg" alt="" />
             </div>
-            {/* <p className='text-[12px] font-semibold'>{numToKFormat(stars)}</p> */}
+            <p className='text-[12px] font-semibold'>{numToKFormat(stars)}</p>
           </div>
         </div>
       </div>

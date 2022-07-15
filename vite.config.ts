@@ -29,7 +29,8 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
   const isGlitchBuild = process.env.PROJECT_REMIX_CHAIN || false;
   const isCloudIdeBuild = isGitpodBuild || isReplitBuild || isStackblitzBuild || isCodeSandboxBuild || isGlitchBuild;
   const isNetlifyBuild = process.env.NETLIFY || false;
-  const isNetlifyPreviewBuild = isNetlifyBuild && process.env.PULL_REQUEST == 'true';
+  const isNetlifyPreviewBuild = isNetlifyBuild && process.env.CONTEXT == 'deploy-preview';
+  const isNetlifyChannelBuild = isNetlifyBuild && process.env.CHANNEL !== undefined;
 
   const config:UserConfig = {
     base: "/",
@@ -69,6 +70,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
       inject: {
         data: {
           title: `Hot Open Sauced v${process.env.npm_package_version}`,
+          date: new Date().toISOString(),
         },
       },
     })
@@ -118,9 +120,18 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
     config.base = `https://${id}.${type}.code${sandbox}.io/`;
   }
 
-  // deploy preview build options
-  if (isNetlifyPreviewBuild) {
-    config.base = `${process.env.DEPLOY_PRIME_URL}/`;
+  // netlify build configuration (see netlify.toml)
+  if (isNetlifyBuild) {
+    config.base = `${process.env.URL}/`;
+
+    if (isNetlifyPreviewBuild) {
+      config.base = `${process.env.DEPLOY_PRIME_URL}/`;
+    } else {
+      if (isNetlifyChannelBuild && ['alpha', 'beta'].includes(process.env.CHANNEL)) {
+        const {protocol, hostname} = new URL(process.env.URL);
+        config.base = `${protocol}//${process.env.CHANNEL}.${hostname}/`;
+      }
+    }
   }
 
   return config;

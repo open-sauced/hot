@@ -5,6 +5,160 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.8.2](https://github.com/open-sauced/hot-sauce/compare/v2.8.1...v2.8.2) (2022-07-02)
+
+
+### 🐛 Bug Fixes
+
+* correct extra word in index.html and adjust social card ([335accb](https://github.com/open-sauced/hot-sauce/commit/335accbbe24c51e76d736679c39698cbb31f4449))
+* correct html date injection ([a0f7417](https://github.com/open-sauced/hot-sauce/commit/a0f7417018b17ee0c14ad32102d1cffe57aaf807))
+
+### [2.8.1](https://github.com/open-sauced/hot-sauce/compare/v2.8.0...v2.8.1) (2022-07-01)
+
+
+### 🐛 Bug Fixes
+
+* **social-card:** broken and missing meta tags ([#193](https://github.com/open-sauced/hot-sauce/issues/193)) ([33299a4](https://github.com/open-sauced/hot-sauce/commit/33299a45f4a79a579d9208e990e36c56da676e34))
+
+## [2.8.0](https://github.com/open-sauced/hot-sauce/compare/v2.7.0...v2.8.0) (2022-07-01)
+
+
+### 🍕 Features
+
+* **social-card:** add the meta tag for a social card ([#192](https://github.com/open-sauced/hot-sauce/issues/192)) ([9cd16ec](https://github.com/open-sauced/hot-sauce/commit/9cd16eca86349c465b304e7030613deee0f9fe69))
+
+## [2.7.0](https://github.com/open-sauced/hot-sauce/compare/v2.6.0...v2.7.0) (2022-06-30)
+
+
+### 🍕 Features
+
+* **vitest:** replace jest with vitest ([#191](https://github.com/open-sauced/hot-sauce/issues/191)) ([c14d0fe](https://github.com/open-sauced/hot-sauce/commit/c14d0fe5530d85e45631e51c3e464afcfce26fb6)), closes [#190](https://github.com/open-sauced/hot-sauce/issues/190)
+
+## [2.6.0](https://github.com/open-sauced/hot-sauce/compare/v2.5.0...v2.6.0) (2022-05-28)
+
+
+### 🍕 Features
+
+* correct lint errors + search spinner ([#176](https://github.com/open-sauced/hot-sauce/issues/176)) ([2fb8f16](https://github.com/open-sauced/hot-sauce/commit/2fb8f167d73cde07756bcc080acb7275e72151e4))
+
+## [2.5.0](https://github.com/open-sauced/hot-sauce/compare/v2.4.0...v2.5.0) (2022-05-27)
+
+
+### 🤖 Build System
+
+* Demo beta 3 ([#165](https://github.com/open-sauced/hot-sauce/issues/165)) ([13a067e](https://github.com/open-sauced/hot-sauce/commit/13a067eb9a79185458d9ec1b747c6d6620fde154)), closes [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153) [#164](https://github.com/open-sauced/hot-sauce/issues/164) [#164](https://github.com/open-sauced/hot-sauce/issues/164)
+
+
+### 🐛 Bug Fixes
+
+* correct beta releases ([#166](https://github.com/open-sauced/hot-sauce/issues/166)) ([706bf5a](https://github.com/open-sauced/hot-sauce/commit/706bf5a400fe736402a80f766c3f700a6c9d00a9))
+
+
+### 🧑‍💻 Code Refactoring
+
+* add proper types for current repo structure ([3dd4be1](https://github.com/open-sauced/hot-sauce/commit/3dd4be127d4b37fac47ac157148b707d39516af7))
+
+
+### 🍕 Features
+
+* Repository search extn ([#171](https://github.com/open-sauced/hot-sauce/issues/171)) ([5e44d80](https://github.com/open-sauced/hot-sauce/commit/5e44d803a4b413f311828d4a1cbfbf6b08051efa)), closes [#170](https://github.com/open-sauced/hot-sauce/issues/170)
+
+## [2.5.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.4.1-beta.1...v2.5.0-beta.1) (2022-05-26)
+
+
+### 🍕 Features
+
+* Repository search extn ([#171](https://github.com/open-sauced/hot-sauce/issues/171)) ([5e44d80](https://github.com/open-sauced/hot-sauce/commit/5e44d803a4b413f311828d4a1cbfbf6b08051efa)), closes [#170](https://github.com/open-sauced/hot-sauce/issues/170)
+
+### [2.4.1-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.4.0...v2.4.1-beta.1) (2022-05-20)
+
+
+### 🤖 Build System
+
+* Demo beta 3 ([#165](https://github.com/open-sauced/hot-sauce/issues/165)) ([13a067e](https://github.com/open-sauced/hot-sauce/commit/13a067eb9a79185458d9ec1b747c6d6620fde154)), closes [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153) [#164](https://github.com/open-sauced/hot-sauce/issues/164) [#164](https://github.com/open-sauced/hot-sauce/issues/164)
+
+
+### 🐛 Bug Fixes
+
+* correct beta releases ([#166](https://github.com/open-sauced/hot-sauce/issues/166)) ([706bf5a](https://github.com/open-sauced/hot-sauce/commit/706bf5a400fe736402a80f766c3f700a6c9d00a9))
+
+
+### 🧑‍💻 Code Refactoring
+
+* add proper types for current repo structure ([3dd4be1](https://github.com/open-sauced/hot-sauce/commit/3dd4be127d4b37fac47ac157148b707d39516af7))
+
+## [2.4.0](https://github.com/open-sauced/hot-sauce/compare/v2.3.0...v2.4.0) (2022-05-19)
+
+
+### 📝 Documentation
+
+* update docs ([#164](https://github.com/open-sauced/hot-sauce/issues/164)) ([d5b3a6b](https://github.com/open-sauced/hot-sauce/commit/d5b3a6bed3e633fe25a3f1456499bf6d3f199c13))
+
+## [2.3.0](https://github.com/open-sauced/hot-sauce/compare/v2.2.1...v2.3.0) (2022-05-19)
+
+
+### 🐛 Bug Fixes
+
+* make votes work in the new structure ([9d1c8e4](https://github.com/open-sauced/hot-sauce/commit/9d1c8e46a55af902546754496191bdd15ab8c38f))
+* stop the avatars from breaking ([336b39c](https://github.com/open-sauced/hot-sauce/commit/336b39cdd37946ac98e0d8df1cde65a00bbaf3bf))
+
+
+### 🍕 Features
+
+* **radix-ui:** adds radix primitives and tailwind ([#143](https://github.com/open-sauced/hot-sauce/issues/143)) ([0031704](https://github.com/open-sauced/hot-sauce/commit/0031704f8e53353b44e76c46f7ce64675fd1fa0d)), closes [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153)
+* adjust repo lists queries to new structure ([5475c65](https://github.com/open-sauced/hot-sauce/commit/5475c6525cb016b98b0f0feb63983c4200a6dc4f))
+* make votes work and simplify query structure ([b9ba15a](https://github.com/open-sauced/hot-sauce/commit/b9ba15a90a3357f4712c106aed6dba8e208a567a))
+
+## [2.3.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.2.1...v2.3.0-beta.1) (2022-05-18)
+
+
+### 🐛 Bug Fixes
+
+* make votes work in the new structure ([9d1c8e4](https://github.com/open-sauced/hot-sauce/commit/9d1c8e46a55af902546754496191bdd15ab8c38f))
+* stop the avatars from breaking ([336b39c](https://github.com/open-sauced/hot-sauce/commit/336b39cdd37946ac98e0d8df1cde65a00bbaf3bf))
+
+
+### 🍕 Features
+
+* **radix-ui:** adds radix primitives and tailwind ([#143](https://github.com/open-sauced/hot-sauce/issues/143)) ([0031704](https://github.com/open-sauced/hot-sauce/commit/0031704f8e53353b44e76c46f7ce64675fd1fa0d)), closes [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153)
+* adjust repo lists queries to new structure ([5475c65](https://github.com/open-sauced/hot-sauce/commit/5475c6525cb016b98b0f0feb63983c4200a6dc4f))
+* make votes work and simplify query structure ([b9ba15a](https://github.com/open-sauced/hot-sauce/commit/b9ba15a90a3357f4712c106aed6dba8e208a567a))
+
+### [2.2.1](https://github.com/open-sauced/hot-sauce/compare/v2.2.0...v2.2.1) (2022-05-17)
+
+
+### 🐛 Bug Fixes
+
+* Updated posthog env variable to work with vite. ([#158](https://github.com/open-sauced/hot-sauce/issues/158)) ([df4a599](https://github.com/open-sauced/hot-sauce/commit/df4a599cc7fa974e4252125c90b95fc0d164768d))
+
+## [2.2.0](https://github.com/open-sauced/hot-sauce/compare/v2.1.1...v2.2.0) (2022-05-13)
+
+
+### 🍕 Features
+
+* Add posthog to hot sauced project. ([#156](https://github.com/open-sauced/hot-sauce/issues/156)) ([a5f3b3b](https://github.com/open-sauced/hot-sauce/commit/a5f3b3b5acac8d8f3c55c3559afe9c2858d30df9))
+
+### [2.1.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.0...v2.1.1) (2022-03-16)
+
+
+### 🐛 Bug Fixes
+
+* correct loading of items with normalized order by clause ([#151](https://github.com/open-sauced/hot-sauce/issues/151)) ([0ee8a6f](https://github.com/open-sauced/hot-sauce/commit/0ee8a6fff4504b56cbc9c88a8f7db49d7847b206)), closes [#129](https://github.com/open-sauced/hot-sauce/issues/129)
+
+### [2.1.1-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.1.0...v2.1.1-beta.1) (2022-03-16)
+
+
+### 🐛 Bug Fixes
+
+* correct loading of items with normalized order by clause ([#151](https://github.com/open-sauced/hot-sauce/issues/151)) ([0ee8a6f](https://github.com/open-sauced/hot-sauce/commit/0ee8a6fff4504b56cbc9c88a8f7db49d7847b206)), closes [#129](https://github.com/open-sauced/hot-sauce/issues/129)
+
+## [2.1.0](https://github.com/open-sauced/hot-sauce/compare/v2.0.1...v2.1.0) (2022-03-12)
+
+
+### 🍕 Features
+
+* implement minimal beta release ([#148](https://github.com/open-sauced/hot-sauce/issues/148)) ([de6dee9](https://github.com/open-sauced/hot-sauce/commit/de6dee908b33b239098c3601c2c0b7fb0f777fc4)), closes [#147](https://github.com/open-sauced/hot-sauce/issues/147)
+
 ### [2.0.1](https://github.com/open-sauced/hot-sauce/compare/v2.0.0...v2.0.1) (2022-03-08)
 
 

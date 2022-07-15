@@ -1,37 +1,76 @@
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 import { getAvatarLink, getProfileLink } from '../lib/github';
-
+import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
+import cx from "classnames";
 export declare interface AvatarProps {
   contributor: string;
+  lastPr?: string;
   list?: boolean;
 }
 
-const Avatar = ({contributor, list = false}: AvatarProps): JSX.Element => (
-  <div
-    className= {`bg-blue-400 overflow-hidden rounded-full ${!list ? 'w-10 h-10 mr-3' : 'w-7 sm:w-10 h-7 sm:h-10 mb-2'}`}
-    data-tip={contributor}
-    data-for={contributor}
-  >
-    <a
-      href={getProfileLink(contributor)}
-      title={contributor}
-      target="_blank"
-      rel="noopener"
-    >
-      <img
-        className='object-cover'
-        src={getAvatarLink(contributor)}
-        alt={contributor}
-        width={500}
-        height={500}
-      />
-    </a>
-    <ReactTooltip
-      id={contributor}
-      type='light'
-      className='flex flex-row items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] !opacity-100'/>
-  </div>
+const Avatar = ({contributor, lastPr}: AvatarProps): JSX.Element => (
+  <HoverCardPrimitive.Root>
+    <HoverCardPrimitive.Trigger asChild>
+      <div
+        className={cx(
+          "inline-flex h-12 w-12 items-center justify-center rounded-full bg-white mr-3 dark:bg-white "
+        )}
+      >
+         <img
+          className='object-cover rounded-full'
+          src={getAvatarLink(contributor)}
+          alt={contributor}
+          width={500}
+          height={500}
+        />
+      </div>
+    </HoverCardPrimitive.Trigger>
+      <HoverCardPrimitive.Content
+        align="center"
+        sideOffset={4}
+        className={cx(
+          " radix-side-top:animate-slide-up radix-side-bottom:animate-slide-down",
+          "max-w-md rounded-lg p-4 md:w-full",
+          "bg-white dark:bg-gray-800",
+          "focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75",
+          "items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] !opacity-100"
+        )}
+      >
+      <HoverCardPrimitive.Arrow offset={12} className="fill-current text-white dark:text-gray-800" />
+
+      <div className="flex h-full w-full space-x-4">
+        <div
+          className={cx(
+            "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900"
+          )}
+        >
+          <a
+            href={getProfileLink(contributor)}
+            title={contributor}
+            target="_blank"
+          >
+            <img
+              className='object-cover rounded-full'
+              src={getAvatarLink(contributor)}
+              alt={contributor}
+              width={500}
+              height={500}
+            />
+          </a>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">
+            {contributor}
+          </h3>
+
+          <p className="mt-1 text-sm font-normal text-gray-700 dark:text-gray-400">
+            Last contribution was at {lastPr}.
+          </p>
+        </div>
+      </div>
+    </HoverCardPrimitive.Content>
+  </HoverCardPrimitive.Root>
 );
 
 export default Avatar;

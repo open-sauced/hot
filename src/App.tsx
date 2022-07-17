@@ -15,10 +15,9 @@ const App = (): JSX.Element => {
     <BrowserRouter>
       <div className="App">
         <GradBackground>
-          
+          <PrimaryNav/>
         </GradBackground>
         <RepoSubmission/>
-        {/* <PrimaryNav setTextToSearch={setTextToSearch} /> */}
         <PostsWrap textToSearch={textToSearch} />
         <Footer/>
       </div>

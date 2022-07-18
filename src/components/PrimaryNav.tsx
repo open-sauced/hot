@@ -1,7 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { Menu } from "@headlessui/react";
 import logo from "../assets/logo.svg";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { FaSpinner } from "react-icons/fa";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { version } from "../../package.json";
@@ -17,6 +16,9 @@ interface PostWrapProps {
 }
 
 type PostResult = {
+  signIn: Function;
+  signOut: Function;
+  user: any;
   full_name: string;
   description: string;
   stars: number;
@@ -45,8 +47,7 @@ function useDebounce<T>(value: T, delay: number): T {
   return debouncedValue;
 }
 
-const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
-  const { signIn, signOut, user } = useSupabaseAuth();
+const PrimaryNav = ({ setTextToSearch, signOut, signIn, user }: PostWrapProps): JSX.Element => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [results, setResults] = useState<PostResult[]>([]);
   const [isSearching, setIsSearching] = useState<boolean>(false);

@@ -5,16 +5,18 @@ import { initiatePostHog } from './lib/analytics';
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import RepoSubmission from './components/RepoSubmission';
+import useSupabaseAuth from "./hooks/useSupabaseAuth";
 
 const App = (): JSX.Element => {
   initiatePostHog();
+  const { user, signIn, signOut } = useSupabaseAuth();
   const [textToSearch, setTextToSearch ] = useState<string>("")
 
   return (
     <BrowserRouter>
       <div className="App">
-        <RepoSubmission/>
-        <PrimaryNav setTextToSearch={setTextToSearch} />
+        {user && <RepoSubmission user={user} />}
+        <PrimaryNav signIn={signIn} signOut={signOut} user={user} setTextToSearch={setTextToSearch} />
         <PostsWrap textToSearch={textToSearch} />
         <Footer/>
       </div>

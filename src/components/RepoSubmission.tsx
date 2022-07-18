@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react'
 import { sendMessage } from '../lib/discord'
+import isValidRepoUrl from "../lib/validateUrl";
 
 const RepoSubmission: FC = ({user})  => {
 
@@ -20,9 +21,14 @@ const RepoSubmission: FC = ({user})  => {
       setSubmitted(true)
       setButtonPlaceHolder("Close")
       console.log("Repo url: ",repoUrl)
-      if (userName) {
+      const valid = isValidRepoUrl(repoUrl);
+      if (valid && userName) {
         sendMessage(userName, repoUrl)
         console.log("Data Submitted")
+      }
+
+      if (!valid) {
+        console.log("Invalid repo url")
       }
 
       if (!userName) {

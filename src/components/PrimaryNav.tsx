@@ -52,7 +52,7 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
       <div>
         <div className="w-[80px] pl-[16px] border-l-[1px] border-lightOrange">
           {
-            auth.user ? (
+            auth?.user ? (
               <UserMenu auth={auth}/>
             ) : (
               <button

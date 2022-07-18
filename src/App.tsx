@@ -13,7 +13,7 @@ const App = (): JSX.Element => {
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App overflow-hidden">
         <GradBackground>
           <PrimaryNav/>
         </GradBackground>

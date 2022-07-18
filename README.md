@@ -67,6 +67,8 @@ You can request a coverage report by running the following command:
 ```shell
 npm run test:coverage
 ```
+#### Writing tests
+For writing tests, the rule is move business or service logic to the lib folder and write unit tests. Logic that needs to be in a React component, then leverage tools like [Cypress](https://www.cypress.io/) or [Vitest mocking](https://vitest.dev/guide/mocking.html) to write tests. 
 ## 🔑 Database commands
 
 Starting the [Supabase Studio](https://supabase.com/docs/guides/local-development) locally at [localhost:54321](http://localhost:54321):

@@ -6,19 +6,39 @@ import GridDisplay from './GridDisplay';
 import ListDisplay from './ListDisplay';
 import { fetchRecommendations } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
+import locationsHash from '../lib/locationsHash';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 interface PostWrapProps{
   textToSearch: string
 }
 
-const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
+const parseLimitValue = (limit: string | null) : number => {
+  if(!limit) {
+    return 25;
+  }
+  const value = parseInt(limit)
+  if(isNaN(value) || value <= 0) {
+    return 25;
+  }
+  if(value > 100) {
+    return 125;
+  }
+  return value;
+}
+
+const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
-  const [activeLink, setActiveLink] = useState('popular');
+  const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
-  const [limit, setLimit] = useState(25);
   const { user } = useSupabaseAuth();
+  const location = useLocation();
+
+  const activeLink = locationsHash[location.pathname] || "popular";
+  const limit = parseLimitValue(searchParams.get('limit'));
+
   const handleLoadingMore = () => {
-    setLimit((prevLimit) => prevLimit + 25);
+    setSearchParams({ limit: String(limit + 25) })
   };
 
   useEffect(() => {
@@ -31,9 +51,7 @@ const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
     <>
       <Modal/>
       <SecondaryNav
-        setLimit={setLimit}
         activeLink={activeLink}
-        setActiveLink={setActiveLink}
         user={user}
       />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
@@ -45,7 +63,6 @@ const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
             handleLoadingMore={handleLoadingMore}
             user={user}
             fetchedData={fetchedData} /> :
-
           <ListDisplay
             limit={limit}
             activeLink={activeLink}

@@ -49,7 +49,6 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
 
   return (
     <>
-      <Modal/>
       <SecondaryNav
         activeLink={activeLink}
         user={user}

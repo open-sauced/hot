@@ -30,6 +30,7 @@ module.exports = {
         Roboto: ["Roboto"],
         Ubuntu: ["Ubuntu", "sans-serif"],
         Inter: ['Inter', 'sans-serif'],
+        Lexend: ['Lexend', 'sans-serif']
       },
       container: {
         center: true,

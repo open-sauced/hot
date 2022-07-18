@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import RepoSubmission from './components/RepoSubmission';
 import GradBackground from './components/GradBackground';
+import Hero from './components/Hero';
 
 const App = (): JSX.Element => {
   initiatePostHog();
@@ -16,6 +17,7 @@ const App = (): JSX.Element => {
       <div className="App overflow-hidden">
         <GradBackground>
           <PrimaryNav/>
+          <Hero/>
         </GradBackground>
         <RepoSubmission/>
         <PostsWrap textToSearch={textToSearch} />

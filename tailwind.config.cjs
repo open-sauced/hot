@@ -20,12 +20,16 @@ module.exports = {
         darkGrey: "#171c1d",
         darkestGrey: "#2C3137",
         accent: "#FAEACE",
+        osGrey: "#11181C",
+        osOrange: "#ED5F00",
+        lightOrange: "#FFCCA7",
       },
       fontFamily: {
         Poppins: ["Poppins"],
         Righteous: ["Righteous"],
         Roboto: ["Roboto"],
         Ubuntu: ["Ubuntu", "sans-serif"],
+        Inter: ['Inter', 'sans-serif'],
       },
       container: {
         center: true,

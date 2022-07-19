@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.9.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.9.0-beta.3...v2.9.0-beta.4) (2022-07-19)
+
+
+### 🍕 Features
+
+* UI v3 nav ([#210](https://github.com/open-sauced/hot-sauce/issues/210)) ([7a8a003](https://github.com/open-sauced/hot-sauce/commit/7a8a003b2f5c2a2d405e05a0747de16088aa08ec))
+
 ## [2.9.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.9.0-beta.2...v2.9.0-beta.3) (2022-07-15)
 
 

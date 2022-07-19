@@ -40,9 +40,13 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
   return(
     <div className='hidden md:flex  font-Inter py-[26px] px-[42px] justify-between'>
       <div className="flex items-center text-osGrey">
-        <img className="w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
+        <a href="/">
+          <img className="w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
+        </a>
 
-        <p className="text-[16px] font-semibold">OpenSauced</p>
+        <a href="/">
+          <p className="text-[16px] font-semibold">OpenSauced</p>
+        </a>
         {
           auth?.user && 
           <div>

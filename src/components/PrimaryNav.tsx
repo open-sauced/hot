@@ -4,6 +4,7 @@ import { Menu, Transition } from '@headlessui/react'
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { GiHamburgerMenu } from "react-icons/gi"
+import { version } from "../../package.json";
 
 interface NavProps {
   auth: {
@@ -38,10 +39,14 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
 
   return(
     <div className='hidden md:flex  font-Inter py-[26px] px-[42px] justify-between'>
-      <div className="flex items-center text-osGray">
-        <img className="w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
+      <div className="flex items-center text-osGrey">
+        <a href="/">
+          <img className="w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
+        </a>
 
-        <p className="text-[16px] font-semibold">OpenSauced</p>
+        <a href="/">
+          <p className="text-[16px] font-semibold">OpenSauced</p>
+        </a>
         {
           auth?.user && 
           <div>
@@ -75,7 +80,7 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
 const MobileNav:FC<NavProps> = ({auth}) => {
   return(
     <div className='md:hidden font-Inter py-[26px] px-[42px] flex justify-between'>
-      <div className="flex items-center text-osGray">
+      <div className="flex items-center text-osGrey">
         <img className="w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
 
         <p className="text-[16px] font-semibold">OpenSauced</p>
@@ -105,10 +110,35 @@ const MobileNav:FC<NavProps> = ({auth}) => {
                             <img className="w-full h-full" src={auth?.user?.user_metadata?.avatar_url} alt={auth?.user?.user_metadata?.user_name} />
                           </div>
                           <div className="flex flex-col">
-                            <p className="text-osGray text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
+                            <p className="text-osGrey text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
                             <p className="text-gray-500 text-[12px] font-normal">{auth?.user?.user_metadata?.user_name}</p>
                           </div>
                         </div>
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <button
+                            onClick={async () => {
+                              await auth.signOut();
+                            }}
+                            className={`${
+                              active ? 'bg-gray-100 text-gray-700' : 'text-gray-900'
+                            } group flex w-full items-center rounded-md px-[20px] py-[6px] text-[15px]`}
+                          >
+                            {active ? (
+                              <div
+                                className="mr-[5px] h-[2px] w-[15px]"
+                                aria-hidden="true"
+                              />
+                            ) : (
+                              <div
+                                className="mr-[5px] h-[2px] w-[15px]"
+                                aria-hidden="true"
+                              />
+                            )}
+                            V{version}
+                          </button>
+                        )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
@@ -207,10 +237,32 @@ const UserMenu:FC<MenuProps> = ({auth}) => {
                     <img className="w-full h-full" src={auth?.user?.user_metadata?.avatar_url} alt={auth?.user?.user_metadata?.user_name} />
                   </div>
                   <div className="flex flex-col">
-                    <p className="text-osGray text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
+                    <p className="text-osGrey text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
                     <p className="text-gray-500 text-[12px] font-normal">{auth?.user?.user_metadata?.user_name}</p>
                   </div>
                 </div>
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? 'bg-gray-100 text-gray-700' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-[20px] py-[6px] text-[15px]`}
+                  >
+                    {active ? (
+                      <div
+                        className="mr-[5px] h-[2px] w-[15px]"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <div
+                        className="mr-[5px] h-[2px] w-[15px]"
+                        aria-hidden="true"
+                      />
+                    )}
+                    v{version}
+                  </button>
+                )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (

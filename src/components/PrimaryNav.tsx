@@ -39,7 +39,7 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
 
   return(
     <div className='hidden md:flex  font-Inter py-[26px] px-[42px] justify-between'>
-      <div className="flex items-center text-osGray">
+      <div className="flex items-center text-osGrey">
         <img className="w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
 
         <p className="text-[16px] font-semibold">OpenSauced</p>
@@ -76,7 +76,7 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
 const MobileNav:FC<NavProps> = ({auth}) => {
   return(
     <div className='md:hidden font-Inter py-[26px] px-[42px] flex justify-between'>
-      <div className="flex items-center text-osGray">
+      <div className="flex items-center text-osGrey">
         <img className="w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
 
         <p className="text-[16px] font-semibold">OpenSauced</p>
@@ -106,7 +106,7 @@ const MobileNav:FC<NavProps> = ({auth}) => {
                             <img className="w-full h-full" src={auth?.user?.user_metadata?.avatar_url} alt={auth?.user?.user_metadata?.user_name} />
                           </div>
                           <div className="flex flex-col">
-                            <p className="text-osGray text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
+                            <p className="text-osGrey text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
                             <p className="text-gray-500 text-[12px] font-normal">{auth?.user?.user_metadata?.user_name}</p>
                           </div>
                         </div>
@@ -233,7 +233,7 @@ const UserMenu:FC<MenuProps> = ({auth}) => {
                     <img className="w-full h-full" src={auth?.user?.user_metadata?.avatar_url} alt={auth?.user?.user_metadata?.user_name} />
                   </div>
                   <div className="flex flex-col">
-                    <p className="text-osGray text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
+                    <p className="text-osGrey text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
                     <p className="text-gray-500 text-[12px] font-normal">{auth?.user?.user_metadata?.user_name}</p>
                   </div>
                 </div>

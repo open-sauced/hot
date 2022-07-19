@@ -20,7 +20,7 @@ module.exports = {
         darkGrey: "#171c1d",
         darkestGrey: "#2C3137",
         accent: "#FAEACE",
-        osGray: "#11181C",
+        osGrey: "#11181C",
         osOrange: "#ED5F00",
         lightOrange: "#FFCCA7",
       },

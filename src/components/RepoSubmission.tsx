@@ -24,14 +24,15 @@ const RepoSubmission = ({user}: RepoSubmissionProps)  => {
       setIsSubmissionInProcess(false)
       setSubmitted(true)
       setButtonPlaceHolder("Close")
-      console.log("Repo url: ",repoUrl)
-      const valid = isValidRepoUrl(repoUrl);
-      if (valid && userName) {
-        // sendMessage(userName, repoUrl)
+      const [isValid, sanitizedUrl] = isValidRepoUrl(repoUrl.replace(/\s+/g, ""));
+
+      console.log("is valid: ", isValid)
+      if (isValid && userName) {
+        sendMessage(userName, sanitizedUrl)
         console.log("Data Submitted")
       }
 
-      if (!valid) {
+      if (!isValid) {
         console.log("Invalid repo url")
       }
 
@@ -39,7 +40,7 @@ const RepoSubmission = ({user}: RepoSubmissionProps)  => {
         console.log("No user name");
       }
 
-    }, 2000);
+    }, 500);
   }
 
   const submitButtonHandler = ():void => {

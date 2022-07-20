@@ -110,7 +110,7 @@ export async function fetchWithSearch(orderBy = 'stars', limit = 5, searchText: 
   console.log(orderBy, limit, searchText);
   const { data: recommendations, error } = await supabase
     .from('repos')
-    .select('full_name, name, description, stars, issues, contributions(last_merged_at, contributor, url)')
+    .select('full_name, name, user_id, description, stars, issues, contributions(last_merged_at, contributor, url)')
     .like('full_name', `%${searchText}%`) // The string will need to be interpolated with the ''
     .limit(limit)
     .limit(3, { foreignTable: 'contributions' })

@@ -1,10 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import key from '../assets/key.svg'
 import cmdK from '../assets/cmdK.svg'
 import starIcon from '../assets/starIcon.svg'
 import issueIcon from '../assets/issueIcon.svg'
+import { fetchWithSearch } from "../lib/supabase";
+import useDebounce from '../hooks/useDebounce'
+import humanizeNumber from "../lib/humanizeNumber";
+
+type PostResult = {
+  full_name: string;
+  description: string;
+  stars: number;
+  issues: string;
+  contributions: { url: string; contributor: string; last_merged_at: string }[];
+};
 
 const Hero = () => {
+  const [searchTerm, setSearchTerm] = useState<string>("")
+  const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
+  const [results, setResults] = useState<PostResult[]>([]);
+  const [hasFocus, setFocus] = useState<boolean>(false);
+  
+  
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+
+      fetchWithSearch("stars", 3, debouncedSearchTerm).then((results) => {
+        console.log(results)
+        setResults(results as unknown as []);
+      });
+    } else {
+      setResults([]);
+    }
+  }, [debouncedSearchTerm])
+  
 
   return (
     <div className='flex flex-col my-[95px] items-center'>
@@ -15,52 +44,69 @@ const Hero = () => {
         </div>
         <div className='mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] min-w-[422px]  flex'>
           <img src={key} alt="key" />
-          <input type="text" placeholder='Search repositories' className='w-full outline-none text-[16px] text-lightSlate' />
+          <input
+            onFocus={() => setFocus(true)}
+            onBlur={() =>
+              setTimeout(() => {
+                setFocus(false);
+              }, 200)
+            }
+            onChange={(e => setSearchTerm(e.target.value))}
+            type="text" placeholder='Search repositories'
+            className='w-full outline-none text-[16px] text-lightSlate'
+          />
           <img className='pt-[7px]' src={cmdK} alt="command k" />
         </div>
         <div className='mt-[10px] flex w-full justify-center relative'>
-          <div className='flex min-w-[400px] py-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px]'>
-            <div className='bg-gray-100 py-[10px] px-[10px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full'>
-              <p className='text-gray-500 text-[14px] font-semibold'>Repository</p>
-            </div>
-            <div className='flex flex-col hover:bg-gray-50 '>
-
-              <div className='flex flex-col px-[10px] py-[10px]'>
-                <div className='flex items-center gap-x-[10px] mb-[5px]'>
-                  <div className='w-[25px] h-[25px] border-gray-400 border-[1px] bg-red-100  rounded-full'>
-
-                  </div>
-
-                  <p className='text-[16px] text-gray-500 font-semibold'>Awesome repository</p>
-                </div>
-
-                <p className='text-[14px] text-gray-500'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio, quam, maiores reiciendis molestiae cupiditate distinctio, nisi saepe nulla commodi facere rerum?</p>
-
-                <div className='flex justify-between mt-[8px]'>
-                  <div className='flex gap-x-[5px]'>
-                    <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
-                    <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
-                    <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
-                  </div>
-                  <div className='flex gap-x-[6px]'>
-                    <div className='flex items-center gap-x-[5px]'>
-                      <img src={issueIcon} alt="issue icon" />
-                      <p className='text-gray-500 text-[12px]'>33.K</p>
-                    </div>
-                    <div className='flex items-center gap-x-[5px]'>
-                      <img src={starIcon} alt="star icon" />
-                      <p className='text-gray-500 text-[12px]'>36.K</p>
-                    </div>
-                    
-
-                  </div>
-
-                </div>
+          { results.length > 0 && hasFocus && 
+            <div className='flex min-w-[400px] pb-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px]'>
+              <div className='bg-gray-100 py-[10px] px-[10px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full'>
+                <p className='text-gray-500 text-[14px] font-semibold'>Repository</p>
               </div>
-              
-              
+
+              {
+                results.map( result => (
+                  <a
+                  href={`https://app.opensauced.pizza/repos/${result.full_name}`}
+                  rel="noreferrer"
+                  target="_blank"
+                  >
+                    <div key={result.full_name} className='flex flex-col hover:bg-gray-50 '>
+                      <div className='flex flex-col px-[10px] py-[10px]'>
+                        <div className='flex items-center gap-x-[10px] mb-[5px]'>
+                          <div className='w-[25px] h-[25px] border-gray-400 border-[1px] bg-red-100  rounded-full'>
+
+                          </div>
+
+                          <p className='text-[16px] text-gray-500 font-semibold'>{result.full_name}</p>
+                        </div>
+
+                        <p className='text-[14px] text-gray-500'>{result.description}</p>
+
+                        <div className='flex justify-between mt-[8px]'>
+                          <div className='flex gap-x-[5px]'>
+                            <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
+                            <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
+                            <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
+                          </div>
+                          <div className='flex gap-x-[6px]'>
+                            <div className='flex items-center gap-x-[5px]'>
+                              <img src={issueIcon} alt="issue icon" />
+                              <p className='text-gray-500 text-[12px]'>{humanizeNumber(result.issues)}</p>
+                            </div>
+                            <div className='flex items-center gap-x-[5px]'>
+                              <img src={starIcon} alt="star icon" />
+                              <p className='text-gray-500 text-[12px]'>{humanizeNumber(result.stars)}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                ))
+              }
             </div>
-          </div>
+          }
         </div>
     </div>
   )

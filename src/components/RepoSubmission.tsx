@@ -1,8 +1,12 @@
-import React, { FC, useState } from 'react'
+import React, { useState } from 'react'
 import { sendMessage } from '../lib/discord'
-import isValidRepoUrl from "../lib/validateUrl";
+import isValidRepoUrl from "../lib/validateUrl"
+import { User } from "@supabase/supabase-js"
+export declare interface RepoSubmissionProps{
+  user: User | null;
+}
 
-const RepoSubmission: FC = ({user})  => {
+const RepoSubmission = ({user}: RepoSubmissionProps)  => {
 
   const [buttonPlaceHolder, setButtonPlaceHolder] = useState("Submit repo?")
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -10,7 +14,7 @@ const RepoSubmission: FC = ({user})  => {
   const [submitted, setSubmitted] = useState(false)
   const [input, setInput] = useState("")
 
-  const userName = user.user_metadata.user_name
+  const userName = user?.user_metadata.user_name
   const saveToDataBase = (repoUrl: string):void => {
     setIsSubmissionInProcess(true)
 
@@ -23,7 +27,7 @@ const RepoSubmission: FC = ({user})  => {
       console.log("Repo url: ",repoUrl)
       const valid = isValidRepoUrl(repoUrl);
       if (valid && userName) {
-        sendMessage(userName, repoUrl)
+        // sendMessage(userName, repoUrl)
         console.log("Data Submitted")
       }
 

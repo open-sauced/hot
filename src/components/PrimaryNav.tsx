@@ -5,6 +5,7 @@ import { FaSpinner } from "react-icons/fa";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { version } from "../../package.json";
 import { fetchWithSearch } from "../lib/supabase";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import Avatar from "./Avatar";
 
 import { FaAngleRight, FaRegStar, FaRegDotCircle } from "react-icons/fa";
@@ -16,9 +17,6 @@ interface PostWrapProps {
 }
 
 type PostResult = {
-  signIn: Function;
-  signOut: Function;
-  user: any;
   full_name: string;
   description: string;
   stars: number;
@@ -47,11 +45,12 @@ function useDebounce<T>(value: T, delay: number): T {
   return debouncedValue;
 }
 
-const PrimaryNav = ({ setTextToSearch, signOut, signIn, user }: PostWrapProps): JSX.Element => {
+const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [results, setResults] = useState<PostResult[]>([]);
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [hasFocus, setFocus] = useState<boolean>(false);
+  const { signIn, signOut, user } = useSupabaseAuth();
   const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
 
   const inputOnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {

@@ -9,14 +9,14 @@ import useSupabaseAuth from "./hooks/useSupabaseAuth";
 
 const App = (): JSX.Element => {
   initiatePostHog();
-  const { user, signIn, signOut } = useSupabaseAuth();
+  const { user } = useSupabaseAuth();
   const [textToSearch, setTextToSearch ] = useState<string>("")
 
   return (
     <BrowserRouter>
       <div className="App">
         {user && <RepoSubmission user={user} />}
-        <PrimaryNav signIn={signIn} signOut={signOut} user={user} setTextToSearch={setTextToSearch} />
+        <PrimaryNav setTextToSearch={setTextToSearch} />
         <PostsWrap textToSearch={textToSearch} />
         <Footer/>
       </div>

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import gradBG from '../../public/gradBG.svg'
+import gradBG from '../assets/gradBG.svg'
 
 
 const GradBackground: FC = ({ children }) => {

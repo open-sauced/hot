@@ -1,6 +1,6 @@
-import React, { useRef } from 'react'
-import key from '../../public/key.svg'
-import cmdK from '../../public/cmdK.svg'
+import React from 'react'
+import key from '../assets/key.svg'
+import cmdK from '../assets/cmdK.svg'
 
 const Hero = () => {
 

@@ -1,5 +1,5 @@
 import { FC, Fragment } from "react";
-import openSaucedLogo from '../../public/openSauced.svg'
+import openSaucedLogo from '../assets/openSauced.svg'
 import { Menu, Transition } from '@headlessui/react'
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { capturePostHogAnayltics } from "../lib/analytics";

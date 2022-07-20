@@ -19,6 +19,7 @@ const RepoSubmission = ({user}: RepoSubmissionProps)  => {
     setIsSubmissionInProcess(true)
 
     // todo: import the submission function here instead
+    // issue #5
     setTimeout(() => {
 
       setIsSubmissionInProcess(false)

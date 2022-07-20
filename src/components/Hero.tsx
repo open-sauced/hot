@@ -1,6 +1,8 @@
 import React from 'react'
 import key from '../assets/key.svg'
 import cmdK from '../assets/cmdK.svg'
+import starIcon from '../assets/starIcon.svg'
+import issueIcon from '../assets/issueIcon.svg'
 
 const Hero = () => {
 
@@ -17,14 +19,14 @@ const Hero = () => {
           <img className='pt-[7px]' src={cmdK} alt="command k" />
         </div>
         <div className='mt-[10px] flex w-full justify-center relative'>
-          <div className='flex min-w-[400px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px]'>
+          <div className='flex min-w-[400px] py-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px]'>
             <div className='bg-gray-100 py-[10px] px-[10px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full'>
               <p className='text-gray-500 text-[14px] font-semibold'>Repository</p>
             </div>
-            <div className='flex flex-col'>
+            <div className='flex flex-col hover:bg-gray-50 '>
 
               <div className='flex flex-col px-[10px] py-[10px]'>
-                <div className='flex items-center gap-x-[10px]'>
+                <div className='flex items-center gap-x-[10px] mb-[5px]'>
                   <div className='w-[25px] h-[25px] border-gray-400 border-[1px] bg-red-100  rounded-full'>
 
                   </div>
@@ -34,11 +36,23 @@ const Hero = () => {
 
                 <p className='text-[14px] text-gray-500'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio, quam, maiores reiciendis molestiae cupiditate distinctio, nisi saepe nulla commodi facere rerum?</p>
 
-                <div className='flex'>
+                <div className='flex justify-between mt-[8px]'>
                   <div className='flex gap-x-[5px]'>
                     <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
                     <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
                     <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
+                  </div>
+                  <div className='flex gap-x-[6px]'>
+                    <div className='flex items-center gap-x-[5px]'>
+                      <img src={issueIcon} alt="issue icon" />
+                      <p className='text-gray-500 text-[12px]'>33.K</p>
+                    </div>
+                    <div className='flex items-center gap-x-[5px]'>
+                      <img src={starIcon} alt="star icon" />
+                      <p className='text-gray-500 text-[12px]'>36.K</p>
+                    </div>
+                    
+
                   </div>
 
                 </div>

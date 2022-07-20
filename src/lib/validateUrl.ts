@@ -6,11 +6,11 @@ function relativeUrlValidator(url: string) {
 
     const [owner, repo] = url.split('/');
     if (!owner || !repo || !(urlObject.protocol === 'http:' || urlObject.protocol === 'https:')) {
-      return [false, null];
+      return [false, "Invalid URL"];
     }
-    return [true, url];
+    return [true, `${owner}/${repo}`];
   } catch (failedToConstructURL) {
-    return [false, null];
+    return [false, "failed to construct url"];
   }
 }
 
@@ -25,14 +25,14 @@ function absoluteUrlValidator(url: string) {
     const [owner, repo] = relativeRepoUrl.split('/');
 
     if (urlObject.hostname !== 'github.com') {
-      return [false, null];
+      return [false, "Invalid URL"];
     }
     if (!owner || !repo || !(urlObject.protocol === 'http:' || urlObject.protocol === 'https:')) {
-      return [false, null];
+      return [false, "Invalid URL"];
     }
     return [true, `${owner}/${repo}`];
   } catch (failedToConstructURL) {
-    return [false, null];
+    return [false, "failed to construct url"];
   }
 }
 

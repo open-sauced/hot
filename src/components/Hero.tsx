@@ -56,7 +56,8 @@ const Hero = () => {
             type="text" placeholder='Search repositories'
             className='w-full outline-none text-[16px] text-lightSlate'
           />
-          <img className='pt-[7px]' src={cmdK} alt="command k" />
+          {/* todo: implement keyboard shortcut to bring the input field in focus */}
+          {/* <img className='pt-[7px]' src={cmdK} alt="command k" /> */}
         </div>
         <div className='mt-[10px] flex w-full justify-center relative'>
           { results.length > 0 && hasFocus && 

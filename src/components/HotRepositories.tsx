@@ -7,7 +7,7 @@ import { RiCheckboxCircleFill } from "react-icons/ri";
 
 const hotRepo = [
   {
-    id: 0,
+    id: 357728069,
     organization: "Oven",
     orgImg: "https://avatars.githubusercontent.com/u/108928776?s=200&v=4",
     name: "Bun",
@@ -25,7 +25,7 @@ const hotRepo = [
     ],
   },
   {
-    id: 1,
+    id: 510607652,
     organization: "Pocketbase",
     orgImg: "https://avatars.githubusercontent.com/u/101000011?s=200&v=4",
     name: "Pocketbase",
@@ -43,7 +43,7 @@ const hotRepo = [
     ],
   },
   {
-    id: 2,
+    id: 71359796,
     organization: "Open-Sauced",
     orgImg: "https://avatars.githubusercontent.com/u/57568598?s=200&v=4",
     name: "Open-Sauced",

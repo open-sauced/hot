@@ -74,7 +74,7 @@ const HotRepositories = () => {
   return (
     <div className="flex flex-col px-4 max-w-screen-xl mx-auto">
       <div className="flex space-x-3 items-center">
-        <img src="/hotIcon.png" alt="Hot Repo Icon" className="h-5 w-5" />
+        <img src="../../src/assets/hotIcon.png" alt="Hot Repo Icon" className="h-5 w-5" />
         <h1 className="text-white font-bold text-2xl">Hot Repositories</h1>
       </div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full my-5">

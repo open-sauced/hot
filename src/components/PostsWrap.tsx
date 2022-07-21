@@ -30,8 +30,6 @@ const parseLimitValue = (limit: string | null): number => {
 
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
-  // const [activeLink, setActiveLink] = useState("popular");
-  // const [limit, setLimit] = useState(25);
   const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
   const { user } = useSupabaseAuth();

@@ -8,6 +8,7 @@ import RepoSubmission from './components/RepoSubmission';
 import GradBackground from './components/GradBackground';
 import Hero from './components/Hero';
 
+
 const App = (): JSX.Element => {
   initiatePostHog();
   const [textToSearch, setTextToSearch ] = useState<string>("")

@@ -72,6 +72,7 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
         setResults([]);
       }
     },
+
     [debouncedSearchTerm] // Only call effect if debounced search term changes
   );
 

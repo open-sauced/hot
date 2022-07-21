@@ -6,14 +6,31 @@ import GridDisplay from "./GridDisplay";
 import ListDisplay from "./ListDisplay";
 import { fetchRecommendations } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import locationsHash from "../lib/locationsHash";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { VscIssues } from "react-icons/vsc";
 import { AiOutlineStar } from "react-icons/ai";
 import { BiGitPullRequest } from "react-icons/bi";
 import { RiCheckboxCircleFill } from "react-icons/ri";
+
 interface PostWrapProps {
   textToSearch: string;
 }
+
+const parseLimitValue = (limit: string | null): number => {
+  if (!limit) {
+    return 25;
+  }
+  const value = parseInt(limit);
+  if (isNaN(value) || value <= 0) {
+    return 25;
+  }
+  if (value > 100) {
+    return 125;
+  }
+  return value;
+};
 
 const hotRepo = [
   {
@@ -74,13 +91,19 @@ const hotRepo = [
 
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [isGrid, setIsGrid] = useState(true);
-  const [activeLink, setActiveLink] = useState("popular");
+  // const [activeLink, setActiveLink] = useState("popular");
+  // const [limit, setLimit] = useState(25);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
-  const [limit, setLimit] = useState(25);
   const [hotRepos, setHotRepos] = useState(hotRepo);
   const { user } = useSupabaseAuth();
+  const location = useLocation();
+
+  const activeLink = locationsHash[location.pathname] || "popular";
+  const limit = parseLimitValue(searchParams.get("limit"));
+
   const handleLoadingMore = () => {
-    setLimit((prevLimit) => prevLimit + 25);
+    setSearchParams({ limit: String(limit + 25) });
   };
 
   const handleVoted = (id: number) => {
@@ -99,7 +122,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   return (
     <div className="bg-darkestGrey">
       <Modal />
-      <SecondaryNav setLimit={setLimit} activeLink={activeLink} setActiveLink={setActiveLink} user={user} />
+      <SecondaryNav activeLink={activeLink} user={user} />
       {/* Hot Repositories */}
       <div className="flex flex-col px-4 max-w-screen-xl mx-auto">
         <div className="flex space-x-3 items-center">

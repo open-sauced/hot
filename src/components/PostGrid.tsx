@@ -42,24 +42,17 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
             <Avatar
               contributor={data.contributions[1]?.contributor}
               lastPr={data.contributions[1]?.last_merged_at}/>}
+
         </div>
 
         <div className="flex">
-          <div
-            role="button"
-            tabIndex={0}
-            aria-pressed="false"
+          <button
             onClick={() => user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' })}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter') {
-                return user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' });
-              }
-            }}
             className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"
           >
-            <FaArrowAltCircleUp/>
+            <FaArrowAltCircleUp aria-hidden="true" />
             <p className="font-bold">{votes}</p>
-          </div>
+          </button>
         </div>
       </div>
 

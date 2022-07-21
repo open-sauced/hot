@@ -139,7 +139,6 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
                   <span className="text-xs text-gray-400">{repo.organization}</span>
                 </div>
                 <button
-                  // className="px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-grey hover:text-saucyRed transition-all duration-200 "
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-[10px] transition-all duration-200 ${
                     repo.upvoted
                       ? "text-saucyRed border-saucyRed hover:text-gray-500 hover:border-gray-500"

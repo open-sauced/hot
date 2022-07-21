@@ -37,14 +37,14 @@ const Hero = () => {
   
 
   return (
-    <div className='flex flex-col my-[95px] items-center'>
+    <div className='flex flex-col py-[95px] items-center mx-[10px] '>
         <div>
-          <h1 className='font-Lexend text-[48px] text-center text-lightSlate leading-[52.8px] tracking-[-6%] '>
+          <h1 className='font-Lexend text-[40px] md:text-[48px] text-center text-lightSlate leading-[52.8px] tracking-[-6%] '>
             Find <span className='bg-gradient-to-r from-gradFirst via-gradMiddle to-gradLast bg-clip-text text-transparent' >Open-Source Repositories</span> <br/> to  contribute today
           </h1>
         </div>
-        <div className='mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] min-w-[422px]  flex'>
-          <img src={key} alt="key" />
+        <div className='mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px]  flex'>
+          <img src={key} alt="key icon" />
           <input
             onFocus={() => setFocus(true)}
             onBlur={() =>
@@ -60,8 +60,8 @@ const Hero = () => {
         </div>
         <div className='mt-[10px] flex w-full justify-center relative'>
           { results.length > 0 && hasFocus && 
-            <div className='flex min-w-[400px] pb-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px]'>
-              <div className='bg-gray-100 py-[10px] px-[10px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full'>
+            <div className='flex md:min-w-[400px] pb-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px]'>
+              <div className='bg-gray-100 py-[10px] px-[10px] md:px-[15px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full'>
                 <p className='text-gray-500 text-[14px] font-semibold'>Repository</p>
               </div>
 
@@ -73,7 +73,7 @@ const Hero = () => {
                   target="_blank"
                   >
                     <div key={result.full_name} className='flex flex-col hover:bg-gray-50 '>
-                      <div className='flex flex-col px-[10px] py-[10px]'>
+                      <div className='flex flex-col px-[10px] md:px-[15px] py-[10px]'>
                         <div className='flex items-center gap-x-[10px] mb-[5px]'>
                           <div className='w-[25px] h-[25px] overflow-hidden border-gray-400 border-[1px] bg-red-100  rounded-full'>
                             <img className='w-full h-full' src={`https://avatars.githubusercontent.com/u/${result?.user_id}`} alt="" />
@@ -86,9 +86,10 @@ const Hero = () => {
 
                         <div className='flex justify-between mt-[8px]'>
                           <div className='flex gap-x-[5px]'>
-                            <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
-                            <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
-                            <div className='w-[20px] h-[20px] bg-red-200 rounded-full'></div>
+                            <div className='w-[20px] h-[20px] rounded-full'>
+                              {/* todos: add contributors avator here */}
+                            </div>
+                            
                           </div>
                           <div className='flex gap-x-[6px]'>
                             <div className='flex items-center gap-x-[5px]'>

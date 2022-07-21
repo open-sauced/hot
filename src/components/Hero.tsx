@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import key from '../assets/key.svg'
+import searchNormal from '../assets/searchNormal.svg'
 import cmdK from '../assets/cmdK.svg'
 import starIcon from '../assets/starIcon.svg'
 import issueIcon from '../assets/issueIcon.svg'
@@ -44,7 +44,7 @@ const Hero = () => {
           </h1>
         </div>
         <div className='mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px]  flex'>
-          <img src={key} alt="key icon" />
+          <img src={searchNormal} alt="search icon" />
           <input
             onFocus={() => setFocus(true)}
             onBlur={() =>

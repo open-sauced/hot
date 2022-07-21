@@ -39,7 +39,7 @@ const Hero = () => {
   return (
     <div className='flex flex-col py-[95px] items-center mx-[10px] '>
         <div>
-          <h1 className='font-Lexend text-[40px] md:text-[48px] text-center text-lightSlate leading-[52.8px] tracking-[-6%] '>
+          <h1 className='font-Lexend text-4xl md:text-5xl text-center text-lightSlate leading-tight tracking-tight'>
             Find <span className='bg-gradient-to-r from-gradFirst via-gradMiddle to-gradLast bg-clip-text text-transparent' >Open-Source Repositories</span> <br/> to  contribute today
           </h1>
         </div>

@@ -9,7 +9,7 @@ const sendMessage = (user: User, repoUrl : string) => {
   const params = {
     username: "Hot Sauced!",
     avatar_url: "",
-    content: `${user} has submitted a new hot repo submission: [${repoUrl}](https://github.com/${repoUrl})`
+    content: `${user} has made a new hot repo submission: [${repoUrl}](https://github.com/${repoUrl})`
   }
 
   request.send(JSON.stringify(params));

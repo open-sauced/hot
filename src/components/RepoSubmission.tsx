@@ -25,7 +25,7 @@ const RepoSubmission = ({user}: RepoSubmissionProps)  => {
       setIsSubmissionInProcess(false)
       setSubmitted(true)
       setButtonPlaceHolder("Close")
-      const [isValid, sanitizedUrl] = isValidRepoUrl(repoUrl.replace(/\s+/g, ""));
+      const {isValid, sanitizedUrl} = isValidRepoUrl(repoUrl.replace(/\s+/g, ""));
 
       console.log("is valid: ", isValid)
       if (isValid && userName) {

@@ -27,7 +27,6 @@ const Hero = () => {
     if (debouncedSearchTerm) {
 
       fetchWithSearch("stars", 3, debouncedSearchTerm).then((results) => {
-        console.log(results)
         setResults(results as unknown as []);
       });
     } else {
@@ -67,23 +66,24 @@ const Hero = () => {
               </div>
 
               {
-                results.map( result => (
+                results.map( ({full_name, description, issues, stars, user_id }) => (
                   <a
-                  href={`https://app.opensauced.pizza/repos/${result.full_name}`}
+                  key={user_id}
+                  href={`https://app.opensauced.pizza/repos/${full_name}`}
                   rel="noreferrer"
                   target="_blank"
                   >
-                    <div key={result.full_name} className='flex flex-col hover:bg-gray-50 '>
+                    <div  className='flex flex-col hover:bg-gray-50 '>
                       <div className='flex flex-col px-[10px] md:px-[15px] py-[10px]'>
                         <div className='flex items-center gap-x-[10px] mb-[5px]'>
                           <div className='w-[25px] h-[25px] overflow-hidden border-gray-400 border-[1px] bg-red-100  rounded-full'>
-                            <img className='w-full h-full' src={`https://avatars.githubusercontent.com/u/${result?.user_id}`} alt="" />
+                            <img className='w-full h-full' src={`https://avatars.githubusercontent.com/u/${user_id}`} alt="" />
                           </div>
 
-                          <p className='text-[16px] text-gray-500 font-semibold'>{result.full_name}</p>
+                          <p className='text-[16px] text-gray-500 font-semibold'>{full_name}</p>
                         </div>
 
-                        <p className='text-[14px] text-gray-500'>{result.description}</p>
+                        <p className='text-[14px] text-gray-500'>{description}</p>
 
                         <div className='flex justify-between mt-[8px]'>
                           <div className='flex gap-x-[5px]'>
@@ -95,11 +95,11 @@ const Hero = () => {
                           <div className='flex gap-x-[6px]'>
                             <div className='flex items-center gap-x-[5px]'>
                               <img src={issueIcon} alt="issue icon" />
-                              <p className='text-gray-500 text-[12px]'>{humanizeNumber(result.issues)}</p>
+                              <p className='text-gray-500 text-[12px]'>{humanizeNumber(issues)}</p>
                             </div>
                             <div className='flex items-center gap-x-[5px]'>
                               <img src={starIcon} alt="star icon" />
-                              <p className='text-gray-500 text-[12px]'>{humanizeNumber(result.stars)}</p>
+                              <p className='text-gray-500 text-[12px]'>{humanizeNumber(stars)}</p>
                             </div>
                           </div>
                         </div>

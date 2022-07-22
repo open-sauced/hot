@@ -23,6 +23,10 @@ module.exports = {
         osGrey: "#11181C",
         osOrange: "#ED5F00",
         lightOrange: "#FFCCA7",
+        lightSlate:"#11181C",
+        gradFirst: "#FF932F",
+        gradMiddle: "#FF3C3C",
+        gradLast: "#FF3C3C"
       },
       fontFamily: {
         Poppins: ["Poppins"],
@@ -30,6 +34,7 @@ module.exports = {
         Roboto: ["Roboto"],
         Ubuntu: ["Ubuntu", "sans-serif"],
         Inter: ['Inter', 'sans-serif'],
+        Lexend: ['Lexend', 'sans-serif']
       },
       container: {
         center: true,

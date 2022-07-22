@@ -107,18 +107,17 @@ export async function fetchRecommendations(
 export async function fetchWithSearch(orderBy = 'stars', limit = 5, searchText: string) {
   
   return new Promise(async (resolve, reject) => {
-  console.log(orderBy, limit, searchText);
-  const { data: recommendations, error } = await supabase
-    .from('repos')
-    .select('full_name, name, description, stars, issues, contributions(last_merged_at, contributor, url)')
-    .like('full_name', `%${searchText}%`) // The string will need to be interpolated with the ''
-    .limit(limit)
-    .limit(3, { foreignTable: 'contributions' })
-    .order(orderBy, { ascending: false })
-    .order('last_merged_at', { foreignTable: 'contributions', ascending: false });
+    const { data: recommendations, error } = await supabase
+      .from('repos')
+      .select('full_name, name, user_id, description, stars, issues, contributions(last_merged_at, contributor, url)')
+      .like('full_name', `%${searchText}%`) // The string will need to be interpolated with the ''
+      .limit(limit)
+      .limit(3, { foreignTable: 'contributions' })
+      .order(orderBy, { ascending: false })
+      .order('last_merged_at', { foreignTable: 'contributions', ascending: false });
 
-    if (error) reject(error);
-    return resolve(recommendations);
+      if (error) reject(error);
+      return resolve(recommendations);
   });
 
 }

@@ -5,20 +5,20 @@ import { initiatePostHog } from './lib/analytics';
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import RepoSubmission from './components/RepoSubmission';
-import useSupabaseAuth from "./hooks/useSupabaseAuth";
 import GradBackground from './components/GradBackground';
+import useSupabaseAuth from "./hooks/useSupabaseAuth";
 
 const App = (): JSX.Element => {
   initiatePostHog();
   const { user } = useSupabaseAuth();
-  const [textToSearch, setTextToSearch ] = useState<string>("")
+  const [textToSearch] = useState("")
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App overflow-hidden">
         <GradBackground>
           {user && <RepoSubmission user={user} />}
-          <PrimaryNav setTextToSearch={setTextToSearch} />
+          <PrimaryNav/>
         </GradBackground>
         <PostsWrap textToSearch={textToSearch} />
         <Footer/>

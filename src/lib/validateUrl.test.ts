@@ -1,6 +1,5 @@
 import isValidRepoUrl from './validateUrl';
 import { describe, test, expect } from 'vitest'
-import URLValidation from './validateUrl';
 
 describe("Test: isValidRepoUrl()", () => {
   const repoName = "repo_name";

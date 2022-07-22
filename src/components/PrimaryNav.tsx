@@ -1,3 +1,7 @@
+import React, { useState, useEffect, ChangeEvent } from "react";
+import { Menu } from "@headlessui/react";
+import logo from "../assets/logo.svg";
+import { FaSpinner } from "react-icons/fa";
 import { FC, Fragment } from "react";
 import openSaucedLogo from '../assets/openSauced.svg'
 import { Menu, Transition } from '@headlessui/react'
@@ -5,6 +9,13 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { GiHamburgerMenu } from "react-icons/gi"
 import { version } from "../../package.json";
+import { fetchWithSearch } from "../lib/supabase";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import Avatar from "./Avatar";
+
+import { FaAngleRight, FaRegStar, FaRegDotCircle } from "react-icons/fa";
+import humanizeNumber from "../lib/humanizeNumber";
+import TextHoverElement from "./TextHoverElement";
 
 interface NavProps {
   auth: {
@@ -23,9 +34,23 @@ interface MenuProps {
   }
 }
 
+const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const [results, setResults] = useState<PostResult[]>([]);
+  const [isSearching, setIsSearching] = useState<boolean>(false);
+  const [hasFocus, setFocus] = useState<boolean>(false);
+  const { signIn, signOut, user } = useSupabaseAuth();
+  const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
+
+  const inputOnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+    if (e.target.value == "") {
+      setTextToSearch("");
+    }
+  };
 const PrimaryNav:FC = () => {
   const { signIn, signOut, user } = useSupabaseAuth();
-  
+
   return (
     <header>
       <MobileNav auth={{ signIn, signOut, user }}/>
@@ -48,7 +73,7 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
           <p className="text-[16px] font-semibold">OpenSauced</p>
         </a>
         {
-          auth?.user && 
+          auth?.user &&
           <div>
             <p className="font-semibold text-[12px] ml-[10px]">My Votes</p>
           </div>
@@ -73,10 +98,10 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
         </div>
       </div>
     </div>
-  ) 
-} 
+  )
+}
 
-// visible on smaller screen 
+// visible on smaller screen
 const MobileNav:FC<NavProps> = ({auth}) => {
   return(
     <div className='md:hidden font-Inter py-[26px] px-[42px] flex justify-between'>

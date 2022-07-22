@@ -5,6 +5,7 @@ import { initiatePostHog } from './lib/analytics';
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import RepoSubmission from './components/RepoSubmission';
+import GradBackground from './components/GradBackground';
 
 const App = (): JSX.Element => {
   initiatePostHog();
@@ -12,9 +13,11 @@ const App = (): JSX.Element => {
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="App overflow-hidden">
+        <GradBackground>
+          <PrimaryNav/>
+        </GradBackground>
         <RepoSubmission/>
-        <PrimaryNav setTextToSearch={setTextToSearch} />
         <PostsWrap textToSearch={textToSearch} />
         <Footer/>
       </div>

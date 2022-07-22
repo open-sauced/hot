@@ -5,33 +5,12 @@
 
 > All notable changes to this project will be documented in this file
 
-## [2.9.0](https://github.com/open-sauced/hot-sauce/compare/v2.8.2...v2.9.0) (2022-07-18)
+## [2.9.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.9.0-beta.3...v2.9.0-beta.4) (2022-07-19)
 
 
 ### 🍕 Features
 
-* add filter params ([#184](https://github.com/open-sauced/hot-sauce/issues/184)) ([87e7af0](https://github.com/open-sauced/hot-sauce/commit/87e7af0c7a92b6fc59fbe64769b5a444e57a0492)), closes [#167](https://github.com/open-sauced/hot-sauce/issues/167)
-* adds new fields to search results ([#181](https://github.com/open-sauced/hot-sauce/issues/181)) ([e1242fa](https://github.com/open-sauced/hot-sauce/commit/e1242fa0ddd9e8c674beb5d28fde1c3b8e5984ba))
-* Repository submission form UI ([#179](https://github.com/open-sauced/hot-sauce/issues/179)) ([f02363c](https://github.com/open-sauced/hot-sauce/commit/f02363c68cd3894e1259e3e141ae0864b757c674))
-* update avatar contib dates with dayjs component ([#185](https://github.com/open-sauced/hot-sauce/issues/185)) ([01f9aca](https://github.com/open-sauced/hot-sauce/commit/01f9aca7c294cccaa3bd513648a80e64b7171ff3)), closes [#174](https://github.com/open-sauced/hot-sauce/issues/174)
-
-
-### 🤖 Build System
-
-* fix missing dependencies ([dc389a6](https://github.com/open-sauced/hot-sauce/commit/dc389a6d443d195a2708c66bd1428c822993685a))
-
-
-### ✅ Tests
-
-* **locationsHash:** Write filter tests ([#195](https://github.com/open-sauced/hot-sauce/issues/195)) ([a2fc817](https://github.com/open-sauced/hot-sauce/commit/a2fc8173806a438503bbb56af8b145c37da7f770)), closes [#64](https://github.com/open-sauced/hot-sauce/issues/64)
-
-
-### 🐛 Bug Fixes
-
-* accessibility tweaks ([#194](https://github.com/open-sauced/hot-sauce/issues/194)) ([7ef03cf](https://github.com/open-sauced/hot-sauce/commit/7ef03cff4b007745fc12085fa91777b930652682)), closes [#173](https://github.com/open-sauced/hot-sauce/issues/173) [#141](https://github.com/open-sauced/hot-sauce/issues/141) [#153](https://github.com/open-sauced/hot-sauce/issues/153) [#164](https://github.com/open-sauced/hot-sauce/issues/164) [#164](https://github.com/open-sauced/hot-sauce/issues/164) [#166](https://github.com/open-sauced/hot-sauce/issues/166) [#170](https://github.com/open-sauced/hot-sauce/issues/170) [#176](https://github.com/open-sauced/hot-sauce/issues/176) [#176](https://github.com/open-sauced/hot-sauce/issues/176) [#191](https://github.com/open-sauced/hot-sauce/issues/191) [#190](https://github.com/open-sauced/hot-sauce/issues/190) [#190](https://github.com/open-sauced/hot-sauce/issues/190) [#192](https://github.com/open-sauced/hot-sauce/issues/192) [#192](https://github.com/open-sauced/hot-sauce/issues/192) [#193](https://github.com/open-sauced/hot-sauce/issues/193) [#193](https://github.com/open-sauced/hot-sauce/issues/193)
-* correct dayjs imports ([60e7cf8](https://github.com/open-sauced/hot-sauce/commit/60e7cf895878afe7a9c95b6365ad92ba42168602))
-* lock down broken hedalessui version ([ce6fb6e](https://github.com/open-sauced/hot-sauce/commit/ce6fb6e743abf64cdd97b3602a34d74085295026))
-* relative date is part of Avatar component ([#199](https://github.com/open-sauced/hot-sauce/issues/199)) ([1904923](https://github.com/open-sauced/hot-sauce/commit/190492378daa2fd8d98d31893679a8c77ee65f74))
+* UI v3 nav ([#210](https://github.com/open-sauced/hot-sauce/issues/210)) ([7a8a003](https://github.com/open-sauced/hot-sauce/commit/7a8a003b2f5c2a2d405e05a0747de16088aa08ec))
 
 ## [2.9.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.9.0-beta.2...v2.9.0-beta.3) (2022-07-15)
 

@@ -1,227 +1,290 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
-import { Menu } from "@headlessui/react";
-import logo from "../assets/logo.svg";
+import { FC, Fragment } from "react";
+import openSaucedLogo from '../assets/openSauced.svg'
+import { Menu, Transition } from '@headlessui/react'
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import { FaSpinner } from "react-icons/fa";
 import { capturePostHogAnayltics } from "../lib/analytics";
+import { GiHamburgerMenu } from "react-icons/gi"
 import { version } from "../../package.json";
-import { fetchWithSearch } from "../lib/supabase";
-import Avatar from "./Avatar";
-
-import { FaAngleRight, FaRegStar, FaRegDotCircle } from "react-icons/fa";
-import humanizeNumber from "../lib/humanizeNumber";
-import TextHoverElement from "./TextHoverElement";
-
-interface PostWrapProps {
-  setTextToSearch: (arg0: string) => void;
+interface NavProps {
+  auth: {
+    signIn: (provider: object)=> void,
+    signOut: ()=> void,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    user: any
+  }
 }
-
-type PostResult = {
-  full_name: string;
-  description: string;
-  stars: number;
-  issues: string;
-  contributions: { url: string; contributor: string; last_merged_at: string }[];
-};
-// TODO: move to hooks/debounce.ts
-function useDebounce<T>(value: T, delay: number): T {
-  // State and setters for debounced value
-  const [debouncedValue, setDebouncedValue] = useState<T>(value);
-  useEffect(
-    () => {
-      // Update debounced value after delay
-      const handler = setTimeout(() => {
-        setDebouncedValue(value);
-      }, delay);
-      // Cancel the timeout if value changes (also on delay change or unmount)
-      // This is how we prevent debounced value from updating if value is changed ...
-      // .. within the delay period. Timeout gets cleared and restarted.
-      return () => {
-        clearTimeout(handler);
-      };
-    },
-    [value, delay] // Only re-call effect if value or delay changes
-  );
-  return debouncedValue;
+interface MenuProps {
+  auth: {
+    signIn: (provider: object)=> void,
+    signOut: ()=> void,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    user: any
+  }
 }
-
-const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
+const PrimaryNav:FC = () => {
   const { signIn, signOut, user } = useSupabaseAuth();
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [results, setResults] = useState<PostResult[]>([]);
-  const [isSearching, setIsSearching] = useState<boolean>(false);
-  const [hasFocus, setFocus] = useState<boolean>(false);
-  const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
-
-  const inputOnChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-    if (e.target.value == "") {
-      setTextToSearch("");
-    }
-  };
-
-  // Effect for API call
-  useEffect(
-    () => {
-      if (debouncedSearchTerm) {
-        setIsSearching(true);
-
-        fetchWithSearch("stars", 3, debouncedSearchTerm).then((results) => {
-          setIsSearching(false);
-          setResults(results as PostResult[]);
-        });
-      } else {
-        setResults([]);
-      }
-    },
-
-    [debouncedSearchTerm] // Only call effect if debounced search term changes
-  );
 
   return (
-    <nav className="flex bg-offWhite min-h-10 w-full font-roboto font-bold px-2 sm:px-4 py-4 sm:py-2 items-center">
-      <div className="flex-1 flex items-center">
-        <a href="https://opensauced.pizza">
-          <img className="h-7 mr-4" alt="open sauced" src={logo} />
-        </a>
-        <div id="search-container" className="flex flex-col relative w-full max-w-lg">
-          <input
-            className=" bg-gray-200 rounded-lg shadow-md h-full py-2 px-3 text-[9px] ml-2 sm:ml-0 sm:text-xs w-3/4 sm:w-2/3 focus:outline-none focus:border-saucyRed focus:ring-1 focus:ring-saucyRed"
-            type="search"
-            placeholder="search or jump to...   "
-            id="repo-search"
-            onChange={inputOnChangeHandler}
-            onFocus={() => setFocus(true)}
-            onBlur={() =>
-              setTimeout(() => {
-                setFocus(false);
-              }, 200)
-            }
-            name="repo-search"
-            aria-label="Search through repositories rendered out"
-          />
-          {results.length > 0 && hasFocus && (
-            <div className="bg-offWhite rounded-xl font-roboto w-full absolute pb-2 top-12 md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] z-50">
-              <div className="flex">
-                <div className="w-full">
-                  <h1 className="text-lightGrey p-[15px] uppercase text-xs border-b-2 w-full">
-                    Repository
-                    {isSearching && <FaSpinner aria-hidden="true" className="animate-spin inline-block float-right" />}
-                  </h1>
-
-                  <div>
-                    {results.map((result) => (
-                      <a
-                        rel="noreferrer"
-                        target="_blank"
-                        href={`https://app.opensauced.pizza/repos/${result.full_name}`}
-                      >
-                        <div
-                          key={result.full_name}
-                          className="flex text-grey text-xs sm:text-lg px-[15px] py-[10px] font-medium overflow-hidden cursor-pointer hover:bg-gray-200 "
-                        >
-                          <div>
-                            <h2>{result.full_name}</h2>
-                            <p className="text-sm text-gray-500">{result.description}</p>
-                            <div className="flex items-center mt-2 text-xs text-gray-500">
-                              {result.contributions.map((contribution) => (
-                                <div className="flex items-center overflow-hidden rounded-full w-8 h-8">
-                                  <Avatar contributor={contribution.contributor} lastPr={contribution.last_merged_at} />
-                                </div>
-                              ))}
-                              <span className="flex items-center ml-3">
-                                <FaRegStar aria-hidden="true" />
-                                <span className="ml-1">{humanizeNumber(result.stars)} stars</span>
-                              </span>
-                              <span className="flex items-center ml-3">
-                                <FaRegDotCircle aria-hidden="true" />
-                                <span className="ml-1">{humanizeNumber(result.issues)} issues</span>
-                              </span>
-                            </div>
-                          </div>
-                          <div className="flex items-center ml-auto">
-                            <TextHoverElement text="Star this Repo">
-                              <span>
-                                <FaRegStar aria-hidden="true" />
-                              </span>
-                            </TextHoverElement>
-                            <TextHoverElement text="View this Repo">
-                              <span className="ml-2">
-                                <FaAngleRight aria-hidden="true" />
-                              </span>
-                            </TextHoverElement>
-                          </div>
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-      {!user && (
-        <div className="items-center">
-          <button
-            className="cursor-pointer"
-            onClick={async () => {
-              capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
-              await signIn({ provider: "github" });
-            }}
-          >
-            Login
-          </button>
-        </div>
-      )}
-      {user && (
-        <Menu as="div" className="relative inline-block text-left">
-          <Menu.Button>
-            <div className="items-center">
-              <div className="rounded-full shadow-md w-10 h-10 overflow-hidden ring-2 ring-saucyRed">
-                {user && (
-                  <img
-                    className="object-cover w-[500] h-[500]"
-                    src={user.user_metadata.avatar_url}
-                    alt={`${user.user_metadata.user_name}-avatar`}
-                  />
-                )}
-              </div>
-            </div>
-          </Menu.Button>
-          <Menu.Items className="absolute right-0 w-56 origin-top-right rounded-md shadow-lg shadow-gray-700/80 border-gray-700 border-2 focus:outline-none px-1 py-1 bg-darkestGrey text-sm font-semibold">
-            <Menu.Item>
-              {({ active }) => (
-                <a href={`https://github.com/${user.user_metadata.user_name}`}>
-                  <span className={`${active && "bg-gray-700"} block px-4 py-2 rounded-md text-gray-200`}>
-                    {user.user_metadata.user_name}
-                  </span>
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <span className={`${active && "bg-gray-700"} block px-4 py-2 rounded-md text-gray-200`}>
-                  v{version}
-                </span>
-              )}
-            </Menu.Item>
-            <Menu.Item
-              onClick={async () => {
-                await signOut();
-              }}
-            >
-              {({ active }) => (
-                <span className={`${active && "bg-gray-700"} block px-4 py-2 rounded-md text-gray-200 cursor-pointer`}>
-                  Logout
-                </span>
-              )}
-            </Menu.Item>
-          </Menu.Items>
-        </Menu>
-      )}
-    </nav>
+    <header>
+      <MobileNav auth={{ signIn, signOut, user }}/>
+      <DesktopNav auth={{ signIn, signOut, user }}/>
+    </header>
   );
 };
-
+// visible on bigger screen
+const DesktopNav:FC<NavProps> = ({auth}) => {
+  return(
+    <div className='hidden md:flex  font-Inter py-[26px] px-[42px] justify-between'>
+      <div className="flex items-center text-osGrey">
+        <a href="/">
+          <img className="w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
+        </a>
+        <a href="/">
+          <p className="text-[16px] font-semibold">OpenSauced</p>
+        </a>
+        {
+          auth?.user &&
+          <div>
+            <p className="font-semibold text-[12px] ml-[10px]">My Votes</p>
+          </div>
+        }
+      </div>
+      <div>
+        <div className="w-[80px] pl-[16px] border-l-[1px] border-lightOrange">
+          {
+            auth?.user ? (
+              <UserMenu auth={auth}/>
+            ) : (
+              <button
+              onClick={async () => {
+                capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
+                await auth.signIn({ provider: 'github' });
+              }}
+              className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-[12px] font-semibold text-white">
+                Sign in
+              </button>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  )
+}
+// visible on smaller screen
+const MobileNav:FC<NavProps> = ({auth}) => {
+  return(
+    <div className='md:hidden font-Inter py-[26px] px-[42px] flex justify-between'>
+      <div className="flex items-center text-osGrey">
+        <img className="w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
+        <p className="text-[16px] font-semibold">OpenSauced</p>
+      </div>
+      <div>
+        <Menu as="div" className="relative z-50 inline-block text-left">
+          <Menu.Button>
+            <GiHamburgerMenu className="w-[20px] h-[20px] " />
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-95"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-95"
+          >
+            <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <div className="px-[8px] py-[10px] ">
+                {
+                  auth?.user ? (
+                    <div>
+                      <Menu.Item>
+                        <div className="flex items-center mb-[5px] gap-x-[10px]">
+                          <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
+                            <img className="w-full h-full" src={auth?.user?.user_metadata?.avatar_url} alt={auth?.user?.user_metadata?.user_name} />
+                          </div>
+                          <div className="flex flex-col">
+                            <p className="text-osGrey text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
+                            <p className="text-gray-500 text-[12px] font-normal">{auth?.user?.user_metadata?.user_name}</p>
+                          </div>
+                        </div>
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <button
+                            onClick={async () => {
+                              await auth.signOut();
+                            }}
+                            className={`${
+                              active ? 'bg-gray-100 text-gray-700' : 'text-gray-900'
+                            } group flex w-full items-center rounded-md px-[20px] py-[6px] text-[15px]`}
+                          >
+                            {active ? (
+                              <div
+                                className="mr-[5px] h-[2px] w-[15px]"
+                                aria-hidden="true"
+                              />
+                            ) : (
+                              <div
+                                className="mr-[5px] h-[2px] w-[15px]"
+                                aria-hidden="true"
+                              />
+                            )}
+                            V{version}
+                          </button>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <button
+                            onClick={async () => {
+                              await auth.signOut();
+                            }}
+                            className={`${
+                              active ? 'bg-gray-100 text-gray-700' : 'text-gray-900'
+                            } group flex w-full items-center rounded-md px-[20px] py-[6px] text-[15px]`}
+                          >
+                            {active ? (
+                              <div
+                                className="mr-[5px] h-[2px] w-[15px]"
+                                aria-hidden="true"
+                              />
+                            ) : (
+                              <div
+                                className="mr-[5px] h-[2px] w-[15px]"
+                                aria-hidden="true"
+                              />
+                            )}
+                            My votes
+                          </button>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <button
+                            onClick={async () => {
+                              await auth.signOut();
+                            }}
+                            className={`${
+                              active ? 'bg-gray-100 text-gray-700' : 'text-gray-900'
+                            } group flex w-full items-center rounded-md px-[20px] py-[6px] text-[15px]`}
+                          >
+                            {active ? (
+                              <div
+                                className="mr-[5px] h-[2px] w-[15px]"
+                                aria-hidden="true"
+                              />
+                            ) : (
+                              <div
+                                className="mr-[5px] h-[2px] w-[15px]"
+                                aria-hidden="true"
+                              />
+                            )}
+                            Logout
+                          </button>
+                        )}
+                      </Menu.Item>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={async () => {
+                        capturePostHogAnayltics('User Login', 'userLoginAttempt', 'true');
+                        await auth.signIn({ provider: 'github' });
+                      }}
+                      className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-[12px] font-semibold text-white ">
+                        Sign in
+                    </button>
+                  )
+                }
+              </div>
+            </Menu.Items>
+          </Transition>
+        </Menu>
+      </div>
+    </div>
+  )
+}
+const UserMenu:FC<MenuProps> = ({auth}) => {
+  console.log(auth)
+  return(
+      <Menu as="div" className="relative z-50 inline-block text-left">
+        <div>
+          <Menu.Button className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
+            <img className="w-full h-full" src={auth?.user?.user_metadata?.avatar_url} alt={auth?.user?.user_metadata?.user_name} />
+          </Menu.Button>
+        </div>
+        <Transition
+          as={Fragment}
+          enter="transition ease-out duration-100"
+          enterFrom="transform opacity-0 scale-95"
+          enterTo="transform opacity-100 scale-100"
+          leave="transition ease-in duration-75"
+          leaveFrom="transform opacity-100 scale-100"
+          leaveTo="transform opacity-0 scale-95"
+        >
+          <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <div className="px-[8px] py-[10px] ">
+              <Menu.Item>
+                <div className="flex items-center mb-[5px] gap-x-[10px]">
+                  <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
+                    <img className="w-full h-full" src={auth?.user?.user_metadata?.avatar_url} alt={auth?.user?.user_metadata?.user_name} />
+                  </div>
+                  <div className="flex flex-col">
+                    <p className="text-osGrey text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
+                    <p className="text-gray-500 text-[12px] font-normal">{auth?.user?.user_metadata?.user_name}</p>
+                  </div>
+                </div>
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? 'bg-gray-100 text-gray-700' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-[20px] py-[6px] text-[15px]`}
+                  >
+                    {active ? (
+                      <div
+                        className="mr-[5px] h-[2px] w-[15px]"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <div
+                        className="mr-[5px] h-[2px] w-[15px]"
+                        aria-hidden="true"
+                      />
+                    )}
+                    v{version}
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    onClick={async () => {
+                      await auth.signOut();
+                    }}
+                    className={`${
+                      active ? 'bg-gray-100 text-gray-700' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-[20px] py-[6px] text-[15px]`}
+                  >
+                    {active ? (
+                      <div
+                        className="mr-[5px] h-[2px] w-[15px]"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <div
+                        className="mr-[5px] h-[2px] w-[15px]"
+                        aria-hidden="true"
+                      />
+                    )}
+                    Logout
+                  </button>
+                )}
+              </Menu.Item>
+            </div>
+          </Menu.Items>
+        </Transition>
+      </Menu>
+  )
+}
 export default PrimaryNav;

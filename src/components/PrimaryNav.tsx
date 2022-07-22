@@ -47,12 +47,6 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
         <a href="/">
           <p className="text-[16px] font-semibold">OpenSauced</p>
         </a>
-        {
-          auth?.user && 
-          <div>
-            <p className="font-semibold text-[12px] ml-[10px]">My Votes</p>
-          </div>
-        }
       </div>
       <div>
         <div className="w-[80px] pl-[16px] border-l-[1px] border-lightOrange">
@@ -137,31 +131,6 @@ const MobileNav:FC<NavProps> = ({auth}) => {
                               />
                             )}
                             V{version}
-                          </button>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <button
-                            onClick={async () => {
-                              await auth.signOut();
-                            }}
-                            className={`${
-                              active ? 'bg-gray-100 text-gray-700' : 'text-gray-900'
-                            } group flex w-full items-center rounded-md px-[20px] py-[6px] text-[15px]`}
-                          >
-                            {active ? (
-                              <div
-                                className="mr-[5px] h-[2px] w-[15px]"
-                                aria-hidden="true"
-                              />
-                            ) : (
-                              <div
-                                className="mr-[5px] h-[2px] w-[15px]"
-                                aria-hidden="true"
-                              />
-                            )}
-                            My votes
                           </button>
                         )}
                       </Menu.Item>

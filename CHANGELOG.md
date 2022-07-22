@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.11.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.1...v2.11.0-beta.2) (2022-07-22)
+
+
+### 🐛 Bug Fixes
+
+* remove data printed in console log [#226](https://github.com/open-sauced/hot-sauce/issues/226) ([18d2150](https://github.com/open-sauced/hot-sauce/commit/18d21502ef09a4109126e6150489d518e3f99df9)), closes [#222](https://github.com/open-sauced/hot-sauce/issues/222)
+
 ## [2.11.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.10.0...v2.11.0-beta.1) (2022-07-22)
 
 

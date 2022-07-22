@@ -212,7 +212,6 @@ const MobileNav:FC<NavProps> = ({auth}) => {
 }
 
 const UserMenu:FC<MenuProps> = ({auth}) => {
-  console.log(auth)
   return(
       <Menu as="div" className="relative z-50 inline-block text-left">
         <div>

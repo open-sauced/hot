@@ -52,7 +52,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
     <div className="bg-darkestGrey">
       <Modal />
       <SecondaryNav activeLink={activeLink} user={user} />
-      <HotRepositories />
+      <HotRepositories user={user} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
       <div className="bg-darkestGrey py-6 w-full min-h-screen">
         {isGrid ? (

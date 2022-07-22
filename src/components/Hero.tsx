@@ -40,7 +40,7 @@ const Hero = () => {
     <div className='flex flex-col py-[95px] items-center mx-[10px] '>
         <div>
           <h1 className='font-Lexend text-4xl md:text-5xl text-center text-lightSlate leading-tight tracking-tight'>
-            Find <span className='bg-gradient-to-r from-gradFirst via-gradMiddle to-gradLast bg-clip-text text-transparent' >Open-Source Repositories</span> <br/> to  contribute today
+            Find <span className='bg-gradient-to-r from-gradFirst via-gradMiddle to-gradLast bg-clip-text text-transparent' >Open-Source Repositories</span> <br/> to contribute today
           </h1>
         </div>
         <div className='mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px]  flex'>

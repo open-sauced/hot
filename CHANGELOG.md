@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.10.0](https://github.com/open-sauced/hot-sauce/compare/v2.9.0...v2.10.0) (2022-07-22)
+
+
+### 🍕 Features
+
+* **submissions:** send submissions to Discord ([#212](https://github.com/open-sauced/hot-sauce/issues/212)) ([d5cc958](https://github.com/open-sauced/hot-sauce/commit/d5cc958a3e2509f0c4aa939ccb79bc7fef40799c)), closes [#211](https://github.com/open-sauced/hot-sauce/issues/211)
+
 ## [2.9.0](https://github.com/open-sauced/hot-sauce/compare/v2.8.2...v2.9.0) (2022-07-18)
 
 

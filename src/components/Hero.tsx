@@ -35,14 +35,14 @@ const Hero = () => {
   
 
   return (
-    <div className='flex flex-col py-[95px] items-center mx-[10px] '>
+    <div className='flex flex-col py-[95px] items-center mx-[10px]'>
         <div>
           <h1 className='font-Lexend text-4xl md:text-5xl text-center text-lightSlate leading-tight tracking-tight'>
             Find <span className='bg-gradient-to-r from-gradFirst via-gradMiddle to-gradLast bg-clip-text text-transparent' >Open-Source Repositories</span> <br/> to contribute today
           </h1>
         </div>
-        <div className='mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px]  flex'>
-          <img src={searchNormal} alt="search icon" />
+        <div className='mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px] flex'>
+          <img src={searchNormal} alt="search icon"/>
           <input
             onFocus={() => setFocus(true)}
             onBlur={() =>
@@ -97,7 +97,7 @@ const Hero = () => {
                               <p className='text-gray-500 text-[12px]'>{humanizeNumber(issues)}</p>
                             </div>
                             <div className='flex items-center gap-x-[5px]'>
-                              <img src={starIcon} alt="star" />
+                              <img src={starIcon} alt="star"/>
                               <p className='text-gray-500 text-[12px]'>{humanizeNumber(stars)}</p>
                             </div>
                           </div>

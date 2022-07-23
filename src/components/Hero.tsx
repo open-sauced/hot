@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import searchNormal from '../assets/searchNormal.svg'
-import cmdK from '../assets/cmdK.svg'
 import starIcon from '../assets/starIcon.svg'
 import issueIcon from '../assets/issueIcon.svg'
 import { fetchWithSearch } from "../lib/supabase";
@@ -77,7 +76,7 @@ const Hero = () => {
                       <div className='flex flex-col px-[10px] md:px-[15px] py-[10px]'>
                         <div className='flex items-center gap-x-[10px] mb-[5px]'>
                           <div className='w-[25px] h-[25px] overflow-hidden border-gray-400 border-[1px] bg-red-100  rounded-full'>
-                            <img className='w-full h-full' src={`https://avatars.githubusercontent.com/u/${user_id}`} alt="user avatar" />
+                            <img className='w-full h-full' src={`https://avatars.githubusercontent.com/u/${user_id}`} alt={full_name} />
                           </div>
 
                           <p className='text-[16px] text-gray-500 font-semibold'>{full_name}</p>
@@ -94,11 +93,11 @@ const Hero = () => {
                           </div>
                           <div className='flex gap-x-[6px]'>
                             <div className='flex items-center gap-x-[5px]'>
-                              <img src={issueIcon} alt="issue icon" />
+                              <img src={issueIcon} alt="issue" />
                               <p className='text-gray-500 text-[12px]'>{humanizeNumber(issues)}</p>
                             </div>
                             <div className='flex items-center gap-x-[5px]'>
-                              <img src={starIcon} alt="star icon" />
+                              <img src={starIcon} alt="star" />
                               <p className='text-gray-500 text-[12px]'>{humanizeNumber(stars)}</p>
                             </div>
                           </div>

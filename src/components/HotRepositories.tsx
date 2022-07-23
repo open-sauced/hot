@@ -8,6 +8,7 @@ import hotIcon from "../assets/hotIcon.png";
 import { User } from "@supabase/supabase-js";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { updateVotesByRepo } from "../lib/supabase";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 
 const hotRepo = [
   {
@@ -79,6 +80,8 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   } = user || { user_metadata: { sub: null } };
   const [hotRepos, setHotRepos] = useState(hotRepo);
 
+  const { signIn } = useSupabaseAuth();
+
   // * This function is just a placeholder to help change the color and state of the selected button on the card.
   const handleVoted = (repo_id: number) => {
     const votedIdx = hotRepos.findIndex((obj) => obj.repo_id == repo_id);
@@ -92,8 +95,6 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     await updateVotesByRepo(votes, repo_id, user_id);
     handleVoted(repo_id);
   }
-
-  // onClick={() => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
 
   return (
     <div className="flex flex-col px-4 max-w-screen-xl mx-auto">
@@ -115,7 +116,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-[10px] transition-all duration-200 ${
                     upvoted ? "text-saucyRed border-saucyRed " : "text-grey border-gray-500 "
                   }`}
-                  onClick={() => handleVoteUpdateByRepo(votes, repo_id)}
+                  onClick={() => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
                 >
                   <span className="">{upvoted ? "voted" : "upvote"}</span>
                   {upvoted ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="" />}

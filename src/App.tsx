@@ -7,20 +7,21 @@ import { BrowserRouter } from 'react-router-dom';
 import RepoSubmission from './components/RepoSubmission';
 import GradBackground from './components/GradBackground';
 import Hero from './components/Hero';
-
+import useSupabaseAuth from "./hooks/useSupabaseAuth";
 
 const App = (): JSX.Element => {
   initiatePostHog();
-  const [textToSearch, setTextToSearch ] = useState<string>("")
+  const { user } = useSupabaseAuth();
+  const [textToSearch] = useState("")
 
   return (
     <BrowserRouter>
       <div className="App overflow-hidden">
         <GradBackground>
+          {user && <RepoSubmission user={user} />}
           <PrimaryNav/>
           <Hero/>
         </GradBackground>
-        <RepoSubmission/>
         <PostsWrap textToSearch={textToSearch} />
         <Footer/>
       </div>

@@ -25,7 +25,7 @@ interface MenuProps {
 
 const PrimaryNav:FC = () => {
   const { signIn, signOut, user } = useSupabaseAuth();
-  
+
   return (
     <header>
       <MobileNav auth={{ signIn, signOut, user }}/>
@@ -67,10 +67,10 @@ const DesktopNav:FC<NavProps> = ({auth}) => {
         </div>
       </div>
     </div>
-  ) 
-} 
+  )
+}
 
-// visible on smaller screen 
+// visible on smaller screen
 const MobileNav:FC<NavProps> = ({auth}) => {
   return(
     <div className='md:hidden font-Inter py-[26px] px-[42px] flex justify-between'>
@@ -181,7 +181,6 @@ const MobileNav:FC<NavProps> = ({auth}) => {
 }
 
 const UserMenu:FC<MenuProps> = ({auth}) => {
-  console.log(auth)
   return(
       <Menu as="div" className="relative z-50 inline-block text-left">
         <div>

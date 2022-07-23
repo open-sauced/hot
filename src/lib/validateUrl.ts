@@ -1,4 +1,9 @@
-function relativeUrlValidator(url: string) {
+export declare interface URLValidation {
+  isValid: boolean
+  sanitizedUrl: string
+}
+
+function relativeUrlValidator(url: string) : URLValidation {
   try {
     const githubLink = 'github.com/';
     const newUrl = `https://${githubLink}${url}`;
@@ -6,15 +11,15 @@ function relativeUrlValidator(url: string) {
 
     const [owner, repo] = url.split('/');
     if (!owner || !repo || !(urlObject.protocol === 'http:' || urlObject.protocol === 'https:')) {
-      return [false, null];
+      return {isValid: false, sanitizedUrl: "Invalid URL"};
     }
-    return [true, url];
+    return {isValid: true, sanitizedUrl: `${owner}/${repo}`};
   } catch (failedToConstructURL) {
-    return [false, null];
+    return {isValid: false, sanitizedUrl: "failed to construct url"};
   }
 }
 
-function absoluteUrlValidator(url: string) {
+function absoluteUrlValidator(url: string) : URLValidation{
   try {
     const githubLink = 'github.com/';
     const urlObject = new URL(url);
@@ -25,18 +30,18 @@ function absoluteUrlValidator(url: string) {
     const [owner, repo] = relativeRepoUrl.split('/');
 
     if (urlObject.hostname !== 'github.com') {
-      return [false, null];
+      return {isValid: false, sanitizedUrl: "Invalid URL"};
     }
     if (!owner || !repo || !(urlObject.protocol === 'http:' || urlObject.protocol === 'https:')) {
-      return [false, null];
+      return {isValid: false, sanitizedUrl: "Invalid URL"};
     }
-    return [true, `${owner}/${repo}`];
+    return {isValid: true, sanitizedUrl: `${owner}/${repo}`};
   } catch (failedToConstructURL) {
-    return [false, null];
+    return {isValid: false, sanitizedUrl: "failed to construct url"};
   }
 }
 
-export default function isValidRepoUrl(url: string) {
+export default function isValidRepoUrl(url: string) : URLValidation {
   const trimmedUrl = url.trim();
   const urlString = trimmedUrl.substr(0, 1) === '/' ? trimmedUrl.substr(1) : trimmedUrl;
 

@@ -3,7 +3,6 @@ import searchNormal from "../assets/searchNormal.svg";
 import starIcon from "../assets/starIcon.svg";
 import issueIcon from "../assets/issueIcon.svg";
 import { fetchWithSearch } from "../lib/supabase";
-// import useDebounce from "../hooks/useDebounce";
 import humanizeNumber from "../lib/humanizeNumber";
 import { useDebounce, useDidUpdate } from "rooks";
 
@@ -18,26 +17,9 @@ type PostResult = {
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  // const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
   const setValueDebounced = useDebounce(setSearchTerm, 500);
   const [results, setResults] = useState<PostResult[]>([]);
   const [hasFocus, setFocus] = useState<boolean>(false);
-
-  // useEffect(() => {
-  //   console.log(searchTerm);
-  //   fetchWithSearch("stars", 3, searchTerm).then((results) => {
-  //     setResults(results as unknown as []);
-  //   });
-
-  //   // if (setValueDebounced) {
-  //   //   console.log(searchTerm);
-  //   //   fetchWithSearch("stars", 3, searchTerm).then((results) => {
-  //   //     setResults(results as unknown as []);
-  //   //   });
-  //   // } else {
-  //   //   setResults([]);
-  //   // }
-  // }, [setValueDebounced]);
 
   useDidUpdate(() => {
     console.log(searchTerm);
@@ -59,18 +41,6 @@ const Hero = () => {
       </div>
       <div className="mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px] flex">
         <img src={searchNormal} alt="search icon" />
-        {/* <input
-          onFocus={() => setFocus(true)}
-          onBlur={() =>
-            setTimeout(() => {
-              setFocus(false);
-            }, 200)
-          }
-          onChange={(e) => setSearchTerm(e.target.value)}
-          type="text"
-          placeholder="Search repositories"
-          className="w-full outline-none text-[16px] text-lightSlate"
-        /> */}
         <input
           onFocus={() => setFocus(true)}
           onBlur={() =>

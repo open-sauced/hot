@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title %></title>
-    <meta name="description" content="The path to your next open-source contribution.">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
-    <link rel="alternate icon" href="/favicon.ico" type="image/png" sizes="16x16"/>
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180"/>
-    <link rel="mask-icon" href="/favicon.svg" color="#FFFFFF"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <meta name="msapplication-TileColor" content="#FFFFFF">
-    <meta name="theme-color" content="#FFFFFF" />
 
-    <meta property="dcterms:modified" content="<%= date %>" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= title %>
+  </title>
+  <meta name="description" content="The path to your next open-source contribution.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="/favicon.ico" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="mask-icon" href="/favicon.svg" color="#FFFFFF" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="theme-color" content="#FFFFFF" />
 
-    <!-- For facebook, linkedin etc -->
-    <meta property="og:title" content="<%= title %>" />
-    <meta property="og:url" content="https://hot.opensauced.pizza" />
-    <meta property="og:type" content="article" />
-    <meta
-      property="og:description"
-      content="Open Sauced provides structured onboarding for new contributors to open source. This structure provides a way to track your next contributions by leveraging a unique dashboard built on top of the GitHub GraphQL API."
-    />
-    <meta property="og:image" content="/social-card.png" />
+  <meta property="dcterms:modified" content="<%= date %>" />
 
-    <!-- for twitter -->
-    <meta property="twitter:title" content="Open Sauced" />
-    <meta property="twitter:url" content="https://hot.opensauced.pizza" />
-    <meta property="twitter:type" content="article" />
+  <!-- For facebook, linkedin etc -->
+  <meta property="og:title" content="<%= title %>" />
+  <meta property="og:url" content="https://hot.opensauced.pizza" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description"
+    content="Open Sauced provides structured onboarding for new contributors to open source. This structure provides a way to track your next contributions by leveraging a unique dashboard built on top of the GitHub GraphQL API." />
+  <meta property="og:image" content="/social-card.png" />
 
-    <meta
-      property="twitter:description"
-      content="Open Sauced is a platform to gain insights on open source contributors and their contributions."
-    />
-    <meta property="twitter:image" content="/social-card.png" />
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <!-- for twitter -->
+  <meta property="twitter:title" content="Open Sauced" />
+  <meta property="twitter:url" content="https://hot.opensauced.pizza" />
+  <meta property="twitter:type" content="article" />
+
+  <meta property="twitter:description"
+    content="Open Sauced is a platform to gain insights on open source contributors and their contributions." />
+  <meta property="twitter:image" content="/social-card.png" />
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

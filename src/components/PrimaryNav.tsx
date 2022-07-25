@@ -2,25 +2,24 @@ import { FC, Fragment } from "react";
 import openSaucedLogo from "../assets/openSauced.svg";
 import { Menu, Transition } from "@headlessui/react";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import {User} from "@supabase/supabase-js";
 import { capturePostHogAnayltics } from "../lib/analytics";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi"
 import { version } from "../../package.json";
 
 interface NavProps {
   auth: {
-    signIn: (provider: object) => void;
-    signOut: () => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    user: any;
-  };
+    signIn: (provider: object)=> void,
+    signOut: ()=> void,
+    user: User | null;
+  }
 }
 interface MenuProps {
   auth: {
-    signIn: (provider: object) => void;
-    signOut: () => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    user: any;
-  };
+    signIn: (provider: object)=> void,
+    signOut: ()=> void,
+    user: User | null
+  }
 }
 
 const PrimaryNav: FC = () => {

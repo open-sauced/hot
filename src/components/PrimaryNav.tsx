@@ -96,22 +96,15 @@ const MobileNav: FC<NavProps> = ({ auth }) => {
                 {auth?.user ? (
                   <div>
                       <Menu.Item>
+                        <div className="flex items-center mb-[5px] gap-x-[10px]">
                           <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
-                            <img
-                              className="w-full h-full"
-                              src={auth?.user?.user_metadata?.avatar_url}
-                              alt={auth?.user?.user_metadata?.user_name}
-                            />
+                            <img className="w-full h-full" src={auth?.user?.user_metadata?.avatar_url} alt={auth?.user?.user_metadata?.user_name} />
                           </div>
-
                           <div className="flex flex-col">
-                            <p className="text-osGrey text-[12px] font-semibold ">
-                              {auth?.user?.user_metadata?.full_name}
-                            </p>
-                            <p className="text-gray-500 text-[12px] font-normal">
-                              {auth?.user?.user_metadata?.user_name}
-                            </p>
+                            <p className="text-osGrey text-[12px] font-semibold ">{auth?.user?.user_metadata?.full_name}</p>
+                            <p className="text-gray-500 text-[12px] font-normal">{auth?.user?.user_metadata?.user_name}</p>
                           </div>
+                        </div>
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (

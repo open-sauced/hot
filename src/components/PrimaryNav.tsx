@@ -188,7 +188,7 @@ const PrimaryNav = ({ setTextToSearch }: PostWrapProps): JSX.Element => {
               </div>
             </div>
           </Menu.Button>
-          <Menu.Items className="absolute right-0 w-56 origin-top-right rounded-md shadow-lg shadow-gray-700/80 border-gray-700 border-2 focus:outline-none px-1 py-1 bg-darkestGrey text-sm font-semibold">
+          <Menu.Items className="z-40 absolute right-0 w-56 origin-top-right rounded-md shadow-lg shadow-gray-700/80 border-gray-700 border-2 focus:outline-none px-1 py-1 bg-darkestGrey text-sm font-semibold">
             <Menu.Item>
               {({ active }) => (
                 <a href={`https://github.com/${user.user_metadata.user_name}`}>

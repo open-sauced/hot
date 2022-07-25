@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.10.1](https://github.com/open-sauced/hot-sauce/compare/v2.10.0...v2.10.1) (2022-07-25)
+
+
+### 🐛 Bug Fixes
+
+* added correct z index ([#232](https://github.com/open-sauced/hot-sauce/issues/232)) ([667cc3e](https://github.com/open-sauced/hot-sauce/commit/667cc3e20ca2d34149d7631ee4c047b96084944e))
+
 ## [2.10.0](https://github.com/open-sauced/hot-sauce/compare/v2.9.0...v2.10.0) (2022-07-22)
 
 

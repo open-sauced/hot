@@ -33,7 +33,7 @@ function Modal() {
       <div className="flex justify-center">
         <div className="absolute top-14 flex justify-center flex-col items-center sm:top-10">
 
-          <div className="z-40">
+          <div className="z-30">
             <button
               aria-label="More about starring repos"
               onClick={() => setIsOpen(!isOpen)}

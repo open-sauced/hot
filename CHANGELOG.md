@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.11.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.4...v2.11.0-beta.5) (2022-07-25)
+
+
+### 🐛 Bug Fixes
+
+* Add User interface from the Supabase library ([#231](https://github.com/open-sauced/hot-sauce/issues/231)) ([a7b31d8](https://github.com/open-sauced/hot-sauce/commit/a7b31d8a04e7277662795bbfccbb23fbfcf4f695))
+
 ## [2.11.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.3...v2.11.0-beta.4) (2022-07-25)
 
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LayoutToggle from "./LayoutToggle";
+import Modal from "./Modal";
 import SecondaryNav from "./SecondaryNav";
 import GridDisplay from "./GridDisplay";
 import ListDisplay from "./ListDisplay";
@@ -49,6 +50,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
 
   return (
     <div className="bg-darkestGrey">
+      <Modal />
       <SecondaryNav activeLink={activeLink} user={user} />
       <HotRepositories user={user} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />

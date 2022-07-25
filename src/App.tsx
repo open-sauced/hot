@@ -12,7 +12,7 @@ import useSupabaseAuth from "./hooks/useSupabaseAuth";
 const App = (): JSX.Element => {
   initiatePostHog();
   const { user } = useSupabaseAuth();
-  const [textToSearch] = useState("")
+  const [textToSearch] = useState("");
 
   return (
     <BrowserRouter>
@@ -23,10 +23,10 @@ const App = (): JSX.Element => {
           <Hero/>
         </GradBackground>
         <PostsWrap textToSearch={textToSearch} />
-        <Footer/>
+        <Footer />
       </div>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;

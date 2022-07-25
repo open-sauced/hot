@@ -17,12 +17,12 @@ type PostResult = {
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
+  // const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
   const setValueDebounced = useDebounce(setSearchTerm, 500);
   const [results, setResults] = useState<PostResult[]>([]);
   const [hasFocus, setFocus] = useState<boolean>(false);
 
   useDidUpdate(() => {
-    console.log(searchTerm);
     fetchWithSearch("stars", 3, searchTerm).then((results) => {
       setResults(results as unknown as []);
     });

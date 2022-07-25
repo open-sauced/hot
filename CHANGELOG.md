@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.11.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.2...v2.11.0-beta.3) (2022-07-25)
+
+
+### 🍕 Features
+
+* add netlify redirects configuration for static files ([#219](https://github.com/open-sauced/hot-sauce/issues/219)) ([b076ab8](https://github.com/open-sauced/hot-sauce/commit/b076ab88cf3b6de2908799c88a8a4a925a937cf1))
+
 ## [2.11.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.1...v2.11.0-beta.2) (2022-07-22)
 
 

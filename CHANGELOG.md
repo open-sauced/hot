@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.11.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.3...v2.11.0-beta.4) (2022-07-25)
+
+
+### 🍕 Features
+
+* hot repository section ([#216](https://github.com/open-sauced/hot-sauce/issues/216)) ([7bd3046](https://github.com/open-sauced/hot-sauce/commit/7bd3046e64e8a8184a103107c7f1839d7c4cf1db))
+
 ## [2.11.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.2...v2.11.0-beta.3) (2022-07-25)
 
 

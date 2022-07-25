@@ -7,6 +7,7 @@ import { fetchRecommendations } from '../lib/supabase';
 import useSupabaseAuth from '../hooks/useSupabaseAuth';
 import locationsHash from '../lib/locationsHash';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import HotRepositories from './HotRepositories';
 
 
 interface PostWrapProps {
@@ -49,7 +50,6 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
 
   return (
     <div className="bg-darkestGrey">
-      <Modal />
       <SecondaryNav activeLink={activeLink} user={user} />
       <HotRepositories user={user} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />

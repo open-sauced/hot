@@ -6,6 +6,7 @@ import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import RepoSubmission from "./components/RepoSubmission";
 import GradBackground from "./components/GradBackground";
+import Hero from "./components/Hero";
 import useSupabaseAuth from "./hooks/useSupabaseAuth";
 
 const App = (): JSX.Element => {
@@ -19,6 +20,7 @@ const App = (): JSX.Element => {
         <GradBackground>
           {user && <RepoSubmission user={user} />}
           <PrimaryNav />
+          <Hero />
         </GradBackground>
         <PostsWrap textToSearch={textToSearch} />
         <Footer />

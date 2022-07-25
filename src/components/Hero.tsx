@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import searchNormal from "../assets/searchNormal.svg";
 import starIcon from "../assets/starIcon.svg";
 import issueIcon from "../assets/issueIcon.svg";

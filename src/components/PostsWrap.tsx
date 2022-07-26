@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import LayoutToggle from './LayoutToggle';
-import SecondaryNav from './SecondaryNav';
-import GridDisplay from './GridDisplay';
-import ListDisplay from './ListDisplay';
-import { fetchRecommendations } from '../lib/supabase';
-import useSupabaseAuth from '../hooks/useSupabaseAuth';
-import locationsHash from '../lib/locationsHash';
-import { useLocation, useSearchParams } from 'react-router-dom';
-import HotRepositories from './HotRepositories';
-
+import React, { useState, useEffect } from "react";
+import LayoutToggle from "./LayoutToggle";
+import Modal from "./Modal";
+import SecondaryNav from "./SecondaryNav";
+import GridDisplay from "./GridDisplay";
+import ListDisplay from "./ListDisplay";
+import { fetchRecommendations } from "../lib/supabase";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import locationsHash from "../lib/locationsHash";
+import { useLocation, useSearchParams } from "react-router-dom";
+import HotRepositories from "./HotRepositories";
 
 interface PostWrapProps {
   textToSearch: string;
@@ -50,6 +50,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
 
   return (
     <div className="bg-darkestGrey">
+      <Modal />
       <SecondaryNav activeLink={activeLink} user={user} />
       <HotRepositories user={user} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />

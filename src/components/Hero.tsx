@@ -6,14 +6,14 @@ import { fetchWithSearch } from "../lib/supabase";
 import useDebounce from '../hooks/useDebounce'
 import humanizeNumber from "../lib/humanizeNumber";
 
-type PostResult = {
+interface PostResult{
   full_name: string;
   user_id: number;
   description: string;
   stars: number;
   issues: string;
   contributions: contributions[]
-};
+}
 
 interface contributions{
   url: string,

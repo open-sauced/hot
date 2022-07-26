@@ -5,6 +5,20 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.11.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.5...v2.11.0-beta.6) (2022-07-26)
+
+
+### 🧑‍💻 Code Refactoring
+
+* adjust tailwind variables to rem values ([804de3e](https://github.com/open-sauced/hot-sauce/commit/804de3e5d2aa3a4e0b839b5dec5759dda204565e))
+
+
+### 🐛 Bug Fixes
+
+* added correct z index ([#232](https://github.com/open-sauced/hot-sauce/issues/232)) ([667cc3e](https://github.com/open-sauced/hot-sauce/commit/667cc3e20ca2d34149d7631ee4c047b96084944e))
+* remove extraneous assets from public folder ([eb32985](https://github.com/open-sauced/hot-sauce/commit/eb3298550e8b9c74594700ef7a49467602b50418)), closes [#214](https://github.com/open-sauced/hot-sauce/issues/214)
+* unify primary mobile and desktop navigation and fix transitions ([d35ad2f](https://github.com/open-sauced/hot-sauce/commit/d35ad2f904a2acd0a01dc73f034f1636b2252343)), closes [#224](https://github.com/open-sauced/hot-sauce/issues/224)
+
 ## [2.11.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.4...v2.11.0-beta.5) (2022-07-25)
 
 

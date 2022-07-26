@@ -63,7 +63,10 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
         preconnect: true,
         display: 'swap',
         injectTo: 'head-prepend',
-        families: ['Inter:100,200,300,400,500,600,700,800,900'],
+        families: [
+          'Inter:100,200,300,400,500,600,700,800,900',
+          'Lexend:100,200,300,400,500,600,700,800,900'
+        ],
       },
     }),
     ViteEslint(),

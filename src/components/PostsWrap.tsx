@@ -50,7 +50,6 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
 
   return (
     <div className="bg-darkestGrey">
-      <Modal />
       <SecondaryNav activeLink={activeLink} user={user} />
       <HotRepositories user={user} />
       <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />

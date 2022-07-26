@@ -2,43 +2,25 @@ import { useEffect, useState } from 'react'
 import searchNormal from '../assets/searchNormal.svg'
 import starIcon from '../assets/starIcon.svg'
 import issueIcon from '../assets/issueIcon.svg'
-import { fetchWithSearch } from "../lib/supabase";
+import { fetchRecommendations } from "../lib/supabase";
 import useDebounce from '../hooks/useDebounce'
 import humanizeNumber from "../lib/humanizeNumber";
 
-interface PostResult{
-  full_name: string;
-  user_id: number;
-  description: string;
-  stars: number;
-  issues: string;
-  contributions: contributions[]
-}
-
-interface contributions{
-  url: string,
-  contributor: string,
-  last_merged_at: string,
-}
-
 const Hero = () => {
-  const [searchTerm, setSearchTerm] = useState<string>("")
-  const debouncedSearchTerm: string = useDebounce<string>(searchTerm, 500);
-  const [results, setResults] = useState<PostResult[]>([]);
-  const [hasFocus, setFocus] = useState<boolean>(false);
-  
-  
+  const [searchTerm, setSearchTerm] = useState("")
+  const debouncedSearchTerm: string = useDebounce(searchTerm, 500);
+  const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
+  const [hasFocus, setFocus] = useState(false);
+
   useEffect(() => {
     if (debouncedSearchTerm) {
-
-      fetchWithSearch("stars", 3, debouncedSearchTerm).then((results) => {
-        setResults(results as unknown as []);
+      fetchRecommendations('stars', 3, null, debouncedSearchTerm).then((data) => {
+        setFetchedData(data);
       });
     } else {
-      setResults([]);
+      setFetchedData([]);
     }
   }, [debouncedSearchTerm])
-  
 
   return (
     <div className='flex flex-col py-[95px] items-center mx-[10px]'>
@@ -58,20 +40,20 @@ const Hero = () => {
             }
             onChange={(e => setSearchTerm(e.target.value))}
             type="text" placeholder='Search repositories'
-            className='w-full outline-none text-[16px] text-lightSlate'
+            className='w-full outline-none text-base text-lightSlate'
           />
           {/* todo: implement keyboard shortcut to bring the input field in focus - issue #205 */}
           {/* <img className='pt-[7px]' src={cmdK} alt="command k" /> */}
         </div>
         <div className='mt-[10px] flex w-full justify-center relative'>
-          { results.length > 0 && hasFocus && 
+          { fetchedData.length > 0 && hasFocus &&
             <div className='flex md:min-w-[400px] pb-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px]'>
               <div className='bg-gray-100 py-[10px] px-[10px] md:px-[15px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full'>
-                <p className='text-gray-500 text-[14px] font-semibold'>Repository</p>
+                <p className='text-gray-500 text-sm font-semibold'>Repository</p>
               </div>
 
               {
-                results.map( ({full_name, description, issues, stars, user_id }) => (
+                fetchedData.map( ({full_name, description, issues, stars, user_id }) => (
                   <a
                   key={full_name}
                   href={`https://app.opensauced.pizza/repos/${full_name}`}
@@ -85,26 +67,26 @@ const Hero = () => {
                             <img className='w-full h-full' src={`https://avatars.githubusercontent.com/u/${user_id}`} alt={full_name} />
                           </div>
 
-                          <p className='text-[16px] text-gray-500 font-semibold'>{full_name}</p>
+                          <p className='text-base text-gray-500 font-semibold'>{full_name}</p>
                         </div>
 
-                        <p className='text-[14px] text-gray-500'>{description}</p>
+                        <p className='text-sm text-gray-500'>{description}</p>
 
                         <div className='flex justify-between mt-[8px]'>
                           <div className='flex gap-x-[5px]'>
                             <div className='w-[20px] h-[20px] rounded-full'>
                               {/* todos: add contributors avator here */}
                             </div>
-                            
+
                           </div>
                           <div className='flex gap-x-[6px]'>
                             <div className='flex items-center gap-x-[5px]'>
                               <img src={issueIcon} alt="issue" />
-                              <p className='text-gray-500 text-[12px]'>{humanizeNumber(issues)}</p>
+                              <p className='text-gray-500 text-xs'>{humanizeNumber(issues)}</p>
                             </div>
                             <div className='flex items-center gap-x-[5px]'>
                               <img src={starIcon} alt="star"/>
-                              <p className='text-gray-500 text-[12px]'>{humanizeNumber(stars)}</p>
+                              <p className='text-gray-500 text-xs'>{humanizeNumber(stars)}</p>
                             </div>
                           </div>
                         </div>

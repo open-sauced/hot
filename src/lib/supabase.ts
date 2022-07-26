@@ -1,4 +1,4 @@
-import {createClient, User} from '@supabase/supabase-js';
+import { createClient, User } from '@supabase/supabase-js';
 
 export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -51,7 +51,9 @@ export async function fetchRecommendations(
   } | undefined = { ascending: false };
   let selectStatement = `
     id,
+    user_id,
     full_name,
+    name,
     description,
     stars,
     issues,
@@ -103,21 +105,4 @@ export async function fetchRecommendations(
   error && console.error(error);
 
   return recommendations as DbRecomendation[] || [];
-}
-export async function fetchWithSearch(orderBy = 'stars', limit = 5, searchText: string) {
-  
-  return new Promise(async (resolve, reject) => {
-    const { data: recommendations, error } = await supabase
-      .from('repos')
-      .select('full_name, name, user_id, description, stars, issues, contributions(last_merged_at, contributor, url)')
-      .like('full_name', `%${searchText}%`) // The string will need to be interpolated with the ''
-      .limit(limit)
-      .limit(3, { foreignTable: 'contributions' })
-      .order(orderBy, { ascending: false })
-      .order('last_merged_at', { foreignTable: 'contributions', ascending: false });
-
-      if (error) reject(error);
-      return resolve(recommendations);
-  });
-
 }

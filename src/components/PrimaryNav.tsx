@@ -19,7 +19,7 @@ const PrimaryNav = (): JSX.Element => {
           </a>
 
           {user && (
-            <div className="md:hidden">
+            <div className="hidden md:block">
               <p className="font-semibold text-xs ml-[10px]">My Votes</p>
             </div>
           )}

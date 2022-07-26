@@ -1,12 +1,12 @@
 {
   "name": "@open-sauced/hot",
-  "version": "2.10.1",
+  "version": "2.11.0-beta.8",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "@open-sauced/hot",
-      "version": "2.10.1",
+      "version": "2.11.0-beta.8",
       "hasInstallScript": true,
       "license": "MIT",
       "dependencies": {
@@ -58,6 +58,7 @@
         "svgo": "^2.8.0",
         "typescript": "^4.6.2",
         "vite": "^2.8.6",
+        "vite-plugin-fonts": "^0.6.0",
         "vite-plugin-html": "^3.1.0",
         "vite-plugin-inspect": "^0.4.3",
         "vitest": "^0.16.0",
@@ -8112,6 +8113,18 @@
         "stylus": {
           "optional": true
         }
+      }
+    },
+    "node_modules/vite-plugin-fonts": {
+      "version": "0.6.0",
+      "resolved": "https://registry.npmjs.org/vite-plugin-fonts/-/vite-plugin-fonts-0.6.0.tgz",
+      "integrity": "sha512-dV6nnLEju8k5EmvlBH6egxkVZ+rgc5zWsJr9+cNRXBMEDnpRGHcZPI260UEDNg2yB99wSTNER2eduEvZFbMIGw==",
+      "dev": true,
+      "dependencies": {
+        "fast-glob": "^3.2.11"
+      },
+      "peerDependencies": {
+        "vite": "^2.0.0 || ^3.0.0"
       }
     },
     "node_modules/vite-plugin-html": {

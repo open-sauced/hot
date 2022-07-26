@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.11.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.7...v2.11.0-beta.8) (2022-07-26)
+
+
+### 🍕 Features
+
+* implement new header hero component ([#215](https://github.com/open-sauced/hot-sauce/issues/215)) ([f121278](https://github.com/open-sauced/hot-sauce/commit/f121278e29eb15ab0ecc808a97e70fc3341e6655)), closes [#200](https://github.com/open-sauced/hot-sauce/issues/200)
+
 ## [2.11.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.6...v2.11.0-beta.7) (2022-07-26)
 
 

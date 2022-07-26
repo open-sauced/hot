@@ -52,6 +52,13 @@
 
 * UI v3 nav ([#210](https://github.com/open-sauced/hot-sauce/issues/210)) ([7a8a003](https://github.com/open-sauced/hot-sauce/commit/7a8a003b2f5c2a2d405e05a0747de16088aa08ec))
 
+### [2.10.1](https://github.com/open-sauced/hot-sauce/compare/v2.10.0...v2.10.1) (2022-07-25)
+
+
+### 🐛 Bug Fixes
+
+* added correct z index ([#232](https://github.com/open-sauced/hot-sauce/issues/232)) ([667cc3e](https://github.com/open-sauced/hot-sauce/commit/667cc3e20ca2d34149d7631ee4c047b96084944e))
+
 ## [2.10.0](https://github.com/open-sauced/hot-sauce/compare/v2.9.0...v2.10.0) (2022-07-22)
 
 

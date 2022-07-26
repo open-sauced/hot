@@ -73,7 +73,7 @@ const Hero = () => {
               {
                 results.map( ({full_name, description, issues, stars, user_id }) => (
                   <a
-                  key={user_id}
+                  key={full_name}
                   href={`https://app.opensauced.pizza/repos/${full_name}`}
                   rel="noreferrer"
                   target="_blank"

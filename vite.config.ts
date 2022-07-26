@@ -6,6 +6,7 @@ import ViteInspect from 'vite-plugin-inspect'
 import ViteLegacy from '@vitejs/plugin-legacy'
 import ViteReact from '@vitejs/plugin-react'
 import ViteVisualizer from 'rollup-plugin-visualizer'
+import { VitePluginFonts } from 'vite-plugin-fonts'
 
 import type { ConfigEnv, UserConfig } from 'vite'
 
@@ -57,6 +58,14 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
   };
 
   config.plugins.push(
+    VitePluginFonts({
+      google: {
+        preconnect: true,
+        display: 'swap',
+        injectTo: 'head-prepend',
+        families: ['Inter:100,200,300,400,500,600,700,800,900'],
+      },
+    }),
     ViteEslint(),
     ViteInspect(),
     ViteReact({

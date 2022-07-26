@@ -5,6 +5,27 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.11.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.6...v2.11.0-beta.7) (2022-07-26)
+
+
+### 🐛 Bug Fixes
+
+* adjust font loading to veet standards ([6f1daf0](https://github.com/open-sauced/hot-sauce/commit/6f1daf0aaf1d8d79c78f8be554283b4570f683de)), closes [#225](https://github.com/open-sauced/hot-sauce/issues/225)
+
+## [2.11.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.5...v2.11.0-beta.6) (2022-07-26)
+
+
+### 🧑‍💻 Code Refactoring
+
+* adjust tailwind variables to rem values ([804de3e](https://github.com/open-sauced/hot-sauce/commit/804de3e5d2aa3a4e0b839b5dec5759dda204565e))
+
+
+### 🐛 Bug Fixes
+
+* added correct z index ([#232](https://github.com/open-sauced/hot-sauce/issues/232)) ([667cc3e](https://github.com/open-sauced/hot-sauce/commit/667cc3e20ca2d34149d7631ee4c047b96084944e))
+* remove extraneous assets from public folder ([eb32985](https://github.com/open-sauced/hot-sauce/commit/eb3298550e8b9c74594700ef7a49467602b50418)), closes [#214](https://github.com/open-sauced/hot-sauce/issues/214)
+* unify primary mobile and desktop navigation and fix transitions ([d35ad2f](https://github.com/open-sauced/hot-sauce/commit/d35ad2f904a2acd0a01dc73f034f1636b2252343)), closes [#224](https://github.com/open-sauced/hot-sauce/issues/224)
+
 ## [2.11.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.4...v2.11.0-beta.5) (2022-07-25)
 
 
@@ -51,6 +72,13 @@
 ### 🍕 Features
 
 * UI v3 nav ([#210](https://github.com/open-sauced/hot-sauce/issues/210)) ([7a8a003](https://github.com/open-sauced/hot-sauce/commit/7a8a003b2f5c2a2d405e05a0747de16088aa08ec))
+
+### [2.10.1](https://github.com/open-sauced/hot-sauce/compare/v2.10.0...v2.10.1) (2022-07-25)
+
+
+### 🐛 Bug Fixes
+
+* added correct z index ([#232](https://github.com/open-sauced/hot-sauce/issues/232)) ([667cc3e](https://github.com/open-sauced/hot-sauce/commit/667cc3e20ca2d34149d7631ee4c047b96084944e))
 
 ## [2.10.0](https://github.com/open-sauced/hot-sauce/compare/v2.9.0...v2.10.0) (2022-07-22)
 

@@ -113,7 +113,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                   <span className="text-xs text-gray-400">{organization}</span>
                 </div>
                 <button
-                  className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-[10px] transition-all duration-200 ${
+                  className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
                     upvoted ? "text-saucyRed border-saucyRed " : "text-grey border-gray-500 "
                   }`}
                   onClick={() => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}

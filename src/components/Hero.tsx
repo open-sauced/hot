@@ -12,8 +12,14 @@ type PostResult = {
   description: string;
   stars: number;
   issues: string;
-  contributions: { url: string; contributor: string; last_merged_at: string }[];
+  contributions: contributions[]
 };
+
+interface contributions{
+  url: string,
+  contributor: string,
+  last_merged_at: string,
+}
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState<string>("")

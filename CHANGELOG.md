@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.11.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.6...v2.11.0-beta.7) (2022-07-26)
+
+
+### 🐛 Bug Fixes
+
+* adjust font loading to veet standards ([6f1daf0](https://github.com/open-sauced/hot-sauce/commit/6f1daf0aaf1d8d79c78f8be554283b4570f683de)), closes [#225](https://github.com/open-sauced/hot-sauce/issues/225)
+
 ## [2.11.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.5...v2.11.0-beta.6) (2022-07-26)
 
 

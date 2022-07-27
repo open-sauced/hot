@@ -6,6 +6,9 @@ import Avatar from './Avatar';
 import { updateVotesByRepo } from '../lib/supabase';
 import { User } from "@supabase/supabase-js";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import starIconGrey from '../assets/starIconGrey.svg'
+import pullIconGrey from '../assets/pullIconGrey.svg'
+import issueIconGrey from '../assets/issueIconGrey.svg'
 
 export declare interface PostListProps {
   data: DbRecomendation;
@@ -17,7 +20,12 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   const {
     id: repo_id,
     votesRelation: [{votesCount}],
+    full_name,
+    description,
+    stars,
+    issues,
   } = data;
+  
 
   const [votes, updateVotesState] = useState(votesCount || 0);
   const { signIn } = useSupabaseAuth();
@@ -28,8 +36,37 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   }
 
   return (
-    <div>
-      
+    <div className='flex bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]'>
+        <div>
+            <div className='rounded-[8px] overflow-hidden w-[88px] h-[88px]'>
+              <img src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="" />
+            </div>
+        </div>
+        <div>
+            <p className='text-[14px] text-textGrey'>{full_name}</p>
+            <p className='text-[16px] text-textGrey'>{description}</p>
+            <div className='flex gap-x-[16px] mt-[16px]'>
+                <div className='flex gap-[5px] items-center text-textGrey'>
+                    <img className='w-[16px]' src={issueIconGrey} alt="issues"/>
+                    <p className='text-[14px]'>{humanizeNumber(issues)}</p>
+                </div>
+                <div className='flex gap-[5px] items-center text-textGrey'>
+                    <img className='w-[16px]' src={starIconGrey} alt="stars"/>
+                    <p className='text-[14px]'>{humanizeNumber(stars)}</p>
+                </div>
+                <div className='flex gap-[5px] items-center text-textGrey'>
+                    <img className='w-[16px]' src={pullIconGrey} alt="pull request"/>
+                    <p className='text-[14px]'>{humanizeNumber(0)}</p>
+                </div>
+                <div className='flex'>
+                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
+                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
+                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
+                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
+                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
+                </div>
+            </div>
+        </div>
     </div>
   );
 }

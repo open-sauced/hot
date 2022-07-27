@@ -70,7 +70,7 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
   });
 
   return (
-    <div className="fixed bottom-[40px] right-[40px] flex items-end flex-col gap-[10px] submission-form z-[1] ">
+    <div className="fixed bottom-[40px] right-[40px] flex items-end flex-col gap-[10px] submission-form z-10">
       {isFormOpen}
       {isFormOpen && !isSubmissionInProcess && !submitted && (
         <div className="bg-white p-[15px] rounded-md min-w-[300px] shadow-xl ">

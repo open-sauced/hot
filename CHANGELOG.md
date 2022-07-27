@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.13.1](https://github.com/open-sauced/hot-sauce/compare/v2.13.0...v2.13.1) (2022-07-27)
+
+
+### 🐛 Bug Fixes
+
+* **nav-link:** remove my votes from primary nav ([#250](https://github.com/open-sauced/hot-sauce/issues/250)) ([292f582](https://github.com/open-sauced/hot-sauce/commit/292f582f0e65629b426979a218d06a7f6a036374))
+
 ## [2.13.0](https://github.com/open-sauced/hot-sauce/compare/v2.12.2...v2.13.0) (2022-07-27)
 
 

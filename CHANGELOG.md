@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.13.0](https://github.com/open-sauced/hot-sauce/compare/v2.12.2...v2.13.0) (2022-07-27)
+
+
+### 🍕 Features
+
+* Linking Hot Repo Title to Opensauced.pizza ([#249](https://github.com/open-sauced/hot-sauce/issues/249)) ([3970400](https://github.com/open-sauced/hot-sauce/commit/397040009dc2edc4f862f305c43e040b6c64d32d))
+
 ### [2.12.2](https://github.com/open-sauced/hot-sauce/compare/v2.12.1...v2.12.2) (2022-07-27)
 
 

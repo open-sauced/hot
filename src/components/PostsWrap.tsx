@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LayoutToggle from "./LayoutToggle";
 import SecondaryNav from "./SecondaryNav";
-import GridDisplay from "./GridDisplay";
 import ListDisplay from "./ListDisplay";
 import { fetchRecommendations } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
@@ -28,7 +26,6 @@ const parseLimitValue = (limit: string | null): number => {
 };
 
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
-  const [isGrid, setIsGrid] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
   const { user } = useSupabaseAuth();

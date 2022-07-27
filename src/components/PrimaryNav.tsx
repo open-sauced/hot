@@ -17,12 +17,6 @@ const PrimaryNav = (): JSX.Element => {
             <img className="inline-block w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
             <span className="text-base leading-snug font-semibold">OpenSauced</span>
           </a>
-
-          {user && (
-            <div className="hidden md:block">
-              <p className="font-semibold text-xs ml-[10px]">My Votes</p>
-            </div>
-          )}
         </div>
 
         {user ? (

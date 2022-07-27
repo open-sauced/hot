@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.12.0](https://github.com/open-sauced/hot-sauce/compare/v2.11.1...v2.12.0) (2022-07-27)
+
+
+### 📝 Documentation
+
+* add section on auto loading types ([1f9494c](https://github.com/open-sauced/hot-sauce/commit/1f9494c13843fa36e46e20460af794d368ab97ee))
+
+
+### 🐛 Bug Fixes
+
+* correct typesync missing package lock ([dd037d5](https://github.com/open-sauced/hot-sauce/commit/dd037d51f5d44a4b5d76d0440d0de692013f6cec))
+
 ### [2.11.1](https://github.com/open-sauced/hot-sauce/compare/v2.11.0...v2.11.1) (2022-07-27)
 
 

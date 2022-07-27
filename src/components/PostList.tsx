@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from 'react-icons/fa';
 import humanizeNumber from '../lib/humanizeNumber';
-import { getRepoLink, getRepoIssuesLink } from '../lib/github';
+import { getRepoLink, getRepoIssuesLink, getAvatarLink } from '../lib/github';
 import Avatar from './Avatar';
 import { updateVotesByRepo } from '../lib/supabase';
 import { User } from "@supabase/supabase-js";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import starIconGrey from '../assets/starIconGrey.svg'
-import pullIconGrey from '../assets/pullIconGrey.svg'
 import issueIconGrey from '../assets/issueIconGrey.svg'
 
 export declare interface PostListProps {
@@ -24,6 +23,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     description,
     stars,
     issues,
+    contributions
   } = data;
   
 
@@ -39,10 +39,10 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     <div className='flex bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]'>
         <div>
             <div className='rounded-[8px] overflow-hidden w-[88px] h-[88px]'>
-              <img src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="" />
+              <img src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="repo owner"/>
             </div>
         </div>
-        <div>
+        <div className='flex-1'>
             <p className='text-[14px] text-textGrey'>{full_name}</p>
             <p className='text-[16px] text-textGrey'>{description}</p>
             <div className='flex gap-x-[16px] mt-[16px]'>
@@ -54,18 +54,20 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
                     <img className='w-[16px]' src={starIconGrey} alt="stars"/>
                     <p className='text-[14px]'>{humanizeNumber(stars)}</p>
                 </div>
-                <div className='flex gap-[5px] items-center text-textGrey'>
-                    <img className='w-[16px]' src={pullIconGrey} alt="pull request"/>
-                    <p className='text-[14px]'>{humanizeNumber(0)}</p>
-                </div>
-                <div className='flex'>
-                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
-                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
-                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
-                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
-                    <div className='w-[24px] h-[24px] bg-red-50 rounded-full'></div>
+                <div className='flex gap-x-[5px]'>
+                    {
+                      contributions.slice(0, 5).map(({contributor, last_merged_at}) => (
+                        <div className='w-[24px] h-[24px] bg-red-50 overflow-hidden rounded-full -mr-[15px] transition-all duration-300 hover:mr-0 hover:scale-105'>
+                          <Avatar contributor={contributor} lastPr={last_merged_at} />
+                        </div>
+                      ))
+                    }
                 </div>
             </div>
+        </div>
+        <div className='w-[60px] rounded-[6px] group border-[1px] cursor-pointer transition-all duration-200 hover:border-osOrange flex gap-y-[5px] flex-col justify-center items-center'>
+          <FaArrowAltCircleUp className='text-gray-500 group-hover:text-osOrange transition-all duration-300 w-[13px] h-[13px]'/>
+          <p className='text-[12px] font-semibold text-gray-500 group-hover:text-osOrange transition-all duration-500'>{humanizeNumber(240)}</p>
         </div>
     </div>
   );

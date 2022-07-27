@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaArrowAltCircleUp, FaDotCircle, FaStar } from 'react-icons/fa';
+import { FaArrowAltCircleUp } from 'react-icons/fa';
 import humanizeNumber from '../lib/humanizeNumber';
 import { getRepoLink, getRepoIssuesLink, getAvatarLink } from '../lib/github';
 import Avatar from './Avatar';
@@ -39,12 +39,26 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     <div className='flex bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]'>
         <div>
             <div className='rounded-[8px] overflow-hidden w-[88px] h-[88px]'>
-              <img src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="repo owner"/>
+              <a
+              href={getRepoLink(full_name)}
+              title={`Visit ${full_name}`}
+              target="_blank"
+              rel="noopener"
+              >
+                <img src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="repo owner"/>
+              </a>
             </div>
         </div>
         <div className='flex-1'>
-            <p className='text-[14px] text-textGrey'>{full_name}</p>
-            <p className='text-[16px] text-textGrey'>{description}</p>
+            <a
+            href={getRepoLink(full_name)}
+            title={`Visit ${full_name}`}
+            target="_blank"
+            rel="noopener"
+            >
+              <p className='text-[14px] text-textGrey'>{full_name}</p>
+              <p className='text-[16px] text-textGrey'>{description}</p>
+            </a>
             <div className='flex gap-x-[16px] mt-[16px]'>
                 <div className='flex gap-[5px] items-center text-textGrey'>
                     <img className='w-[16px]' src={issueIconGrey} alt="issues"/>
@@ -65,10 +79,12 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
                 </div>
             </div>
         </div>
-        <div className='w-[60px] rounded-[6px] group border-[1px] cursor-pointer transition-all duration-200 hover:border-osOrange flex gap-y-[5px] flex-col justify-center items-center'>
+        <button
+        onClick={() => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
+        className='w-[60px] rounded-[6px] group border-[1px] cursor-pointer transition-all duration-200 hover:border-osOrange flex gap-y-[5px] flex-col justify-center items-center'>
           <FaArrowAltCircleUp className='text-gray-500 group-hover:text-osOrange transition-all duration-300 w-[13px] h-[13px]'/>
           <p className='text-[12px] font-semibold text-gray-500 group-hover:text-osOrange transition-all duration-500'>{humanizeNumber(240)}</p>
-        </div>
+        </button>
     </div>
   );
 }

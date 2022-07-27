@@ -20,6 +20,7 @@
         "react-dom": "^17.0.2",
         "react-icons": "^4.3.1",
         "react-router-dom": "^6.3.0",
+        "rooks": "^5.14.0",
         "tailwindcss": "^3.0.23",
         "tailwindcss-radix": "^1.6.0"
       },
@@ -31,6 +32,7 @@
         "@testing-library/react": "^12.1.3",
         "@testing-library/react-hooks": "^7.0.2",
         "@testing-library/user-event": "^13.5.0",
+        "@types/lodash": "^4.14.182",
         "@types/node": "^17.0.21",
         "@types/react": "^17.0.39",
         "@types/react-dom": "^17.0.13",
@@ -1517,6 +1519,12 @@
       "version": "0.0.29",
       "resolved": "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz",
       "integrity": "sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==",
+      "dev": true
+    },
+    "node_modules/@types/lodash": {
+      "version": "4.14.182",
+      "resolved": "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.182.tgz",
+      "integrity": "sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==",
       "dev": true
     },
     "node_modules/@types/node": {
@@ -5795,6 +5803,11 @@
       "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==",
       "dev": true
     },
+    "node_modules/lodash.debounce": {
+      "version": "4.0.8",
+      "resolved": "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz",
+      "integrity": "sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow=="
+    },
     "node_modules/lodash.map": {
       "version": "4.6.0",
       "resolved": "https://registry.npmjs.org/lodash.map/-/lodash.map-4.6.0.tgz",
@@ -6586,6 +6599,11 @@
         "node": "*"
       }
     },
+    "node_modules/performance-now": {
+      "version": "2.1.0",
+      "resolved": "https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz",
+      "integrity": "sha512-7EAHlyLHI56VEIdK57uwHdHKIaAGbnXPiw0yWbarQZOKaKpvUIgW0jWRVLiatnM+XXlSwsanIBH/hzGMJulMow=="
+    },
     "node_modules/picocolors": {
       "version": "1.0.0",
       "resolved": "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz",
@@ -6812,6 +6830,14 @@
       },
       "funding": {
         "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/raf": {
+      "version": "3.4.1",
+      "resolved": "https://registry.npmjs.org/raf/-/raf-3.4.1.tgz",
+      "integrity": "sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==",
+      "dependencies": {
+        "performance-now": "^2.1.0"
       }
     },
     "node_modules/react": {
@@ -7197,6 +7223,22 @@
       "dev": true,
       "engines": {
         "node": ">=12"
+      }
+    },
+    "node_modules/rooks": {
+      "version": "5.14.0",
+      "resolved": "https://registry.npmjs.org/rooks/-/rooks-5.14.0.tgz",
+      "integrity": "sha512-liU+FLpfW512Vf0ZBZ/NW3Bq+UUVrGUoN0FJipoYzzA5MwsdiqorZQXYi5Rr7ucLE/ERsdEPifHHDhYxt7RiZw==",
+      "dependencies": {
+        "lodash.debounce": "^4.0.8",
+        "raf": "^3.4.1"
+      },
+      "engines": {
+        "node": ">=v10.24.1"
+      },
+      "peerDependencies": {
+        "react": "^16.8.0  || ^17.0.0 || ^18.0.0",
+        "react-dom": "^16.8.0  || ^17.0.0 || ^18.0.0"
       }
     },
     "node_modules/rrweb-snapshot": {

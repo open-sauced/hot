@@ -51,26 +51,13 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
     <div className="bg-darkestGrey">
       <SecondaryNav activeLink={activeLink} user={user} />
       <HotRepositories user={user} />
-      <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
-      <div className="bg-darkestGrey py-6 w-full min-h-screen">
-        {isGrid ? (
-          <GridDisplay
-            limit={limit}
-            activeLink={activeLink}
-            handleLoadingMore={handleLoadingMore}
-            user={user}
-            fetchedData={fetchedData}
-          />
-        ) : (
-          <ListDisplay
-            limit={limit}
-            activeLink={activeLink}
-            handleLoadingMore={handleLoadingMore}
-            user={user}
-            fetchedData={fetchedData}
-          />
-        )}
-      </div>
+      <ListDisplay
+        limit={limit}
+        activeLink={activeLink}
+        handleLoadingMore={handleLoadingMore}
+        user={user}
+        fetchedData={fetchedData}
+      />
     </div>
   );
 };

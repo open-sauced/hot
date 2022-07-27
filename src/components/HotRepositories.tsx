@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { VscIssues } from "react-icons/vsc";
 import { AiOutlineStar } from "react-icons/ai";
@@ -9,8 +9,9 @@ import { User } from "@supabase/supabase-js";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { updateVotesByRepo } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import { fetchRecommendations } from "../lib/supabase";
 
-const hotRepo = [
+const staticHotRepos = [
   {
     repo_id: 357728069,
     organization: "Oven-sh",
@@ -19,7 +20,7 @@ const hotRepo = [
     name: "Bun",
     description: "Incredibly fast JavaScript runtime, bundler, transpiler and package manager.",
     votes: 2,
-    upvoted: false,
+    upvoted: true,
     issues: "503",
     stars: "27.7k",
     PR: "262",
@@ -59,7 +60,7 @@ const hotRepo = [
     name: "Open-Sauced",
     description: " This is a project to identify your next open source contribution.",
     votes: 3,
-    upvoted: false,
+    upvoted: true,
     issues: "293",
     stars: "726",
     PR: "1k",
@@ -81,7 +82,8 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const {
     user_metadata: { sub: user_id },
   } = user || { user_metadata: { sub: null } };
-  const [hotRepos, setHotRepos] = useState(hotRepo);
+  const [hotRepos, setHotRepos] = useState(staticHotRepos);
+  const [fetchedData, setFetchedData] = useState<number[]>([]);
 
   const { signIn } = useSupabaseAuth();
 
@@ -91,6 +93,17 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     hotRepos[votedIdx].upvoted = !hotRepos[votedIdx].upvoted;
     setHotRepos([...hotRepos]);
   };
+
+  useEffect(() => {
+    fetchRecommendations("myVotes", 1000, user, "").then((data) => {
+      const flatArrayIds = data.map((repo) => repo.id);
+      // hotRepos.forEach((repo) => {
+      //   repo.upvoted = flatArrayIds.includes(repo.repo_id)
+      // });
+      setHotRepos([...hotRepos]);
+      setFetchedData(flatArrayIds);
+    });
+  }, [hotRepos]);
 
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
     user_id && capturePostHogAnayltics("User voted", "voteClick", "true");

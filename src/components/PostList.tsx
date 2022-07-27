@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaArrowAltCircleUp } from 'react-icons/fa';
 import humanizeNumber from '../lib/humanizeNumber';
-import { getRepoLink, getRepoIssuesLink, getAvatarLink } from '../lib/github';
+import { getRepoLink } from '../lib/github';
 import Avatar from './Avatar';
 import { updateVotesByRepo } from '../lib/supabase';
 import { User } from "@supabase/supabase-js";

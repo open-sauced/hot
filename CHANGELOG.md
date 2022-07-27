@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.12.2](https://github.com/open-sauced/hot-sauce/compare/v2.12.1...v2.12.2) (2022-07-27)
+
+
+### 🐛 Bug Fixes
+
+* correct submit button z-index above the hot repos ([#248](https://github.com/open-sauced/hot-sauce/issues/248)) ([cff51be](https://github.com/open-sauced/hot-sauce/commit/cff51be065e23faa6ba9afd8550894a9bd0370b2)), closes [#237](https://github.com/open-sauced/hot-sauce/issues/237)
+
 ### [2.12.1](https://github.com/open-sauced/hot-sauce/compare/v2.12.0...v2.12.1) (2022-07-27)
 
 

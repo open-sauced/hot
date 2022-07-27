@@ -28,74 +28,8 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   }
 
   return (
-    <div className="bg-offWhite rounded-xl p-6 font-roboto w-full">
-      <div className="flex">
-        <div className="flex flex-col justify-center items-center">
-          {data?.contributions[0] &&
-            <Avatar
-              contributor={data.contributions[0]?.contributor}
-              lastPr={data.contributions[0]?.last_merged_at}/>}
-
-          {data?.contributions[1] &&
-            <Avatar
-              contributor={data.contributions[1]?.contributor}
-              lastPr={data.contributions[1]?.last_merged_at}/>}
-        </div>
-
-        <div className="ml-5 border-l-2 pl-3 space-y-2">
-          <a
-            className="font-bold text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
-            href={getRepoLink(data.full_name)}
-            title={`Visit ${data.full_name}`}
-            target="_blank"
-            rel="noopener"
-          >
-            {data.full_name}
-          </a>
-
-          <div className="text-lightGrey text-xs sm:text-base">
-            <p>{data.description}</p>
-          </div>
-
-          <div className="flex justify-start max-w-sm space-x-1">
-            <button
-              onClick={() => user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' })}
-              className="flex justify-start text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-            >
-              <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
-                <FaArrowAltCircleUp aria-hidden="true" className="mr-1"/>
-                <p className="font-bold">{votes}</p>
-              </div>
-            </button>
-
-            <a
-              className="flex justify-start  text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-              href={getRepoIssuesLink(data.full_name)}
-              title={`Visit ${data.full_name} issues`}
-              target="_blank"
-              rel="noopener"
-            >
-              <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
-                <FaDotCircle aria-hidden="true" className="mr-1"/>
-                {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
-              </div>
-            </a>
-
-            <a
-              className="flex justify-start  text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-              href={getRepoLink(data.full_name)}
-              title={`Add a star to ${data.full_name}`}
-              target="_blank"
-              rel="noopener"
-            >
-              <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
-                <FaStar aria-hidden="true" className="mr-1"/>
-                {data.stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
+    <div>
+      
     </div>
   );
 }

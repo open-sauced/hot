@@ -6,6 +6,7 @@ import { capturePostHogAnayltics } from "../lib/analytics";
 import { GiHamburgerMenu } from "react-icons/gi"
 import { version } from "../../package.json";
 
+const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+"
 const PrimaryNav = (): JSX.Element => {
   const {signIn, signOut, user} = useSupabaseAuth();
 
@@ -92,6 +93,21 @@ const PrimaryNav = (): JSX.Element => {
                       } md:hidden group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
                     >
                       My votes
+                    </button>
+                  )}
+                </Menu.Item>
+
+                <Menu.Item>
+                  {({active}) => (
+                    <button
+                      onClick={async () => {
+                        window.open(bugReportLink);
+                      }}
+                      className={`${
+                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
+                    >
+                      Report a bug
                     </button>
                   )}
                 </Menu.Item>

@@ -5,6 +5,39 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.12.2](https://github.com/open-sauced/hot-sauce/compare/v2.12.1...v2.12.2) (2022-07-27)
+
+
+### 🐛 Bug Fixes
+
+* correct submit button z-index above the hot repos ([#248](https://github.com/open-sauced/hot-sauce/issues/248)) ([cff51be](https://github.com/open-sauced/hot-sauce/commit/cff51be065e23faa6ba9afd8550894a9bd0370b2)), closes [#237](https://github.com/open-sauced/hot-sauce/issues/237)
+
+### [2.12.1](https://github.com/open-sauced/hot-sauce/compare/v2.12.0...v2.12.1) (2022-07-27)
+
+
+### 🐛 Bug Fixes
+
+* delete unwanted my votes link in navigation [#238](https://github.com/open-sauced/hot-sauce/issues/238) ([40418a8](https://github.com/open-sauced/hot-sauce/commit/40418a89d3ffefaaa235098833ee8cf2cad633db)), closes [#236](https://github.com/open-sauced/hot-sauce/issues/236)
+
+## [2.12.0](https://github.com/open-sauced/hot-sauce/compare/v2.11.1...v2.12.0) (2022-07-27)
+
+
+### 📝 Documentation
+
+* add section on auto loading types ([1f9494c](https://github.com/open-sauced/hot-sauce/commit/1f9494c13843fa36e46e20460af794d368ab97ee))
+
+
+### 🐛 Bug Fixes
+
+* correct typesync missing package lock ([dd037d5](https://github.com/open-sauced/hot-sauce/commit/dd037d51f5d44a4b5d76d0440d0de692013f6cec))
+
+### [2.11.1](https://github.com/open-sauced/hot-sauce/compare/v2.11.0...v2.11.1) (2022-07-27)
+
+
+### 🧑‍💻 Code Refactoring
+
+* replace useDebounce function with rooks ([#241](https://github.com/open-sauced/hot-sauce/issues/241)) ([c065d5a](https://github.com/open-sauced/hot-sauce/commit/c065d5af4e7d2149767e1038ab6c6d853e6d7a96)), closes [#228](https://github.com/open-sauced/hot-sauce/issues/228)
+
 ## [2.11.0](https://github.com/open-sauced/hot-sauce/compare/v2.10.1...v2.11.0) (2022-07-26)
 
 

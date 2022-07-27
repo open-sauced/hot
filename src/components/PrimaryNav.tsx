@@ -82,21 +82,6 @@ const PrimaryNav = (): JSX.Element => {
                 </Menu.Item>
 
                 <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      onClick={async () => {
-                        await signOut();
-                      }}
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                      } md:hidden group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
-                    >
-                      My votes
-                    </button>
-                  )}
-                </Menu.Item>
-
-                <Menu.Item>
                   {({active}) => (
                     <button
                       onClick={async () => {

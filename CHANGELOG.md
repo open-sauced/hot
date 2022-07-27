@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.11.1](https://github.com/open-sauced/hot-sauce/compare/v2.11.0...v2.11.1) (2022-07-27)
+
+
+### 🧑‍💻 Code Refactoring
+
+* replace useDebounce function with rooks ([#241](https://github.com/open-sauced/hot-sauce/issues/241)) ([c065d5a](https://github.com/open-sauced/hot-sauce/commit/c065d5af4e7d2149767e1038ab6c6d853e6d7a96)), closes [#228](https://github.com/open-sauced/hot-sauce/issues/228)
+
 ## [2.11.0](https://github.com/open-sauced/hot-sauce/compare/v2.10.1...v2.11.0) (2022-07-26)
 
 

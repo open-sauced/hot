@@ -16,15 +16,13 @@ export declare interface AvatarProps {
 const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
   <HoverCardPrimitive.Root>
     <HoverCardPrimitive.Trigger asChild>
-      <div className={cx("inline-flex h-12 w-12 items-center justify-center rounded-full bg-white dark:bg-white")}>
-        <img
-          className="object-cover rounded-full"
-          src={getAvatarLink(contributor)}
-          alt={contributor}
-          width={500}
-          height={500}
-        />
-      </div>
+      <img
+      className="w-full h-full"
+      src={getAvatarLink(contributor)}
+      alt={contributor}
+      width={500}
+      height={500}
+      />
     </HoverCardPrimitive.Trigger>
     <HoverCardPrimitive.Content
       align="center"
@@ -41,17 +39,17 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
 
       <div className="flex h-full w-full space-x-4">
         <div
-          className={cx(
-            "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900"
-          )}
+        className={cx(
+          "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900"
+        )}
         >
           <a href={getProfileLink(contributor)} title={contributor} rel="noreferrer" target="_blank">
             <img
-              className="object-cover rounded-full"
-              src={getAvatarLink(contributor)}
-              alt={contributor}
-              width={500}
-              height={500}
+            className="object-cover rounded-full"
+            src={getAvatarLink(contributor)}
+            alt={contributor}
+            width={500}
+            height={500}
             />
           </a>
         </div>

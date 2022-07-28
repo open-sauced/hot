@@ -36,7 +36,7 @@ const ListDisplay = ({activeLink, limit, handleLoadingMore, fetchedData, user}: 
         &&
         <button
           onClick={() => handleLoadingMore()}
-          className="bg-white text-osGrey mt-[15px] text-[15px] font-normal py-1 px-4 rounded-[5px] ">
+          className="bg-white text-gray-700 mt-[15px] mb-[15px] text-[15px] border-gray-400 border-[1px] font-normal py-1 px-4 rounded-[5px] ">
           Load More
         </button>
     }

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.14.0](https://github.com/open-sauced/hot-sauce/compare/v2.13.2...v2.14.0) (2022-07-28)
+
+
+### 🍕 Features
+
+* add report a bug button in user dropdown ([#239](https://github.com/open-sauced/hot-sauce/issues/239)) ([b5f6eab](https://github.com/open-sauced/hot-sauce/commit/b5f6eabc0389c11569055c8984db51d4e00b23d8)), closes [#206](https://github.com/open-sauced/hot-sauce/issues/206)
+
 ### [2.13.2](https://github.com/open-sauced/hot-sauce/compare/v2.13.1...v2.13.2) (2022-07-28)
 
 

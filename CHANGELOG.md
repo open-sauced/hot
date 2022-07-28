@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.13.2](https://github.com/open-sauced/hot-sauce/compare/v2.13.1...v2.13.2) (2022-07-28)
+
+
+### 🐛 Bug Fixes
+
+* Popular text not aligned ([#253](https://github.com/open-sauced/hot-sauce/issues/253)) ([58fa488](https://github.com/open-sauced/hot-sauce/commit/58fa4881c89916770300037c9236ee2ae1b7381d))
+
 ### [2.13.1](https://github.com/open-sauced/hot-sauce/compare/v2.13.0...v2.13.1) (2022-07-27)
 
 

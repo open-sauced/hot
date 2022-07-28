@@ -36,7 +36,7 @@ const ListDisplay = ({activeLink, limit, handleLoadingMore, fetchedData, user}: 
         &&
         <button
           onClick={() => handleLoadingMore()}
-          className="bg-grey hover:bg-lightGrey text-white font-bold py-2 px-4 rounded-xl">
+          className="bg-white text-osGrey mt-[15px] text-[15px] font-normal py-1 px-4 rounded-[5px] ">
           Load More
         </button>
     }

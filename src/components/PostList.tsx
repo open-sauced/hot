@@ -34,6 +34,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
     updateVotesState(updatedVotes);
   }
+  
 
   return (
     <div className='flex flex-col gap-y-[20px] md:flex-row bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]'>
@@ -83,7 +84,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
         onClick={() => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
         className='md:w-[60px] w-full min-w-[60px] rounded-[6px] group border-[1px] cursor-pointer transition-all duration-200 hover:border-osOrange flex gap-[5px] py-[10px] md:py-0 md:flex-col justify-center items-center'>
           <FaArrowAltCircleUp className='text-gray-500 group-hover:text-osOrange transition-all duration-300 w-[13px] h-[13px]'/>
-          <p className='text-[12px] font-semibold text-gray-500 group-hover:text-osOrange transition-all duration-500'>{humanizeNumber(240)}</p>
+          <p className='text-[12px] font-semibold text-gray-500 group-hover:text-osOrange transition-all duration-500'>{humanizeNumber(votes)}</p>
         </button>
     </div>
   );

@@ -13,7 +13,8 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 const hotRepo = [
   {
     repo_id: 357728069,
-    organization: "Oven",
+    organization: "Oven-sh",
+    fullName: "oven-sh/bun",
     orgImg: "https://avatars.githubusercontent.com/u/108928776?s=200&v=4",
     name: "Bun",
     description: "Incredibly fast JavaScript runtime, bundler, transpiler and package manager.",
@@ -33,6 +34,7 @@ const hotRepo = [
   {
     repo_id: 510607652,
     organization: "Pocketbase",
+    fullName: "pocketbase/pocketbase",
     orgImg: "https://avatars.githubusercontent.com/u/101000011?s=200&v=4",
     name: "Pocketbase",
     description: "Open Source realtime backend in 1 file",
@@ -52,6 +54,7 @@ const hotRepo = [
   {
     repo_id: 71359796,
     organization: "Open-Sauced",
+    fullName: "open-sauced/open-sauced",
     orgImg: "https://avatars.githubusercontent.com/u/57568598?s=200&v=4",
     name: "Open-Sauced",
     description: " This is a project to identify your next open source contribution.",
@@ -104,7 +107,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
       </div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full my-5">
         {hotRepos.map(
-          ({ repo_id, orgImg, organization, name, description, votes, upvoted, issues, stars, PR, img }) => (
+          ({ repo_id, orgImg, fullName, organization, name, description, votes, upvoted, issues, stars, PR, img }) => (
             <div key={repo_id} className="p-4 border rounded-lg bg-white w-full space-y-1 relative">
               {/* header & upvote button */}
               <div className="flex justify-between w-full">
@@ -124,7 +127,14 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
               </div>
               {/* repo name & description */}
               <div className="flex flex-col pb-10">
-                <h1 className="text-xl font-semibold">{name}</h1>
+                <a
+                  href={`https://app.opensauced.pizza/repos/${fullName}`}
+                  target="_blank"
+                  rel="noopener"
+                  className="text-xl font-semibold"
+                >
+                  {name}
+                </a>
                 <p className="text-gray-500 text-xs w-5/6">{description}</p>
               </div>
               {/* issues || star || PRs || Avatar */}

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.15.0](https://github.com/open-sauced/hot-sauce/compare/v2.14.0...v2.15.0) (2022-07-28)
+
+
+### 🍕 Features
+
+* **hot:** adds vote check to hot repos ([#252](https://github.com/open-sauced/hot-sauce/issues/252)) ([315fdcc](https://github.com/open-sauced/hot-sauce/commit/315fdccc08e5c779b9c2e99381fe2e5fe8b848c5))
+
 ## [2.14.0](https://github.com/open-sauced/hot-sauce/compare/v2.13.2...v2.14.0) (2022-07-28)
 
 

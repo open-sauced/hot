@@ -18,12 +18,6 @@ const PrimaryNav = (): JSX.Element => {
             <img className="inline-block w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
             <span className="text-base leading-snug font-semibold">OpenSauced</span>
           </a>
-
-          {user && (
-            <div className="hidden md:block">
-              <p className="font-semibold text-xs ml-[10px]">My Votes</p>
-            </div>
-          )}
         </div>
 
         {user ? (
@@ -78,21 +72,6 @@ const PrimaryNav = (): JSX.Element => {
                       } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
                     >
                       v{version}
-                    </button>
-                  )}
-                </Menu.Item>
-
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      onClick={async () => {
-                        await signOut();
-                      }}
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                      } md:hidden group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
-                    >
-                      My votes
                     </button>
                   )}
                 </Menu.Item>

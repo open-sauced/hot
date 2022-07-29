@@ -41,24 +41,24 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
         <div>
             <div className='rounded-[8px] overflow-hidden w-[88px] h-[88px]'>
               <a
-              href={getRepoLink(full_name)}
-              title={`Visit ${full_name}`}
-              target="_blank"
-              rel="noopener"
-              >
-                <img src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="repo owner"/>
+                href={getRepoLink(full_name)}
+                title={`Visit ${full_name}`}
+                target="_blank"
+                rel="noopener"
+                >
+                  <img src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="repo owner"/>
               </a>
             </div>
         </div>
         <div className='flex-1'>
             <a
-            href={getRepoLink(full_name)}
-            title={`Visit ${full_name}`}
-            target="_blank"
-            rel="noopener"
-            >
-              <p className='text-[14px] text-textGrey'>{full_name}</p>
-              <p className='text-[16px] text-textGrey'>{description}</p>
+              href={getRepoLink(full_name)}
+              title={`Visit ${full_name}`}
+              target="_blank"
+              rel="noopener"
+              >
+                <p className='text-[14px] text-textGrey'>{full_name}</p>
+                <p className='text-[16px] text-textGrey'>{description}</p>
             </a>
             <div className='flex gap-x-[16px] mt-[16px]'>
                 <div className='flex gap-[5px] items-center text-textGrey'>

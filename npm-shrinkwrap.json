@@ -16,8 +16,8 @@
         "classnames": "^2.3.1",
         "dayjs": "^1.11.4",
         "posthog-js": "^1.26.2",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "react-icons": "^4.4.0",
         "react-router-dom": "^6.3.0",
         "rooks": "^5.14.0",
@@ -29,9 +29,9 @@
         "@open-sauced/check-engines": "^1.2.0",
         "@open-sauced/conventional-commit": "^1.0.1",
         "@squoosh/cli": "^0.7.2",
-        "@testing-library/react": "^12.1.3",
+        "@testing-library/react": "^13.3.0",
         "@testing-library/react-hooks": "^7.0.2",
-        "@testing-library/user-event": "^13.5.0",
+        "@testing-library/user-event": "^14.3.0",
         "@types/eslint": "^8.4.5",
         "@types/glob": "^7.2.0",
         "@types/lodash": "^4.14.182",
@@ -1387,21 +1387,21 @@
       }
     },
     "node_modules/@testing-library/react": {
-      "version": "12.1.5",
-      "resolved": "https://registry.npmjs.org/@testing-library/react/-/react-12.1.5.tgz",
-      "integrity": "sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==",
+      "version": "13.3.0",
+      "resolved": "https://registry.npmjs.org/@testing-library/react/-/react-13.3.0.tgz",
+      "integrity": "sha512-DB79aA426+deFgGSjnf5grczDPiL4taK3hFaa+M5q7q20Kcve9eQottOG5kZ74KEr55v0tU2CQormSSDK87zYQ==",
       "dev": true,
       "dependencies": {
         "@babel/runtime": "^7.12.5",
-        "@testing-library/dom": "^8.0.0",
-        "@types/react-dom": "<18.0.0"
+        "@testing-library/dom": "^8.5.0",
+        "@types/react-dom": "^18.0.0"
       },
       "engines": {
         "node": ">=12"
       },
       "peerDependencies": {
-        "react": "<18.0.0",
-        "react-dom": "<18.0.0"
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
       }
     },
     "node_modules/@testing-library/react-hooks": {
@@ -1433,36 +1433,13 @@
         }
       }
     },
-    "node_modules/@testing-library/react/node_modules/@types/react": {
-      "version": "17.0.48",
-      "resolved": "https://registry.npmjs.org/@types/react/-/react-17.0.48.tgz",
-      "integrity": "sha512-zJ6IYlJ8cYYxiJfUaZOQee4lh99mFihBoqkOSEGV+dFi9leROW6+PgstzQ+w3gWTnUfskALtQPGHK6dYmPj+2A==",
-      "dev": true,
-      "dependencies": {
-        "@types/prop-types": "*",
-        "@types/scheduler": "*",
-        "csstype": "^3.0.2"
-      }
-    },
-    "node_modules/@testing-library/react/node_modules/@types/react-dom": {
-      "version": "17.0.17",
-      "resolved": "https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.17.tgz",
-      "integrity": "sha512-VjnqEmqGnasQKV0CWLevqMTXBYG9GbwuE6x3VetERLh0cq2LTptFE73MrQi2S7GkKXCf2GgwItB/melLnxfnsg==",
-      "dev": true,
-      "dependencies": {
-        "@types/react": "^17"
-      }
-    },
     "node_modules/@testing-library/user-event": {
-      "version": "13.5.0",
-      "resolved": "https://registry.npmjs.org/@testing-library/user-event/-/user-event-13.5.0.tgz",
-      "integrity": "sha512-5Kwtbo3Y/NowpkbRuSepbyMFkZmHgD+vPzYB/RJ4oxt5Gj/avFFBYjhw27cqSVPVw/3a67NK1PbiIr9k4Gwmdg==",
+      "version": "14.3.0",
+      "resolved": "https://registry.npmjs.org/@testing-library/user-event/-/user-event-14.3.0.tgz",
+      "integrity": "sha512-P02xtBBa8yMaLhK8CzJCIns8rqwnF6FxhR9zs810flHOBXUYCFjLd8Io1rQrAkQRWEmW2PGdZIEdMxf/KLsqFA==",
       "dev": true,
-      "dependencies": {
-        "@babel/runtime": "^7.12.5"
-      },
       "engines": {
-        "node": ">=10",
+        "node": ">=12",
         "npm": ">=6"
       },
       "peerDependencies": {
@@ -6399,14 +6376,6 @@
         "url": "https://github.com/fb55/nth-check?sponsor=1"
       }
     },
-    "node_modules/object-assign": {
-      "version": "4.1.1",
-      "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
-      "integrity": "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==",
-      "engines": {
-        "node": ">=0.10.0"
-      }
-    },
     "node_modules/object-hash": {
       "version": "3.0.0",
       "resolved": "https://registry.npmjs.org/object-hash/-/object-hash-3.0.0.tgz",
@@ -7042,28 +7011,26 @@
       }
     },
     "node_modules/react": {
-      "version": "17.0.2",
-      "resolved": "https://registry.npmjs.org/react/-/react-17.0.2.tgz",
-      "integrity": "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==",
+      "version": "18.2.0",
+      "resolved": "https://registry.npmjs.org/react/-/react-18.2.0.tgz",
+      "integrity": "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==",
       "dependencies": {
-        "loose-envify": "^1.1.0",
-        "object-assign": "^4.1.1"
+        "loose-envify": "^1.1.0"
       },
       "engines": {
         "node": ">=0.10.0"
       }
     },
     "node_modules/react-dom": {
-      "version": "17.0.2",
-      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz",
-      "integrity": "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==",
+      "version": "18.2.0",
+      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz",
+      "integrity": "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==",
       "dependencies": {
         "loose-envify": "^1.1.0",
-        "object-assign": "^4.1.1",
-        "scheduler": "^0.20.2"
+        "scheduler": "^0.23.0"
       },
       "peerDependencies": {
-        "react": "17.0.2"
+        "react": "^18.2.0"
       }
     },
     "node_modules/react-error-boundary": {
@@ -7523,12 +7490,11 @@
       "dev": true
     },
     "node_modules/scheduler": {
-      "version": "0.20.2",
-      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.20.2.tgz",
-      "integrity": "sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==",
+      "version": "0.23.0",
+      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.23.0.tgz",
+      "integrity": "sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==",
       "dependencies": {
-        "loose-envify": "^1.1.0",
-        "object-assign": "^4.1.1"
+        "loose-envify": "^1.1.0"
       }
     },
     "node_modules/semver": {

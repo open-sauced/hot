@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-import './styles/grandBackground.css'
 
 interface Props {
   children?: ReactNode
@@ -7,7 +6,7 @@ interface Props {
 
 const GradBackground = ({ children }: Props): JSX.Element => {
   return (
-    <div className="translate-background__color">
+    <div className="h-fit bg-[url('../assets/gradBG.svg')] bg-no-repeat bg-center bg-cover">
       {children}
     </div>
   )

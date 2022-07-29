@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.15.2](https://github.com/open-sauced/hot-sauce/compare/v2.15.1...v2.15.2) (2022-07-29)
+
+
+### 🐛 Bug Fixes
+
+* correct infinite contributions in hot repositories ([e8bd954](https://github.com/open-sauced/hot-sauce/commit/e8bd95471c01cf227e4dab7dd3256c13f5bcfa5a))
+
 ### [2.15.1](https://github.com/open-sauced/hot-sauce/compare/v2.15.0...v2.15.1) (2022-07-29)
 
 

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.15.3](https://github.com/open-sauced/hot-sauce/compare/v2.15.2...v2.15.3) (2022-07-29)
+
+
+### 🎨 Styles
+
+* **hero:** Transform svg in css ([#260](https://github.com/open-sauced/hot-sauce/issues/260)) ([e484719](https://github.com/open-sauced/hot-sauce/commit/e4847194f1c0ea0167951b70b98c5ae3128cedc9))
+
 ### [2.15.2](https://github.com/open-sauced/hot-sauce/compare/v2.15.1...v2.15.2) (2022-07-29)
 
 

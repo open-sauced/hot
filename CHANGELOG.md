@@ -5,6 +5,20 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.15.1](https://github.com/open-sauced/hot-sauce/compare/v2.15.0...v2.15.1) (2022-07-29)
+
+
+### 🤖 Build System
+
+* update radix dependencies ([174e964](https://github.com/open-sauced/hot-sauce/commit/174e96495ae11540b2b698e18eb075affd5b00c6))
+* update react version ([fd32bc5](https://github.com/open-sauced/hot-sauce/commit/fd32bc56ce69e3f4af56930698361533836b4e2f))
+
+
+### 🐛 Bug Fixes
+
+* correct hot repositories being fetched from the backend ([9c5f8ed](https://github.com/open-sauced/hot-sauce/commit/9c5f8ed235919ef218cce66b2917bd511d3f6d1b)), closes [#246](https://github.com/open-sauced/hot-sauce/issues/246) [#258](https://github.com/open-sauced/hot-sauce/issues/258)
+* correct tailwind fonts and dependency updates ([edbc3ff](https://github.com/open-sauced/hot-sauce/commit/edbc3ffd6e9981f67b1477a3e90ee6887f2bdffd))
+
 ## [2.15.0](https://github.com/open-sauced/hot-sauce/compare/v2.14.0...v2.15.0) (2022-07-28)
 
 

@@ -29,10 +29,6 @@ module.exports = {
         gradLast: "#FF3C3C"
       },
       fontFamily: {
-        Poppins: ["Poppins"],
-        Righteous: ["Righteous"],
-        Roboto: ["Roboto"],
-        Ubuntu: ["Ubuntu", "sans-serif"],
         Inter: ['Inter', 'sans-serif'],
         Lexend: ['Lexend', 'sans-serif']
       },

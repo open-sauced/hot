@@ -124,7 +124,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 </div>
                 {/* Avatars */}
                 <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300 ">
-                  {contributions.map(({contributor, last_merged_at}) => (
+                  {contributions.slice(0, 5).map(({contributor, last_merged_at}) => (
                     <Avatar
                       contributor={contributor}
                       lastPr={last_merged_at}/>

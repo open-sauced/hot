@@ -9,13 +9,13 @@ import { capturePostHogAnayltics } from "../lib/analytics";
 
 export declare interface PostGridProps {
   data: DbRecomendation;
-  user: User;
+  user?: User;
 }
 
 const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const {
     user_metadata: { sub: user_id },
-  } = user || { user_metadata: { sub: null } };
+  } = user as User;
   const {
     id: repo_id,
     votesRelation: [{ votesCount }],

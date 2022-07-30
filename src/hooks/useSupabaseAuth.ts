@@ -4,14 +4,14 @@ import { User } from "@supabase/supabase-js";
 import { UserCredentials } from "@supabase/gotrue-js/src/lib/types";
 
 const useSupabaseAuth = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User>();
 
   useEffect(() => {
     const currentUser = supabase.auth.session();
-    setUser(currentUser?.user ?? null);
+    currentUser?.user && setUser(currentUser?.user ?? null);
 
     const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {
-      setUser(session?.user ?? null);
+      session?.user && setUser(session?.user ?? null);
     });
 
     return () => {

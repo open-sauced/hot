@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export declare interface SecondaryNavProps {
   activeLink: string | null;
-  user: User | null;
+  user?: User;
 }
 
 const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {

@@ -14,13 +14,13 @@ import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
 
 export declare interface HotReposProps {
-  user: User;
+  user?: User;
 }
 
 const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const {
     user_metadata: { sub: user_id },
-  } = user || { user_metadata: { sub: null } };
+  } = user as User;
   const [hotRepos, setHotRepos] = useState<DbRecomendation[]>([]);
   const [votedReposIds, setVotedReposIds] = useState<number[]>([]);
 

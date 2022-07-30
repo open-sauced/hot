@@ -9,7 +9,7 @@ export declare interface ListRepositoriesProps {
   limit: number;
   handleLoadingMore: () => void;
   fetchedData: DbRecomendation[];
-  user: User | null;
+  user?: User;
 }
 
 const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, user }: ListRepositoriesProps): JSX.Element => (

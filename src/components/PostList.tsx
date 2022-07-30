@@ -11,11 +11,13 @@ import { capturePostHogAnayltics } from "../lib/analytics";
 
 export declare interface PostListProps {
   data: DbRecomendation;
-  user: User;
+  user?: User;
 }
 
 const PostList = ({ data, user }: PostListProps): JSX.Element => {
-  const { user_metadata: { sub: user_id } } = user || { user_metadata: { sub: null } };
+  const {
+    user_metadata: { sub: user_id },
+  } = user as User;
   const {
     id: repo_id,
     votesRelation: [{ votesCount }],

@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.17.0](https://github.com/open-sauced/hot-sauce/compare/v2.16.0...v2.17.0) (2022-07-30)
+
+
+### 🎨 Styles
+
+* add max width container limitation to the primary nav ([#268](https://github.com/open-sauced/hot-sauce/issues/268)) ([4b968f5](https://github.com/open-sauced/hot-sauce/commit/4b968f557796ed8e8c811008ccd6af2cb02d6932)), closes [#263](https://github.com/open-sauced/hot-sauce/issues/263)
+
+
+### 🍕 Features
+
+* add command plus k shortcut to focus hero search ([#264](https://github.com/open-sauced/hot-sauce/issues/264)) ([4a5e36e](https://github.com/open-sauced/hot-sauce/commit/4a5e36e444441ee21d5acc8890e450d995d0e552)), closes [#205](https://github.com/open-sauced/hot-sauce/issues/205)
+
 ## [2.16.0](https://github.com/open-sauced/hot-sauce/compare/v2.15.4...v2.16.0) (2022-07-30)
 
 

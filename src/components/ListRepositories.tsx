@@ -22,9 +22,9 @@ const ListRepositories = ({activeLink, limit, handleLoadingMore, fetchedData, us
       {
         fetchedData.map((item, i) =>
           <PostList
-          user={user}
-          data={item}
-          key={`${item.full_name}_${i}`}
+            user={user}
+            data={item}
+            key={`${item.full_name}_${i}`}
           />
         )
       }

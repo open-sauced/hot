@@ -26,7 +26,8 @@ module.exports = {
         lightSlate:"#11181C",
         gradFirst: "#FF932F",
         gradMiddle: "#FF3C3C",
-        gradLast: "#FF3C3C"
+        gradLast: "#FF3C3C",
+        osBackgroundGrey: "#FBFCFD"
       },
       fontFamily: {
         Inter: ['Inter', 'sans-serif'],

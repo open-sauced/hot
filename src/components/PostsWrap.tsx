@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import LayoutToggle from "./LayoutToggle";
 import SecondaryNav from "./SecondaryNav";
-import GridDisplay from "./GridDisplay";
-import ListDisplay from "./ListDisplay";
+import ListRepositories from "./ListRepositories";
 import { fetchRecommendations } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import locationsHash from "../lib/locationsHash";
@@ -28,7 +26,6 @@ const parseLimitValue = (limit: string | null): number => {
 };
 
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
-  const [isGrid, setIsGrid] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
   const { user } = useSupabaseAuth();
@@ -51,26 +48,14 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
     <div className="bg-darkestGrey">
       <SecondaryNav activeLink={activeLink} user={user} />
       <HotRepositories user={user} />
-      <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
-      <div className="bg-darkestGrey py-6 w-full min-h-screen">
-        {isGrid ? (
-          <GridDisplay
-            limit={limit}
-            activeLink={activeLink}
-            handleLoadingMore={handleLoadingMore}
-            user={user}
-            fetchedData={fetchedData}
-          />
-        ) : (
-          <ListDisplay
-            limit={limit}
-            activeLink={activeLink}
-            handleLoadingMore={handleLoadingMore}
-            user={user}
-            fetchedData={fetchedData}
-          />
-        )}
-      </div>
+      <ListRepositories
+
+        limit={limit}
+        activeLink={activeLink}
+        handleLoadingMore={handleLoadingMore}
+        user={user}
+        fetchedData={fetchedData}
+      />
     </div>
   );
 };

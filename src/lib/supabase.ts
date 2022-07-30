@@ -85,7 +85,7 @@ export async function fetchRecommendations(
     .select(selectStatement);
 
   if (user && activeLink === "myVotes") {
-    supabaseComposition
+    await supabaseComposition
       .filter("myVotesFilter.user_id", "eq", user?.user_metadata?.sub);
   }
 

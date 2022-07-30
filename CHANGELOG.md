@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.16.0](https://github.com/open-sauced/hot-sauce/compare/v2.15.4...v2.16.0) (2022-07-30)
+
+
+### 🍕 Features
+
+* update post list components to design v3 ([#242](https://github.com/open-sauced/hot-sauce/issues/242)) ([fe5c25e](https://github.com/open-sauced/hot-sauce/commit/fe5c25ef63dcca6b30f5d10093397c93e59e3494)), closes [#203](https://github.com/open-sauced/hot-sauce/issues/203) [#261](https://github.com/open-sauced/hot-sauce/issues/261) [#204](https://github.com/open-sauced/hot-sauce/issues/204)
+
 ### [2.15.4](https://github.com/open-sauced/hot-sauce/compare/v2.15.3...v2.15.4) (2022-07-30)
 
 

@@ -15,26 +15,28 @@ const Hero = () => {
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
   const [hasFocus, setFocus] = useState(false);
 
-  useKeys(
-    ["ControlLeft", "KeyK"],
-    (e) => {
-      if (!hasFocus) {
-        searchBoxRef.current && searchBoxRef.current.focus();
-        setFocus(true);
-        fetchRecommendations("stars", 3, null, searchTerm).then((results) => {
-          setFetchedData(results);
-        });
-      } else {
-        searchBoxRef.current && searchBoxRef.current.blur();
-        setFocus(false);
-      }
-      // prevent browser from handling CMD/CTRL + K
-      e.preventDefault();
-    },
-    {
-      target: containerRef,
+  const handleCmdK = (e: KeyboardEvent) => {
+    if (!hasFocus) {
+      searchBoxRef.current && searchBoxRef.current.focus();
+      setFocus(true);
+      fetchRecommendations("stars", 3, null, searchTerm).then((results) => {
+        setFetchedData(results);
+      });
+    } else {
+      searchBoxRef.current && searchBoxRef.current.blur();
+      setFocus(false);
     }
-  );
+    // prevent browser from handling CMD/CTRL + K
+    e.preventDefault();
+  };
+
+  useKeys(["ControlLeft", "KeyK"], handleCmdK, {
+    target: containerRef,
+  });
+  
+  useKeys(["MetaLeft", "KeyK"], handleCmdK, {
+    target: containerRef,
+  });
 
   useDidUpdate(() => {
     fetchRecommendations("stars", 3, null, searchTerm).then((results) => {
@@ -68,7 +70,7 @@ const Hero = () => {
           placeholder="Search repositories"
           className="w-full outline-none text-base text-lightSlate"
         />
-        <img className='pt-[7px]' src={cmdKIcon} alt="command k" />
+        <img className="pt-[7px]" src={cmdKIcon} alt="command k" />
       </div>
       <div className="mt-[10px] flex w-full justify-center relative">
         {fetchedData.length > 0 && hasFocus && (

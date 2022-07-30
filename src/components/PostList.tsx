@@ -25,7 +25,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     issues,
     contributions
   } = data;
-  
+
 
   const [votes, updateVotesState] = useState(votesCount || 0);
   const { signIn } = useSupabaseAuth();
@@ -34,7 +34,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
     updateVotesState(updatedVotes);
   }
-  
+
 
   return (
     <div className='flex flex-col gap-y-[20px] md:flex-row bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]'>
@@ -72,7 +72,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
                 <div className='flex gap-x-[5px]'>
                     {
                       contributions.slice(0, 5).map(({contributor, last_merged_at}) => (
-                        <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300 hover:mr-0 hover:scale-105'>
+                        <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
                           <Avatar contributor={contributor} lastPr={last_merged_at} />
                         </div>
                       ))

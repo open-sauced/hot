@@ -17,7 +17,7 @@ const ListRepositories = ({activeLink, limit, handleLoadingMore, fetchedData, us
     <div className='flex flex-col gap-y-[20px]'>
       <div className='flex items-center gap-x-[10px]'>
         <img className='w-[26px] h-[26px]' src={popularIcon} alt="Popular" />
-        <h1 className='text-[24px] text-white font-semibold'>{camelCaseToTitleCase(activeLink)} Repositories</h1>
+        {activeLink && <h1 className='text-[24px] text-white font-semibold'>{camelCaseToTitleCase(activeLink)} Repositories</h1>}
       </div>
       {
         fetchedData.map((item, i) =>

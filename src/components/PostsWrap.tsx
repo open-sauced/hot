@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import SecondaryNav from "./SecondaryNav";
 import ListRepositories from "./ListRepositories";
 import { fetchRecommendations } from "../lib/supabase";
@@ -38,10 +38,14 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
     setSearchParams({ limit: String(limit + 25) });
   };
 
+  const fetchData = useCallback(async () => {
+    const data = await fetchRecommendations(activeLink, limit, user, textToSearch);
+    setFetchedData(data);
+  }, []);
+
   useEffect(() => {
-    fetchRecommendations(activeLink, limit, user, textToSearch).then((data) => {
-      setFetchedData(data);
-    });
+    fetchData()
+      .catch(console.error);
   }, [activeLink, limit, textToSearch]);
 
   return (

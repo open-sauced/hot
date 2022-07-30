@@ -102,7 +102,9 @@ module.exports = {
     "prefer-promise-reject-errors": "error",
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/no-floating-promises": "error",
-    "@typescript-eslint/no-misused-promises": "error",
+    "@typescript-eslint/no-misused-promises": ["error", {
+      "checksVoidReturn": false
+    }],
     "@typescript-eslint/promise-function-async": "error",
   },
   settings: {

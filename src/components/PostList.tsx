@@ -3,14 +3,15 @@ import { User } from "@supabase/supabase-js";
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
 
 import humanizeNumber from "../lib/humanizeNumber";
-import { getRepoLink } from "../lib/github";
+import { getAvatarLink, getRepoLink } from "../lib/github";
 import Avatar from "./Avatar";
 import { updateVotesByRepo } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import { capturePostHogAnayltics } from "../lib/analytics";
 
 export declare interface PostListProps {
   data: DbRecomendation;
-  user: User | null;
+  user: User;
 }
 
 const PostList = ({ data, user }: PostListProps): JSX.Element => {
@@ -18,6 +19,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   const {
     id: repo_id,
     votesRelation: [{ votesCount }],
+    name,
     full_name,
     description,
     stars,
@@ -29,8 +31,14 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   const { signIn } = useSupabaseAuth();
 
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
-    const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
-    updateVotesState(updatedVotes);
+    if (typeof(user_id) == "number") {
+      capturePostHogAnayltics("User voted", "voteClick", "true");
+
+      const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
+      updateVotesState(updatedVotes);
+    } else {
+      console.log("You must be signed in to vote");
+    }
   }
 
   return (
@@ -43,7 +51,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="repo owner"/>
+            <img src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))} alt={full_name} />
           </a>
         </div>
       </div>
@@ -69,7 +77,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
           <div className='-space-x-2 flex hover:space-x-0'>
             {
               contributions.slice(0, 5).map(({ contributor, last_merged_at }) => (
-                <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
+                <div key={`${full_name}-${contributor}`} className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
                   <Avatar contributor={contributor} lastPr={last_merged_at} />
                 </div>
               ))

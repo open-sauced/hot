@@ -5,6 +5,7 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { version } from "../../package.json";
+import { getAvatarLink } from "../lib/github";
 
 const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
 const PrimaryNav = (): JSX.Element => {
@@ -12,7 +13,7 @@ const PrimaryNav = (): JSX.Element => {
 
   return (
     <header>
-      <div className="flex font-Inter py-[26px] px-[42px] justify-between">
+      <div className="flex font-Inter py-[26px] px-[42px] justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">
             <img className="inline-block w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
@@ -20,15 +21,15 @@ const PrimaryNav = (): JSX.Element => {
           </a>
         </div>
 
-        {user ? (
+        {user && (
           <Menu as="div" className="flex z-50 text-left relative">
             <Menu.Button>
               <div className="hidden md:flex pl-[16px] border-l-[1px] border-lightOrange">
                 <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
                   <img
                     className="w-full h-full"
-                    src={user.user_metadata.avatar_url}
-                    alt={user.user_metadata.user_name}
+                    src={getAvatarLink(String(user?.user_metadata.user_name))}
+                    alt={String(user?.user_metadata.user_name)}
                   />
                 </div>
               </div>
@@ -53,8 +54,8 @@ const PrimaryNav = (): JSX.Element => {
                     <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
                       <img
                         className="w-full h-full"
-                        src={user.user_metadata.avatar_url}
-                        alt={user.user_metadata.user_name}
+                        src={getAvatarLink(String(user?.user_metadata.user_name))}
+                        alt={String(user?.user_metadata.user_name)}
                       />
                     </div>
                     <div className="flex-col shrink">
@@ -108,7 +109,7 @@ const PrimaryNav = (): JSX.Element => {
               </Menu.Items>
             </Transition>
           </Menu>
-        ) : (
+        ) || (
           <button
             onClick={async () => {
               capturePostHogAnayltics("User Login", "userLoginAttempt", "true");

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { VscIssues } from "react-icons/vsc";
 import { AiOutlineStar } from "react-icons/ai";
@@ -14,7 +14,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
 
 export declare interface HotReposProps {
-  user: User | null;
+  user: User;
 }
 
 const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
@@ -38,6 +38,16 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
   const checkVoted = (repo_id: number) => votedReposIds.includes(repo_id);
 
+  const fetchHotData = useCallback(async (repo: string) => {
+    const data = await fetchRecommendations("popular", 1, user, repo);
+    hotRepos.push(...data);
+  }, []);
+
+  const fetchVotedData = useCallback(async () => {
+    const data = await fetchRecommendations("myVotes", 1000, user, "");
+    setVotedReposIds(data.map((repo) => repo.id));
+  }, []);
+
   useEffect(() => {
     const hotRepos: DbRecomendation[] = [];
 
@@ -45,23 +55,23 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
       "oven-sh/bun",
       "pocketbase/pocketbase",
       "open-sauced/hot",
-    ].forEach(async (repo) => fetchRecommendations("popular", 1, user, repo)
-      .then((data) => {
-        hotRepos.push(...data);
-      }));
+    ].forEach(async (repo) => fetchHotData(repo));
 
     setHotRepos(hotRepos);
 
-    fetchRecommendations("myVotes", 1000, user, "").then((data) => {
-      setVotedReposIds(data.map((repo) => repo.id));
-    });
+    fetchVotedData()
+      .catch(console.error);
   }, []);
 
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
-    user_id && capturePostHogAnayltics("User voted", "voteClick", "true");
+    if (typeof(user_id) == "number") {
+      capturePostHogAnayltics("User voted", "voteClick", "true");
 
-    await updateVotesByRepo(votes, repo_id, user_id);
-    handleVoted(repo_id);
+      await updateVotesByRepo(votes, repo_id, user_id);
+      handleVoted(repo_id);
+    } else {
+      console.log("You must be signed in to vote");
+    }
   }
 
   return (
@@ -77,8 +87,8 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
               {/* header & upvote button */}
               <div className="flex justify-between w-full">
                 <div className="flex space-x-1 items-center">
-                  <img src={getAvatarLink(full_name.replace(`/${name}`, ""))} alt="Hot Repo Icon" className="h-4 w-4 rounded-md overflow-hidden" />
-                  <span className="text-xs text-gray-400">{full_name.replace(`/${name}`, "")}</span>
+                  <img src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))} alt="Hot Repo Icon" className="h-4 w-4 rounded-md overflow-hidden" />
+                  <span className="text-xs text-gray-400">{full_name.replace(`/${String(name)}`, "")}</span>
                 </div>
                 <button
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
@@ -124,7 +134,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 {/* Avatars */}
                 <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300">
                   {contributions.slice(0, 5).map(({ contributor, last_merged_at }) => (
-                    <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
+                    <div key={`${full_name}-${contributor}`} className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
                       <Avatar contributor={contributor} lastPr={last_merged_at} />
                     </div>
                   ))}

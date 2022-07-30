@@ -5,6 +5,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 import { useDebounce, useDidUpdate } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
+import { getAvatarLink } from "../lib/github";
 
 const Hero = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,10 +13,9 @@ const Hero = () => {
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
   const [hasFocus, setFocus] = useState(false);
 
-  useDidUpdate(() => {
-    fetchRecommendations("stars", 3, null, searchTerm).then((results) => {
-      setFetchedData(results);
-    });
+  useDidUpdate(async () => {
+    const results = await fetchRecommendations("stars", 3, null, searchTerm);
+    setFetchedData(results);
   }, [searchTerm]);
 
   return (
@@ -53,7 +53,7 @@ const Hero = () => {
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 
-            {fetchedData.map(({ full_name, description, issues, stars, user_id }) => (
+            {fetchedData.map(({ full_name, name, description, issues, stars }) => (
               <a
                 key={full_name}
                 href={`https://app.opensauced.pizza/repos/${full_name}`}
@@ -66,7 +66,7 @@ const Hero = () => {
                       <div className="w-[25px] h-[25px] overflow-hidden border-gray-400 border-[1px] bg-red-100  rounded-full">
                         <img
                           className="w-full h-full"
-                          src={`https://avatars.githubusercontent.com/u/${user_id}`}
+                          src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))}
                           alt={full_name}
                         />
                       </div>

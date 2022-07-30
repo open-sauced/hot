@@ -13,7 +13,7 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [input, setInput] = useState("");
 
-  const userName = user?.user_metadata.user_name;
+  const userName = String(user?.user_metadata.user_name);
   const saveToDataBase = (repoUrl: string): void => {
     setIsSubmissionInProcess(true);
 

@@ -9,7 +9,7 @@ import { capturePostHogAnayltics } from "../lib/analytics";
 
 export declare interface PostGridProps {
   data: DbRecomendation;
-  user: User | null;
+  user: User;
 }
 
 const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
@@ -25,10 +25,14 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const { signIn } = useSupabaseAuth();
 
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
-    user_id && capturePostHogAnayltics("User voted", "voteClick", "true");
+    if (typeof(user_id) == "number") {
+      capturePostHogAnayltics("User voted", "voteClick", "true");
 
-    const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
-    updateVotesState(updatedVotes);
+      const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
+      updateVotesState(updatedVotes);
+    } else {
+      console.log("You must be signed in to vote");
+    }
   }
 
   return (

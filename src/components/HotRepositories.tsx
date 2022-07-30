@@ -13,9 +13,9 @@ import Avatar from "./Avatar";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
 
-export declare type HotReposProps = {
+export declare interface HotReposProps {
   user: User | null;
-};
+}
 
 const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const {

@@ -8,10 +8,10 @@ import Avatar from "./Avatar";
 import { updateVotesByRepo } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 
-export declare type PostListProps = {
+export declare interface PostListProps {
   data: DbRecomendation;
   user: User | null;
-};
+}
 
 const PostList = ({ data, user }: PostListProps): JSX.Element => {
   const { user_metadata: { sub: user_id } } = user || { user_metadata: { sub: null } };

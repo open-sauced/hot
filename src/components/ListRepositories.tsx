@@ -4,13 +4,13 @@ import { User } from "@supabase/supabase-js";
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 
-export declare type ListRepositoriesProps = {
+export declare interface ListRepositoriesProps {
   activeLink: string | null;
   limit: number;
   handleLoadingMore: () => void;
   fetchedData: DbRecomendation[];
   user: User | null;
-};
+}
 
 const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, user }: ListRepositoriesProps): JSX.Element => (
   <div className="mx-auto max-w-7xl px-[16px] mt-[40px]">

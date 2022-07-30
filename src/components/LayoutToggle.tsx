@@ -1,10 +1,10 @@
 import React from "react";
 import { FaThLarge, FaThList } from "react-icons/fa";
 
-export declare type LayoutToggleProps = {
+export declare interface LayoutToggleProps {
   gridState: boolean;
   setGridState: (state: boolean) => void;
-};
+}
 
 const LayoutToggle = ({ gridState, setGridState }: LayoutToggleProps): JSX.Element => {
   const position = gridState ? "left-0" : "right-0";

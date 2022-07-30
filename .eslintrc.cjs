@@ -71,7 +71,7 @@ module.exports = {
     "@typescript-eslint/object-curly-spacing": ["error", "always"],
     "semi": "off",
     "@typescript-eslint/semi": ["error"],
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     // "node/no-missing-import": [
     //   "error",
     //   {

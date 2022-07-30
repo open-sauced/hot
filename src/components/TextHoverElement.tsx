@@ -1,10 +1,10 @@
 import React from "react";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 
-export declare type TextHoverElementProps = {
+export declare interface TextHoverElementProps {
   text: string;
   children: JSX.Element;
-};
+}
 
 const TextHoverElement = ({ text, children }: TextHoverElementProps): JSX.Element => (
   <HoverCardPrimitive.Root>

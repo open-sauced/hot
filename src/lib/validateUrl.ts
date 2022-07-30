@@ -1,7 +1,7 @@
-export declare type URLValidation = {
+export declare interface URLValidation {
   isValid: boolean
   sanitizedUrl: string
-};
+}
 
 function relativeUrlValidator(url: string) : URLValidation {
   try {

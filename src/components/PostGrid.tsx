@@ -7,10 +7,10 @@ import { User } from "@supabase/supabase-js";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { capturePostHogAnayltics } from "../lib/analytics";
 
-export declare type PostGridProps = {
+export declare interface PostGridProps {
   data: DbRecomendation;
   user: User | null;
-};
+}
 
 const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const {

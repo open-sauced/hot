@@ -7,11 +7,11 @@ import relativeTime  from "dayjs/esm/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
 
-export declare type AvatarProps = {
+export declare interface AvatarProps {
   contributor: string;
   lastPr?: string;
   list?: boolean;
-};
+}
 
 const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
   <HoverCardPrimitive.Root>

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { FaArrowAltCircleUp } from 'react-icons/fa';
+import { User } from "@supabase/supabase-js";
+import { FaArrowAltCircleUp, FaDotCircle, FaStar } from 'react-icons/fa';
+
 import humanizeNumber from '../lib/humanizeNumber';
 import { getRepoLink } from '../lib/github';
 import Avatar from './Avatar';
 import { updateVotesByRepo } from '../lib/supabase';
-import { User } from "@supabase/supabase-js";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import starIconGrey from '../assets/starIconGrey.svg'
-import issueIconGrey from '../assets/issueIconGrey.svg'
 
 export declare interface PostListProps {
   data: DbRecomendation;
@@ -25,8 +24,6 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     issues,
     contributions
   } = data;
-
-
 
   const [votes, updateVotesState] = useState(votesCount || 0);
   const { signIn } = useSupabaseAuth();
@@ -62,12 +59,12 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
             </a>
             <div className='flex gap-x-[16px] mt-[16px]'>
                 <div className='flex gap-[5px] items-center text-textGrey'>
-                    <img className='w-[16px]' src={issueIconGrey} alt="issues"/>
-                    <p className='text-sm'>{humanizeNumber(issues)}</p>
+                  <FaDotCircle aria-hidden="true" className="w-[16px]"/>
+                  <p className='text-sm'>{humanizeNumber(issues)}</p>
                 </div>
                 <div className='flex gap-[5px] items-center text-textGrey'>
-                    <img className='w-[16px]' src={starIconGrey} alt="stars"/>
-                    <p className='text-sm'>{humanizeNumber(stars)}</p>
+                  <FaStar aria-hidden="true" className="w-[16px]"/>
+                  <p className='text-sm'>{humanizeNumber(stars)}</p>
                 </div>
                 <div className='-space-x-2 flex hover:space-x-0'>
                     {

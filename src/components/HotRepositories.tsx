@@ -45,7 +45,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     [
       'oven-sh/bun',
       'pocketbase/pocketbase',
-      'tensorflow/tensorflow',
+      'open-sauced/hot',
     ].forEach((repo) => fetchRecommendations('popular', 1, user, repo)
       .then((data) => {
         hotRepos.push(...data);
@@ -123,7 +123,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                   </div>
                 </div>
                 {/* Avatars */}
-                <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300 ">
+                <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300">
                   {contributions.slice(0, 5).map(({contributor, last_merged_at}) => (
                       <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
                         <Avatar contributor={contributor} lastPr={last_merged_at} />

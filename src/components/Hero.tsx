@@ -1,11 +1,11 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import searchNormal from "../assets/searchNormal.svg";
-import starIcon from "../assets/starIcon.svg";
-import issueIcon from "../assets/issueIcon.svg";
 import cmdKIcon from "../assets/cmdK.svg";
 import { fetchRecommendations } from "../lib/supabase";
 import humanizeNumber from "../lib/humanizeNumber";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
+import { FaRegDotCircle } from "react-icons/fa";
+import { AiOutlineStar } from "react-icons/ai";
 
 const Hero = () => {
   const containerRef = useRef<Document>(document);
@@ -110,11 +110,11 @@ const Hero = () => {
                       </div>
                       <div className="flex gap-x-[6px]">
                         <div className="flex items-center gap-x-[5px]">
-                          <img src={issueIcon} alt="issue" />
+                          <FaRegDotCircle aria-hidden="true"/>
                           <p className="text-gray-500 text-xs">{humanizeNumber(issues)}</p>
                         </div>
                         <div className="flex items-center gap-x-[5px]">
-                          <img src={starIcon} alt="star" />
+                          <AiOutlineStar aria-hidden="true" className="mr-1"/>
                           <p className="text-gray-500 text-xs">{humanizeNumber(stars)}</p>
                         </div>
                       </div>

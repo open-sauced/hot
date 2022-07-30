@@ -26,13 +26,10 @@ module.exports = {
         lightSlate:"#11181C",
         gradFirst: "#FF932F",
         gradMiddle: "#FF3C3C",
-        gradLast: "#FF3C3C"
+        gradLast: "#FF3C3C",
+        osBackgroundGrey: "#FBFCFD"
       },
       fontFamily: {
-        Poppins: ["Poppins"],
-        Righteous: ["Righteous"],
-        Roboto: ["Roboto"],
-        Ubuntu: ["Ubuntu", "sans-serif"],
         Inter: ['Inter', 'sans-serif'],
         Lexend: ['Lexend', 'sans-serif']
       },

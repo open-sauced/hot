@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.15.4](https://github.com/open-sauced/hot-sauce/compare/v2.15.3...v2.15.4) (2022-07-30)
+
+
+### 🐛 Bug Fixes
+
+* remove extraneous icons ([12f67d1](https://github.com/open-sauced/hot-sauce/commit/12f67d19bee3a870b3e998ea600d99028d25e7f6))
+
 ### [2.15.3](https://github.com/open-sauced/hot-sauce/compare/v2.15.2...v2.15.3) (2022-07-29)
 
 

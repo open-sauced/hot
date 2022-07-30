@@ -1,18 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import searchNormal from "../assets/searchNormal.svg";
+import cmdKIcon from "../assets/cmdK.svg";
 import { fetchRecommendations } from "../lib/supabase";
 import humanizeNumber from "../lib/humanizeNumber";
-import { useDebounce, useDidUpdate } from "rooks";
+import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 import { getAvatarLink } from "../lib/github";
 
 const Hero = () => {
+  const containerRef = useRef<Document>(document);
+  const searchBoxRef = useRef<HTMLInputElement>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const setValueDebounced = useDebounce(setSearchTerm, 500);
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
   const [hasFocus, setFocus] = useState(false);
 
+  const handleCmdK = (e: KeyboardEvent) => {
+    if (!hasFocus) {
+      searchBoxRef.current && searchBoxRef.current.focus();
+      setFocus(true);
+      fetchRecommendations("stars", 3, null, searchTerm).then((results) => {
+        setFetchedData(results);
+      });
+    } else {
+      searchBoxRef.current && searchBoxRef.current.blur();
+      setFocus(false);
+    }
+    // prevent browser from handling CMD/CTRL + K
+    e.preventDefault();
+  };
+
+  useKeys(["ControlLeft", "KeyK"], handleCmdK, {
+    target: containerRef,
+  });
+
+  useKeys(["MetaLeft", "KeyK"], handleCmdK, {
+    target: containerRef,
+  });
+
+  useDidUpdate(() => {
+    fetchRecommendations("stars", 3, null, searchTerm).then((results) => {
+      setFetchedData(results);
+    });
   useDidUpdate(async () => {
     const results = await fetchRecommendations("stars", 3, null, searchTerm);
     setFetchedData(results);
@@ -32,6 +62,7 @@ const Hero = () => {
       <div className="mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px] flex">
         <img src={searchNormal} alt="search icon" />
         <input
+          ref={searchBoxRef}
           onFocus={() => setFocus(true)}
           onBlur={() =>
             setTimeout(() => {
@@ -43,8 +74,7 @@ const Hero = () => {
           placeholder="Search repositories"
           className="w-full outline-none text-base text-lightSlate"
         />
-        {/* todo: implement keyboard shortcut to bring the input field in focus - issue #205 */}
-        {/* <img className='pt-[7px]' src={cmdK} alt="command k" /> */}
+        <img className="pt-[7px]" src={cmdKIcon} alt="command k" />
       </div>
       <div className="mt-[10px] flex w-full justify-center relative">
         {fetchedData.length > 0 && hasFocus && (

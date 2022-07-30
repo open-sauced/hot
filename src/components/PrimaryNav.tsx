@@ -16,7 +16,7 @@ const PrimaryNav = (): JSX.Element => {
       <div className="flex font-Inter py-[26px] px-[42px] justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">
-            <img className="inline-block w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
+            <img className="inline-block w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo" />
             <span className="text-base leading-snug font-semibold">OpenSauced</span>
           </a>
         </div>
@@ -46,10 +46,21 @@ const PrimaryNav = (): JSX.Element => {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items
-                className="z-40 absolute right-0 top-10 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-
+              <Menu.Items className="z-40 absolute right-0 top-10 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <Menu.Item>
+                  <div className="flex items-center px-[8px] py-[10px] mb-[5px] gap-x-[10px]">
+                    <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
+                      <img
+                        className="w-full h-full"
+                        src={user.user_metadata.avatar_url}
+                        alt={user.user_metadata.user_name}
+                      />
+                    </div>
+                    <div className="flex-col shrink">
+                      <p className="text-osGrey text-xs font-semibold">{user.user_metadata.full_name}</p>
+                      <p className="text-gray-500 text-xs font-normal">{user.user_metadata.user_name}</p>
+                    </div>
+                  </div>
                   <div className="flex items-center px-[8px] py-[10px] mb-[5px] gap-x-[10px]">
                     <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
                       <img

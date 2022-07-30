@@ -57,17 +57,17 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
               target="_blank"
               rel="noopener"
               >
-                <p className='text-[14px] text-textGrey'>{full_name}</p>
-                <p className='text-[16px] text-textGrey'>{description}</p>
+                <p className='text-sm text-textGrey'>{full_name}</p>
+                <p className='text-base text-textGrey'>{description}</p>
             </a>
             <div className='flex gap-x-[16px] mt-[16px]'>
                 <div className='flex gap-[5px] items-center text-textGrey'>
                     <img className='w-[16px]' src={issueIconGrey} alt="issues"/>
-                    <p className='text-[14px]'>{humanizeNumber(issues)}</p>
+                    <p className='text-sm'>{humanizeNumber(issues)}</p>
                 </div>
                 <div className='flex gap-[5px] items-center text-textGrey'>
                     <img className='w-[16px]' src={starIconGrey} alt="stars"/>
-                    <p className='text-[14px]'>{humanizeNumber(stars)}</p>
+                    <p className='text-sm'>{humanizeNumber(stars)}</p>
                 </div>
                 <div className='-space-x-2 flex hover:space-x-0'>
                     {
@@ -84,7 +84,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
         onClick={() => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
         className='md:w-[60px] w-full min-w-[60px] rounded-[6px] group border-[1px] cursor-pointer transition-all duration-200 hover:border-osOrange flex gap-[5px] py-[10px] md:py-0 md:flex-col justify-center items-center'>
           <FaArrowAltCircleUp className='text-gray-500 group-hover:text-osOrange transition-all duration-300 w-[13px] h-[13px]'/>
-          <span className='text-[12px] font-semibold text-gray-500 group-hover:text-osOrange transition-all duration-500'>{humanizeNumber(votes)}</span>
+          <span className='text-xs font-semibold text-gray-500 group-hover:text-osOrange transition-all duration-500'>{humanizeNumber(votes)}</span>
         </button>
     </div>
   );

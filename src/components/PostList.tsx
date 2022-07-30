@@ -69,10 +69,10 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
                     <img className='w-[16px]' src={starIconGrey} alt="stars"/>
                     <p className='text-[14px]'>{humanizeNumber(stars)}</p>
                 </div>
-                <div className='flex gap-x-[5px]'>
+                <div className='-space-x-2 flex hover:space-x-0'>
                     {
                       contributions.slice(0, 5).map(({contributor, last_merged_at}) => (
-                        <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300 hover:mr-0 hover:scale-150'>
+                        <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
                           <Avatar contributor={contributor} lastPr={last_merged_at} />
                         </div>
                       ))

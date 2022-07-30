@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SecondaryNav from "./SecondaryNav";
-import ListDisplay from "./ListDisplay";
+import ListRepositories from "./ListRepositories";
 import { fetchRecommendations } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import locationsHash from "../lib/locationsHash";
@@ -48,7 +48,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
     <div className="bg-darkestGrey">
       <SecondaryNav activeLink={activeLink} user={user} />
       <HotRepositories user={user} />
-      <ListDisplay
+      <ListRepositories
         limit={limit}
         activeLink={activeLink}
         handleLoadingMore={handleLoadingMore}

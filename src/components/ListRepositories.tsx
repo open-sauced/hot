@@ -3,7 +3,7 @@ import PostList from './PostList';
 import {User} from "@supabase/supabase-js";
 import popularIcon from "../assets/popularIcon.svg"
 
-export declare interface ListDisplayProps {
+export declare interface ListRepositoriesProps {
   activeLink: string | null;
   limit: number;
   handleLoadingMore: () => void;
@@ -11,7 +11,7 @@ export declare interface ListDisplayProps {
   user: User | null;
 }
 
-const ListDisplay = ({activeLink, limit, handleLoadingMore, fetchedData, user}: ListDisplayProps): JSX.Element => (
+const ListRepositories = ({activeLink, limit, handleLoadingMore, fetchedData, user}: ListRepositoriesProps): JSX.Element => (
   <div className="mx-auto max-w-7xl px-[16px] mt-[40px]">
     <div className='flex flex-col gap-y-[20px]'>
       <div className='flex items-center gap-x-[10px]'>
@@ -45,4 +45,4 @@ const ListDisplay = ({activeLink, limit, handleLoadingMore, fetchedData, user}: 
   </div>
 );
 
-export default ListDisplay;
+export default ListRepositories;

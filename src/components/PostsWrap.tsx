@@ -49,6 +49,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
       <SecondaryNav activeLink={activeLink} user={user} />
       <HotRepositories user={user} />
       <ListRepositories
+
         limit={limit}
         activeLink={activeLink}
         handleLoadingMore={handleLoadingMore}

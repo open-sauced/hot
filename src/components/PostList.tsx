@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { User } from "@supabase/supabase-js";
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from 'react-icons/fa';
+
 import humanizeNumber from '../lib/humanizeNumber';
-import { getRepoLink, getRepoIssuesLink } from '../lib/github';
+import { getRepoLink } from '../lib/github';
 import Avatar from './Avatar';
 import { updateVotesByRepo } from '../lib/supabase';
-import { User } from "@supabase/supabase-js";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 
 export declare interface PostListProps {
@@ -17,6 +18,11 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   const {
     id: repo_id,
     votesRelation: [{votesCount}],
+    full_name,
+    description,
+    stars,
+    issues,
+    contributions
   } = data;
 
   const [votes, updateVotesState] = useState(votesCount || 0);
@@ -28,74 +34,55 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   }
 
   return (
-    <div className="bg-offWhite rounded-xl p-6 font-roboto w-full">
-      <div className="flex">
-        <div className="flex flex-col justify-center items-center">
-          {data?.contributions[0] &&
-            <Avatar
-              contributor={data.contributions[0]?.contributor}
-              lastPr={data.contributions[0]?.last_merged_at}/>}
-
-          {data?.contributions[1] &&
-            <Avatar
-              contributor={data.contributions[1]?.contributor}
-              lastPr={data.contributions[1]?.last_merged_at}/>}
+    <div className='flex flex-col gap-y-[20px] md:flex-row bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]'>
+        <div>
+            <div className='rounded-[8px] overflow-hidden w-[88px] h-[88px]'>
+              <a
+                href={getRepoLink(full_name)}
+                title={`Visit ${full_name}`}
+                target="_blank"
+                rel="noopener"
+                >
+                  <img src={`https://avatars.githubusercontent.com/u/${data.user_id}`} alt="repo owner"/>
+              </a>
+            </div>
         </div>
-
-        <div className="ml-5 border-l-2 pl-3 space-y-2">
-          <a
-            className="font-bold text-grey text-xs sm:text-lg font-medium overflow-hidden cursor-pointer"
-            href={getRepoLink(data.full_name)}
-            title={`Visit ${data.full_name}`}
-            target="_blank"
-            rel="noopener"
-          >
-            {data.full_name}
-          </a>
-
-          <div className="text-lightGrey text-xs sm:text-base">
-            <p>{data.description}</p>
-          </div>
-
-          <div className="flex justify-start max-w-sm space-x-1">
-            <button
-              onClick={() => user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: 'github' })}
-              className="flex justify-start text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-            >
-              <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
-                <FaArrowAltCircleUp aria-hidden="true" className="mr-1"/>
-                <p className="font-bold">{votes}</p>
-              </div>
-            </button>
-
+        <div className='flex-1'>
             <a
-              className="flex justify-start  text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-              href={getRepoIssuesLink(data.full_name)}
-              title={`Visit ${data.full_name} issues`}
+              href={getRepoLink(full_name)}
+              title={`Visit ${full_name}`}
               target="_blank"
               rel="noopener"
-            >
-              <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
-                <FaDotCircle aria-hidden="true" className="mr-1"/>
-                {data.issues && <p className="font-bold">{humanizeNumber(data.issues)}</p>}
-              </div>
+              >
+                <p className='text-sm text-textGrey'>{full_name}</p>
+                <p className='text-base text-textGrey'>{description}</p>
             </a>
-
-            <a
-              className="flex justify-start  text-xs sm:text-xl text-grey transition-all duration-200 w-16 sm:w-24"
-              href={getRepoLink(data.full_name)}
-              title={`Add a star to ${data.full_name}`}
-              target="_blank"
-              rel="noopener"
-            >
-              <div className="cursor-pointer flex justify-start items-center hover:text-saucyRed transition-all duration-200">
-                <FaStar aria-hidden="true" className="mr-1"/>
-                {data.stars && <p className="font-bold">{humanizeNumber(data.stars)}</p>}
-              </div>
-            </a>
-          </div>
+            <div className='flex gap-x-[16px] mt-[16px]'>
+                <div className='flex gap-[5px] items-center text-textGrey'>
+                  <FaDotCircle aria-hidden="true" className="w-[16px]"/>
+                  <p className='text-sm'>{humanizeNumber(issues)}</p>
+                </div>
+                <div className='flex gap-[5px] items-center text-textGrey'>
+                  <FaStar aria-hidden="true" className="w-[16px]"/>
+                  <p className='text-sm'>{humanizeNumber(stars)}</p>
+                </div>
+                <div className='-space-x-2 flex hover:space-x-0'>
+                    {
+                      contributions.slice(0, 5).map(({contributor, last_merged_at}) => (
+                        <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
+                          <Avatar contributor={contributor} lastPr={last_merged_at} />
+                        </div>
+                      ))
+                    }
+                </div>
+            </div>
         </div>
-      </div>
+        <button
+        onClick={() => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
+        className='md:w-[60px] w-full min-w-[60px] rounded-[6px] group border-[1px] cursor-pointer transition-all duration-200 hover:border-osOrange flex gap-[5px] py-[10px] md:py-0 md:flex-col justify-center items-center'>
+          <FaArrowAltCircleUp className='text-gray-500 group-hover:text-osOrange transition-all duration-300 w-[13px] h-[13px]'/>
+          <span className='text-xs font-semibold text-gray-500 group-hover:text-osOrange transition-all duration-500'>{humanizeNumber(votes)}</span>
+        </button>
     </div>
   );
 }

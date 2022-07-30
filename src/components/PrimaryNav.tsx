@@ -6,6 +6,7 @@ import { capturePostHogAnayltics } from "../lib/analytics";
 import { GiHamburgerMenu } from "react-icons/gi"
 import { version } from "../../package.json";
 
+const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+"
 const PrimaryNav = (): JSX.Element => {
   const {signIn, signOut, user} = useSupabaseAuth();
 
@@ -17,12 +18,6 @@ const PrimaryNav = (): JSX.Element => {
             <img className="inline-block w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo"/>
             <span className="text-base leading-snug font-semibold">OpenSauced</span>
           </a>
-
-          {user && (
-            <div className="hidden md:block">
-              <p className="font-semibold text-xs ml-[10px]">My Votes</p>
-            </div>
-          )}
         </div>
 
         {user ? (
@@ -82,17 +77,17 @@ const PrimaryNav = (): JSX.Element => {
                 </Menu.Item>
 
                 <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      onClick={async () => {
-                        await signOut();
-                      }}
+                  {({active}) => (
+                    <a
+                      href={bugReportLink}
+                      target="_blank"
+                      rel="noreferrer"
                       className={`${
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                      } md:hidden group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
+                      } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
                     >
-                      My votes
-                    </button>
+                      Report a bug
+                    </a>
                   )}
                 </Menu.Item>
 

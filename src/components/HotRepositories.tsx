@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { VscIssues } from "react-icons/vsc";
 import { AiOutlineStar } from "react-icons/ai";
@@ -9,66 +9,10 @@ import { User } from "@supabase/supabase-js";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { updateVotesByRepo } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-
-const hotRepo = [
-  {
-    repo_id: 357728069,
-    organization: "Oven",
-    orgImg: "https://avatars.githubusercontent.com/u/108928776?s=200&v=4",
-    name: "Bun",
-    description: "Incredibly fast JavaScript runtime, bundler, transpiler and package manager.",
-    votes: 2,
-    upvoted: false,
-    issues: "503",
-    stars: "27.7k",
-    PR: "262",
-    img: [
-      "https://avatars.githubusercontent.com/u/709451?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/2148168?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/70155278?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/56601352?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/790659?s=64&v=4",
-    ],
-  },
-  {
-    repo_id: 510607652,
-    organization: "Pocketbase",
-    orgImg: "https://avatars.githubusercontent.com/u/101000011?s=200&v=4",
-    name: "Pocketbase",
-    description: "Open Source realtime backend in 1 file",
-    votes: 1,
-    upvoted: false,
-    issues: "72",
-    stars: "7.3k",
-    PR: "32",
-    img: [
-      "https://avatars.githubusercontent.com/u/8248071?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/43366254?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/38179369?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/26606825?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/8593614?s=64&v=4",
-    ],
-  },
-  {
-    repo_id: 71359796,
-    organization: "Open-Sauced",
-    orgImg: "https://avatars.githubusercontent.com/u/57568598?s=200&v=4",
-    name: "Open-Sauced",
-    description: " This is a project to identify your next open source contribution.",
-    votes: 3,
-    upvoted: false,
-    issues: "293",
-    stars: "726",
-    PR: "1k",
-    img: [
-      "https://avatars.githubusercontent.com/u/5713670?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/237133?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/11777161?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/14043845?s=64&v=4",
-      "https://avatars.githubusercontent.com/u/22990146?s=60&v=4",
-    ],
-  },
-];
+import { fetchRecommendations } from "../lib/supabase";
+import Avatar from "./Avatar";
+import humanizeNumber from "../lib/humanizeNumber";
+import { getAvatarLink } from "../lib/github";
 
 export declare interface HotReposProps {
   user: User | null;
@@ -78,16 +22,41 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const {
     user_metadata: { sub: user_id },
   } = user || { user_metadata: { sub: null } };
-  const [hotRepos, setHotRepos] = useState(hotRepo);
+  const [hotRepos, setHotRepos] = useState<DbRecomendation[]>([]);
+  const [votedReposIds, setVotedReposIds] = useState<number[]>([]);
 
   const { signIn } = useSupabaseAuth();
 
   // * This function is just a placeholder to help change the color and state of the selected button on the card.
   const handleVoted = (repo_id: number) => {
-    const votedIdx = hotRepos.findIndex((obj) => obj.repo_id == repo_id);
-    hotRepos[votedIdx].upvoted = !hotRepos[votedIdx].upvoted;
-    setHotRepos([...hotRepos]);
+    const hasVoted = checkVoted(repo_id);
+    if (hasVoted) {
+      setVotedReposIds(votedReposIds.filter((id) => id !== repo_id));
+    } else {
+      setVotedReposIds([...votedReposIds, repo_id]);
+    }
   };
+
+  const checkVoted = (repo_id: number) => votedReposIds.includes(repo_id);
+
+  useEffect(() => {
+    const hotRepos: DbRecomendation[] = [];
+
+    [
+      'oven-sh/bun',
+      'pocketbase/pocketbase',
+      'open-sauced/hot',
+    ].forEach((repo) => fetchRecommendations('popular', 1, user, repo)
+      .then((data) => {
+        hotRepos.push(...data);
+      }));
+
+    setHotRepos(hotRepos);
+
+    fetchRecommendations("myVotes", 1000, user, "").then((data) => {
+      setVotedReposIds(data.map((repo) => repo.id));
+    });
+  }, []);
 
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
     user_id && capturePostHogAnayltics("User voted", "voteClick", "true");
@@ -104,27 +73,34 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
       </div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full my-5">
         {hotRepos.map(
-          ({ repo_id, orgImg, organization, name, description, votes, upvoted, issues, stars, PR, img }) => (
-            <div key={repo_id} className="p-4 border rounded-lg bg-white w-full space-y-1 relative">
+          ({ id, full_name, name, description, issues, stars, contributions }) => (
+            <div key={id} className="p-4 border rounded-lg bg-white w-full space-y-1 relative">
               {/* header & upvote button */}
               <div className="flex justify-between w-full">
                 <div className="flex space-x-1 items-center">
-                  <img src={orgImg} alt="Hot Repo Icon" className="h-4 w-4 rounded-md overflow-hidden" />
-                  <span className="text-xs text-gray-400">{organization}</span>
+                  <img src={getAvatarLink(full_name.replace(`/${name}`, ''))} alt="Hot Repo Icon" className="h-4 w-4 rounded-md overflow-hidden" />
+                  <span className="text-xs text-gray-400">{full_name.replace(`/${name}`, '')}</span>
                 </div>
                 <button
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
-                    upvoted ? "text-saucyRed border-saucyRed " : "text-grey border-gray-500 "
+                    checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-grey border-gray-500 "
                   }`}
-                  onClick={() => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
+                  onClick={() => (user_id ? handleVoteUpdateByRepo(0, id) : signIn({ provider: "github" }))}
                 >
-                  <span className="">{upvoted ? "voted" : "upvote"}</span>
-                  {upvoted ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="" />}
+                  <span className="">{checkVoted(id) ? "voted" : "upvote"}</span>
+                  {checkVoted(id) ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="" />}
                 </button>
               </div>
               {/* repo name & description */}
               <div className="flex flex-col pb-10">
-                <h1 className="text-xl font-semibold">{name}</h1>
+                <a
+                  href={`https://app.opensauced.pizza/repos/${full_name}`}
+                  target="_blank"
+                  rel="noopener"
+                  className="text-xl font-semibold"
+                >
+                  {name}
+                </a>
                 <p className="text-gray-500 text-xs w-5/6">{description}</p>
               </div>
               {/* issues || star || PRs || Avatar */}
@@ -133,29 +109,26 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 <div className="flex space-x-3 text-xs">
                   <div className="flex space-x-1 justify-center items-center">
                     <VscIssues />
-                    <span>{issues}</span>
+                    <span>{humanizeNumber(issues)}</span>
                   </div>
 
                   <div className="flex space-x-1 justify-center items-center">
                     <AiOutlineStar />
-                    <span>{stars}</span>
+                    <span>{humanizeNumber(stars)}</span>
                   </div>
 
                   <div className="flex space-x-1 justify-center items-center">
                     <BiGitPullRequest />
-                    <span>{PR}</span>
+                    <span>0</span>
                   </div>
                 </div>
                 {/* Avatars */}
-                <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300 ">
-                  {img.map((avatarImg) => (
-                    <img
-                      key={avatarImg}
-                      src={avatarImg}
-                      alt="Contributor"
-                      className="w-5 h-5 rounded-full border border-white "
-                    />
-                  ))}
+                <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300">
+                  {contributions.slice(0, 5).map(({contributor, last_merged_at}) => (
+                      <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
+                        <Avatar contributor={contributor} lastPr={last_merged_at} />
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>

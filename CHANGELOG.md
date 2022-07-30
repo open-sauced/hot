@@ -5,6 +5,141 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.16.0](https://github.com/open-sauced/hot-sauce/compare/v2.15.4...v2.16.0) (2022-07-30)
+
+
+### 🍕 Features
+
+* update post list components to design v3 ([#242](https://github.com/open-sauced/hot-sauce/issues/242)) ([fe5c25e](https://github.com/open-sauced/hot-sauce/commit/fe5c25ef63dcca6b30f5d10093397c93e59e3494)), closes [#203](https://github.com/open-sauced/hot-sauce/issues/203) [#261](https://github.com/open-sauced/hot-sauce/issues/261) [#204](https://github.com/open-sauced/hot-sauce/issues/204)
+
+### [2.15.4](https://github.com/open-sauced/hot-sauce/compare/v2.15.3...v2.15.4) (2022-07-30)
+
+
+### 🐛 Bug Fixes
+
+* remove extraneous icons ([12f67d1](https://github.com/open-sauced/hot-sauce/commit/12f67d19bee3a870b3e998ea600d99028d25e7f6))
+
+### [2.15.3](https://github.com/open-sauced/hot-sauce/compare/v2.15.2...v2.15.3) (2022-07-29)
+
+
+### 🎨 Styles
+
+* **hero:** Transform svg in css ([#260](https://github.com/open-sauced/hot-sauce/issues/260)) ([e484719](https://github.com/open-sauced/hot-sauce/commit/e4847194f1c0ea0167951b70b98c5ae3128cedc9))
+
+### [2.15.2](https://github.com/open-sauced/hot-sauce/compare/v2.15.1...v2.15.2) (2022-07-29)
+
+
+### 🐛 Bug Fixes
+
+* correct infinite contributions in hot repositories ([e8bd954](https://github.com/open-sauced/hot-sauce/commit/e8bd95471c01cf227e4dab7dd3256c13f5bcfa5a))
+
+### [2.15.1](https://github.com/open-sauced/hot-sauce/compare/v2.15.0...v2.15.1) (2022-07-29)
+
+
+### 🤖 Build System
+
+* update radix dependencies ([174e964](https://github.com/open-sauced/hot-sauce/commit/174e96495ae11540b2b698e18eb075affd5b00c6))
+* update react version ([fd32bc5](https://github.com/open-sauced/hot-sauce/commit/fd32bc56ce69e3f4af56930698361533836b4e2f))
+
+
+### 🐛 Bug Fixes
+
+* correct hot repositories being fetched from the backend ([9c5f8ed](https://github.com/open-sauced/hot-sauce/commit/9c5f8ed235919ef218cce66b2917bd511d3f6d1b)), closes [#246](https://github.com/open-sauced/hot-sauce/issues/246) [#258](https://github.com/open-sauced/hot-sauce/issues/258)
+* correct tailwind fonts and dependency updates ([edbc3ff](https://github.com/open-sauced/hot-sauce/commit/edbc3ffd6e9981f67b1477a3e90ee6887f2bdffd))
+
+## [2.15.0](https://github.com/open-sauced/hot-sauce/compare/v2.14.0...v2.15.0) (2022-07-28)
+
+
+### 🍕 Features
+
+* **hot:** adds vote check to hot repos ([#252](https://github.com/open-sauced/hot-sauce/issues/252)) ([315fdcc](https://github.com/open-sauced/hot-sauce/commit/315fdccc08e5c779b9c2e99381fe2e5fe8b848c5))
+
+## [2.14.0](https://github.com/open-sauced/hot-sauce/compare/v2.13.2...v2.14.0) (2022-07-28)
+
+
+### 🍕 Features
+
+* add report a bug button in user dropdown ([#239](https://github.com/open-sauced/hot-sauce/issues/239)) ([b5f6eab](https://github.com/open-sauced/hot-sauce/commit/b5f6eabc0389c11569055c8984db51d4e00b23d8)), closes [#206](https://github.com/open-sauced/hot-sauce/issues/206)
+
+### [2.13.2](https://github.com/open-sauced/hot-sauce/compare/v2.13.1...v2.13.2) (2022-07-28)
+
+
+### 🐛 Bug Fixes
+
+* Popular text not aligned ([#253](https://github.com/open-sauced/hot-sauce/issues/253)) ([58fa488](https://github.com/open-sauced/hot-sauce/commit/58fa4881c89916770300037c9236ee2ae1b7381d))
+
+### [2.13.1](https://github.com/open-sauced/hot-sauce/compare/v2.13.0...v2.13.1) (2022-07-27)
+
+
+### 🐛 Bug Fixes
+
+* **nav-link:** remove my votes from primary nav ([#250](https://github.com/open-sauced/hot-sauce/issues/250)) ([292f582](https://github.com/open-sauced/hot-sauce/commit/292f582f0e65629b426979a218d06a7f6a036374))
+
+## [2.13.0](https://github.com/open-sauced/hot-sauce/compare/v2.12.2...v2.13.0) (2022-07-27)
+
+
+### 🍕 Features
+
+* Linking Hot Repo Title to Opensauced.pizza ([#249](https://github.com/open-sauced/hot-sauce/issues/249)) ([3970400](https://github.com/open-sauced/hot-sauce/commit/397040009dc2edc4f862f305c43e040b6c64d32d))
+
+### [2.12.2](https://github.com/open-sauced/hot-sauce/compare/v2.12.1...v2.12.2) (2022-07-27)
+
+
+### 🐛 Bug Fixes
+
+* correct submit button z-index above the hot repos ([#248](https://github.com/open-sauced/hot-sauce/issues/248)) ([cff51be](https://github.com/open-sauced/hot-sauce/commit/cff51be065e23faa6ba9afd8550894a9bd0370b2)), closes [#237](https://github.com/open-sauced/hot-sauce/issues/237)
+
+### [2.12.1](https://github.com/open-sauced/hot-sauce/compare/v2.12.0...v2.12.1) (2022-07-27)
+
+
+### 🐛 Bug Fixes
+
+* delete unwanted my votes link in navigation [#238](https://github.com/open-sauced/hot-sauce/issues/238) ([40418a8](https://github.com/open-sauced/hot-sauce/commit/40418a89d3ffefaaa235098833ee8cf2cad633db)), closes [#236](https://github.com/open-sauced/hot-sauce/issues/236)
+
+## [2.12.0](https://github.com/open-sauced/hot-sauce/compare/v2.11.1...v2.12.0) (2022-07-27)
+
+
+### 📝 Documentation
+
+* add section on auto loading types ([1f9494c](https://github.com/open-sauced/hot-sauce/commit/1f9494c13843fa36e46e20460af794d368ab97ee))
+
+
+### 🐛 Bug Fixes
+
+* correct typesync missing package lock ([dd037d5](https://github.com/open-sauced/hot-sauce/commit/dd037d51f5d44a4b5d76d0440d0de692013f6cec))
+
+### [2.11.1](https://github.com/open-sauced/hot-sauce/compare/v2.11.0...v2.11.1) (2022-07-27)
+
+
+### 🧑‍💻 Code Refactoring
+
+* replace useDebounce function with rooks ([#241](https://github.com/open-sauced/hot-sauce/issues/241)) ([c065d5a](https://github.com/open-sauced/hot-sauce/commit/c065d5af4e7d2149767e1038ab6c6d853e6d7a96)), closes [#228](https://github.com/open-sauced/hot-sauce/issues/228)
+
+## [2.11.0](https://github.com/open-sauced/hot-sauce/compare/v2.10.1...v2.11.0) (2022-07-26)
+
+
+### 🧑‍💻 Code Refactoring
+
+* adjust tailwind variables to rem values ([804de3e](https://github.com/open-sauced/hot-sauce/commit/804de3e5d2aa3a4e0b839b5dec5759dda204565e))
+* correct some ignored tooling rules ([095091c](https://github.com/open-sauced/hot-sauce/commit/095091c0696398b6551f08de995c5ab7214ac46b))
+
+
+### 🐛 Bug Fixes
+
+* Add User interface from the Supabase library ([#231](https://github.com/open-sauced/hot-sauce/issues/231)) ([a7b31d8](https://github.com/open-sauced/hot-sauce/commit/a7b31d8a04e7277662795bbfccbb23fbfcf4f695))
+* adjust font loading to veet standards ([6f1daf0](https://github.com/open-sauced/hot-sauce/commit/6f1daf0aaf1d8d79c78f8be554283b4570f683de)), closes [#225](https://github.com/open-sauced/hot-sauce/issues/225)
+* remove data printed in console log [#226](https://github.com/open-sauced/hot-sauce/issues/226) ([18d2150](https://github.com/open-sauced/hot-sauce/commit/18d21502ef09a4109126e6150489d518e3f99df9)), closes [#222](https://github.com/open-sauced/hot-sauce/issues/222)
+* remove extraneous assets from public folder ([eb32985](https://github.com/open-sauced/hot-sauce/commit/eb3298550e8b9c74594700ef7a49467602b50418)), closes [#214](https://github.com/open-sauced/hot-sauce/issues/214)
+* unify primary mobile and desktop navigation and fix transitions ([d35ad2f](https://github.com/open-sauced/hot-sauce/commit/d35ad2f904a2acd0a01dc73f034f1636b2252343)), closes [#224](https://github.com/open-sauced/hot-sauce/issues/224)
+
+
+### 🍕 Features
+
+* add netlify redirects configuration for static files ([#219](https://github.com/open-sauced/hot-sauce/issues/219)) ([b076ab8](https://github.com/open-sauced/hot-sauce/commit/b076ab88cf3b6de2908799c88a8a4a925a937cf1))
+* hot repository section ([#216](https://github.com/open-sauced/hot-sauce/issues/216)) ([7bd3046](https://github.com/open-sauced/hot-sauce/commit/7bd3046e64e8a8184a103107c7f1839d7c4cf1db))
+* implement new header hero component ([#215](https://github.com/open-sauced/hot-sauce/issues/215)) ([f121278](https://github.com/open-sauced/hot-sauce/commit/f121278e29eb15ab0ecc808a97e70fc3341e6655)), closes [#200](https://github.com/open-sauced/hot-sauce/issues/200)
+* UI v3 nav ([#210](https://github.com/open-sauced/hot-sauce/issues/210)) ([7a8a003](https://github.com/open-sauced/hot-sauce/commit/7a8a003b2f5c2a2d405e05a0747de16088aa08ec))
+
 ## [2.11.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.11.0-beta.7...v2.11.0-beta.8) (2022-07-26)
 
 

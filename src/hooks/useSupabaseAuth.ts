@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
-import {User} from "@supabase/supabase-js";
-import {UserCredentials} from "@supabase/gotrue-js/src/lib/types";
+import { useState, useEffect } from "react";
+import { supabase } from "../lib/supabase";
+import { User } from "@supabase/supabase-js";
+import { UserCredentials } from "@supabase/gotrue-js/src/lib/types";
 
 const useSupabaseAuth = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -20,10 +20,10 @@ const useSupabaseAuth = () => {
   }, []);
 
   return {
-    signIn: (data: UserCredentials) => supabase.auth.signIn(data, {
+    signIn: async (data: UserCredentials) => supabase.auth.signIn(data, {
       redirectTo: import.meta.env.BASE_URL,
     }),
-    signOut: () => supabase.auth.signOut(),
+    signOut: async () => supabase.auth.signOut(),
     user,
   };
 };

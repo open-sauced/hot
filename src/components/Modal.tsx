@@ -1,24 +1,24 @@
-import React, {useState} from 'react';
-import {FaPizzaSlice, FaMedal} from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaPizzaSlice, FaMedal } from "react-icons/fa";
 
 function Modal() {
   const [isOpen, setIsOpen] = useState(false);
-  const show = isOpen ? 'block' : 'hidden';
+  const show = isOpen ? "block" : "hidden";
   const levels = [
     {
-      name: 'Bronze Level',
+      name: "Bronze Level",
       daysRequired: 3,
-      color: '#CD7F32'
+      color: "#CD7F32"
     },
     {
-      name: 'Silver Level',
+      name: "Silver Level",
       daysRequired: 4,
-      color: 'silver'
+      color: "silver"
     },
     {
-      name: 'Gold Level',
+      name: "Gold Level",
       daysRequired: 6,
-      color: 'gold'
+      color: "gold"
     }
   ];
 
@@ -52,7 +52,7 @@ function Modal() {
             </div>
 
             <div className=" flex flex-col w-full">
-              {levels.map(({name, daysRequired, color}) => (
+              {levels.map(({ name, daysRequired, color }) => (
                 <div className="flex mb-4" key={`level-${name}`}>
                   <div className="text-2xl mr-5">
                     <FaMedal color={color}/>

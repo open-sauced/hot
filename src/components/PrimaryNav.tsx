@@ -1,14 +1,14 @@
 import React from "react";
 import openSaucedLogo from "../assets/openSauced.svg";
-import {Menu, Transition} from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { capturePostHogAnayltics } from "../lib/analytics";
-import { GiHamburgerMenu } from "react-icons/gi"
+import { GiHamburgerMenu } from "react-icons/gi";
 import { version } from "../../package.json";
 
-const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+"
+const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
 const PrimaryNav = (): JSX.Element => {
-  const {signIn, signOut, user} = useSupabaseAuth();
+  const { signIn, signOut, user } = useSupabaseAuth();
 
   return (
     <header>
@@ -49,23 +49,23 @@ const PrimaryNav = (): JSX.Element => {
                 className="z-40 absolute right-0 top-10 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
 
                 <Menu.Item>
-                    <div className="flex items-center px-[8px] py-[10px] mb-[5px] gap-x-[10px]">
-                      <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
-                        <img
-                          className="w-full h-full"
-                          src={user.user_metadata.avatar_url}
-                          alt={user.user_metadata.user_name}
-                        />
-                      </div>
-                      <div className="flex-col shrink">
-                        <p className="text-osGrey text-xs font-semibold">{user.user_metadata.full_name}</p>
-                        <p className="text-gray-500 text-xs font-normal">{user.user_metadata.user_name}</p>
-                      </div>
+                  <div className="flex items-center px-[8px] py-[10px] mb-[5px] gap-x-[10px]">
+                    <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
+                      <img
+                        className="w-full h-full"
+                        src={user.user_metadata.avatar_url}
+                        alt={user.user_metadata.user_name}
+                      />
                     </div>
+                    <div className="flex-col shrink">
+                      <p className="text-osGrey text-xs font-semibold">{user.user_metadata.full_name}</p>
+                      <p className="text-gray-500 text-xs font-normal">{user.user_metadata.user_name}</p>
+                    </div>
+                  </div>
                 </Menu.Item>
 
                 <Menu.Item>
-                  {({active}) => (
+                  {({ active }) => (
                     <button
                       className={`${
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
@@ -77,7 +77,7 @@ const PrimaryNav = (): JSX.Element => {
                 </Menu.Item>
 
                 <Menu.Item>
-                  {({active}) => (
+                  {({ active }) => (
                     <a
                       href={bugReportLink}
                       target="_blank"
@@ -92,7 +92,7 @@ const PrimaryNav = (): JSX.Element => {
                 </Menu.Item>
 
                 <Menu.Item>
-                  {({active}) => (
+                  {({ active }) => (
                     <button
                       onClick={async () => {
                         await signOut();
@@ -112,7 +112,7 @@ const PrimaryNav = (): JSX.Element => {
           <button
             onClick={async () => {
               capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
-              await signIn({provider: "github"});
+              await signIn({ provider: "github" });
             }}
             className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white"
           >

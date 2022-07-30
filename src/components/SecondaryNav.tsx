@@ -2,10 +2,10 @@ import React from "react";
 import { User } from "@supabase/supabase-js";
 import { Link } from "react-router-dom";
 
-export declare interface SecondaryNavProps {
+export declare type SecondaryNavProps = {
   activeLink: string | null;
   user: User | null;
-}
+};
 
 const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
   const links = [

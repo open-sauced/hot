@@ -2,13 +2,13 @@ import React from "react";
 import PostGrid from "./PostGrid";
 import { User } from "@supabase/supabase-js";
 
-export declare interface GridDisplayProps {
+export declare type GridDisplayProps = {
   activeLink: string | null;
   limit: number;
   handleLoadingMore: () => void;
   fetchedData: DbRecomendation[];
   user: User | null;
-}
+};
 
 const GridDisplay = ({ activeLink, limit, handleLoadingMore, fetchedData, user }: GridDisplayProps): JSX.Element => (
   <div>

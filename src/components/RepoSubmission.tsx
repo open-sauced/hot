@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { User } from "@supabase/supabase-js";
-export declare interface RepoSubmissionProps {
+export declare type RepoSubmissionProps = {
   user: User | null;
-}
+};
 
 const RepoSubmission = ({ user }: RepoSubmissionProps) => {
   const [buttonPlaceHolder, setButtonPlaceHolder] = useState("Submit repo?");

@@ -7,16 +7,15 @@ import { RiCheckboxCircleFill } from "react-icons/ri";
 import hotIcon from "../assets/hotIcon.png";
 import { User } from "@supabase/supabase-js";
 import { capturePostHogAnayltics } from "../lib/analytics";
-import { updateVotesByRepo } from "../lib/supabase";
+import { updateVotesByRepo , fetchRecommendations } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import { fetchRecommendations } from "../lib/supabase";
 import Avatar from "./Avatar";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
 
-export declare interface HotReposProps {
+export declare type HotReposProps = {
   user: User | null;
-}
+};
 
 const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const {
@@ -43,10 +42,10 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     const hotRepos: DbRecomendation[] = [];
 
     [
-      'oven-sh/bun',
-      'pocketbase/pocketbase',
-      'open-sauced/hot',
-    ].forEach((repo) => fetchRecommendations('popular', 1, user, repo)
+      "oven-sh/bun",
+      "pocketbase/pocketbase",
+      "open-sauced/hot",
+    ].forEach(async (repo) => fetchRecommendations("popular", 1, user, repo)
       .then((data) => {
         hotRepos.push(...data);
       }));
@@ -78,14 +77,14 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
               {/* header & upvote button */}
               <div className="flex justify-between w-full">
                 <div className="flex space-x-1 items-center">
-                  <img src={getAvatarLink(full_name.replace(`/${name}`, ''))} alt="Hot Repo Icon" className="h-4 w-4 rounded-md overflow-hidden" />
-                  <span className="text-xs text-gray-400">{full_name.replace(`/${name}`, '')}</span>
+                  <img src={getAvatarLink(full_name.replace(`/${name}`, ""))} alt="Hot Repo Icon" className="h-4 w-4 rounded-md overflow-hidden" />
+                  <span className="text-xs text-gray-400">{full_name.replace(`/${name}`, "")}</span>
                 </div>
                 <button
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
                     checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-grey border-gray-500 "
                   }`}
-                  onClick={() => (user_id ? handleVoteUpdateByRepo(0, id) : signIn({ provider: "github" }))}
+                  onClick={async () => (user_id ? handleVoteUpdateByRepo(0, id) : signIn({ provider: "github" }))}
                 >
                   <span className="">{checkVoted(id) ? "voted" : "upvote"}</span>
                   {checkVoted(id) ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="" />}
@@ -96,7 +95,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 <a
                   href={`https://app.opensauced.pizza/repos/${full_name}`}
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
                   className="text-xl font-semibold"
                 >
                   {name}
@@ -124,11 +123,11 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 </div>
                 {/* Avatars */}
                 <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300">
-                  {contributions.slice(0, 5).map(({contributor, last_merged_at}) => (
-                      <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
-                        <Avatar contributor={contributor} lastPr={last_merged_at} />
-                      </div>
-                    ))}
+                  {contributions.slice(0, 5).map(({ contributor, last_merged_at }) => (
+                    <div className='w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300'>
+                      <Avatar contributor={contributor} lastPr={last_merged_at} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

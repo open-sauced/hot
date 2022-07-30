@@ -4,6 +4,6 @@ const locationsHash: { [index: string] : string | undefined } = {
   "/discussed": "discussed",
   "/recent": "recent",
   "/myVotes": "myVotes",
-}
+};
 
 export default locationsHash;

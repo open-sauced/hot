@@ -1,18 +1,18 @@
-import React from 'react';
-import PostList from './PostList';
+import React from "react";
+import PostList from "./PostList";
 import { User } from "@supabase/supabase-js";
-import { BsFillCalendar2Fill } from 'react-icons/bs';
+import { BsFillCalendar2Fill } from "react-icons/bs";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 
-export declare interface ListRepositoriesProps {
+export declare type ListRepositoriesProps = {
   activeLink: string | null;
   limit: number;
   handleLoadingMore: () => void;
   fetchedData: DbRecomendation[];
   user: User | null;
-}
+};
 
-const ListRepositories = ({activeLink, limit, handleLoadingMore, fetchedData, user}: ListRepositoriesProps): JSX.Element => (
+const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, user }: ListRepositoriesProps): JSX.Element => (
   <div className="mx-auto max-w-7xl px-[16px] mt-[40px]">
     <div className='flex flex-col gap-y-[20px]'>
       <div className='flex items-center gap-x-[10px]'>
@@ -32,7 +32,7 @@ const ListRepositories = ({activeLink, limit, handleLoadingMore, fetchedData, us
 
     {
       fetchedData.length > 0
-        && activeLink !== 'myVotes'
+        && activeLink !== "myVotes"
         && limit <= 100
         &&
         <div className='flex justify-center'>

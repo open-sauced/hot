@@ -1,13 +1,13 @@
-import React from 'react';
-import { FaThLarge, FaThList } from 'react-icons/fa';
+import React from "react";
+import { FaThLarge, FaThList } from "react-icons/fa";
 
-export declare interface LayoutToggleProps {
+export declare type LayoutToggleProps = {
   gridState: boolean;
   setGridState: (state: boolean) => void;
-}
+};
 
 const LayoutToggle = ({ gridState, setGridState }: LayoutToggleProps): JSX.Element => {
-  const position = gridState ? 'left-0' : 'right-0';
+  const position = gridState ? "left-0" : "right-0";
 
   return (
     <div className="bg-darkestGrey pt-4 md:pt-4 pb-5">
@@ -30,6 +30,6 @@ const LayoutToggle = ({ gridState, setGridState }: LayoutToggleProps): JSX.Eleme
       </div>
     </div>
   );
-}
+};
 
 export default LayoutToggle;

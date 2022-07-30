@@ -7,9 +7,9 @@ import locationsHash from "../lib/locationsHash";
 import { useLocation, useSearchParams } from "react-router-dom";
 import HotRepositories from "./HotRepositories";
 
-interface PostWrapProps {
+type PostWrapProps = {
   textToSearch: string;
-}
+};
 
 const parseLimitValue = (limit: string | null): number => {
   if (!limit) {

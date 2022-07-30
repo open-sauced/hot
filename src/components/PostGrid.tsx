@@ -7,10 +7,10 @@ import { User } from "@supabase/supabase-js";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { capturePostHogAnayltics } from "../lib/analytics";
 
-export declare interface PostGridProps {
+export declare type PostGridProps = {
   data: DbRecomendation;
   user: User | null;
-}
+};
 
 const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const {
@@ -46,7 +46,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
 
         <div className="flex">
           <button
-            onClick={() => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
+            onClick={async () => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
             className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"
           >
             <FaArrowAltCircleUp aria-hidden="true" />
@@ -60,7 +60,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
         href={getRepoLink(data.full_name)}
         title={`Visit ${data.full_name}`}
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <img
           className="object-cover w-full"

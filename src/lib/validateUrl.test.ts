@@ -1,5 +1,5 @@
-import isValidRepoUrl from './validateUrl';
-import { describe, test, expect } from 'vitest'
+import isValidRepoUrl from "./validateUrl";
+import { describe, test, expect } from "vitest";
 
 describe("Test: isValidRepoUrl()", () => {
   const repoName = "repo_name";
@@ -13,78 +13,78 @@ describe("Test: isValidRepoUrl()", () => {
   const invalidRepoName = "www.google.com";
   test(`repo-url '${baseUrl}${ownerName}/${repoName}' should pass`, () => {
     const repoUrl = `${baseUrl}${ownerName}/${repoName}`;
-    const {isValid, sanitizedUrl} = isValidRepoUrl(repoUrl);
+    const { isValid, sanitizedUrl } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(true);
     expect(sanitizedUrl).toBe(`${ownerName}/${repoName}`.toLowerCase());
   });
   test(`repo-url '${baseSecureUrl}${ownerName}/${repoName}' should pass`, () => {
     const repoUrl = `${baseSecureUrl}${ownerName}/${repoName}`;
-    const {isValid, sanitizedUrl} = isValidRepoUrl(repoUrl);
+    const { isValid, sanitizedUrl } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(true);
 
     expect(sanitizedUrl).toBe(`${ownerName}/${repoName}`.toLowerCase());
   });
   test(`repo-url '${baseFullUrl}${ownerName}/${repoName}' should pass`, () => {
     const repoUrl = `${baseUrl}${ownerName}/${repoName}`;
-    const {isValid, sanitizedUrl} = isValidRepoUrl(repoUrl);
+    const { isValid, sanitizedUrl } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(true);
     expect(sanitizedUrl).toBe(`${ownerName}/${repoName}`.toLowerCase());
   });
   test(`repo-url '${baseFullSecureUrl}${ownerName}/${repoName}' should pass`, () => {
     const repoUrl = `${baseSecureUrl}${ownerName}/${repoName}`;
-    const {isValid, sanitizedUrl} = isValidRepoUrl(repoUrl);
+    const { isValid, sanitizedUrl } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(true);
 
     expect(sanitizedUrl).toBe(`${ownerName}/${repoName}`.toLowerCase());
   });
   test(`repo-url '${baseUrl}${ownerName}' should fail`, () => {
     const repoUrl = `${baseUrl}${ownerName}`;
-    const {isValid} = isValidRepoUrl(repoUrl);
+    const { isValid } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(false);
   });
   test(`repo-url '${typoUrl}${ownerName}' should fail`, () => {
     const repoUrl = `${typoUrl}${ownerName}`;
-    const {isValid} = isValidRepoUrl(repoUrl);
+    const { isValid } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(false);
   });
   test(`repo-url '${typoSecureUrl}${ownerName}' should fail`, () => {
     const repoUrl = `${typoSecureUrl}${ownerName}`;
-    const {isValid} = isValidRepoUrl(repoUrl);
+    const { isValid } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(false);
   });
   test(`repo-url '${baseUrl}${ownerName}' should fail`, () => {
     const repoUrl = `${baseUrl}${ownerName}`;
-    const {isValid} = isValidRepoUrl(repoUrl);
+    const { isValid } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(false);
   });
   test(`repo-url '${invalidRepoName}/${ownerName}' should fail`, () => {
     const repoUrl = `${invalidRepoName}/${ownerName}`;
-    const {isValid} = isValidRepoUrl(repoUrl);
+    const { isValid } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(false);
   });
   test(`repo-url 'http://${invalidRepoName}/${ownerName}' should fail`, () => {
     const repoUrl = `http://${invalidRepoName}/${ownerName}`;
-    const {isValid} = isValidRepoUrl(repoUrl);
+    const { isValid } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(false);
   });
   test(`repo-url '${ownerName}/${repoName}' should paas`, () => {
     const repoUrl = `${ownerName}/${repoName}`;
-    const {isValid, sanitizedUrl} = isValidRepoUrl(repoUrl);
+    const { isValid, sanitizedUrl } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(true);
     expect(sanitizedUrl).toBe(`${ownerName}/${repoName}`);
   });
   test(`repo-url '/${ownerName}/${repoName}' should paas`, () => {
     const repoUrl = `/${ownerName}/${repoName}`;
-    const {isValid, sanitizedUrl} = isValidRepoUrl(repoUrl);
+    const { isValid, sanitizedUrl } = isValidRepoUrl(repoUrl);
     expect(isValid).toBe(true);
     expect(sanitizedUrl).toBe(`${ownerName}/${repoName}`);
   });
   test(`repo-url '${repoName}' should fail`, () => {
-    const {isValid} = isValidRepoUrl(repoName);
+    const { isValid } = isValidRepoUrl(repoName);
     expect(isValid).toBe(false);
   });
   test(`repo-url '${ownerName}' should fail`, () => {
-    const {isValid} = isValidRepoUrl(ownerName);
+    const { isValid } = isValidRepoUrl(ownerName);
     expect(isValid).toBe(false);
   });
   test("Case insensitive test", () => {

@@ -175,6 +175,8 @@ module.exports = {
     "func-call-spacing": ["error", "never"],
     "function-call-argument-newline": ["error", "consistent"],
     "function-paren-newline": ["error", "multiline-arguments"],
+    "indent": ["error", 2],
+    "jsx-quotes": ["error", "prefer-double"],
   },
   settings: {
     "react": {

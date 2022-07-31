@@ -1,4 +1,3 @@
-import React from "react";
 import { getAvatarLink, getProfileLink } from "../lib/github";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import cx from "classnames";

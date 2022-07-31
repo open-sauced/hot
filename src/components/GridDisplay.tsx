@@ -1,4 +1,3 @@
-import React from "react";
 import PostGrid from "./PostGrid";
 import { User } from "@supabase/supabase-js";
 

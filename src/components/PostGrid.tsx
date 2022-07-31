@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Avatar from "./Avatar";
 import { updateVotesByRepo } from "../lib/supabase";
 import { getRepoLink } from "../lib/github";

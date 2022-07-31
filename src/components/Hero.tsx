@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import searchNormal from "../assets/searchNormal.svg";
 import cmdKIcon from "../assets/cmdK.svg";
 import { fetchRecommendations } from "../lib/supabase";

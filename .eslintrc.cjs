@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: [
     "import",
+    "react",
     "react-hooks",
     "jsx-a11y",
     "@typescript-eslint/eslint-plugin",
@@ -22,14 +23,15 @@ module.exports = {
   ],
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:no-use-extend-native/recommended",
     "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
+    "plugin:react/jsx-runtime",
   ],
   root: true,
   env: {
@@ -72,27 +74,7 @@ module.exports = {
     "semi": "off",
     "@typescript-eslint/semi": ["error"],
     "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
-    // "node/no-missing-import": [
-    //   "error",
-    //   {
-    //     "allowModules": [],
-    //     "resolvePaths": [
-    //       "./src"
-    //     ],
-    //     "tryExtensions": [
-    //       ".js",
-    //       ".ts",
-    //     ]
-    //   }
-    // ],
-    // "node/no-unsupported-features/es-syntax": "off",
-    // "node/no-process-exit": "error",
-    // "node/no-path-concat": "error",
-    // "node/no-new-require": "error",
-    // "node/no-callback-literal": "error",
-    // "node/handle-callback-err": "error",
     "no-loops/no-loops": "error",
-    // "node/no-sync": "error",
     "no-async-promise-executor": "error",
     "no-await-in-loop": "error",
     "no-promise-executor-return": "error",

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import SecondaryNav from "./SecondaryNav";
 import ListRepositories from "./ListRepositories";
 import { fetchRecommendations } from "../lib/supabase";

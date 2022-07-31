@@ -1,4 +1,3 @@
-import React from "react";
 import { FaThLarge, FaThList } from "react-icons/fa";
 
 export declare interface LayoutToggleProps {

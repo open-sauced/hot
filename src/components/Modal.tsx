@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaPizzaSlice, FaMedal } from "react-icons/fa";
 
 function Modal() {

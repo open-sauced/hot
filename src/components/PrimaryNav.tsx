@@ -1,4 +1,3 @@
-import React from "react";
 import openSaucedLogo from "../assets/openSauced.svg";
 import { Menu, Transition } from "@headlessui/react";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";

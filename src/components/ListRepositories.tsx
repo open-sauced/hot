@@ -1,4 +1,3 @@
-import React from "react";
 import PostList from "./PostList";
 import { User } from "@supabase/supabase-js";
 import { BsFillCalendar2Fill } from "react-icons/bs";

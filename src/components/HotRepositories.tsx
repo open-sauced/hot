@@ -62,7 +62,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    const promises: Promise<DbRecomendation>[] = [];
+    const promises: Promise<DbRecomendation | void>[] = [];
 
     staticHot.forEach((repo) => promises.push(fetchHotData(repo)));
 

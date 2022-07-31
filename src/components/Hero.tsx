@@ -64,7 +64,7 @@ const Hero = () => {
               setFocus(false);
             }, 200)
           }
-          onChange={(e) => setValueDebounced(e.target.value)}
+          onChange={e => setValueDebounced(e.target.value)}
           type="text"
           placeholder="Search repositories"
           className="w-full outline-none text-base text-lightSlate"

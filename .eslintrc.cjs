@@ -72,7 +72,7 @@ module.exports = {
     "object-curly-spacing": "off",
     "@typescript-eslint/object-curly-spacing": ["error", "always"],
     "semi": "off",
-    "@typescript-eslint/semi": ["error"],
+    "@typescript-eslint/semi": "error",
     "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     "no-loops/no-loops": "error",
     "no-async-promise-executor": "error",
@@ -104,20 +104,28 @@ module.exports = {
     "multiline-comment-style": ["error", "starred-block"],
     "no-confusing-arrow": "error",
     "no-div-regex": "error",
-    "no-else-return": ["error", { "allowElseIf": false }],
+    "no-else-return": ["error", {
+      "allowElseIf": false
+    }],
     "no-extra-bind": "error",
-    "no-extra-boolean-cast": ["error", { "enforceForLogicalOperands": true }],
+    "no-extra-boolean-cast": ["error", {
+      "enforceForLogicalOperands": true
+    }],
     "no-extra-label": "error",
     "no-floating-decimal": "error",
-    "no-implicit-coercion": ["error", { "allow": ["!!"] }],
+    "no-implicit-coercion": ["error", {
+      "allow": ["!!"]
+    }],
     "no-lonely-if": "error",
     "no-undef-init": "error",
     "no-unneeded-ternary": "error",
-    "no-useless-computed-key": ["error", {"enforceForClassMembers": true}],
+    "no-useless-computed-key": ["error", {
+      "enforceForClassMembers": true
+    }],
     "no-useless-rename": "error",
     "no-useless-return": "error",
     "no-var": "error",
-    "object-shorthand": ["error"],
+    "object-shorthand": "error",
     "one-var": ["error", "never"],
     "one-var-declaration-per-line": ["error", "always"],
     "operator-assignment": ["error", "always"],
@@ -140,6 +148,33 @@ module.exports = {
     "prefer-object-spread": "error",
     "prefer-template": "error",
     "quote-props": ["error", "as-needed"],
+    "sort-vars": "error",
+    "spaced-comment": ["error", "always"],
+    "strict": ["error", "never"],
+    "yoda": ["error", "never", {
+      "onlyEquality": true
+    }],
+    "array-bracket-newline": ["error", "consistent"],
+    "array-bracket-spacing": ["error", "never", {
+      "arraysInArrays": true
+    }],
+    "array-element-newline": ["error", "consistent"],
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-spacing": "error",
+    "block-spacing": ["error", "always"],
+    "brace-style": ["error", "1tbs"],
+    "comma-dangle": ["error", "always-multiline"],
+    "comma-spacing": ["error", {
+      "before": false,
+      "after": true
+    }],
+    "comma-style": ["error", "last"],
+    "computed-property-spacing": ["error", "never"],
+    "dot-location": ["error", "property"],
+    "eol-last": ["error", "always"],
+    "func-call-spacing": ["error", "never"],
+    "function-call-argument-newline": ["error", "consistent"],
+    "function-paren-newline": ["error", "multiline-arguments"],
   },
   settings: {
     "react": {

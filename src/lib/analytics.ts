@@ -1,13 +1,14 @@
 import posthog from "posthog-js";
 
 function initiatePostHog () {
-  posthog.init(import.meta.env.VITE_POSTHOG_ID , { api_host: "https://app.posthog.com" });
+  posthog.init(import.meta.env.VITE_POSTHOG_ID, { api_host: "https://app.posthog.com" });
   
 }
 
-function capturePostHogAnayltics ( analyticsTitle: string,
+function capturePostHogAnayltics (
+  analyticsTitle: string,
   analyticsProperty: string,
-  analyticsValue: string
+  analyticsValue: string,
 ) {
   const analyticsObject: { [key: string]: string } = {};
   analyticsObject[analyticsProperty] = analyticsValue;
@@ -19,5 +20,5 @@ function capturePostHogAnayltics ( analyticsTitle: string,
 
 export {
   initiatePostHog,
-  capturePostHogAnayltics
+  capturePostHogAnayltics,
 };

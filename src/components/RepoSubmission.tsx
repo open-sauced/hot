@@ -59,8 +59,10 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
   };
 
   // listening outside focus
-  document.querySelector(".App")?.addEventListener("click", (e) => {
-    if (isSubmissionInProcess) {return;}
+  document.querySelector(".App")?.addEventListener("click", e => {
+    if (isSubmissionInProcess) {
+      return; 
+    }
 
     if (!document.querySelector(".submission-form")?.contains(e.target as unknown as Node)) {
       setIsFormOpen(false);
@@ -77,7 +79,7 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
           <h6 className=" text-lg mb-[8px] text-gray-700 font-medium ">Suggest Repository</h6>
           <p className=" text-xs mb-[5px] text-gray-500 font-medium ">Repository URL</p>
           <input
-            onChange={(e) => setInput(e.target.value)}
+            onChange={e => setInput(e.target.value)}
             className="bg-gray-200 py-[4px] w-full px-[10px] rounded-md outline-yellow-300 text-gray-500 text-xs  "
             type="text"
             placeholder="https://github.com/open-sauced/hot"

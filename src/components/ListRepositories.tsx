@@ -24,8 +24,7 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, u
             user={user}
             data={item}
             key={`${item.full_name}_${i}`}
-          />
-        )
+          />)
       }
     </div>
 

@@ -25,7 +25,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
     description,
     stars,
     issues,
-    contributions
+    contributions,
   } = data;
 
   const [votes, updateVotesState] = useState(votesCount || 0);

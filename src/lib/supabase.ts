@@ -2,7 +2,8 @@ import { User, createClient } from "@supabase/supabase-js";
 
 export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_API_KEY);
+  import.meta.env.VITE_SUPABASE_API_KEY,
+);
 
 export async function authenticatedVote(user_id: number, repo_id: number) {
   const { error, count } = await supabase
@@ -16,7 +17,7 @@ export async function authenticatedVote(user_id: number, repo_id: number) {
       .from("users_to_repos_votes")
       .upsert({
         user_id,
-        repo_id
+        repo_id,
       });
 
     return 1;

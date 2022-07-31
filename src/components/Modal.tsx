@@ -8,18 +8,18 @@ function Modal() {
     {
       name: "Bronze Level",
       daysRequired: 3,
-      color: "#CD7F32"
+      color: "#CD7F32",
     },
     {
       name: "Silver Level",
       daysRequired: 4,
-      color: "silver"
+      color: "silver",
     },
     {
       name: "Gold Level",
       daysRequired: 6,
-      color: "gold"
-    }
+      color: "gold",
+    },
   ];
 
   return (

@@ -31,7 +31,7 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
         "max-w-md rounded-lg p-4 md:w-full",
         "bg-white dark:bg-gray-800",
         "focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75",
-        "items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] !opacity-100"
+        "items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] !opacity-100",
       )}
     >
       <HoverCardPrimitive.Arrow offset={12} className="fill-current text-white dark:text-gray-800" />
@@ -39,7 +39,7 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
       <div className="flex h-full w-full space-x-4">
         <div
           className={cx(
-            "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900"
+            "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900",
           )}
         >
           <a href={getProfileLink(contributor)} title={contributor} rel="noreferrer" target="_blank">

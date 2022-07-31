@@ -8,7 +8,7 @@ import { User } from "@supabase/supabase-js";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
-import { fetchRecommendations , updateVotesByRepo } from "../lib/supabase";
+import { fetchRecommendations, updateVotesByRepo } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import Avatar from "./Avatar";
 import hotIcon from "../assets/hotIcon.png";
@@ -34,7 +34,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const handleVoted = (repo_id: number) => {
     const hasVoted = checkVoted(repo_id);
     if (hasVoted) {
-      setVotedReposIds(votedReposIds.filter((id) => id !== repo_id));
+      setVotedReposIds(votedReposIds.filter(id => id !== repo_id));
     } else {
       setVotedReposIds([...votedReposIds, repo_id]);
     }
@@ -42,34 +42,36 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
   const checkVoted = (repo_id: number) => votedReposIds.includes(repo_id);
 
-  const fetchHotData = useCallback(async (repo: string) =>
-    fetchRecommendations("popular", 1, user, repo)
-      .then((data) => {
-        if (data[0]) {
-          return data[0];
-        }
+  const fetchHotData = useCallback(
+    async (repo: string) =>
+      fetchRecommendations("popular", 1, user, repo)
+        .then(data => {
+          if (data[0]) {
+            return data[0];
+          }
 
-        throw new Error(`Unable to fetch ${repo}`);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  , []);
+          throw new Error(`Unable to fetch ${repo}`);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    , [],
+  );
 
   const fetchVotedData = useCallback(async () => {
     const data = await fetchRecommendations("myVotes", 1000, user, "");
-    setVotedReposIds(data.map((repo) => repo.id));
+    setVotedReposIds(data.map(repo => repo.id));
   }, []);
 
   useEffect(() => {
     const promises: Promise<DbRecomendation | void>[] = [];
 
-    staticHot.forEach((repo) => promises.push(fetchHotData(repo)));
+    staticHot.forEach(repo => promises.push(fetchHotData(repo)));
 
     Promise.allSettled(promises)
       .then(data => {
-        const newHots = (data.filter((d) => d.status === "fulfilled") as PromiseFulfilledResult<DbRecomendation>[])
-          .map((d) => d.value);
+        const newHots = (data.filter(d => d.status === "fulfilled") as PromiseFulfilledResult<DbRecomendation>[])
+          .map(d => d.value);
 
 
         return setHotRepos(newHots);
@@ -160,7 +162,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 </div>
               </div>
             </div>
-          )
+          ),
         )}
       </div>
     </div>

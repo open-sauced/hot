@@ -26,6 +26,7 @@ const Hero = () => {
       searchBoxRef.current && searchBoxRef.current.blur();
       setFocus(false);
     }
+
     // prevent browser from handling CMD/CTRL + K
     e.preventDefault();
   };

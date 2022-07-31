@@ -66,7 +66,7 @@ module.exports = {
       "double",
       {
         "avoidEscape": true,
-        "allowTemplateLiterals": true
+        "allowTemplateLiterals": true,
       }
     ],
     "object-curly-spacing": "off",
@@ -85,7 +85,7 @@ module.exports = {
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/no-floating-promises": "error",
     "@typescript-eslint/no-misused-promises": ["error", {
-      "checksVoidReturn": false
+      "checksVoidReturn": false,
     }],
     "@typescript-eslint/promise-function-async": "error",
 
@@ -95,7 +95,7 @@ module.exports = {
       "never",
       {
         "ignorePattern": "pragma|ignored",
-        "ignoreInlineComments": true
+        "ignoreInlineComments": true,
       }
     ],
     "curly": ["error", "all"],
@@ -105,11 +105,11 @@ module.exports = {
     "no-confusing-arrow": "error",
     "no-div-regex": "error",
     "no-else-return": ["error", {
-      "allowElseIf": false
+      "allowElseIf": false,
     }],
     "no-extra-bind": "error",
     "no-extra-boolean-cast": ["error", {
-      "enforceForLogicalOperands": true
+      "enforceForLogicalOperands": true,
     }],
     "no-extra-label": "error",
     "no-floating-decimal": "error",
@@ -120,7 +120,7 @@ module.exports = {
     "no-undef-init": "error",
     "no-unneeded-ternary": "error",
     "no-useless-computed-key": ["error", {
-      "enforceForClassMembers": true
+      "enforceForClassMembers": true,
     }],
     "no-useless-rename": "error",
     "no-useless-return": "error",
@@ -134,14 +134,14 @@ module.exports = {
     "prefer-destructuring": ["error", {
       "VariableDeclarator": {
         "array": false,
-        "object": true
+        "object": true,
       },
       "AssignmentExpression": {
         "array": true,
-        "object": true
+        "object": true,
       }
     }, {
-      "enforceForRenamedProperties": false
+      "enforceForRenamedProperties": false,
     }],
     "prefer-exponentiation-operator": "error",
     "prefer-object-has-own": "error",
@@ -152,11 +152,11 @@ module.exports = {
     "spaced-comment": ["error", "always"],
     "strict": ["error", "never"],
     "yoda": ["error", "never", {
-      "onlyEquality": true
+      "onlyEquality": true,
     }],
     "array-bracket-newline": ["error", "consistent"],
     "array-bracket-spacing": ["error", "never", {
-      "arraysInArrays": true
+      "arraysInArrays": true,
     }],
     "array-element-newline": ["error", "consistent"],
     "arrow-parens": ["error", "as-needed"],
@@ -166,7 +166,7 @@ module.exports = {
     "comma-dangle": ["error", "always-multiline"],
     "comma-spacing": ["error", {
       "before": false,
-      "after": true
+      "after": true,
     }],
     "comma-style": ["error", "last"],
     "computed-property-spacing": ["error", "never"],
@@ -177,6 +177,44 @@ module.exports = {
     "function-paren-newline": ["error", "multiline-arguments"],
     "indent": ["error", 2],
     "jsx-quotes": ["error", "prefer-double"],
+    "key-spacing": ["error", {
+        "beforeColon": false,
+        "afterColon": true,
+    }],
+    "keyword-spacing": ["error", {
+      "before": true,
+      "after": true,
+    }],
+    "line-comment-position": ["error", {
+      "position": "above",
+      "ignorePattern": "pragma",
+      "applyDefaultIgnorePatterns": false,
+    }],
+    "linebreak-style": ["error", "unix"],
+    "lines-around-comment": ["error", {
+      "beforeBlockComment": true,
+      "afterBlockComment": true,
+      "beforeLineComment": true,
+      "allowBlockStart": true,
+      "allowBlockEnd": false,
+      "allowClassStart": true,
+      "allowObjectStart": true,
+      "allowObjectEnd": false,
+      "allowArrayStart": false,
+      "allowArrayEnd": false,
+      "applyDefaultIgnorePatterns": false,
+    }],
+    "lines-between-class-members": ["error", "always", {
+      "exceptAfterSingleLine": true,
+    }],
+    "multiline-ternary": ["error", "always-multiline"],
+    "new-parens": ["error", "never"],
+    "newline-per-chained-call": ["error", {
+      "ignoreChainWithDepth": 2,
+    }],
+    "no-extra-parens": ["error", "all", {
+      "ignoreJSX": "all",
+    }],
   },
   settings: {
     "react": {

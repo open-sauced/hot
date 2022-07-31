@@ -14,7 +14,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
 
 export declare interface HotReposProps {
-  user?: User | null;
+  user?: User;
 }
 
 const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
@@ -59,10 +59,8 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     staticHot.forEach((repo) => promises.push(fetchHotData(repo)));
 
     Promise.all(promises)
-      .then((data) => {
-        console.log(data);
-        return setHotRepos(data);
-      })
+      .then((data) =>
+        setHotRepos(data))
       .catch(console.error);
 
     fetchVotedData()
@@ -70,10 +68,12 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   }, []);
 
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
-    if (typeof(user_id) == "number") {
+    const checkUserId = parseInt(String(user_id));
+
+    if (typeof(checkUserId) == "number" && checkUserId !== 0) {
       capturePostHogAnayltics("User voted", "voteClick", "true");
 
-      await updateVotesByRepo(votes, repo_id, user_id);
+      await updateVotesByRepo(votes, repo_id, checkUserId);
       handleVoted(repo_id);
     } else {
       console.log("You must be signed in to vote");

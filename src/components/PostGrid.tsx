@@ -25,10 +25,12 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const { signIn } = useSupabaseAuth();
 
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
-    if (typeof(user_id) == "number") {
+    const checkUserId = parseInt(String(user_id));
+
+    if (typeof(checkUserId) == "number" && checkUserId !== 0) {
       capturePostHogAnayltics("User voted", "voteClick", "true");
 
-      const updatedVotes = await updateVotesByRepo(votes, repo_id, user_id);
+      const updatedVotes = await updateVotesByRepo(votes, repo_id, checkUserId);
       updateVotesState(updatedVotes);
     } else {
       console.log("You must be signed in to vote");

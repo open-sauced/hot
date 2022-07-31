@@ -16,6 +16,7 @@ const parseLimitValue = (limit: string | null): number => {
     return 25;
   }
   const value = parseInt(limit);
+
   if (isNaN(value) || value <= 0) {
     return 25;
   }
@@ -40,6 +41,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
 
   const fetchData = useCallback(async () => {
     const data = await fetchRecommendations(activeLink, limit, user, textToSearch);
+
     setFetchedData(data);
   }, []);
 

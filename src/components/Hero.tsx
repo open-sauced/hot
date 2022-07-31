@@ -21,6 +21,7 @@ const Hero = () => {
       searchBoxRef.current && searchBoxRef.current.focus();
       setFocus(true);
       const results = await fetchRecommendations("stars", 3, null, searchTerm);
+
       setFetchedData(results);
     } else {
       searchBoxRef.current && searchBoxRef.current.blur();
@@ -37,6 +38,7 @@ const Hero = () => {
 
   useDidUpdate(async () => {
     const results = await fetchRecommendations("stars", 3, null, searchTerm);
+
     setFetchedData(results);
   }, [searchTerm]);
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaMedal, FaPizzaSlice } from "react-icons/fa";
 
-function Modal() {
+function Modal () {
   const [isOpen, setIsOpen] = useState(false);
   const show = isOpen ? "block" : "hidden";
   const levels = [

@@ -226,6 +226,57 @@ module.exports = {
     "object-property-newline": ["error", {
       "allowAllPropertiesOnSameLine": true,
     }],
+    "operator-linebreak": ["error", "after", {
+      "overrides": {
+        "?": "before",
+        ":": "before",
+      }
+    }],
+    "padded-blocks": ["error", "never"],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": ["const", "let", "var"],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"],
+      },
+    ],
+    "quotes": ["error", "double", {
+      "allowTemplateLiterals": true,
+    }],
+    "rest-spread-spacing": ["error", "never"],
+    "semi": ["error", "always", {
+      "omitLastInOneLineBlock": true,
+    }],
+    "semi-spacing": ["error", {
+      "before": false,
+      "after": true,
+    }],
+    "semi-style": ["error", "last"],
+    "space-before-blocks": ["error", "always"],
+    "space-before-function-paren": ["error", "always"],
+    "space-infix-ops": ["error", {
+      "int32Hint": false,
+    }],
+    "space-unary-ops": ["error", {
+      "words": true,
+      "nonwords": false,
+    }],
+    "switch-colon-spacing": ["error", {
+      "after": true,
+      "before": false,
+    }],
+    "template-curly-spacing": ["error", "never"],
+    "template-tag-spacing": ["error", "always"],
+    "unicode-bom": "error",
+    "wrap-iife": ["error", "inside", {
+      "functionPrototypeMethods": true,
+    }],
   },
   settings: {
     "react": {

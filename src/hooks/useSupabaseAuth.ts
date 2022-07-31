@@ -8,6 +8,7 @@ const useSupabaseAuth = () => {
 
   useEffect(() => {
     const currentUser = supabase.auth.session();
+
     setUser(currentUser?.user ?? undefined);
 
     const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {

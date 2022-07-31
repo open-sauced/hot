@@ -10,6 +10,7 @@ function capturePostHogAnayltics (
   analyticsValue: string,
 ) {
   const analyticsObject: { [key: string]: string } = {};
+
   analyticsObject[analyticsProperty] = analyticsValue;
 
   posthog.capture(analyticsTitle, analyticsObject);

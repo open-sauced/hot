@@ -25,6 +25,7 @@ const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
       title: "Recent",
     },
   ];
+
   user &&
     links.push({
       link: "myVotes",

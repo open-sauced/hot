@@ -3,13 +3,14 @@ export declare interface URLValidation {
   sanitizedUrl: string
 }
 
-function relativeUrlValidator(url: string) : URLValidation {
+function relativeUrlValidator (url: string) : URLValidation {
   try {
     const githubLink = "github.com/";
     const newUrl = `https://${githubLink}${url}`;
     const urlObject = new URL(newUrl);
 
     const [owner, repo] = url.split("/");
+
     if (!owner || !repo || !(urlObject.protocol === "http:" || urlObject.protocol === "https:")) {
       return {
         isValid: false,
@@ -28,7 +29,7 @@ function relativeUrlValidator(url: string) : URLValidation {
   }
 }
 
-function absoluteUrlValidator(url: string) : URLValidation{
+function absoluteUrlValidator (url: string) : URLValidation {
   try {
     const githubLink = "github.com/";
     const urlObject = new URL(url);
@@ -62,11 +63,12 @@ function absoluteUrlValidator(url: string) : URLValidation{
   }
 }
 
-export default function isValidRepoUrl(url: string) : URLValidation {
+export default function isValidRepoUrl (url: string) : URLValidation {
   const trimmedUrl = url.trim();
   const urlString = trimmedUrl.substr(0, 1) === "/" ? trimmedUrl.substr(1) : trimmedUrl;
 
   const isRelativeUrl = !(urlString.substr(0, 4) === "http" || urlString.includes(".com") || urlString.includes("www."));
+
   if (isRelativeUrl) {
     return relativeUrlValidator(urlString);
   }

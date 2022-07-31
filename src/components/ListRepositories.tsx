@@ -29,10 +29,9 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, u
     </div>
 
     {
-      fetchedData.length > 0
-        && activeLink !== "myVotes"
-        && limit <= 100
-        &&
+      fetchedData.length > 0 &&
+        activeLink !== "myVotes" &&
+        limit <= 100 &&
         <div className="flex justify-center">
           <button
             onClick={() => handleLoadingMore()}

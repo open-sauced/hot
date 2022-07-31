@@ -5,7 +5,7 @@ export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_API_KEY,
 );
 
-export async function authenticatedVote(user_id: number, repo_id: number) {
+export async function authenticatedVote (user_id: number, repo_id: number) {
   const { error, count } = await supabase
     .from("users_to_repos_votes")
     .select("count", { count: "exact" })
@@ -31,13 +31,13 @@ export async function authenticatedVote(user_id: number, repo_id: number) {
   return -1;
 }
 
-export async function updateVotesByRepo(votes: number, repo_id: number, user_id: number) {
+export async function updateVotesByRepo (votes: number, repo_id: number, user_id: number) {
   const modifier = await authenticatedVote(user_id, repo_id);
 
   return votes + modifier;
 }
 
-export async function fetchRecommendations(
+export async function fetchRecommendations (
   activeLink = "popular",
   limit = 25,
   user: User | null = null,

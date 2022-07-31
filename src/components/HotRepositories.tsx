@@ -31,6 +31,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   // this function is just a placeholder to help change the color and state of the selected button on the card.
   const handleVoted = (repo_id: number) => {
     const hasVoted = checkVoted(repo_id);
+
     if (hasVoted) {
       setVotedReposIds(votedReposIds.filter(id => id !== repo_id));
     } else {
@@ -58,6 +59,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
   const fetchVotedData = useCallback(async () => {
     const data = await fetchRecommendations("myVotes", 1000, user, "");
+
     setVotedReposIds(data.map(repo => repo.id));
   }, []);
 
@@ -80,10 +82,10 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
       .catch(console.error);
   }, []);
 
-  async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
+  async function handleVoteUpdateByRepo (votes: number, repo_id: number) {
     const checkUserId = parseInt(String(user_id));
 
-    if (typeof(checkUserId) === "number" && checkUserId !== 0) {
+    if (typeof checkUserId === "number" && checkUserId !== 0) {
       capturePostHogAnayltics("User voted", "voteClick", "true");
 
       await updateVotesByRepo(votes, repo_id, checkUserId);

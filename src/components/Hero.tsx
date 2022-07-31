@@ -31,13 +31,9 @@ const Hero = () => {
     e.preventDefault();
   };
 
-  useKeys(["ControlLeft", "KeyK"], handleCmdK, {
-    target: containerRef,
-  });
+  useKeys(["ControlLeft", "KeyK"], handleCmdK, { target: containerRef });
 
-  useKeys(["MetaLeft", "KeyK"], handleCmdK, {
-    target: containerRef,
-  });
+  useKeys(["MetaLeft", "KeyK"], handleCmdK, { target: containerRef });
 
   useDidUpdate(async () => {
     const results = await fetchRecommendations("stars", 3, null, searchTerm);

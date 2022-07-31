@@ -61,7 +61,7 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
   // listening outside focus
   document.querySelector(".App")?.addEventListener("click", e => {
     if (isSubmissionInProcess) {
-      return; 
+      return;
     }
 
     if (!document.querySelector(".submission-form")?.contains(e.target as unknown as Node)) {

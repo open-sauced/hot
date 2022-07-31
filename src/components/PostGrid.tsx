@@ -13,9 +13,7 @@ export declare interface PostGridProps {
 }
 
 const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
-  const {
-    user_metadata: { sub: user_id },
-  } = user as User || { user_metadata: { sub: null } };
+  const { user_metadata: { sub: user_id } } = user as User || { user_metadata: { sub: null } };
   const {
     id: repo_id,
     votesRelation: [{ votesCount }],
@@ -27,7 +25,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
     const checkUserId = parseInt(String(user_id));
 
-    if (typeof(checkUserId) === "number" && checkUserId !== 0) {
+    if (typeof checkUserId === "number" && checkUserId !== 0) {
       capturePostHogAnayltics("User voted", "voteClick", "true");
 
       const updatedVotes = await updateVotesByRepo(votes, repo_id, checkUserId);

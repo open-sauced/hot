@@ -212,8 +212,19 @@ module.exports = {
     "newline-per-chained-call": ["error", {
       "ignoreChainWithDepth": 2,
     }],
-    "no-extra-parens": ["error", "all", {
-      "ignoreJSX": "all",
+    "no-multi-spaces": "error",
+    "no-multiple-empty-lines": "error",
+    "no-trailing-spaces": "error",
+    "no-whitespace-before-property": "error",
+    "object-curly-newline": ["error", {
+      "multiline": true,
+    }],
+    "object-curly-spacing": ["error", "always", {
+      "arraysInObjects": true,
+      "objectsInObjects": true,
+    }],
+    "object-property-newline": ["error", {
+      "allowAllPropertiesOnSameLine": true,
     }],
   },
   settings: {

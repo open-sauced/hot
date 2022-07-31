@@ -2,7 +2,7 @@ import { getAvatarLink, getProfileLink } from "../lib/github";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import cx from "classnames";
 import dayjs from "dayjs/esm/index.js";
-import relativeTime  from "dayjs/esm/plugin/relativeTime";
+import relativeTime from "dayjs/esm/plugin/relativeTime";
 
 dayjs.extend(relativeTime);
 

@@ -8,10 +8,10 @@ const useSupabaseAuth = () => {
 
   useEffect(() => {
     const currentUser = supabase.auth.session();
-    currentUser?.user && setUser(currentUser?.user ?? null);
+    setUser(currentUser?.user ?? undefined);
 
     const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {
-      session?.user && setUser(session?.user ?? null);
+      setUser(session?.user ?? undefined);
     });
 
     return () => {
@@ -20,9 +20,7 @@ const useSupabaseAuth = () => {
   }, []);
 
   return {
-    signIn: async (data: UserCredentials) => supabase.auth.signIn(data, {
-      redirectTo: import.meta.env.BASE_URL,
-    }),
+    signIn: async (data: UserCredentials) => supabase.auth.signIn(data, { redirectTo: import.meta.env.BASE_URL }),
     signOut: async () => supabase.auth.signOut(),
     user,
   };

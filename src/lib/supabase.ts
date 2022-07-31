@@ -21,7 +21,7 @@ export async function authenticatedVote(user_id: number, repo_id: number) {
       });
 
     return 1;
-  } 
+  }
   await supabase
     .from("users_to_repos_votes")
     .delete()
@@ -29,7 +29,6 @@ export async function authenticatedVote(user_id: number, repo_id: number) {
     .eq("repo_id", repo_id);
 
   return -1;
-  
 }
 
 export async function updateVotesByRepo(votes: number, repo_id: number, user_id: number) {

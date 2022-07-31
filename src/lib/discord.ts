@@ -13,6 +13,4 @@ const sendMessage = (user: string, repoUrl : string) => {
   request.send(JSON.stringify(params));
 };
 
-export {
-  sendMessage,
-};
+export { sendMessage };

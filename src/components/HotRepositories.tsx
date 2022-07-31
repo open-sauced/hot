@@ -18,9 +18,7 @@ export declare interface HotReposProps {
 }
 
 const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
-  const {
-    user_metadata: { sub: user_id },
-  } = user as User || { user_metadata: { sub: null } };
+  const { user_metadata: { sub: user_id } } = user as User || { user_metadata: { sub: null } };
   const [hotRepos, setHotRepos] = useState<DbRecomendation[]>([]);
   const [votedReposIds, setVotedReposIds] = useState<number[]>([]);
   const { signIn } = useSupabaseAuth();

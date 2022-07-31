@@ -1,12 +1,12 @@
-import { useState, useRef } from "react";
-import searchNormal from "../assets/searchNormal.svg";
-import cmdKIcon from "../assets/cmdK.svg";
-import { fetchRecommendations } from "../lib/supabase";
-import humanizeNumber from "../lib/humanizeNumber";
+import { useRef, useState } from "react";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
+import { fetchRecommendations } from "../lib/supabase";
+import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
+import searchNormal from "../assets/searchNormal.svg";
+import cmdKIcon from "../assets/cmdK.svg";
 
 const Hero = () => {
   const containerRef = useRef<Document>(document);

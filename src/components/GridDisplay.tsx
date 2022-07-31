@@ -1,5 +1,5 @@
-import PostGrid from "./PostGrid";
 import { User } from "@supabase/supabase-js";
+import PostGrid from "./PostGrid";
 
 export declare interface GridDisplayProps {
   activeLink: string | null;

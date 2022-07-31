@@ -1,17 +1,17 @@
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { VscIssues } from "react-icons/vsc";
 import { AiOutlineStar } from "react-icons/ai";
 import { BiGitPullRequest } from "react-icons/bi";
 import { RiCheckboxCircleFill } from "react-icons/ri";
-import hotIcon from "../assets/hotIcon.png";
 import { User } from "@supabase/supabase-js";
 import { capturePostHogAnayltics } from "../lib/analytics";
-import { updateVotesByRepo , fetchRecommendations } from "../lib/supabase";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import Avatar from "./Avatar";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
+import { fetchRecommendations , updateVotesByRepo } from "../lib/supabase";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import Avatar from "./Avatar";
+import hotIcon from "../assets/hotIcon.png";
 
 export declare interface HotReposProps {
   user?: User;
@@ -23,15 +23,14 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   } = user as User || { user_metadata: { sub: null } };
   const [hotRepos, setHotRepos] = useState<DbRecomendation[]>([]);
   const [votedReposIds, setVotedReposIds] = useState<number[]>([]);
+  const { signIn } = useSupabaseAuth();
   const staticHot = [
     "oven-sh/bun",
     "pocketbase/pocketbase",
     "open-sauced/hot",
   ];
 
-  const { signIn } = useSupabaseAuth();
-
-  // * This function is just a placeholder to help change the color and state of the selected button on the card.
+  // this function is just a placeholder to help change the color and state of the selected button on the card.
   const handleVoted = (repo_id: number) => {
     const hasVoted = checkVoted(repo_id);
     if (hasVoted) {
@@ -43,10 +42,14 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
   const checkVoted = (repo_id: number) => votedReposIds.includes(repo_id);
 
-  const fetchHotData = useCallback(async (repo: string) => {
+  const fetchHotData = useCallback(async (repo: string) => new Promise<DbRecomendation>(async (resolve, reject) => {
     const popular = await fetchRecommendations("popular", 1, user, repo);
-    return popular[0];
-  }, []);
+    if (popular[0]) {
+      resolve(popular[0]);
+    }
+
+    reject(new Error("No hot repos found"));
+  }), []);
 
   const fetchVotedData = useCallback(async () => {
     const data = await fetchRecommendations("myVotes", 1000, user, "");
@@ -58,9 +61,13 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
     staticHot.forEach((repo) => promises.push(fetchHotData(repo)));
 
-    Promise.all(promises)
-      .then((data) =>
-        setHotRepos(data))
+    Promise.allSettled(promises)
+      .then(data =>
+        setHotRepos(
+          data
+            .filter((d) => d.status === "fulfilled" )
+            .map((d) => d.value)
+        ))
       .catch(console.error);
 
     fetchVotedData()
@@ -70,7 +77,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
     const checkUserId = parseInt(String(user_id));
 
-    if (typeof(checkUserId) == "number" && checkUserId !== 0) {
+    if (typeof(checkUserId) === "number" && checkUserId !== 0) {
       capturePostHogAnayltics("User voted", "voteClick", "true");
 
       await updateVotesByRepo(votes, repo_id, checkUserId);

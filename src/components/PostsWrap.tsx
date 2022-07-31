@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback } from "react";
-import SecondaryNav from "./SecondaryNav";
-import ListRepositories from "./ListRepositories";
-import { fetchRecommendations } from "../lib/supabase";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import locationsHash from "../lib/locationsHash";
+import { useCallback, useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
+import { fetchRecommendations } from "../lib/supabase";
+import locationsHash from "../lib/locationsHash";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import HotRepositories from "./HotRepositories";
+import ListRepositories from "./ListRepositories";
+import SecondaryNav from "./SecondaryNav";
 
 interface PostWrapProps {
   textToSearch: string;

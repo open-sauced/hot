@@ -1,5 +1,5 @@
 import locationsHash from "./locationsHash";
-import { describe, test, expect } from "vitest";
+import { describe, expect, test } from "vitest";
 
 describe("Test: locationsHash()", () => {
   test("should return results for popular", () => {

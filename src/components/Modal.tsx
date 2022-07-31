@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaPizzaSlice, FaMedal } from "react-icons/fa";
+import { FaMedal, FaPizzaSlice } from "react-icons/fa";
 
 function Modal() {
   const [isOpen, setIsOpen] = useState(false);

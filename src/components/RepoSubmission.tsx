@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { User } from "@supabase/supabase-js";
 import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
-import { User } from "@supabase/supabase-js";
+
 export declare interface RepoSubmissionProps {
   user: User | null;
 }
@@ -17,8 +18,7 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
   const saveToDataBase = (repoUrl: string): void => {
     setIsSubmissionInProcess(true);
 
-    // todo: import the submission function here instead
-    // issue #5
+    // todo: #5 import the submission function here instead
     setTimeout(() => {
       setIsSubmissionInProcess(false);
       setSubmitted(true);
@@ -58,9 +58,9 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
     }
   };
 
-  //Listening outside focus
+  // listening outside focus
   document.querySelector(".App")?.addEventListener("click", (e) => {
-    if (isSubmissionInProcess) return;
+    if (isSubmissionInProcess) {return;}
 
     if (!document.querySelector(".submission-form")?.contains(e.target as unknown as Node)) {
       setIsFormOpen(false);

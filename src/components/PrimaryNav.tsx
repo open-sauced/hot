@@ -1,10 +1,10 @@
-import openSaucedLogo from "../assets/openSauced.svg";
 import { Menu, Transition } from "@headlessui/react";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import { capturePostHogAnayltics } from "../lib/analytics";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { version } from "../../package.json";
+import { capturePostHogAnayltics } from "../lib/analytics";
 import { getAvatarLink } from "../lib/github";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import { version } from "../../package.json";
+import openSaucedLogo from "../assets/openSauced.svg";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";

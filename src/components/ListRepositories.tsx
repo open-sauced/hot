@@ -1,7 +1,7 @@
-import PostList from "./PostList";
 import { User } from "@supabase/supabase-js";
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
+import PostList from "./PostList";
 
 export declare interface ListRepositoriesProps {
   activeLink: string | null;

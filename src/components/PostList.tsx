@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { User } from "@supabase/supabase-js";
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
-
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
-import Avatar from "./Avatar";
 import { updateVotesByRepo } from "../lib/supabase";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { capturePostHogAnayltics } from "../lib/analytics";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import Avatar from "./Avatar";
 
 export declare interface PostListProps {
   data: DbRecomendation;
@@ -35,7 +34,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   async function handleVoteUpdateByRepo(votes: number, repo_id: number) {
     const checkUserId = parseInt(String(user_id));
 
-    if (typeof(checkUserId) == "number" && checkUserId !== 0) {
+    if (typeof(checkUserId) === "number" && checkUserId !== 0) {
       capturePostHogAnayltics("User voted", "voteClick", "true");
 
       const updatedVotes = await updateVotesByRepo(votes, repo_id, checkUserId);

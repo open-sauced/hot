@@ -1,4 +1,4 @@
-import { FaGithub, FaTwitter, FaDiscord, FaYoutube, FaDev } from "react-icons/fa";
+import { FaDev, FaDiscord, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = (): JSX.Element => (
   <div>

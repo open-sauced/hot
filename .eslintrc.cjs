@@ -88,6 +88,58 @@ module.exports = {
       "checksVoidReturn": false
     }],
     "@typescript-eslint/promise-function-async": "error",
+
+    "arrow-body-style": ["error", "as-needed"],
+    "capitalized-comments": [
+      "error",
+      "never",
+      {
+        "ignorePattern": "pragma|ignored",
+        "ignoreInlineComments": true
+      }
+    ],
+    "curly": ["error", "all"],
+    "dot-notation": "error",
+    "eqeqeq": ["error", "always"],
+    "multiline-comment-style": ["error", "starred-block"],
+    "no-confusing-arrow": "error",
+    "no-div-regex": "error",
+    "no-else-return": ["error", { "allowElseIf": false }],
+    "no-extra-bind": "error",
+    "no-extra-boolean-cast": ["error", { "enforceForLogicalOperands": true }],
+    "no-extra-label": "error",
+    "no-floating-decimal": "error",
+    "no-implicit-coercion": ["error", { "allow": ["!!"] }],
+    "no-lonely-if": "error",
+    "no-undef-init": "error",
+    "no-unneeded-ternary": "error",
+    "no-useless-computed-key": ["error", {"enforceForClassMembers": true}],
+    "no-useless-rename": "error",
+    "no-useless-return": "error",
+    "no-var": "error",
+    "object-shorthand": ["error"],
+    "one-var": ["error", "never"],
+    "one-var-declaration-per-line": ["error", "always"],
+    "operator-assignment": ["error", "always"],
+    "prefer-arrow-callback": "error",
+    "prefer-const": "error",
+    "prefer-destructuring": ["error", {
+      "VariableDeclarator": {
+        "array": false,
+        "object": true
+      },
+      "AssignmentExpression": {
+        "array": true,
+        "object": true
+      }
+    }, {
+      "enforceForRenamedProperties": false
+    }],
+    "prefer-exponentiation-operator": "error",
+    "prefer-object-has-own": "error",
+    "prefer-object-spread": "error",
+    "prefer-template": "error",
+    "quote-props": ["error", "as-needed"],
   },
   settings: {
     "react": {

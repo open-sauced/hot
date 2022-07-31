@@ -52,8 +52,8 @@ const PrimaryNav = (): JSX.Element => {
                     <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
                       <img
                         className="w-full h-full"
-                        src={user.user_metadata.avatar_url}
-                        alt={user.user_metadata.user_name}
+                        src={getAvatarLink(String(user?.user_metadata.user_name))}
+                        alt={String(user?.user_metadata.user_name)}
                       />
                     </div>
                     <div className="flex-col shrink">

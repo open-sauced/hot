@@ -15,7 +15,7 @@ export declare interface PostGridProps {
 const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const {
     user_metadata: { sub: user_id },
-  } = user as User;
+  } = user as User || { user_metadata: { sub: null } };
   const {
     id: repo_id,
     votesRelation: [{ votesCount }],

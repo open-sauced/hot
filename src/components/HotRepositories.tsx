@@ -14,15 +14,20 @@ import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
 
 export declare interface HotReposProps {
-  user?: User;
+  user?: User | null;
 }
 
 const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const {
     user_metadata: { sub: user_id },
-  } = user as User;
+  } = user as User || { user_metadata: { sub: null } };
   const [hotRepos, setHotRepos] = useState<DbRecomendation[]>([]);
   const [votedReposIds, setVotedReposIds] = useState<number[]>([]);
+  const staticHot = [
+    "oven-sh/bun",
+    "pocketbase/pocketbase",
+    "open-sauced/hot",
+  ];
 
   const { signIn } = useSupabaseAuth();
 
@@ -39,8 +44,8 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const checkVoted = (repo_id: number) => votedReposIds.includes(repo_id);
 
   const fetchHotData = useCallback(async (repo: string) => {
-    const data = await fetchRecommendations("popular", 1, user, repo);
-    hotRepos.push(...data);
+    const popular = await fetchRecommendations("popular", 1, user, repo);
+    return popular[0];
   }, []);
 
   const fetchVotedData = useCallback(async () => {
@@ -49,15 +54,16 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    const hotRepos: DbRecomendation[] = [];
+    const promises: Promise<DbRecomendation>[] = [];
 
-    [
-      "oven-sh/bun",
-      "pocketbase/pocketbase",
-      "open-sauced/hot",
-    ].forEach(async (repo) => fetchHotData(repo));
+    staticHot.forEach((repo) => promises.push(fetchHotData(repo)));
 
-    setHotRepos(hotRepos);
+    Promise.all(promises)
+      .then((data) => {
+        console.log(data);
+        return setHotRepos(data);
+      })
+      .catch(console.error);
 
     fetchVotedData()
       .catch(console.error);

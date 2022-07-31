@@ -16,13 +16,12 @@ const Hero = () => {
   const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
   const [hasFocus, setFocus] = useState(false);
 
-  const handleCmdK = (e: KeyboardEvent) => {
+  const handleCmdK = async (e: KeyboardEvent) => {
     if (!hasFocus) {
       searchBoxRef.current && searchBoxRef.current.focus();
       setFocus(true);
-      fetchRecommendations("stars", 3, null, searchTerm).then((results) => {
-        setFetchedData(results);
-      });
+      const results = await fetchRecommendations("stars", 3, null, searchTerm);
+      setFetchedData(results);
     } else {
       searchBoxRef.current && searchBoxRef.current.blur();
       setFocus(false);
@@ -39,10 +38,6 @@ const Hero = () => {
     target: containerRef,
   });
 
-  useDidUpdate(() => {
-    fetchRecommendations("stars", 3, null, searchTerm).then((results) => {
-      setFetchedData(results);
-    });
   useDidUpdate(async () => {
     const results = await fetchRecommendations("stars", 3, null, searchTerm);
     setFetchedData(results);

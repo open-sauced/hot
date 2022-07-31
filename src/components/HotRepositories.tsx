@@ -42,14 +42,19 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
   const checkVoted = (repo_id: number) => votedReposIds.includes(repo_id);
 
-  const fetchHotData = useCallback(async (repo: string) => new Promise<DbRecomendation>(async (resolve, reject) => {
-    const popular = await fetchRecommendations("popular", 1, user, repo);
-    if (popular[0]) {
-      resolve(popular[0]);
-    }
+  const fetchHotData = useCallback(async (repo: string) =>
+    fetchRecommendations("popular", 1, user, repo)
+      .then((data) => {
+        if (data[0]) {
+          return data[0];
+        }
 
-    reject(new Error("No hot repos found"));
-  }), []);
+        throw new Error(`Unable to fetch ${repo}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  , []);
 
   const fetchVotedData = useCallback(async () => {
     const data = await fetchRecommendations("myVotes", 1000, user, "");
@@ -62,12 +67,13 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     staticHot.forEach((repo) => promises.push(fetchHotData(repo)));
 
     Promise.allSettled(promises)
-      .then(data =>
-        setHotRepos(
-          data
-            .filter((d) => d.status === "fulfilled" )
-            .map((d) => d.value)
-        ))
+      .then(data => {
+        const newHots = (data.filter((d) => d.status === "fulfilled") as PromiseFulfilledResult<DbRecomendation>[])
+          .map((d) => d.value);
+
+
+        return setHotRepos(newHots);
+      })
       .catch(console.error);
 
     fetchVotedData()

@@ -6,7 +6,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { version } from "../../package.json";
 import { getAvatarLink } from "../lib/github";
 
-const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
+const bugReportLink =
+  "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
 
@@ -27,8 +28,8 @@ const PrimaryNav = (): JSX.Element => {
                 <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
                   <img
                     className="w-full h-full"
-                    src={getAvatarLink(String(user?.user_metadata.user_name))}
-                    alt={String(user?.user_metadata.user_name)}
+                    src={getAvatarLink(String(user.user_metadata.user_name))}
+                    alt={String(user.user_metadata.user_name)}
                   />
                 </div>
               </div>
@@ -51,21 +52,8 @@ const PrimaryNav = (): JSX.Element => {
                     <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
                       <img
                         className="w-full h-full"
-                        src={getAvatarLink(String(user?.user_metadata.user_name))}
-                        alt={String(user?.user_metadata.user_name)}
-                      />
-                    </div>
-                    <div className="flex-col shrink">
-                      <p className="text-osGrey text-xs font-semibold">{user.user_metadata.full_name}</p>
-                      <p className="text-gray-500 text-xs font-normal">{user.user_metadata.user_name}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center px-[8px] py-[10px] mb-[5px] gap-x-[10px]">
-                    <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
-                      <img
-                        className="w-full h-full"
-                        src={getAvatarLink(String(user?.user_metadata.user_name))}
-                        alt={String(user?.user_metadata.user_name)}
+                        src={getAvatarLink(String(user.user_metadata.user_name))}
+                        alt={String(user.user_metadata.user_name)}
                       />
                     </div>
                     <div className="flex-col shrink">

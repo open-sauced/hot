@@ -44,7 +44,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
     [
       'oven-sh/bun',
-      'pocketbase/pocketbase',
+      'tabler/tabler',
       'open-sauced/hot',
     ].forEach((repo) => fetchRecommendations('popular', 1, user, repo)
       .then((data) => {

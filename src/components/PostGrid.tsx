@@ -45,14 +45,14 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
               contributor={data.contributions[0]?.contributor}
               lastPr={data.contributions[0]?.last_merged_at}
             />
-          )}
+          ) || null}
 
           {data?.contributions[1] && (
             <Avatar
               contributor={data.contributions[1]?.contributor}
               lastPr={data.contributions[1]?.last_merged_at}
             />
-          )}
+          ) || null}
         </div>
 
         <div className="flex">

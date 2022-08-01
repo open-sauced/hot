@@ -179,8 +179,8 @@ module.exports = {
     "indent": ["error", 2],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": ["error", {
-        "beforeColon": false,
-        "afterColon": true,
+      "beforeColon": false,
+      "afterColon": true,
     }],
     "keyword-spacing": ["error", {
       "before": true,
@@ -316,7 +316,10 @@ module.exports = {
       "prevent": false,
     }],
     "react/jsx-no-leaked-render": ["error", {
-      "validStrategies": ["ternary"]
+      "validStrategies": ["coerce"]
+    }],
+    "react/jsx-no-useless-fragment": ["error", {
+      "allowExpressions": true,
     }],
   },
   settings: {

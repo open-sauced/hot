@@ -88,19 +88,19 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
             placeholder="https://github.com/open-sauced/hot"
           />
         </div>
-      )}
+      ) || null}
 
       {isSubmissionInProcess && (
         <div className="bg-white p-[15px] rounded-md min-w-[300px] ">
           <p className=" text-xs mb-[5px] text-gray-500 font-medium ">Submission in process ...</p>
         </div>
-      )}
+      ) || null}
 
       {submitted && !isSubmissionInProcess && (
         <div className="bg-white p-[15px] rounded-md min-w-[300px]  ">
           <p className=" text-xs mb-[5px] text-gray-500 font-medium ">Submission succeeded!</p>
         </div>
-      )}
+      ) || null}
 
       <button
         disabled={isSubmissionInProcess}

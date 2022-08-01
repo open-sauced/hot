@@ -129,13 +129,13 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
                 <button
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
-                    checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-grey border-gray-500 "
+                    checkVoted(id) && "text-saucyRed border-saucyRed " || "text-grey border-gray-500 "
                   }`}
                   onClick={async () => (user_id ? handleVoteUpdateByRepo(0, id) : signIn({ provider: "github" }))}
                 >
                   <span className="">{checkVoted(id) ? "voted" : "upvote"}</span>
 
-                  {checkVoted(id) ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="" />}
+                  {checkVoted(id) && <RiCheckboxCircleFill className="" /> || <FaArrowAltCircleUp className="" />}
                 </button>
               </div>
 

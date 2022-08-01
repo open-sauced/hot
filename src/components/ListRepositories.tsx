@@ -17,7 +17,7 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, u
       <div className="flex items-center gap-x-[10px]">
         <BsFillCalendar2Fill className="w-[26px] h-[26px] text-white" />
 
-        {activeLink && <h1 className="text-[24px] text-white font-semibold">{camelCaseToTitleCase(activeLink)} Repositories</h1>}
+        {activeLink && <h1 className="text-[24px] text-white font-semibold">{camelCaseToTitleCase(activeLink)} Repositories</h1> || null}
       </div>
 
       {
@@ -41,7 +41,7 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, u
             >
               Load More
             </button>
-          </div>
+          </div> || null
     }
   </div>
 );

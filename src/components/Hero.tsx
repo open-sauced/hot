@@ -141,7 +141,7 @@ const Hero = () => {
               </a>
             ))}
           </div>
-        )}
+        ) || null}
       </div>
     </div>
   );

@@ -52,8 +52,13 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
 
   return (
     <div className="bg-darkestGrey">
-      <SecondaryNav activeLink={activeLink} user={user} />
+      <SecondaryNav
+        activeLink={activeLink}
+        user={user}
+      />
+
       <HotRepositories user={user} />
+
       <ListRepositories
 
         limit={limit}

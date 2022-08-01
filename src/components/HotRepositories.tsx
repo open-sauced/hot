@@ -98,19 +98,35 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   return (
     <div className="flex flex-col px-4 max-w-screen-xl mx-auto">
       <div className="flex space-x-3 items-center">
-        <img src={hotIcon} alt="Hot Repo Icon" className="h-5 w-5" />
+        <img
+          src={hotIcon}
+          alt="Hot Repo Icon"
+          className="h-5 w-5"
+        />
+
         <h1 className="text-white font-bold text-2xl">Hot Repositories</h1>
       </div>
+
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full my-5">
         {hotRepos.map(
           ({ id, full_name, name, description, issues, stars, contributions }) => (
-            <div key={id} className="p-4 border rounded-lg bg-white w-full space-y-1 relative">
+            <div
+              key={id}
+              className="p-4 border rounded-lg bg-white w-full space-y-1 relative"
+            >
               {/* header & upvote button */}
+
               <div className="flex justify-between w-full">
                 <div className="flex space-x-1 items-center">
-                  <img src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))} alt="Hot Repo Icon" className="h-4 w-4 rounded-md overflow-hidden" />
+                  <img
+                    src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))}
+                    alt="Hot Repo Icon"
+                    className="h-4 w-4 rounded-md overflow-hidden"
+                  />
+
                   <span className="text-xs text-gray-400">{full_name.replace(`/${String(name)}`, "")}</span>
                 </div>
+
                 <button
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
                     checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-grey border-gray-500 "
@@ -118,10 +134,13 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                   onClick={async () => (user_id ? handleVoteUpdateByRepo(0, id) : signIn({ provider: "github" }))}
                 >
                   <span className="">{checkVoted(id) ? "voted" : "upvote"}</span>
+
                   {checkVoted(id) ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="" />}
                 </button>
               </div>
+
               {/* repo name & description */}
+
               <div className="flex flex-col pb-10">
                 <a
                   href={`https://app.opensauced.pizza/repos/${full_name}`}
@@ -131,32 +150,47 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 >
                   {name}
                 </a>
+
                 <p className="text-gray-500 text-xs w-5/6">{description}</p>
               </div>
+
               {/* issues || star || PRs || Avatar */}
+
               <div className="flex items-center justify-between absolute bottom-3 inset-x-0 px-4">
                 {/* issues || star || PRs*/}
+
                 <div className="flex space-x-3 text-xs">
                   <div className="flex space-x-1 justify-center items-center">
                     <VscIssues />
+
                     <span>{humanizeNumber(issues)}</span>
                   </div>
 
                   <div className="flex space-x-1 justify-center items-center">
                     <AiOutlineStar />
+
                     <span>{humanizeNumber(stars)}</span>
                   </div>
 
                   <div className="flex space-x-1 justify-center items-center">
                     <BiGitPullRequest />
+
                     <span>0</span>
                   </div>
                 </div>
+
                 {/* Avatars */}
+
                 <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300">
                   {contributions.slice(0, 5).map(({ contributor, last_merged_at }) => (
-                    <div key={`${full_name}-${contributor}`} className="w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300">
-                      <Avatar contributor={contributor} lastPr={last_merged_at} />
+                    <div
+                      key={`${full_name}-${contributor}`}
+                      className="w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300"
+                    >
+                      <Avatar
+                        contributor={contributor}
+                        lastPr={last_merged_at}
+                      />
                     </div>
                   ))}
                 </div>

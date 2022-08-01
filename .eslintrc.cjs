@@ -89,6 +89,7 @@ module.exports = {
     }],
     "@typescript-eslint/promise-function-async": "error",
 
+    // eslint:recommended
     "arrow-body-style": ["error", "as-needed"],
     "capitalized-comments": [
       "error",
@@ -276,6 +277,46 @@ module.exports = {
     "unicode-bom": "error",
     "wrap-iife": ["error", "inside", {
       "functionPrototypeMethods": true,
+    }],
+
+    // plugin:react/recommended
+    "react/destructuring-assignment": ["error", "always", {
+      "destructureInSignature": "always",
+    }],
+    "react/function-component-definition": ["error", {
+      "namedComponents": "arrow-function",
+      "unnamedComponents": "arrow-function",
+    }],
+    "react/no-arrow-function-lifecycle": "error",
+    "react/no-invalid-html-attribute": "error",
+    "react/no-unknown-property": "error",
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true,
+    }],
+    "react/jsx-boolean-value": ["error", "never"],
+    "react/jsx-closing-bracket-location": "error",
+    "react/jsx-closing-tag-location": "error",
+    "react/jsx-curly-brace-presence": ["error", "never"],
+    "react/jsx-curly-newline": ["error", "consistent"],
+    "react/jsx-equals-spacing": ["error", "never"],
+    "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
+    "react/jsx-fragments": ["error", "syntax"],
+    "react/jsx-indent": ["error", 2, {
+      "indentLogicalExpressions": true,
+    }],
+    "react/jsx-indent-props": ["error", {
+      "indentMode": 2,
+      "ignoreTernaryOperators": true,
+    }],
+    "react/jsx-max-props-per-line": ["error", {
+      "maximum": 1,
+    }],
+    "react/jsx-newline": ["error", {
+      "prevent": false,
+    }],
+    "react/jsx-no-leaked-render": ["error", {
+      "validStrategies": ["ternary"]
     }],
   },
   settings: {

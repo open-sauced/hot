@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaMedal, FaPizzaSlice } from "react-icons/fa";
 
-function Modal () {
+const Modal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const show = isOpen ? "block" : "hidden";
   const levels = [
@@ -27,8 +27,7 @@ function Modal () {
       <button
         onClick={() => setIsOpen(false)}
         className={`z-20 bg-gray-800 opacity-80 w-full h-full top-0 left-0 absolute ${show}`}
-      >
-      </button>
+      />
 
       <div className="flex justify-center">
         <div className="absolute top-14 flex justify-center flex-col items-center sm:top-10">
@@ -39,7 +38,10 @@ function Modal () {
               onClick={() => setIsOpen(!isOpen)}
               className=" bg-grey h-14 w-14 rounded-full border-dashed border-4 border-cheesyYellow flex justify-center items-center text-2xl transition-all duration-200 transform hover:scale-105 cursor-pointer"
             >
-              <FaPizzaSlice aria-hidden="true" className="text-offWhite hover:text-accent"/>
+              <FaPizzaSlice
+                aria-hidden="true"
+                className="text-offWhite hover:text-accent"
+              />
             </button>
           </div>
 
@@ -48,17 +50,23 @@ function Modal () {
           >
             <div className="flex flex-col justify-center items-center mb-5">
               <h1 className="text-3xl">HOT OPEN SAUCED</h1>
+
               <h2 className="text-lg text-lightGrey">Find the hottest Open Source projects.</h2>
             </div>
 
             <div className=" flex flex-col w-full">
               {levels.map(({ name, daysRequired, color }) => (
-                <div className="flex mb-4" key={`level-${name}`}>
+                <div
+                  className="flex mb-4"
+                  key={`level-${name}`}
+                >
                   <div className="text-2xl mr-5">
                     <FaMedal color={color}/>
                   </div>
+
                   <div className="flex flex-col">
                     <div className="font-bold text-sm">{name}</div>
+
                     <div className="text-sm text-lightGrey">
                       Star at least one repository on {daysRequired} different days
                     </div>
@@ -71,6 +79,6 @@ function Modal () {
       </div>
     </>
   );
-}
+};
 
 export default Modal;

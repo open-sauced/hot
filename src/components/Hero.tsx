@@ -47,29 +47,41 @@ const Hero = () => {
       <div>
         <h1 className="font-Lexend text-4xl md:text-5xl text-center text-lightSlate leading-tight tracking-tight">
           Find{" "}
+
           <span className="bg-gradient-to-r from-gradFirst via-gradMiddle to-gradLast bg-clip-text text-transparent">
             Open-Source Repositories
           </span>{" "}
+
           <br /> to contribute today
         </h1>
       </div>
+
       <div className="mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px] flex">
-        <img src={searchNormal} alt="search icon" />
+        <img
+          src={searchNormal}
+          alt="search icon"
+        />
+
         <input
           ref={searchBoxRef}
           onFocus={() => setFocus(true)}
           onBlur={() =>
             setTimeout(() => {
               setFocus(false);
-            }, 200)
-          }
+            }, 200)}
           onChange={e => setValueDebounced(e.target.value)}
           type="text"
           placeholder="Search repositories"
           className="w-full outline-none text-base text-lightSlate"
         />
-        <img className="pt-[7px]" src={cmdKIcon} alt="command k" />
+
+        <img
+          className="pt-[7px]"
+          src={cmdKIcon}
+          alt="command k"
+        />
       </div>
+
       <div className="mt-[10px] flex w-full justify-center relative">
         {fetchedData.length > 0 && hasFocus && (
           <div className="flex md:min-w-[400px] pb-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px]">
@@ -106,13 +118,20 @@ const Hero = () => {
                           {/* todos: add contributors avator here */}
                         </div>
                       </div>
+
                       <div className="flex gap-x-[6px]">
                         <div className="flex items-center gap-x-[5px]">
                           <FaRegDotCircle aria-hidden="true"/>
+
                           <p className="text-gray-500 text-xs">{humanizeNumber(issues)}</p>
                         </div>
+
                         <div className="flex items-center gap-x-[5px]">
-                          <AiOutlineStar aria-hidden="true" className="mr-1"/>
+                          <AiOutlineStar
+                            aria-hidden="true"
+                            className="mr-1"
+                          />
+
                           <p className="text-gray-500 text-xs">{humanizeNumber(stars)}</p>
                         </div>
                       </div>

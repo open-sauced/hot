@@ -23,6 +23,7 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
         height={500}
       />
     </HoverCardPrimitive.Trigger>
+
     <HoverCardPrimitive.Content
       align="center"
       sideOffset={4}
@@ -34,7 +35,10 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
         "items-center md:drop-shadow-[0_15px_15px_rgba(0,0,0,0.45)] !opacity-100",
       )}
     >
-      <HoverCardPrimitive.Arrow offset={12} className="fill-current text-white dark:text-gray-800" />
+      <HoverCardPrimitive.Arrow
+        offset={12}
+        className="fill-current text-white dark:text-gray-800"
+      />
 
       <div className="flex h-full w-full space-x-4">
         <div
@@ -42,7 +46,12 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
             "flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900",
           )}
         >
-          <a href={getProfileLink(contributor)} title={contributor} rel="noreferrer" target="_blank">
+          <a
+            href={getProfileLink(contributor)}
+            title={contributor}
+            rel="noreferrer"
+            target="_blank"
+          >
             <img
               className="object-cover rounded-full"
               src={getAvatarLink(contributor)}

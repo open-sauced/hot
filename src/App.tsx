@@ -19,10 +19,14 @@ const App = (): JSX.Element => {
       <div className="App overflow-hidden">
         <GradBackground>
           {user && <RepoSubmission user={user} />}
+
           <PrimaryNav/>
+
           <Hero/>
         </GradBackground>
+
         <PostsWrap textToSearch={textToSearch} />
+
         <Footer />
       </div>
     </BrowserRouter>

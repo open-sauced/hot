@@ -16,13 +16,21 @@ const PrimaryNav = (): JSX.Element => {
       <div className="flex font-Inter py-[26px] px-[42px] justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">
-            <img className="inline-block w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo" />
+            <img
+              className="inline-block w-[22px] h-[22px] mr-[5px]"
+              src={openSaucedLogo}
+              alt="Open Sauced Logo"
+            />
+
             <span className="text-base leading-snug font-semibold">OpenSauced</span>
           </a>
         </div>
 
         {user && (
-          <Menu as="div" className="flex z-50 text-left relative">
+          <Menu
+            as="div"
+            className="flex z-50 text-left relative"
+          >
             <Menu.Button>
               <div className="hidden md:flex pl-[16px] border-l-[1px] border-lightOrange">
                 <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
@@ -33,6 +41,7 @@ const PrimaryNav = (): JSX.Element => {
                   />
                 </div>
               </div>
+
               <div className="flex md:hidden w-[20px] h-[20px]">
                 <GiHamburgerMenu />
               </div>
@@ -56,8 +65,10 @@ const PrimaryNav = (): JSX.Element => {
                         alt={String(user.user_metadata.user_name)}
                       />
                     </div>
+
                     <div className="flex-col shrink">
                       <p className="text-osGrey text-xs font-semibold">{user.user_metadata.full_name}</p>
+
                       <p className="text-gray-500 text-xs font-normal">{user.user_metadata.user_name}</p>
                     </div>
                   </div>

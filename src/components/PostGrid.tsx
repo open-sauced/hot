@@ -41,11 +41,17 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
       <div className="w-full flex justify-between items-center mb-3">
         <div className="flex w-full">
           {data?.contributions[0] && (
-            <Avatar contributor={data.contributions[0]?.contributor} lastPr={data.contributions[0]?.last_merged_at} />
+            <Avatar
+              contributor={data.contributions[0]?.contributor}
+              lastPr={data.contributions[0]?.last_merged_at}
+            />
           )}
 
           {data?.contributions[1] && (
-            <Avatar contributor={data.contributions[1]?.contributor} lastPr={data.contributions[1]?.last_merged_at} />
+            <Avatar
+              contributor={data.contributions[1]?.contributor}
+              lastPr={data.contributions[1]?.last_merged_at}
+            />
           )}
         </div>
 
@@ -55,6 +61,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
             className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"
           >
             <FaArrowAltCircleUp aria-hidden="true" />
+
             <p className="font-bold">{votes}</p>
           </button>
         </div>

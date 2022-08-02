@@ -86,7 +86,7 @@ export async function fetchRecommendations (
 
   if (user && activeLink === "myVotes") {
     await supabaseComposition
-      .filter("myVotesFilter.user_id", "eq", user?.user_metadata?.sub);
+      .filter("myVotesFilter.user_id", "eq", user.user_metadata.sub);
   }
 
   const searchColumn = textToSearchParam === "" ? "" : "full_name";
@@ -104,5 +104,5 @@ export async function fetchRecommendations (
 
   error && console.error(error);
 
-  return recommendations as DbRecomendation[] || [];
+  return recommendations as DbRecomendation[];
 }

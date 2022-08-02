@@ -27,7 +27,7 @@ const GridDisplay = ({ activeLink, limit, handleLoadingMore, fetchedData, user }
         >
           Load More
         </button>
-      ) || null}
+      )}
     </div>
   </div>
 );

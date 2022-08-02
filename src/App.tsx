@@ -18,7 +18,7 @@ const App = (): JSX.Element => {
     <BrowserRouter>
       <div className="App overflow-hidden">
         <GradBackground>
-          {user && <RepoSubmission user={user} /> || null}
+          {user && <RepoSubmission user={user} />}
 
           <PrimaryNav />
 

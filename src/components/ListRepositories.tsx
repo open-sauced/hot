@@ -20,7 +20,7 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, u
         {activeLink &&
           <h1 className="text-[24px] text-white font-semibold">
             {`${camelCaseToTitleCase(activeLink)} Repositories`}
-          </h1> || null}
+          </h1>}
       </div>
 
       {
@@ -45,7 +45,7 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, u
             >
               Load More
             </button>
-          </div> || null
+          </div>
     }
   </div>
 );

@@ -32,7 +32,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
-  const activeLink = locationsHash[location.pathname] || "popular";
+  const activeLink = locationsHash[location.pathname] ?? "popular";
   const limit = parseLimitValue(searchParams.get("limit"));
 
   const handleLoadingMore = () => {

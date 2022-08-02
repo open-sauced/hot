@@ -13,7 +13,7 @@ export declare interface PostGridProps {
 }
 
 const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
-  const { user_metadata: { sub: user_id } } = user as User || { user_metadata: { sub: null } };
+  const { user_metadata: { sub: user_id } } = user! || { user_metadata: { sub: null } };
   const {
     id: repo_id,
     votesRelation: [{ votesCount }],
@@ -40,19 +40,19 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
     <div className="bg-offWhite rounded-xl pt-6 px-4 pb-2 font-roboto">
       <div className="w-full flex justify-between items-center mb-3">
         <div className="flex w-full">
-          {data?.contributions[0] && (
+          {data.contributions[0] && (
             <Avatar
               contributor={data.contributions[0]?.contributor}
               lastPr={data.contributions[0]?.last_merged_at}
             />
-          ) || null}
+          )}
 
-          {data?.contributions[1] && (
+          {data.contributions[1] && (
             <Avatar
               contributor={data.contributions[1]?.contributor}
               lastPr={data.contributions[1]?.last_merged_at}
             />
-          ) || null}
+          )}
         </div>
 
         <div className="flex">

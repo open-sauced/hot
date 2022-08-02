@@ -120,7 +120,9 @@ const PrimaryNav = (): JSX.Element => {
               </Menu.Items>
             </Transition>
           </Menu>
-        ) || (
+        )}
+
+        {!user && (
           <button
             className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white"
             onClick={async () => {

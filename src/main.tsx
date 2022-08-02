@@ -3,9 +3,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles/index.css";
 
-const root = createRoot(document.getElementById("root")!);
+const element = document.getElementById("root");
 
-root.render(
+element && createRoot(element).render(
   <StrictMode>
     <App />
   </StrictMode>,

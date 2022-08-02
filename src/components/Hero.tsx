@@ -18,13 +18,13 @@ const Hero = () => {
 
   const handleCmdK = async (e: KeyboardEvent) => {
     if (!hasFocus) {
-      searchBoxRef.current && searchBoxRef.current.focus();
+      searchBoxRef.current?.focus();
       setFocus(true);
       const results = await fetchRecommendations("stars", 3, null, searchTerm);
 
       setFetchedData(results);
     } else {
-      searchBoxRef.current && searchBoxRef.current.blur();
+      searchBoxRef.current?.blur();
       setFocus(false);
     }
 
@@ -151,7 +151,7 @@ const Hero = () => {
               </a>
             ))}
           </div>
-        ) || null}
+        )}
       </div>
     </div>
   );

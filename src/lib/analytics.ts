@@ -9,7 +9,7 @@ function capturePostHogAnayltics (
   analyticsProperty: string,
   analyticsValue: string,
 ) {
-  const analyticsObject: { [key: string]: string } = {};
+  const analyticsObject: Record<string, string> = {};
 
   analyticsObject[analyticsProperty] = analyticsValue;
 

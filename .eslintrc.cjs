@@ -24,14 +24,16 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:jsx-a11y/strict",
+    "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
     "plugin:no-use-extend-native/recommended",
     "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "plugin:react/jsx-runtime",
   ],
   root: true,
   env: {
@@ -316,9 +318,9 @@ module.exports = {
     "react/jsx-newline": ["error", {
       "prevent": false,
     }],
-    "react/jsx-no-leaked-render": ["error", {
-      "validStrategies": ["coerce"]
-    }],
+    // "react/jsx-no-leaked-render": ["error", {
+    //   "validStrategies": ["coerce"]
+    // }],
     "react/jsx-no-useless-fragment": ["error", {
       "allowExpressions": true,
     }],
@@ -339,6 +341,8 @@ module.exports = {
       "beforeClosing": "allow"
     }],
     "react/jsx-wrap-multilines": "error",
+
+    // test
   },
   settings: {
     "react": {

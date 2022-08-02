@@ -18,7 +18,7 @@ export declare interface HotReposProps {
 }
 
 const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
-  const { user_metadata: { sub: user_id } } = user as User || { user_metadata: { sub: null } };
+  const { user_metadata: { sub: user_id } } = user! || { user_metadata: { sub: null } };
   const [hotRepos, setHotRepos] = useState<DbRecomendation[]>([]);
   const [votedReposIds, setVotedReposIds] = useState<number[]>([]);
   const { signIn } = useSupabaseAuth();
@@ -65,7 +65,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    const promises: Promise<DbRecomendation | void>[] = [];
+    const promises: Promise<DbRecomendation>[] = [];
 
     staticHot.forEach(repo => promises.push(fetchHotData(repo)));
 
@@ -131,7 +131,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
                 <button
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
-                    checkVoted(id) && "text-saucyRed border-saucyRed " || "text-grey border-gray-500 "
+                    checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-grey border-gray-500 "
                   }`}
                   onClick={async () => (user_id ? handleVoteUpdateByRepo(0, id) : signIn({ provider: "github" }))}
                 >
@@ -139,7 +139,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                     {checkVoted(id) ? "voted" : "upvote"}
                   </span>
 
-                  {checkVoted(id) && <RiCheckboxCircleFill className="" /> || <FaArrowAltCircleUp className="" />}
+                  {checkVoted(id) ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="" />}
                 </button>
               </div>
 

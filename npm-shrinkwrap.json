@@ -15,7 +15,7 @@
         "@supabase/supabase-js": "^1.35.4",
         "classnames": "^2.3.1",
         "dayjs": "^1.11.4",
-        "posthog-js": "^1.28.0",
+        "posthog-js": "^1.26.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-icons": "^4.4.0",
@@ -7041,9 +7041,9 @@
       "integrity": "sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ=="
     },
     "node_modules/posthog-js": {
-      "version": "1.28.0",
-      "resolved": "https://registry.npmjs.org/posthog-js/-/posthog-js-1.28.0.tgz",
-      "integrity": "sha512-W60Xd7/UMwNO1zn1rRkkrE+qbL2dcA/PHi1TbUPNX0ArS2eijEjFolv0FBCEraZTJP19OnjTsYQEQS6fLL8ZvA==",
+      "version": "1.26.2",
+      "resolved": "https://registry.npmjs.org/posthog-js/-/posthog-js-1.26.2.tgz",
+      "integrity": "sha512-7rRZ1mFJ6zCj6xkKXC6u+bC3EPmQSiqF4u7yyEMBHZBvj9gC9EZ14B5BFYG8rgQUwmDoG3Yuz6ENEs0VOZiMSw==",
       "dependencies": {
         "@sentry/types": "^7.2.0",
         "fflate": "^0.4.1",

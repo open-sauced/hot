@@ -48,7 +48,7 @@
     "@supabase/supabase-js": "^1.35.4",
     "classnames": "^2.3.1",
     "dayjs": "^1.11.4",
-    "posthog-js": "^1.28.0",
+    "posthog-js": "^1.26.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",

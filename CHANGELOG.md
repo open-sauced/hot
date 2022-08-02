@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.17.2](https://github.com/open-sauced/hot-sauce/compare/v2.17.1...v2.17.2) (2022-08-02)
+
+
+### 🎨 Styles
+
+* **hero:** added shadow at search box ([#278](https://github.com/open-sauced/hot-sauce/issues/278)) ([9f74ef1](https://github.com/open-sauced/hot-sauce/commit/9f74ef1e152dd9562080209c366f7bfdd37c4f39))
+
 ### [2.17.1](https://github.com/open-sauced/hot-sauce/compare/v2.17.0...v2.17.1) (2022-08-01)
 
 

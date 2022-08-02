@@ -33,7 +33,7 @@ const Hero = () => {
   useKeys(["ControlLeft", "KeyK"], handleCmdK, {
     target: containerRef,
   });
-  
+
   useKeys(["MetaLeft", "KeyK"], handleCmdK, {
     target: containerRef,
   });
@@ -74,7 +74,7 @@ const Hero = () => {
       </div>
       <div className="mt-[10px] flex w-full justify-center relative">
         {fetchedData.length > 0 && hasFocus && (
-          <div className="flex md:min-w-[400px] pb-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px]">
+          <div className="flex md:min-w-[400px] pb-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px] shadow-2xl">
             <div className="bg-gray-100 py-[10px] px-[10px] md:px-[15px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full">
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>

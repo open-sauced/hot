@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.17.1](https://github.com/open-sauced/hot-sauce/compare/v2.17.0...v2.17.1) (2022-08-01)
+
+
+### 🐛 Bug Fixes
+
+* Update HotRepositories to include tabler/tabler ([#273](https://github.com/open-sauced/hot-sauce/issues/273)) ([c24d3ed](https://github.com/open-sauced/hot-sauce/commit/c24d3ed8c2f0983281b06e709a7384bda6c6fdf4))
+
 ## [2.17.0](https://github.com/open-sauced/hot-sauce/compare/v2.16.0...v2.17.0) (2022-07-30)
 
 

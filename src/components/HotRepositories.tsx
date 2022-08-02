@@ -24,7 +24,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const { signIn } = useSupabaseAuth();
   const staticHot = [
     "oven-sh/bun",
-    "pocketbase/pocketbase",
+    "tabler/tabler",
     "open-sauced/hot",
   ];
 

@@ -64,7 +64,7 @@
     "@squoosh/cli": "^0.7.2",
     "@testing-library/react": "^13.3.0",
     "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^14.3.0",
+    "@testing-library/user-event": "^14.4.0",
     "@types/eslint": "^8.4.5",
     "@types/glob": "^7.2.0",
     "@types/lodash": "^4.14.182",
@@ -102,7 +102,7 @@
     "vite-plugin-fonts": "^0.6.0",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-inspect": "^0.6.0",
-    "vitest": "^0.20.2",
+    "vitest": "^0.20.3",
     "whatwg-fetch": "^3.6.2"
   }
 }

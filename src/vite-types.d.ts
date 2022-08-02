@@ -1,4 +1,4 @@
-/// <reference types="vite/client" />
+// <reference types="vite/client" />
 interface DbContribution {
   readonly id: number;
   readonly repo_id: number;
@@ -23,8 +23,8 @@ interface DbRecomendation {
   readonly license?: string;
   readonly url?: string;
   readonly contributions: DbContribution[];
-  readonly starsRelation: {starsCount: number}[],
-  readonly votesRelation: {votesCount: number}[],
+  readonly starsRelation: { starsCount: number }[],
+  readonly votesRelation: { votesCount: number }[],
   readonly created_at?: string;
   readonly updated_at?: string;
   readonly pushed_at?: string;

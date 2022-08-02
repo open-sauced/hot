@@ -1,8 +1,8 @@
+import { useState } from "react";
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
 import PostsWrap from "./components/PostsWrap";
 import { initiatePostHog } from "./lib/analytics";
-import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import RepoSubmission from "./components/RepoSubmission";
 import GradBackground from "./components/GradBackground";
@@ -19,10 +19,14 @@ const App = (): JSX.Element => {
       <div className="App overflow-hidden">
         <GradBackground>
           {user && <RepoSubmission user={user} />}
-          <PrimaryNav/>
-          <Hero/>
+
+          <PrimaryNav />
+
+          <Hero />
         </GradBackground>
+
         <PostsWrap textToSearch={textToSearch} />
+
         <Footer />
       </div>
     </BrowserRouter>

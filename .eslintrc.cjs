@@ -278,6 +278,7 @@ module.exports = {
     "wrap-iife": ["error", "inside", {
       "functionPrototypeMethods": true,
     }],
+    "wrap-regex": "error",
 
     // plugin:react/recommended
     "react/destructuring-assignment": ["error", "always", {
@@ -321,6 +322,23 @@ module.exports = {
     "react/jsx-no-useless-fragment": ["error", {
       "allowExpressions": true,
     }],
+    "react/jsx-one-expression-per-line": ["error", {
+      "allow": "literal",
+    }],
+    "react/jsx-props-no-multi-spaces": "error",
+    "react/jsx-sort-props": ["error", {
+      "callbacksLast": true,
+      "shorthandFirst": true,
+      "multiline": "last",
+      "reservedFirst": true,
+    }],
+    "react/jsx-tag-spacing": ["error", {
+      "closingSlash": "never",
+      "beforeSelfClosing": "always",
+      "afterOpening": "never",
+      "beforeClosing": "allow"
+    }],
+    "react/jsx-wrap-multilines": "error",
   },
   settings: {
     "react": {

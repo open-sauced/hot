@@ -16,11 +16,11 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
   <HoverCardPrimitive.Root>
     <HoverCardPrimitive.Trigger asChild>
       <img
-        className="w-full h-full"
-        src={getAvatarLink(contributor)}
         alt={contributor}
-        width={500}
+        className="w-full h-full"
         height={500}
+        src={getAvatarLink(contributor)}
+        width={500}
       />
     </HoverCardPrimitive.Trigger>
 
@@ -36,8 +36,8 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
       )}
     >
       <HoverCardPrimitive.Arrow
-        offset={12}
         className="fill-current text-white dark:text-gray-800"
+        offset={12}
       />
 
       <div className="flex h-full w-full space-x-4">
@@ -48,25 +48,27 @@ const Avatar = ({ contributor, lastPr }: AvatarProps): JSX.Element => (
         >
           <a
             href={getProfileLink(contributor)}
-            title={contributor}
             rel="noreferrer"
             target="_blank"
+            title={contributor}
           >
             <img
-              className="object-cover rounded-full"
-              src={getAvatarLink(contributor)}
               alt={contributor}
-              width={500}
+              className="object-cover rounded-full"
               height={500}
+              src={getAvatarLink(contributor)}
+              width={500}
             />
           </a>
         </div>
 
         <div>
-          <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">{contributor}</h3>
+          <h3 className="text-sm font-medium text-gray-900 dark:text-gray-100">
+            {contributor}
+          </h3>
 
           <p className="mt-1 text-sm font-normal text-gray-700 dark:text-gray-400">
-            Last contribution was {dayjs(lastPr).fromNow()}.
+            {`Last contribution was ${dayjs(lastPr).fromNow()}.`}
           </p>
         </div>
       </div>

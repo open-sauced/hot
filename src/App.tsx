@@ -20,9 +20,9 @@ const App = (): JSX.Element => {
         <GradBackground>
           {user && <RepoSubmission user={user} /> || null}
 
-          <PrimaryNav/>
+          <PrimaryNav />
 
-          <Hero/>
+          <Hero />
         </GradBackground>
 
         <PostsWrap textToSearch={textToSearch} />

@@ -53,6 +53,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
         })
         .catch(err => {
           console.log(err);
+          throw err;
         })
     , [],
   );
@@ -72,7 +73,6 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
       .then(data => {
         const newHots = (data.filter(d => d.status === "fulfilled") as PromiseFulfilledResult<DbRecomendation>[])
           .map(d => d.value);
-
 
         return setHotRepos(newHots);
       })
@@ -99,9 +99,9 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     <div className="flex flex-col px-4 max-w-screen-xl mx-auto">
       <div className="flex space-x-3 items-center">
         <img
-          src={hotIcon}
           alt="Hot Repo Icon"
           className="h-5 w-5"
+          src={hotIcon}
         />
 
         <h1 className="text-white font-bold text-2xl">Hot Repositories</h1>
@@ -119,12 +119,14 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
               <div className="flex justify-between w-full">
                 <div className="flex space-x-1 items-center">
                   <img
-                    src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))}
                     alt="Hot Repo Icon"
                     className="h-4 w-4 rounded-md overflow-hidden"
+                    src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))}
                   />
 
-                  <span className="text-xs text-gray-400">{full_name.replace(`/${String(name)}`, "")}</span>
+                  <span className="text-xs text-gray-400">
+                    {full_name.replace(`/${String(name)}`, "")}
+                  </span>
                 </div>
 
                 <button
@@ -133,7 +135,9 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                   }`}
                   onClick={async () => (user_id ? handleVoteUpdateByRepo(0, id) : signIn({ provider: "github" }))}
                 >
-                  <span className="">{checkVoted(id) ? "voted" : "upvote"}</span>
+                  <span className="">
+                    {checkVoted(id) ? "voted" : "upvote"}
+                  </span>
 
                   {checkVoted(id) && <RiCheckboxCircleFill className="" /> || <FaArrowAltCircleUp className="" />}
                 </button>
@@ -143,15 +147,17 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
               <div className="flex flex-col pb-10">
                 <a
-                  href={`https://app.opensauced.pizza/repos/${full_name}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="text-xl font-semibold"
+                  href={`https://app.opensauced.pizza/repos/${full_name}`}
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   {name}
                 </a>
 
-                <p className="text-gray-500 text-xs w-5/6">{description}</p>
+                <p className="text-gray-500 text-xs w-5/6">
+                  {description}
+                </p>
               </div>
 
               {/* issues || star || PRs || Avatar */}
@@ -163,13 +169,17 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                   <div className="flex space-x-1 justify-center items-center">
                     <VscIssues />
 
-                    <span>{humanizeNumber(issues)}</span>
+                    <span>
+                      {humanizeNumber(issues)}
+                    </span>
                   </div>
 
                   <div className="flex space-x-1 justify-center items-center">
                     <AiOutlineStar />
 
-                    <span>{humanizeNumber(stars)}</span>
+                    <span>
+                      {humanizeNumber(stars)}
+                    </span>
                   </div>
 
                   <div className="flex space-x-1 justify-center items-center">

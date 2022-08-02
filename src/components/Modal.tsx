@@ -25,8 +25,8 @@ const Modal = () => {
   return (
     <>
       <button
-        onClick={() => setIsOpen(false)}
         className={`z-20 bg-gray-800 opacity-80 w-full h-full top-0 left-0 absolute ${show}`}
+        onClick={() => setIsOpen(false)}
       />
 
       <div className="flex justify-center">
@@ -35,8 +35,8 @@ const Modal = () => {
           <div className="z-30">
             <button
               aria-label="More about starring repos"
-              onClick={() => setIsOpen(!isOpen)}
               className=" bg-grey h-14 w-14 rounded-full border-dashed border-4 border-cheesyYellow flex justify-center items-center text-2xl transition-all duration-200 transform hover:scale-105 cursor-pointer"
+              onClick={() => setIsOpen(!isOpen)}
             >
               <FaPizzaSlice
                 aria-hidden="true"
@@ -57,18 +57,20 @@ const Modal = () => {
             <div className=" flex flex-col w-full">
               {levels.map(({ name, daysRequired, color }) => (
                 <div
-                  className="flex mb-4"
                   key={`level-${name}`}
+                  className="flex mb-4"
                 >
                   <div className="text-2xl mr-5">
-                    <FaMedal color={color}/>
+                    <FaMedal color={color} />
                   </div>
 
                   <div className="flex flex-col">
-                    <div className="font-bold text-sm">{name}</div>
+                    <div className="font-bold text-sm">
+                      {name}
+                    </div>
 
                     <div className="text-sm text-lightGrey">
-                      Star at least one repository on {daysRequired} different days
+                      {`Star at least one repository on ${daysRequired} different days`}
                     </div>
                   </div>
                 </div>

@@ -17,16 +17,20 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, u
       <div className="flex items-center gap-x-[10px]">
         <BsFillCalendar2Fill className="w-[26px] h-[26px] text-white" />
 
-        {activeLink && <h1 className="text-[24px] text-white font-semibold">{camelCaseToTitleCase(activeLink)} Repositories</h1> || null}
+        {activeLink &&
+          <h1 className="text-[24px] text-white font-semibold">
+            {`${camelCaseToTitleCase(activeLink)} Repositories`}
+          </h1> || null}
       </div>
 
       {
-        fetchedData.map((item, i) =>
+        fetchedData.map((item, i) => (
           <PostList
-            user={user}
-            data={item}
             key={`${item.full_name}_${i}`}
-          />)
+            data={item}
+            user={user}
+          />
+        ))
       }
     </div>
 
@@ -36,8 +40,8 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, u
         limit <= 100 &&
           <div className="flex justify-center">
             <button
-              onClick={() => handleLoadingMore()}
               className="bg-white text-gray-700 mt-[15px] mb-[15px] text-[15px] border-gray-400 border-[1px] font-normal py-1 px-4 rounded-[5px] "
+              onClick={() => handleLoadingMore()}
             >
               Load More
             </button>

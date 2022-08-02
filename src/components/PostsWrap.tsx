@@ -60,12 +60,11 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
       <HotRepositories user={user} />
 
       <ListRepositories
-
-        limit={limit}
         activeLink={activeLink}
-        handleLoadingMore={handleLoadingMore}
-        user={user}
         fetchedData={fetchedData}
+        handleLoadingMore={handleLoadingMore}
+        limit={limit}
+        user={user}
       />
     </div>
   );

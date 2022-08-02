@@ -57,12 +57,14 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
 
         <div className="flex">
           <button
-            onClick={async () => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
             className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"
+            onClick={async () => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
           >
             <FaArrowAltCircleUp aria-hidden="true" />
 
-            <p className="font-bold">{votes}</p>
+            <p className="font-bold">
+              {votes}
+            </p>
           </button>
         </div>
       </div>
@@ -70,14 +72,14 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
       <a
         className="w-full bg-transparent h-32 overflow-hidden rounded-md mb-2 flex justify-center"
         href={getRepoLink(data.full_name)}
-        title={`Visit ${data.full_name}`}
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
+        title={`Visit ${data.full_name}`}
       >
         <img
+          alt={data.full_name}
           className="object-cover w-full"
           src={`https://opengraph.githubassets.com/1/${data.full_name}`}
-          alt={data.full_name}
         />
       </a>
     </div>

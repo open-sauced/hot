@@ -46,39 +46,41 @@ const Hero = () => {
     <div className="flex flex-col py-[95px] items-center mx-[10px]">
       <div>
         <h1 className="font-Lexend text-4xl md:text-5xl text-center text-lightSlate leading-tight tracking-tight">
-          Find{" "}
+          {`Find `}
 
           <span className="bg-gradient-to-r from-gradFirst via-gradMiddle to-gradLast bg-clip-text text-transparent">
             Open-Source Repositories
-          </span>{" "}
+          </span>
 
-          <br /> to contribute today
+          <br />
+
+          to contribute today
         </h1>
       </div>
 
       <div className="mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px] flex">
         <img
-          src={searchNormal}
           alt="search icon"
+          src={searchNormal}
         />
 
         <input
           ref={searchBoxRef}
+          className="w-full outline-none text-base text-lightSlate"
+          placeholder="Search repositories"
+          type="text"
+          onChange={e => setValueDebounced(e.target.value)}
           onFocus={() => setFocus(true)}
           onBlur={() =>
             setTimeout(() => {
               setFocus(false);
             }, 200)}
-          onChange={e => setValueDebounced(e.target.value)}
-          type="text"
-          placeholder="Search repositories"
-          className="w-full outline-none text-base text-lightSlate"
         />
 
         <img
+          alt="command k"
           className="pt-[7px]"
           src={cmdKIcon}
-          alt="command k"
         />
       </div>
 
@@ -101,16 +103,20 @@ const Hero = () => {
                     <div className="flex items-center gap-x-[10px] mb-[5px]">
                       <div className="w-[25px] h-[25px] overflow-hidden border-gray-400 border-[1px] bg-red-100  rounded-full">
                         <img
+                          alt={full_name}
                           className="w-full h-full"
                           src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))}
-                          alt={full_name}
                         />
                       </div>
 
-                      <p className="text-base text-gray-500 font-semibold">{full_name}</p>
+                      <p className="text-base text-gray-500 font-semibold">
+                        {full_name}
+                      </p>
                     </div>
 
-                    <p className="text-sm text-gray-500">{description}</p>
+                    <p className="text-sm text-gray-500">
+                      {description}
+                    </p>
 
                     <div className="flex justify-between mt-[8px]">
                       <div className="flex gap-x-[5px]">
@@ -121,9 +127,11 @@ const Hero = () => {
 
                       <div className="flex gap-x-[6px]">
                         <div className="flex items-center gap-x-[5px]">
-                          <FaRegDotCircle aria-hidden="true"/>
+                          <FaRegDotCircle aria-hidden="true" />
 
-                          <p className="text-gray-500 text-xs">{humanizeNumber(issues)}</p>
+                          <p className="text-gray-500 text-xs">
+                            {humanizeNumber(issues)}
+                          </p>
                         </div>
 
                         <div className="flex items-center gap-x-[5px]">
@@ -132,7 +140,9 @@ const Hero = () => {
                             className="mr-1"
                           />
 
-                          <p className="text-gray-500 text-xs">{humanizeNumber(stars)}</p>
+                          <p className="text-gray-500 text-xs">
+                            {humanizeNumber(stars)}
+                          </p>
                         </div>
                       </div>
                     </div>

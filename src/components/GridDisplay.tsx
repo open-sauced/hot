@@ -6,7 +6,7 @@ export declare interface GridDisplayProps {
   limit: number;
   handleLoadingMore: () => void;
   fetchedData: DbRecomendation[];
-  user: User;
+  user?: User;
 }
 
 const GridDisplay = ({ activeLink, limit, handleLoadingMore, fetchedData, user }: GridDisplayProps): JSX.Element => (

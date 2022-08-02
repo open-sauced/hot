@@ -1,4 +1,4 @@
-import posthog from "posthog-js";
+import { posthog } from "posthog-js";
 
 function initiatePostHog () {
   posthog.init(import.meta.env.VITE_POSTHOG_ID, { api_host: "https://app.posthog.com" });

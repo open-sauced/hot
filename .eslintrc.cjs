@@ -52,45 +52,6 @@ module.exports = {
     "vite.config.ts",
   ],
   rules: {
-    "@typescript-eslint/indent": ["error", 2, {
-      "ignoredNodes": [
-        "PropertyDefinition[decorators]",
-        "TSUnionType"
-      ]
-    }],
-    "@typescript-eslint/interface-name-prefix": "off",
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/quotes": [
-      "error",
-      "double",
-      {
-        "avoidEscape": true,
-        "allowTemplateLiterals": true,
-      }
-    ],
-    "object-curly-spacing": "off",
-    "@typescript-eslint/object-curly-spacing": ["error", "always"],
-    "semi": "off",
-    "@typescript-eslint/semi": "error",
-    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
-    "no-loops/no-loops": "error",
-    "no-async-promise-executor": "error",
-    "no-await-in-loop": "error",
-    "no-promise-executor-return": "error",
-    "require-atomic-updates": "error",
-    "max-nested-callbacks": ["error", 3],
-    "no-return-await": "error",
-    "prefer-promise-reject-errors": "error",
-    "@typescript-eslint/await-thenable": "error",
-    "@typescript-eslint/no-floating-promises": "error",
-    "@typescript-eslint/no-misused-promises": ["error", {
-      "checksVoidReturn": false,
-    }],
-    "@typescript-eslint/promise-function-async": "error",
-
     // eslint:recommended
     "arrow-body-style": ["error", "as-needed"],
     "capitalized-comments": [
@@ -342,7 +303,45 @@ module.exports = {
     }],
     "react/jsx-wrap-multilines": "error",
 
-    // test
+    // @typescript-eslint/strict
+    "@typescript-eslint/indent": ["error", 2, {
+      "ignoredNodes": [
+        "PropertyDefinition[decorators]",
+        "TSUnionType"
+      ]
+    }],
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true,
+      }
+    ],
+    "object-curly-spacing": "off",
+    "@typescript-eslint/object-curly-spacing": ["error", "always"],
+    "semi": "off",
+    "@typescript-eslint/semi": "error",
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    "no-loops/no-loops": "error",
+    "no-async-promise-executor": "error",
+    "no-await-in-loop": "error",
+    "no-promise-executor-return": "error",
+    "require-atomic-updates": "error",
+    "max-nested-callbacks": ["error", 3],
+    "no-return-await": "error",
+    "prefer-promise-reject-errors": "error",
+    "@typescript-eslint/await-thenable": "error",
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-misused-promises": ["error", {
+      "checksVoidReturn": false,
+    }],
+    "@typescript-eslint/promise-function-async": "error",
   },
   settings: {
     "react": {

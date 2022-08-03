@@ -101,6 +101,8 @@ To fix the linting errors, use the following command:
 npm run format
 ```
 
+It is advised to run this command before committing or opening a pull request.
+
 ### 📕 Types
 
 We have a couple of scripts to check and adjust missing types.

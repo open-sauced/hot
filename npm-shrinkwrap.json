@@ -18,6 +18,7 @@
         "posthog-js": "^1.26.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-hot-toast": "^2.3.0",
         "react-icons": "^4.4.0",
         "react-router-dom": "^6.3.0",
         "rooks": "^5.14.0",
@@ -2975,8 +2976,7 @@
     "node_modules/csstype": {
       "version": "3.1.0",
       "resolved": "https://registry.npmjs.org/csstype/-/csstype-3.1.0.tgz",
-      "integrity": "sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==",
-      "dev": true
+      "integrity": "sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA=="
     },
     "node_modules/cz-conventional-changelog": {
       "version": "3.3.0",
@@ -5034,6 +5034,14 @@
       "integrity": "sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==",
       "dev": true
     },
+    "node_modules/goober": {
+      "version": "2.1.10",
+      "resolved": "https://registry.npmjs.org/goober/-/goober-2.1.10.tgz",
+      "integrity": "sha512-7PpuQMH10jaTWm33sQgBQvz45pHR8N4l3Cu3WMGEWmHShAcTuuP7I+5/DwKo39fwti5A80WAjvqgz6SSlgWmGA==",
+      "peerDependencies": {
+        "csstype": "^3.0.10"
+      }
+    },
     "node_modules/graceful-fs": {
       "version": "4.2.10",
       "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.10.tgz",
@@ -7047,6 +7055,21 @@
       },
       "peerDependencies": {
         "react": ">=16.13.1"
+      }
+    },
+    "node_modules/react-hot-toast": {
+      "version": "2.3.0",
+      "resolved": "https://registry.npmjs.org/react-hot-toast/-/react-hot-toast-2.3.0.tgz",
+      "integrity": "sha512-/RxV+bfjld7tSJR1SCLzMAXgFuNW7fCpK6+vbYqfmbGSWcqTMz2rizrvfWKvtcPH5HK0NqxmBaC5SrAy1F42zA==",
+      "dependencies": {
+        "goober": "^2.1.10"
+      },
+      "engines": {
+        "node": ">=10"
+      },
+      "peerDependencies": {
+        "react": ">=16",
+        "react-dom": ">=16"
       }
     },
     "node_modules/react-icons": {

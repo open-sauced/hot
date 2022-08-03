@@ -36,6 +36,20 @@
 
 * correct eslint configuration and adjust to backend specs ([#269](https://github.com/open-sauced/hot-sauce/issues/269)) ([7a7a33a](https://github.com/open-sauced/hot-sauce/commit/7a7a33a1cf6128bf3689a6b3105e6521e62310ed)), closes [#78](https://github.com/open-sauced/hot-sauce/issues/78)
 
+## [2.19.0](https://github.com/open-sauced/hot-sauce/compare/v2.18.0...v2.19.0) (2022-08-03)
+
+
+### 🍕 Features
+
+* added system notification ([#285](https://github.com/open-sauced/hot-sauce/issues/285)) ([3df0142](https://github.com/open-sauced/hot-sauce/commit/3df0142188c797dbe3e7dd6b53e6b1526ff01703))
+
+## [2.18.0](https://github.com/open-sauced/hot-sauce/compare/v2.17.4...v2.18.0) (2022-08-03)
+
+
+### 🍕 Features
+
+* add contributor avatar in hero search ([#277](https://github.com/open-sauced/hot-sauce/issues/277)) ([fdb981a](https://github.com/open-sauced/hot-sauce/commit/fdb981a00a75b52f78e1cb4c61c8e5b9a2553774))
+
 ### [2.17.4](https://github.com/open-sauced/hot-sauce/compare/v2.17.3...v2.17.4) (2022-08-03)
 
 

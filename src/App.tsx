@@ -4,6 +4,7 @@ import PrimaryNav from "./components/PrimaryNav";
 import PostsWrap from "./components/PostsWrap";
 import { initiatePostHog } from "./lib/analytics";
 import { BrowserRouter } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import RepoSubmission from "./components/RepoSubmission";
 import GradBackground from "./components/GradBackground";
 import useSupabaseAuth from "./hooks/useSupabaseAuth";
@@ -15,21 +16,25 @@ const App = (): JSX.Element => {
   const [textToSearch] = useState("");
 
   return (
-    <BrowserRouter>
-      <div className="App overflow-hidden">
-        <GradBackground>
-          {user && <RepoSubmission user={user} />}
+    <>
+      <Toaster position="top-right" />
 
-          <PrimaryNav />
+      <BrowserRouter>
+        <div className="App overflow-hidden">
+          <GradBackground>
+            {user && <RepoSubmission user={user} />}
 
-          <Hero />
-        </GradBackground>
+            <PrimaryNav />
 
-        <PostsWrap textToSearch={textToSearch} />
+            <Hero />
+          </GradBackground>
 
-        <Footer />
-      </div>
-    </BrowserRouter>
+          <PostsWrap textToSearch={textToSearch} />
+
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </>
   );
 };
 

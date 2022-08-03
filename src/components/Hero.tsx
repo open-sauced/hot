@@ -6,6 +6,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
+import Avatar from './Avatar'
 
 const Hero = () => {
   const containerRef = useRef<Document>(document);
@@ -79,7 +80,7 @@ const Hero = () => {
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 
-            {fetchedData.map(({ full_name, description, issues, stars, user_id }) => (
+            {fetchedData.map(({ full_name, description, issues, stars, user_id, contributions }) => (
               <a
                 key={full_name}
                 href={`https://app.opensauced.pizza/repos/${full_name}`}
@@ -104,9 +105,13 @@ const Hero = () => {
 
                     <div className="flex justify-between mt-[8px]">
                       <div className="flex gap-x-[5px]">
-                        <div className="w-[20px] h-[20px] rounded-full">
-                          {/* todos: add contributors avator here */}
-                        </div>
+                        {contributions.slice(0, 3).map(contribution => (
+                          <div className="w-[20px] h-[20px] rounded-full">
+                            <div className="flex items-center overflow-hidden rounded-full w-8 h-8">
+                              <Avatar contributor={contribution.contributor} lastPr={contribution.last_merged_at} />
+                            </div>
+                          </div>
+                        ))}
                       </div>
                       <div className="flex gap-x-[6px]">
                         <div className="flex items-center gap-x-[5px]">

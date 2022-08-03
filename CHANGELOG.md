@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.18.0](https://github.com/open-sauced/hot-sauce/compare/v2.17.4...v2.18.0) (2022-08-03)
+
+
+### 🍕 Features
+
+* add contributor avatar in hero search ([#277](https://github.com/open-sauced/hot-sauce/issues/277)) ([fdb981a](https://github.com/open-sauced/hot-sauce/commit/fdb981a00a75b52f78e1cb4c61c8e5b9a2553774))
+
 ### [2.17.4](https://github.com/open-sauced/hot-sauce/compare/v2.17.3...v2.17.4) (2022-08-03)
 
 

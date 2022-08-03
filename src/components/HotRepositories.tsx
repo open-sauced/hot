@@ -112,7 +112,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
           ({ id, full_name, name, description, issues, stars, contributions }) => (
             <div
               key={id}
-              className="p-4 border rounded-lg bg-white w-full space-y-1 relative"
+              className="p-4 border rounded-2xl bg-white w-full space-y-1 relative"
             >
               {/* header & upvote button */}
 
@@ -124,22 +124,22 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                     src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))}
                   />
 
-                  <span className="text-xs text-gray-400">
+                  <span className="text-sm font-medium text-lightSlate11">
                     {full_name.replace(`/${String(name)}`, "")}
                   </span>
                 </div>
 
                 <button
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
-                    checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-grey border-gray-500 "
+                    checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-lightSlate11 border-lightSlate06"
                   }`}
                   onClick={async () => (user_id ? handleVoteUpdateByRepo(0, id) : signIn({ provider: "github" }))}
                 >
-                  <span className="">
+                  <span>
                     {checkVoted(id) ? "voted" : "upvote"}
                   </span>
 
-                  {checkVoted(id) ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="" />}
+                  {checkVoted(id) ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="fill-lightSlate09" />}
                 </button>
               </div>
 
@@ -155,7 +155,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                   {name}
                 </a>
 
-                <p className="text-gray-500 text-xs w-5/6">
+                <p className="text-gray-500 font-medium text-xs w-5/6">
                   {description}
                 </p>
               </div>
@@ -166,26 +166,23 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 {/* issues || star || PRs*/}
 
                 <div className="flex space-x-3 text-xs">
-                  <div className="flex space-x-1 justify-center items-center">
-                    <VscIssues />
+                  <div className="flex text-sm space-x-1 justify-center items-center">
+                    <VscIssues size={16} className="fill-lightSlate10"/>
 
-                    <span>
+                    <span className="text-lightSlate11">
                       {humanizeNumber(issues)}
                     </span>
                   </div>
 
-                  <div className="flex space-x-1 justify-center items-center">
-                    <AiOutlineStar />
-
-                    <span>
-                      {humanizeNumber(stars)}
-                    </span>
+                  <div className="flex text-sm space-x-1 justify-center items-center">
+                    <AiOutlineStar size={16} className="fill-lightSlate10" />
+                    <span className="text-lightSlate11">{humanizeNumber(stars)}</span>
                   </div>
 
-                  <div className="flex space-x-1 justify-center items-center">
-                    <BiGitPullRequest />
+                  <div className="flex text-sm space-x-1 justify-center items-center">
+                    <BiGitPullRequest size={16} className="fill-lightSlate10" />
 
-                    <span>0</span>
+                    <span className="text-lightSlate11">0</span>
                   </div>
                 </div>
 

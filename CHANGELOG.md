@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.17.4](https://github.com/open-sauced/hot-sauce/compare/v2.17.3...v2.17.4) (2022-08-03)
+
+
+### 🎨 Styles
+
+* Add styles missing for featured cards ([#274](https://github.com/open-sauced/hot-sauce/issues/274)) ([eebc38c](https://github.com/open-sauced/hot-sauce/commit/eebc38c0373a689fd209cec2ef87a1e91e06f943))
+
 ### [2.17.3](https://github.com/open-sauced/hot-sauce/compare/v2.17.2...v2.17.3) (2022-08-03)
 
 

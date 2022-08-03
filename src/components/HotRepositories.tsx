@@ -58,10 +58,14 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     , [],
   );
 
-  const fetchVotedData = useCallback(async () => {
-    const data = await fetchRecommendations("myVotes", 1000, user, "");
+  const fetchVotedData = useCallback(async (user?: User) => {
+    if (user) {
+      const data = await fetchRecommendations("myVotes", 1000, user, "");
 
-    setVotedReposIds(data.map(repo => repo.id));
+      return setVotedReposIds(data.map(repo => repo.id));
+    }
+
+    setVotedReposIds([]);
   }, []);
 
   useEffect(() => {
@@ -78,14 +82,14 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
       })
       .catch(console.error);
 
-    fetchVotedData()
+    fetchVotedData(user)
       .catch(console.error);
-  }, []);
+  }, [user]);
 
   async function handleVoteUpdateByRepo (votes: number, repo_id: number) {
     const checkUserId = parseInt(String(user_id));
 
-    if (typeof checkUserId === "number" && checkUserId !== 0) {
+    if (checkUserId !== 0) {
       capturePostHogAnayltics("User voted", "voteClick", "true");
 
       await updateVotesByRepo(votes, repo_id, checkUserId);
@@ -167,7 +171,10 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
                 <div className="flex space-x-3 text-xs">
                   <div className="flex text-sm space-x-1 justify-center items-center">
-                    <VscIssues size={16} className="fill-lightSlate10"/>
+                    <VscIssues
+                      className="fill-lightSlate10"
+                      size={16}
+                    />
 
                     <span className="text-lightSlate11">
                       {humanizeNumber(issues)}
@@ -175,12 +182,21 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                   </div>
 
                   <div className="flex text-sm space-x-1 justify-center items-center">
-                    <AiOutlineStar size={16} className="fill-lightSlate10" />
-                    <span className="text-lightSlate11">{humanizeNumber(stars)}</span>
+                    <AiOutlineStar
+                      className="fill-lightSlate10"
+                      size={16}
+                    />
+
+                    <span className="text-lightSlate11">
+                      {humanizeNumber(stars)}
+                    </span>
                   </div>
 
                   <div className="flex text-sm space-x-1 justify-center items-center">
-                    <BiGitPullRequest size={16} className="fill-lightSlate10" />
+                    <BiGitPullRequest
+                      className="fill-lightSlate10"
+                      size={16}
+                    />
 
                     <span className="text-lightSlate11">0</span>
                   </div>

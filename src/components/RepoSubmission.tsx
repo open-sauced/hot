@@ -29,15 +29,15 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
       console.log("is valid: ", isValid);
       if (isValid && userName) {
         sendMessage(userName, sanitizedUrl);
-        ToastTrigger({message: "Data Submitted", type: "success"})
+        ToastTrigger({ message: "Data Submitted", type: "success" });
       }
 
       if (!isValid) {
-       ToastTrigger({message: "Invalid repo url", type: "error"})
+        ToastTrigger({ message: "Invalid repo url", type: "error" });
       }
 
       if (!userName) {
-       ToastTrigger({message: "No user name", type: "error"})
+        ToastTrigger({ message: "No user name", type: "error" });
       }
     }, 500);
   };

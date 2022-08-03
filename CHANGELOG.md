@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.18.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.17.3...v2.18.0-beta.1) (2022-08-03)
+
+
+### 🐛 Bug Fixes
+
+* correct eslint configuration and adjust to backend specs ([#269](https://github.com/open-sauced/hot-sauce/issues/269)) ([7a7a33a](https://github.com/open-sauced/hot-sauce/commit/7a7a33a1cf6128bf3689a6b3105e6521e62310ed)), closes [#78](https://github.com/open-sauced/hot-sauce/issues/78)
+
+
+### 📝 Documentation
+
+* update linting docs ([1f4a9df](https://github.com/open-sauced/hot-sauce/commit/1f4a9dffa9669d8aef3c2015e4520fef988a526f))
+
 ### [2.17.2-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.17.1...v2.17.2-beta.1) (2022-08-02)
 
 

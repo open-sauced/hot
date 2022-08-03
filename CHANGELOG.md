@@ -12,6 +12,20 @@
 
 * correct eslint configuration and adjust to backend specs ([#269](https://github.com/open-sauced/hot-sauce/issues/269)) ([7a7a33a](https://github.com/open-sauced/hot-sauce/commit/7a7a33a1cf6128bf3689a6b3105e6521e62310ed)), closes [#78](https://github.com/open-sauced/hot-sauce/issues/78)
 
+### [2.17.3](https://github.com/open-sauced/hot-sauce/compare/v2.17.2...v2.17.3) (2022-08-03)
+
+
+### 🐛 Bug Fixes
+
+* avatar overlay ([#284](https://github.com/open-sauced/hot-sauce/issues/284)) ([a6b3fde](https://github.com/open-sauced/hot-sauce/commit/a6b3fde96fbcd3581bcc93b17e596304332489e6))
+
+### [2.17.2](https://github.com/open-sauced/hot-sauce/compare/v2.17.1...v2.17.2) (2022-08-02)
+
+
+### 🎨 Styles
+
+* **hero:** added shadow at search box ([#278](https://github.com/open-sauced/hot-sauce/issues/278)) ([9f74ef1](https://github.com/open-sauced/hot-sauce/commit/9f74ef1e152dd9562080209c366f7bfdd37c4f39))
+
 ### [2.17.1](https://github.com/open-sauced/hot-sauce/compare/v2.17.0...v2.17.1) (2022-08-01)
 
 

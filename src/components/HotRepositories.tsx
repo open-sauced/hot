@@ -195,7 +195,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                   {contributions.slice(0, 5).map(({ contributor, last_merged_at }) => (
                     <div
                       key={`${full_name}-${contributor}`}
-                      className="w-[24px] h-[24px] overflow-hidden rounded-full -mr-[15px] transition-all duration-300"
+                      className="w-[24px] h-[24px] overflow-hidden rounded-full transition-all duration-300"
                     >
                       <Avatar
                         contributor={contributor}

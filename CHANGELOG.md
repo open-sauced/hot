@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.19.0](https://github.com/open-sauced/hot-sauce/compare/v2.18.0...v2.19.0) (2022-08-03)
+
+
+### 🍕 Features
+
+* added system notification ([#285](https://github.com/open-sauced/hot-sauce/issues/285)) ([3df0142](https://github.com/open-sauced/hot-sauce/commit/3df0142188c797dbe3e7dd6b53e6b1526ff01703))
+
 ## [2.18.0](https://github.com/open-sauced/hot-sauce/compare/v2.17.4...v2.18.0) (2022-08-03)
 
 

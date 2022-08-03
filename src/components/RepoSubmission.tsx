@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { User } from "@supabase/supabase-js";
+import { ToastTrigger } from "../lib/reactHotToast";
 export declare interface RepoSubmissionProps {
   user: User | null;
 }
@@ -28,15 +29,15 @@ const RepoSubmission = ({ user }: RepoSubmissionProps) => {
       console.log("is valid: ", isValid);
       if (isValid && userName) {
         sendMessage(userName, sanitizedUrl);
-        console.log("Data Submitted");
+        ToastTrigger({message: "Data Submitted", type: "success"})
       }
 
       if (!isValid) {
-        console.log("Invalid repo url");
+       ToastTrigger({message: "Invalid repo url", type: "error"})
       }
 
       if (!userName) {
-        console.log("No user name");
+       ToastTrigger({message: "No user name", type: "error"})
       }
     }, 500);
   };

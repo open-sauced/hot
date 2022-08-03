@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.18.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.18.0-beta.1...v2.18.0-beta.2) (2022-08-03)
+
+
+### 🎨 Styles
+
+* Add styles missing for featured cards ([#274](https://github.com/open-sauced/hot-sauce/issues/274)) ([eebc38c](https://github.com/open-sauced/hot-sauce/commit/eebc38c0373a689fd209cec2ef87a1e91e06f943))
+
+
+### 🐛 Bug Fixes
+
+* correct hot repositories upvoted array check ([a44cf82](https://github.com/open-sauced/hot-sauce/commit/a44cf8238469b8a53e135a9309de009a75fa884c))
+
 ## [2.18.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.17.3...v2.18.0-beta.1) (2022-08-03)
 
 

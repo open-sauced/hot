@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.17.3](https://github.com/open-sauced/hot-sauce/compare/v2.17.2...v2.17.3) (2022-08-03)
+
+
+### 🐛 Bug Fixes
+
+* avatar overlay ([#284](https://github.com/open-sauced/hot-sauce/issues/284)) ([a6b3fde](https://github.com/open-sauced/hot-sauce/commit/a6b3fde96fbcd3581bcc93b17e596304332489e6))
+
 ### [2.17.2](https://github.com/open-sauced/hot-sauce/compare/v2.17.1...v2.17.2) (2022-08-02)
 
 

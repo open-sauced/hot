@@ -16,7 +16,7 @@ const App = (): JSX.Element => {
   const [textToSearch] = useState("");
   return (
     <>
-      <Toaster position={"top-center"} />
+      <Toaster position={"top-right"} />
       <BrowserRouter>
         <div className="App overflow-hidden">
           <GradBackground>

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import SecondaryNav from "./SecondaryNav";
-import ListRepositories from "./ListRepositories";
-import { fetchRecommendations } from "../lib/supabase";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import locationsHash from "../lib/locationsHash";
+import { useCallback, useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
+import { fetchRecommendations } from "../lib/supabase";
+import locationsHash from "../lib/locationsHash";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import HotRepositories from "./HotRepositories";
+import ListRepositories from "./ListRepositories";
+import SecondaryNav from "./SecondaryNav";
 
 interface PostWrapProps {
   textToSearch: string;
@@ -16,6 +16,7 @@ const parseLimitValue = (limit: string | null): number => {
     return 25;
   }
   const value = parseInt(limit);
+
   if (isNaN(value) || value <= 0) {
     return 25;
   }
@@ -31,30 +32,39 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
-  const activeLink = locationsHash[location.pathname] || "popular";
+  const activeLink = locationsHash[location.pathname] ?? "popular";
   const limit = parseLimitValue(searchParams.get("limit"));
 
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 25) });
   };
 
+  const fetchData = useCallback(async () => {
+    const data = await fetchRecommendations(activeLink, limit, user, textToSearch);
+
+    setFetchedData(data);
+  }, []);
+
   useEffect(() => {
-    fetchRecommendations(activeLink, limit, user, textToSearch).then((data) => {
-      setFetchedData(data);
-    });
+    fetchData()
+      .catch(console.error);
   }, [activeLink, limit, textToSearch]);
 
   return (
     <div className="bg-darkestGrey">
-      <SecondaryNav activeLink={activeLink} user={user} />
-      <HotRepositories user={user} />
-      <ListRepositories
-
-        limit={limit}
+      <SecondaryNav
         activeLink={activeLink}
-        handleLoadingMore={handleLoadingMore}
         user={user}
+      />
+
+      <HotRepositories user={user} />
+
+      <ListRepositories
+        activeLink={activeLink}
         fetchedData={fetchedData}
+        handleLoadingMore={handleLoadingMore}
+        limit={limit}
+        user={user}
       />
     </div>
   );

@@ -5,20 +5,21 @@ export declare interface ToastTriggerProps {
   type: "success" | "error" | "custom" | "";
 }
 
-// Notifier function trigger
+// notifier function trigger
 export const ToastTrigger = ({ message, type }: ToastTriggerProps) => {
   switch (type) {
-    case "success":
-      toast.success(message);
-      break;
-    case "error":
-      toast.error(message);
-      break;
-    // Pass custom type only if your message is a jsx template
-    case "custom":
-      toast.custom(message);
-      break;
-    default:
-      toast(message);
+  case "success":
+    toast.success(message);
+    break;
+  case "error":
+    toast.error(message);
+    break;
+
+    // pass custom type only if your message is a jsx template
+  case "custom":
+    toast.custom(message);
+    break;
+  default:
+    toast(message);
   }
 };

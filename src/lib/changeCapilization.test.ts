@@ -1,10 +1,11 @@
-import camelCaseToTitleCase from './camelCaseToTitleCase';
-import { describe, test, expect } from 'vitest'
+import camelCaseToTitleCase from "./camelCaseToTitleCase";
+import { describe, expect, test } from "vitest";
 
-describe('Test: camelCaseToTitleCase()', () => {
-  test('open should capitalize', () => {
+describe("Test: camelCaseToTitleCase()", () => {
+  test("open should capitalize", () => {
     const str = "openSauced";
     const result = camelCaseToTitleCase(str);
-    expect(result).toBe('Open Sauced');
+
+    expect(result).toBe("Open Sauced");
   });
 });

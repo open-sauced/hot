@@ -1,10 +1,10 @@
-import React from "react";
-import openSaucedLogo from "../assets/openSauced.svg";
 import { Menu, Transition } from "@headlessui/react";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import { capturePostHogAnayltics } from "../lib/analytics";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { capturePostHogAnayltics } from "../lib/analytics";
+import { getAvatarLink } from "../lib/github";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
+import openSaucedLogo from "../assets/openSauced.svg";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
@@ -16,23 +16,32 @@ const PrimaryNav = (): JSX.Element => {
       <div className="flex font-Inter py-[26px] px-[42px] justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">
-            <img className="inline-block w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} alt="Open Sauced Logo" />
+            <img
+              alt="Open Sauced Logo"
+              className="inline-block w-[22px] h-[22px] mr-[5px]"
+              src={openSaucedLogo}
+            />
+
             <span className="text-base leading-snug font-semibold">OpenSauced</span>
           </a>
         </div>
 
-        {user ? (
-          <Menu as="div" className="flex z-50 text-left relative">
+        {user && (
+          <Menu
+            as="div"
+            className="flex z-50 text-left relative"
+          >
             <Menu.Button>
               <div className="hidden md:flex pl-[16px] border-l-[1px] border-lightOrange">
                 <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
                   <img
+                    alt={String(user.user_metadata.user_name)}
                     className="w-full h-full"
-                    src={user.user_metadata.avatar_url}
-                    alt={user.user_metadata.user_name}
+                    src={getAvatarLink(String(user.user_metadata.user_name))}
                   />
                 </div>
               </div>
+
               <div className="flex md:hidden w-[20px] h-[20px]">
                 <GiHamburgerMenu />
               </div>
@@ -51,14 +60,20 @@ const PrimaryNav = (): JSX.Element => {
                   <div className="flex items-center px-[8px] py-[10px] mb-[5px] gap-x-[10px]">
                     <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
                       <img
+                        alt={String(user.user_metadata.user_name)}
                         className="w-full h-full"
-                        src={user.user_metadata.avatar_url}
-                        alt={user.user_metadata.user_name}
+                        src={getAvatarLink(String(user.user_metadata.user_name))}
                       />
                     </div>
+
                     <div className="flex-col shrink">
-                      <p className="text-osGrey text-xs font-semibold">{user.user_metadata.full_name}</p>
-                      <p className="text-gray-500 text-xs font-normal">{user.user_metadata.user_name}</p>
+                      <p className="text-osGrey text-xs font-semibold">
+                        {user.user_metadata.full_name}
+                      </p>
+
+                      <p className="text-gray-500 text-xs font-normal">
+                        {user.user_metadata.user_name}
+                      </p>
                     </div>
                   </div>
                 </Menu.Item>
@@ -70,7 +85,7 @@ const PrimaryNav = (): JSX.Element => {
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
                     >
-                      v{version}
+                      {`v${version}`}
                     </button>
                   )}
                 </Menu.Item>
@@ -79,8 +94,8 @@ const PrimaryNav = (): JSX.Element => {
                   {({ active }) => (
                     <a
                       href={bugReportLink}
-                      target="_blank"
                       rel="noreferrer"
+                      target="_blank"
                       className={`${
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
@@ -93,12 +108,10 @@ const PrimaryNav = (): JSX.Element => {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      onClick={async () => {
-                        await signOut();
-                      }}
                       className={`${
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
+                      onClick={async () => signOut()}
                     >
                       Logout
                     </button>
@@ -107,13 +120,15 @@ const PrimaryNav = (): JSX.Element => {
               </Menu.Items>
             </Transition>
           </Menu>
-        ) : (
+        )}
+
+        {!user && (
           <button
+            className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white"
             onClick={async () => {
               capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
               await signIn({ provider: "github" });
             }}
-            className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white"
           >
             Sign in
           </button>

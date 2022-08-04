@@ -1,49 +1,49 @@
-import { createClient, User } from '@supabase/supabase-js';
+import { User, createClient } from "@supabase/supabase-js";
 
 export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_API_KEY);
+  import.meta.env.VITE_SUPABASE_API_KEY,
+);
 
-export async function authenticatedVote(user_id: number, repo_id: number) {
-  const {error, count} = await supabase
-    .from('users_to_repos_votes')
-    .select('count', {count: 'exact'})
-    .eq('user_id', user_id)
-    .eq('repo_id', repo_id);
+export async function authenticatedVote (user_id: number, repo_id: number) {
+  const { error, count } = await supabase
+    .from("users_to_repos_votes")
+    .select("count", { count: "exact" })
+    .eq("user_id", user_id)
+    .eq("repo_id", repo_id);
 
   if (error || count === 0) {
     await supabase
-      .from('users_to_repos_votes')
+      .from("users_to_repos_votes")
       .upsert({
         user_id,
-        repo_id
+        repo_id,
       });
 
     return 1;
-  } else {
-    await supabase
-      .from('users_to_repos_votes')
-      .delete()
-      .eq('user_id', user_id)
-      .eq('repo_id', repo_id);
-
-    return -1;
   }
+  await supabase
+    .from("users_to_repos_votes")
+    .delete()
+    .eq("user_id", user_id)
+    .eq("repo_id", repo_id);
+
+  return -1;
 }
 
-export async function updateVotesByRepo(votes: number, repo_id: number, user_id: number) {
+export async function updateVotesByRepo (votes: number, repo_id: number, user_id: number) {
   const modifier = await authenticatedVote(user_id, repo_id);
 
   return votes + modifier;
 }
 
-export async function fetchRecommendations(
-  activeLink = 'popular',
+export async function fetchRecommendations (
+  activeLink = "popular",
   limit = 25,
   user: User | null = null,
-  textToSearchParam = '',
+  textToSearchParam = "",
 ) {
-  const orderBy = 'stars';
+  const orderBy = "stars";
   const orderByOptions: {
     ascending?: boolean,
     nullsFirst?: boolean,
@@ -67,11 +67,11 @@ export async function fetchRecommendations(
     )
   `;
 
-  if (activeLink === 'upvoted') {
+  if (activeLink === "upvoted") {
     selectStatement += `,
       votes:users_to_repos_votes!inner(*)
     `;
-  } else if (activeLink === 'myVotes') {
+  } else if (activeLink === "myVotes") {
     selectStatement += `,
       myVotesRelation:users_to_repos_votes!inner(myVotesCount:count),
       myVotesFilter:users_to_repos_votes!inner(
@@ -81,28 +81,28 @@ export async function fetchRecommendations(
   }
 
   const supabaseComposition = supabase
-    .from('repos')
-    .select(selectStatement)
+    .from("repos")
+    .select(selectStatement);
 
-  if (user && activeLink === 'myVotes') {
-    supabaseComposition
-      .filter('myVotesFilter.user_id', 'eq', user?.user_metadata?.sub)
+  if (user && activeLink === "myVotes") {
+    await supabaseComposition
+      .filter("myVotesFilter.user_id", "eq", user.user_metadata.sub);
   }
 
-  const searchColumn = textToSearchParam == '' ? '' : 'full_name'
-  const textToSearch = textToSearchParam == '' ? '' : textToSearchParam
+  const searchColumn = textToSearchParam === "" ? "" : "full_name";
+  const textToSearch = textToSearchParam === "" ? "" : textToSearchParam;
 
   const { data: recommendations, error } = await supabaseComposition
     .limit(limit)
     .like(searchColumn, `%${textToSearch}%`)
-    .order('last_merged_at', {
+    .order("last_merged_at", {
       ascending: false,
-      foreignTable: 'contributions',
+      foreignTable: "contributions",
     })
     .order(orderBy, orderByOptions)
-    .order('updated_at', { ascending: false })
+    .order("updated_at", { ascending: false });
 
   error && console.error(error);
 
-  return recommendations as DbRecomendation[] || [];
+  return recommendations as DbRecomendation[];
 }

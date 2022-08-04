@@ -1,10 +1,9 @@
-import React from "react";
 import { User } from "@supabase/supabase-js";
 import { Link } from "react-router-dom";
 
 export declare interface SecondaryNavProps {
   activeLink: string | null;
-  user: User | null;
+  user?: User;
 }
 
 const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
@@ -26,6 +25,7 @@ const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
       title: "Recent",
     },
   ];
+
   user &&
     links.push({
       link: "myVotes",
@@ -38,7 +38,10 @@ const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
         <nav className="container">
           <div className="flex flex-col space-y-2 sm:flex-row text-xl font-righteous text-accent font-bold justify-center items-baseline cursor-pointer">
             {links.map(({ link, title }) => (
-              <Link key={link} to={link}>
+              <Link
+                key={link}
+                to={link}
+              >
                 <span
                   className={`${
                     activeLink === link ? "bg-cheesyYellow text-grey " : " "

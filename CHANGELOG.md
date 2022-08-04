@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.20.0](https://github.com/open-sauced/hot-sauce/compare/v2.19.0...v2.20.0) (2022-08-04)
+
+
+### 🍕 Features
+
+* make the contributors StackedAvatars component reusable ([#290](https://github.com/open-sauced/hot-sauce/issues/290)) ([05a3b15](https://github.com/open-sauced/hot-sauce/commit/05a3b15923bd6af3a0e73ae509b7a45588f766cc)), closes [#287](https://github.com/open-sauced/hot-sauce/issues/287)
+
 ## [2.19.0](https://github.com/open-sauced/hot-sauce/compare/v2.18.0...v2.19.0) (2022-08-03)
 
 

@@ -6,7 +6,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
-import Avatar from './Avatar'
+import StackedAvatar from "./StackedAvatar";
 
 const Hero = () => {
   const containerRef = useRef<Document>(document);
@@ -104,22 +104,14 @@ const Hero = () => {
                     <p className="text-sm text-gray-500">{description}</p>
 
                     <div className="flex justify-between mt-[8px]">
-                      <div className="flex gap-x-[5px]">
-                        {contributions.slice(0, 3).map(contribution => (
-                          <div className="w-[20px] h-[20px] rounded-full">
-                            <div className="flex items-center overflow-hidden rounded-full w-8 h-8">
-                              <Avatar contributor={contribution.contributor} lastPr={contribution.last_merged_at} />
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                      <StackedAvatar contributors={contributions} />
                       <div className="flex gap-x-[6px]">
                         <div className="flex items-center gap-x-[5px]">
-                          <FaRegDotCircle aria-hidden="true"/>
+                          <FaRegDotCircle aria-hidden="true" />
                           <p className="text-gray-500 text-xs">{humanizeNumber(issues)}</p>
                         </div>
                         <div className="flex items-center gap-x-[5px]">
-                          <AiOutlineStar aria-hidden="true" className="mr-1"/>
+                          <AiOutlineStar aria-hidden="true" className="mr-1" />
                           <p className="text-gray-500 text-xs">{humanizeNumber(stars)}</p>
                         </div>
                       </div>

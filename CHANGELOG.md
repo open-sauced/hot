@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.21.1](https://github.com/open-sauced/hot-sauce/compare/v2.21.0...v2.21.1) (2022-08-04)
+
+
+### 🐛 Bug Fixes
+
+* dedupe handleVoteUpdateByRepo function ([#292](https://github.com/open-sauced/hot-sauce/issues/292)) ([c1b77ea](https://github.com/open-sauced/hot-sauce/commit/c1b77eaef783d2849c5ed66a92b9a79c3e94b2cd)), closes [#271](https://github.com/open-sauced/hot-sauce/issues/271)
+
 ## [2.21.0](https://github.com/open-sauced/hot-sauce/compare/v2.20.0...v2.21.0) (2022-08-04)
 
 

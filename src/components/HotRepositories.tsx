@@ -10,7 +10,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
 import { fetchRecommendations, updateVotesByRepo } from "../lib/supabase";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import Avatar from "./Avatar";
+import StackedAvatar from "./StackedAvatar";
 import hotIcon from "../assets/hotIcon.png";
 
 export declare interface HotReposProps {
@@ -135,8 +135,8 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
                 <button
                   className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
-                    checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-lightSlate11 border-lightSlate06"
-                  }`}
+                    checkVoted(id) ? "bg-lightOrange01" : "bg-lightSlate01"
+                  } ${checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-lightSlate11 border-lightSlate06 "}`}
                   onClick={async () => (user_id ? handleVoteUpdateByRepo(0, id) : signIn({ provider: "github" }))}
                 >
                   <span>
@@ -204,19 +204,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
                 {/* Avatars */}
 
-                <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300">
-                  {contributions.slice(0, 5).map(({ contributor, last_merged_at }) => (
-                    <div
-                      key={`${full_name}-${contributor}`}
-                      className="w-[24px] h-[24px] overflow-hidden rounded-full transition-all duration-300"
-                    >
-                      <Avatar
-                        contributor={contributor}
-                        lastPr={last_merged_at}
-                      />
-                    </div>
-                  ))}
-                </div>
+                <StackedAvatar contributors={contributions} />
               </div>
             </div>
           ),

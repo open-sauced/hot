@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
-import Avatar from "./Avatar";
+import StackedAvatar from "./StackedAvatar";
 import { fetchRecommendations } from "../lib/supabase";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
@@ -121,19 +121,7 @@ const Hero = () => {
 
                     <div className="flex justify-between mt-[8px]">
                       <div className="flex gap-x-[5px]">
-                        {contributions.slice(0, 3).map(({ contributor, last_merged_at }) => (
-                          <div
-                            key={`search-${full_name}-${contributor}`}
-                            className="w-[20px] h-[20px] rounded-full"
-                          >
-                            <div className="flex items-center overflow-hidden rounded-full w-8 h-8">
-                              <Avatar
-                                contributor={contributor}
-                                lastPr={last_merged_at}
-                              />
-                            </div>
-                          </div>
-                        ))}
+                        <StackedAvatar contributors={contributions} />
                       </div>
 
                       <div className="flex gap-x-[6px]">

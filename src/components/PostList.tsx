@@ -6,7 +6,7 @@ import { getAvatarLink, getRepoLink } from "../lib/github";
 import { updateVotesByRepo } from "../lib/supabase";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import Avatar from "./Avatar";
+import StackedAvatar from "./StackedAvatar";
 
 export declare interface PostListProps {
   data: DbRecomendation;
@@ -32,7 +32,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   async function handleVoteUpdateByRepo (votes: number, repo_id: number) {
     const checkUserId = parseInt(String(user_id));
 
-    if (typeof checkUserId === "number" && checkUserId !== 0) {
+    if (checkUserId !== 0) {
       capturePostHogAnayltics("User voted", "voteClick", "true");
 
       const updatedVotes = await updateVotesByRepo(votes, repo_id, checkUserId);
@@ -100,21 +100,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
             </p>
           </div>
 
-          <div className="-space-x-2 flex hover:space-x-0">
-            {
-              contributions.slice(0, 5).map(({ contributor, last_merged_at }) => (
-                <div
-                  key={`${full_name}-${contributor}`}
-                  className="w-[24px] h-[24px] overflow-hidden rounded-full transition-all duration-300"
-                >
-                  <Avatar
-                    contributor={contributor}
-                    lastPr={last_merged_at}
-                  />
-                </div>
-              ))
-            }
-          </div>
+          <StackedAvatar contributors={contributions} />
         </div>
       </div>
 

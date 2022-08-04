@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { User } from "@supabase/supabase-js";
+import handleVoteUpdateByRepo from "../lib/handleVoteUpdateByRepo";
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
-import { updateVotesByRepo } from "../lib/supabase";
-import { capturePostHogAnayltics } from "../lib/analytics";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import StackedAvatar from "./StackedAvatar";
 
@@ -29,18 +28,10 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   const [votes, updateVotesState] = useState(votesCount || 0);
   const { signIn } = useSupabaseAuth();
 
-  async function handleVoteUpdateByRepo (votes: number, repo_id: number) {
-    const checkUserId = parseInt(String(user_id));
+  async function handleVoteUpdate (votes: number, repo_id: number) {
+    const updatedVotes = await handleVoteUpdateByRepo(votes, repo_id, user_id);
 
-    if (checkUserId !== 0) {
-      capturePostHogAnayltics("User voted", "voteClick", "true");
-
-      const updatedVotes = await updateVotesByRepo(votes, repo_id, checkUserId);
-
-      updateVotesState(updatedVotes);
-    } else {
-      console.log("You must be signed in to vote");
-    }
+    updatedVotes > 0 && updateVotesState(updatedVotes);
   }
 
   return (
@@ -106,7 +97,7 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
 
       <button
         className="md:w-[60px] w-full min-w-[60px] rounded-[6px] group border-[1px] cursor-pointer transition-all duration-200 hover:border-osOrange flex gap-[5px] py-[10px] md:py-0 md:flex-col justify-center items-center"
-        onClick={async () => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
+        onClick={async () => (user_id ? handleVoteUpdate(votes, repo_id) : signIn({ provider: "github" }))}
       >
         <FaArrowAltCircleUp className="text-gray-500 group-hover:text-osOrange transition-all duration-300 w-[13px] h-[13px]" />
 

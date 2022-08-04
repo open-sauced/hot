@@ -7,7 +7,6 @@ import { getAvatarLink, getRepoLink } from "../lib/github";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import StackedAvatar from "./StackedAvatar";
 
-
 export declare interface PostListProps {
   data: DbRecomendation;
   user?: User;
@@ -29,13 +28,11 @@ const PostList = ({ data, user }: PostListProps): JSX.Element => {
   const [votes, updateVotesState] = useState(votesCount || 0);
   const { signIn } = useSupabaseAuth();
 
-
   async function handleVoteUpdate (votes: number, repo_id: number) {
     const updatedVotes = await handleVoteUpdateByRepo(votes, repo_id, user_id);
 
-    typeof updatedVotes === "number" && updateVotesState(updatedVotes);
+    updatedVotes > 0 && updateVotesState(updatedVotes);
   }
-
 
   return (
     <div className="flex flex-col gap-y-[20px] md:flex-row bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]">

@@ -18,8 +18,11 @@ export declare interface HotReposProps {
 }
 
 const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
-  const { user_metadata: { sub: user_id } } = user! || { user_metadata: { sub: null } };
+  const {
+    user_metadata: { sub: user_id },
+  } = user! || { user_metadata: { sub: null } };
   const [hotRepos, setHotRepos] = useState<DbRecomendation[]>([]);
+
   const [votedReposIds, setVotedReposIds] = useState<number[]>([]);
   const { signIn } = useSupabaseAuth();
   const staticHot = ["oven-sh/bun", "tabler/tabler", "open-sauced/hot"];
@@ -29,7 +32,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     const hasVoted = checkVoted(repo_id);
 
     if (hasVoted) {
-      setVotedReposIds(votedReposIds.filter(id => id !== repo_id));
+      setVotedReposIds(votedReposIds.filter((id) => id !== repo_id));
     } else {
       setVotedReposIds([...votedReposIds, repo_id]);
     }
@@ -40,25 +43,25 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   const fetchHotData = useCallback(
     async (repo: string) =>
       fetchRecommendations("popular", 1, user, repo)
-        .then(data => {
+        .then((data) => {
           if (data[0]) {
             return data[0];
           }
 
           throw new Error(`Unable to fetch ${repo}`);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
           throw err;
         }),
-    [],
+    []
   );
 
   const fetchVotedData = useCallback(async (user?: User) => {
     if (user) {
       const data = await fetchRecommendations("myVotes", 1000, user, "");
 
-      return setVotedReposIds(data.map(repo => repo.id));
+      return setVotedReposIds(data.map((repo) => repo.id));
     }
 
     setVotedReposIds([]);
@@ -67,12 +70,12 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   useEffect(() => {
     const promises: Promise<DbRecomendation>[] = [];
 
-    staticHot.forEach(repo => promises.push(fetchHotData(repo)));
+    staticHot.forEach((repo) => promises.push(fetchHotData(repo)));
 
     Promise.allSettled(promises)
-      .then(data => {
-        const newHots = (data.filter(d => d.status === "fulfilled") as PromiseFulfilledResult<DbRecomendation>[]).map(
-          d => d.value,
+      .then((data) => {
+        const newHots = (data.filter((d) => d.status === "fulfilled") as PromiseFulfilledResult<DbRecomendation>[]).map(
+          (d) => d.value
         );
 
         return setHotRepos(newHots);
@@ -82,7 +85,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
     fetchVotedData(user).catch(console.error);
   }, [user]);
 
-  async function handleVoteUpdate (votes: number, repo_id: number) {
+  async function handleVoteUpdate(votes: number, repo_id: number) {
     await handleVoteUpdateByRepo(votes, repo_id, user_id);
     handleVoted(repo_id);
   }
@@ -90,21 +93,14 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
   return (
     <div className="flex flex-col px-4 max-w-screen-xl mx-auto">
       <div className="flex space-x-3 items-center">
-        <img
-          alt="Hot Repo Icon"
-          className="h-5 w-5"
-          src={hotIcon}
-        />
+        <img alt="Hot Repo Icon" className="h-5 w-5" src={hotIcon} />
 
         <h1 className="text-white font-bold text-2xl">Hot Repositories</h1>
       </div>
 
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full my-5">
         {hotRepos.map(({ id, full_name, name, description, issues, stars, contributions }) => (
-          <div
-            key={id}
-            className="p-4 border rounded-2xl bg-white w-full space-y-1 relative"
-          >
+          <div key={id} className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">
             {/* header & upvote button */}
 
             <div className="flex justify-between w-full">
@@ -126,17 +122,13 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 } ${checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-lightSlate11 border-lightSlate06 "}`}
                 onClick={async () => (user_id ? handleVoteUpdate(0, id) : signIn({ provider: "github" }))}
               >
-                <span>
-                  {checkVoted(id) ? "voted" : "upvote"}
-                </span>
+                <span>{checkVoted(id) ? "voted" : "upvote"}</span>
 
-                {checkVoted(id)
-                  ? (
-                    <RiCheckboxCircleFill className="" />
-                  )
-                  : (
-                    <FaArrowAltCircleUp className="fill-lightSlate09" />
-                  )}
+                {checkVoted(id) ? (
+                  <RiCheckboxCircleFill className="" />
+                ) : (
+                  <FaArrowAltCircleUp className="fill-lightSlate09" />
+                )}
               </button>
             </div>
 
@@ -152,9 +144,7 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
                 {name}
               </a>
 
-              <p className="text-gray-500 font-medium text-xs w-5/6">
-                {description}
-              </p>
+              <p className="text-gray-500 font-medium text-xs w-5/6">{description}</p>
             </div>
 
             {/* issues || star || PRs || Avatar */}
@@ -164,32 +154,19 @@ const HotRepositories = ({ user }: HotReposProps): JSX.Element => {
 
               <div className="flex space-x-3 text-xs">
                 <div className="flex text-sm space-x-1 justify-center items-center">
-                  <VscIssues
-                    className="fill-lightSlate10"
-                    size={16}
-                  />
+                  <VscIssues className="fill-lightSlate10" size={16} />
 
-                  <span className="text-lightSlate11">
-                    {humanizeNumber(issues)}
-                  </span>
+                  <span className="text-lightSlate11">{humanizeNumber(issues)}</span>
                 </div>
 
                 <div className="flex text-sm space-x-1 justify-center items-center">
-                  <AiOutlineStar
-                    className="fill-lightSlate10"
-                    size={16}
-                  />
+                  <AiOutlineStar className="fill-lightSlate10" size={16} />
 
-                  <span className="text-lightSlate11">
-                    {humanizeNumber(stars)}
-                  </span>
+                  <span className="text-lightSlate11">{humanizeNumber(stars)}</span>
                 </div>
 
                 <div className="flex text-sm space-x-1 justify-center items-center">
-                  <BiGitPullRequest
-                    className="fill-lightSlate10"
-                    size={16}
-                  />
+                  <BiGitPullRequest className="fill-lightSlate10" size={16} />
 
                   <span className="text-lightSlate11">0</span>
                 </div>

@@ -64,8 +64,8 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
         display: 'swap',
         injectTo: 'head-prepend',
         families: [
-          'Inter:100,200,300,400,500,600,700,800,900',
-          'Lexend:100,200,300,400,500,600,700,800,900'
+          'Inter:wght@400;600;900',
+          'Lexend:wght@400;600;900'
         ],
       },
     }),

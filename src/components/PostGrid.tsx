@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { User } from "@supabase/supabase-js";
-import { updateVotesByRepo } from "../lib/supabase";
+import handleVoteUpdateByRepo from "../lib/handleVoteUpdateByRepo";
 import { getRepoLink } from "../lib/github";
-import { capturePostHogAnayltics } from "../lib/analytics";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import Avatar from "./Avatar";
 
@@ -22,18 +21,10 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   const [votes, updateVotesState] = useState(votesCount || 0);
   const { signIn } = useSupabaseAuth();
 
-  async function handleVoteUpdateByRepo (votes: number, repo_id: number) {
-    const checkUserId = parseInt(String(user_id));
+  async function handleVoteUpdate (votes: number, repo_id: number) {
+    const updatedVotes = await handleVoteUpdateByRepo(votes, repo_id, user_id);
 
-    if (typeof checkUserId === "number" && checkUserId !== 0) {
-      capturePostHogAnayltics("User voted", "voteClick", "true");
-
-      const updatedVotes = await updateVotesByRepo(votes, repo_id, checkUserId);
-
-      updateVotesState(updatedVotes);
-    } else {
-      console.log("You must be signed in to vote");
-    }
+    updatedVotes > 0 && updateVotesState(updatedVotes);
   }
 
   return (
@@ -58,7 +49,7 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
         <div className="flex">
           <button
             className="flex justify-center items-center text-base space-x-1 text-grey hover:text-saucyRed cursor-pointer transition-all duration-200"
-            onClick={async () => (user_id ? handleVoteUpdateByRepo(votes, repo_id) : signIn({ provider: "github" }))}
+            onClick={async () => (user_id ? handleVoteUpdate(votes, repo_id) : signIn({ provider: "github" }))}
           >
             <FaArrowAltCircleUp aria-hidden="true" />
 

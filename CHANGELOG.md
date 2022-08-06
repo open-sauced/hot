@@ -5,6 +5,33 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.21.2](https://github.com/open-sauced/hot-sauce/compare/v2.21.1...v2.21.2) (2022-08-06)
+
+
+### 🐛 Bug Fixes
+
+* **vite.config.ts:** correct font loading preload ([#294](https://github.com/open-sauced/hot-sauce/issues/294)) ([fda8cbe](https://github.com/open-sauced/hot-sauce/commit/fda8cbec62c0b4cfff9c33a500acf3b255f796b9)), closes [#243](https://github.com/open-sauced/hot-sauce/issues/243)
+
+### [2.21.1](https://github.com/open-sauced/hot-sauce/compare/v2.21.0...v2.21.1) (2022-08-04)
+
+
+### 🐛 Bug Fixes
+
+* dedupe handleVoteUpdateByRepo function ([#292](https://github.com/open-sauced/hot-sauce/issues/292)) ([c1b77ea](https://github.com/open-sauced/hot-sauce/commit/c1b77eaef783d2849c5ed66a92b9a79c3e94b2cd)), closes [#271](https://github.com/open-sauced/hot-sauce/issues/271)
+
+## [2.21.0](https://github.com/open-sauced/hot-sauce/compare/v2.20.0...v2.21.0) (2022-08-04)
+
+
+### 📝 Documentation
+
+* update linting docs ([1f4a9df](https://github.com/open-sauced/hot-sauce/commit/1f4a9dffa9669d8aef3c2015e4520fef988a526f))
+
+
+### 🐛 Bug Fixes
+
+* correct eslint configuration and adjust to backend specs ([#269](https://github.com/open-sauced/hot-sauce/issues/269)) ([7a7a33a](https://github.com/open-sauced/hot-sauce/commit/7a7a33a1cf6128bf3689a6b3105e6521e62310ed)), closes [#78](https://github.com/open-sauced/hot-sauce/issues/78)
+* correct hot repositories upvoted array check ([a44cf82](https://github.com/open-sauced/hot-sauce/commit/a44cf8238469b8a53e135a9309de009a75fa884c))
+
 ## [2.18.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.18.0-beta.1...v2.18.0-beta.2) (2022-08-03)
 
 

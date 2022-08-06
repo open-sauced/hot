@@ -1,12 +1,12 @@
 {
   "name": "@open-sauced/hot",
-  "version": "2.20.0",
+  "version": "2.21.2",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "@open-sauced/hot",
-      "version": "2.20.0",
+      "version": "2.21.2",
       "hasInstallScript": true,
       "license": "MIT",
       "dependencies": {

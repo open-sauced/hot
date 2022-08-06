@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.21.2](https://github.com/open-sauced/hot-sauce/compare/v2.21.1...v2.21.2) (2022-08-06)
+
+
+### 🐛 Bug Fixes
+
+* **vite.config.ts:** correct font loading preload ([#294](https://github.com/open-sauced/hot-sauce/issues/294)) ([fda8cbe](https://github.com/open-sauced/hot-sauce/commit/fda8cbec62c0b4cfff9c33a500acf3b255f796b9)), closes [#243](https://github.com/open-sauced/hot-sauce/issues/243)
+
 ### [2.21.1](https://github.com/open-sauced/hot-sauce/compare/v2.21.0...v2.21.1) (2022-08-04)
 
 

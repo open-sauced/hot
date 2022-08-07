@@ -7,13 +7,16 @@ import handleVoteUpdateByRepo from "../lib/handleVoteUpdateByRepo";
 const useVotedRepos = () => {
   const [votedReposIds, setVotedReposIds] = useState<number[]>([]);
   const { signIn, user } = useSupabaseAuth();
-  const { user_metadata: { sub: user_id } } = user! || { user_metadata: { sub: null } };
 
   const fetchVotedData = useCallback(async (user?: User) => {
-    if (user) {
-      const data = await fetchRecommendations("myVotes", 1000, user, "");
+    try {
+      if (user) {
+        const data = await fetchRecommendations("myVotes", 1000, user, "");
 
-      return setVotedReposIds(data.map(repo => repo.id));
+        return setVotedReposIds(data.map(({ id }) => id));
+      }
+    } catch (e) {
+      console.log(e);
     }
 
     setVotedReposIds([]);
@@ -23,7 +26,7 @@ const useVotedRepos = () => {
     votedReposIds.includes(parseInt(`${repo_id}`));
 
   const handleVoteUpdate = async (votes: number, repo_id: number) => {
-    await handleVoteUpdateByRepo(votes, repo_id, user_id);
+    await handleVoteUpdateByRepo(votes, repo_id, user?.id);
 
     handleVoted(repo_id);
   };
@@ -46,7 +49,7 @@ const useVotedRepos = () => {
   return {
     votedReposIds,
     checkVoted,
-    voteHandler: async (votes = 0, repo_id: number) => (user_id ? handleVoteUpdate(votes, repo_id) : signIn({ provider: "github" })),
+    voteHandler: async (votes = 0, repo_id: number) => (user ? handleVoteUpdate(votes, repo_id) : signIn({ provider: "github" })),
   };
 };
 

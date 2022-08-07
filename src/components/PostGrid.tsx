@@ -7,7 +7,7 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import Avatar from "./Avatar";
 
 export declare interface PostGridProps {
-  data: DbRecomendation;
+  data: DbRepo;
   user?: User;
 }
 

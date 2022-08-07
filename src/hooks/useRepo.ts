@@ -1,7 +1,7 @@
 import useSWR from "swr";
 
 const useRepo = (name: string) => {
-  const { data, error } = useSWR<DbRecomendation, Error>(`repos/${name}`);
+  const { data, error } = useSWR<DbRepo, Error>(`repos/${name}`);
 
   return {
     repo: data,

@@ -8,7 +8,7 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import StackedAvatar from "./StackedAvatar";
 
 export declare interface PostListProps {
-  data: DbRecomendation;
+  data: DbRepo;
   user?: User;
 }
 

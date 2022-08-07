@@ -28,7 +28,7 @@ const parseLimitValue = (limit: string | null): number => {
 
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
+  const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
   const { user } = useSupabaseAuth();
   const location = useLocation();
 

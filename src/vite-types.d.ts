@@ -8,7 +8,7 @@ interface DbContribution {
   readonly last_merged_at: string;
 }
 
-interface DbRecomendation {
+interface DbRepo {
   readonly id: number;
   readonly user_id?: number;
   readonly stars: number;

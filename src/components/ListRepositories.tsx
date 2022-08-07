@@ -7,7 +7,7 @@ export declare interface ListRepositoriesProps {
   activeLink: string | null;
   limit: number;
   handleLoadingMore: () => void;
-  fetchedData: DbRecomendation[];
+  fetchedData: DbRepo[];
   user?: User;
 }
 

@@ -1,4 +1,3 @@
-import useSWR from "swr";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
@@ -44,9 +43,10 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const { id, full_name, name, description, issues, stars, contributions } = repo ?? {};
   const owner = full_name?.replace(`/${String(name)}`, "").trim();
 
-  const checkVoted = (id: number | undefined) => false;
+  const checkVoted = (id: number | undefined) => false ?? id;
   const handleVoteUpdate = async (votes: number, repo_id: number) => {
     await handleVoteUpdateByRepo(votes, repo_id, user_id);
+
     // handleVoted(repo_id);
   };
 

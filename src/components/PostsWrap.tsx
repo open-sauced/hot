@@ -57,7 +57,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
         user={user}
       />
 
-      <HotRepositories user={user} />
+      <HotRepositories />
 
       <ListRepositories
         activeLink={activeLink}

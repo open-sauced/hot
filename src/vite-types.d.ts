@@ -29,4 +29,8 @@ interface DbRepo {
   readonly updated_at?: string;
   readonly pushed_at?: string;
   readonly last_fetched_at?: string;
+  readonly votesCount?: number;
+  readonly starsCount?: number;
+  readonly submissionsCount?: number;
+  readonly stargazersCount?: number;
 }

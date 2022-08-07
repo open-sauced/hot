@@ -7,17 +7,15 @@ import Skeleton from "react-loading-skeleton";
 import { getAvatarLink } from "../lib/github";
 import humanizeNumber from "../lib/humanizeNumber";
 import StackedAvatar from "./StackedAvatar";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import handleVoteUpdateByRepo from "../lib/handleVoteUpdateByRepo";
 import useRepo from "../hooks/useRepo";
+import useVotedRepos from "../hooks/useVotedRepos";
 
 export declare interface HotRepoCardProps {
   repoName: string;
 }
 
 const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
-  const { signIn, user } = useSupabaseAuth();
-  const { user_metadata: { sub: user_id } } = user! || { user_metadata: { sub: null } };
+  const { checkVoted } = useVotedRepos();
 
   const { repo, isLoading, isError } = useRepo(repoName);
 
@@ -40,16 +38,8 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
     );
   }
 
-  const { id, full_name, name, description, issues, stars, contributions } = repo ?? {};
-  const owner = full_name?.replace(`/${String(name)}`, "").trim();
-
-  const checkVoted = (id: number | undefined) => false ?? id;
-  const handleVoteUpdate = async (votes: number, repo_id: number) => {
-    await handleVoteUpdateByRepo(votes, repo_id, user_id);
-
-    // handleVoted(repo_id);
-  };
-
+  const { id, full_name, name, description, issues, stars, contributions } = repo!;
+  const owner = full_name.replace(`/${String(name)}`, "").trim();
 
   return (
     <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">
@@ -58,7 +48,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           <img
             alt="Hot Repo Icon"
             className="h-4 w-4 rounded-md overflow-hidden"
-            src={getAvatarLink(owner ?? "open-sauced")}
+            src={getAvatarLink(owner)}
           />
 
           <span className="text-sm font-medium text-lightSlate11">
@@ -70,13 +60,14 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
             checkVoted(id) ? "bg-lightOrange01" : "bg-lightSlate01"
           } ${checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-lightSlate11 border-lightSlate06 "}`}
-          onClick={async () => (user_id ? handleVoteUpdate(0, id ?? 0) : signIn({ provider: "github" }))}
+
+          // onClick={() => voteHandler(votesCount, id)}
         >
           <span>
-            {checkVoted(id ?? 0) ? "voted" : "upvote"}
+            {checkVoted(id) ? "voted" : "upvote"}
           </span>
 
-          {checkVoted(id ?? 0)
+          {checkVoted(id)
             ? (
               <RiCheckboxCircleFill className="" />)
             : (
@@ -88,7 +79,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
       <div className="flex flex-col pb-10">
         <a
           className="text-xl font-semibold"
-          href={`https://app.opensauced.pizza/repos/${full_name ?? "open-sauced/hot"}`}
+          href={`https://app.opensauced.pizza/repos/${full_name}`}
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -109,7 +100,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
             />
 
             <span className="text-lightSlate11">
-              {humanizeNumber(issues ?? 0)}
+              {humanizeNumber(issues)}
             </span>
           </div>
 
@@ -120,7 +111,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
             />
 
             <span className="text-lightSlate11">
-              {humanizeNumber(stars ?? 0)}
+              {humanizeNumber(stars)}
             </span>
           </div>
 
@@ -134,7 +125,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           </div>
         </div>
 
-        <StackedAvatar contributors={contributions ?? []} />
+        <StackedAvatar contributors={contributions} />
       </div>
     </div>
   );

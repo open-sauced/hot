@@ -7,7 +7,7 @@ import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 
-interface PostWrapProps {
+export declare interface PostWrapProps {
   textToSearch: string;
 }
 

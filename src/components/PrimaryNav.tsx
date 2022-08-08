@@ -17,14 +17,21 @@ const PrimaryNav = (): JSX.Element => {
       <div className="flex font-Inter py-[26px] px-[42px] justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">
-            <img alt="Open Sauced Logo" className="inline-block w-[22px] h-[22px] mr-[5px]" src={openSaucedLogo} />
+            <img
+              alt="Open Sauced Logo"
+              className="inline-block w-[22px] h-[22px] mr-[5px]"
+              src={openSaucedLogo}
+            />
 
             <span className="text-base leading-snug font-semibold">OpenSauced</span>
           </a>
         </div>
 
         {user && (
-          <Menu as="div" className="flex z-50 text-left relative">
+          <Menu
+            as="div"
+            className="flex z-50 text-left relative"
+          >
             <Menu.Button>
               <div className="hidden md:flex pl-[16px] border-l-[1px] border-lightOrange">
                 <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
@@ -61,9 +68,13 @@ const PrimaryNav = (): JSX.Element => {
                     </div>
 
                     <div className="flex-col shrink">
-                      <p className="text-osGrey text-xs font-semibold">{user.user_metadata.full_name}</p>
+                      <p className="text-osGrey text-xs font-semibold">
+                        {user.user_metadata.full_name}
+                      </p>
 
-                      <p className="text-gray-500 text-xs font-normal">{user.user_metadata.user_name}</p>
+                      <p className="text-gray-500 text-xs font-normal">
+                        {user.user_metadata.user_name}
+                      </p>
                     </div>
                   </div>
                 </Menu.Item>
@@ -112,9 +123,18 @@ const PrimaryNav = (): JSX.Element => {
           </Menu>
         )}
 
-        <div className="flex items-center text-white bg-grey ">
-          <AiOutlineStar className="padding text-grey" />
-          Star us on GitHub
+        <div className="flex items-center gap-y-px text-osGrey">
+          <a
+            href="https://github.com/open-sauced/hot"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <AiOutlineStar className="justify-self-start inline-block mr-[10px]" />
+
+            <span className="text-base">
+              Star us on GitHub
+            </span>
+          </a>
         </div>
 
         {!user && (

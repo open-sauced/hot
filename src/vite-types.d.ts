@@ -34,3 +34,12 @@ interface DbRepo {
   readonly submissionsCount?: number;
   readonly stargazersCount?: number;
 }
+
+interface DbRepoToUserVotes {
+  readonly id: number;
+  readonly user_id: number;
+  readonly repo_id: number;
+  readonly created_at?: string;
+  readonly updated_at?: string;
+  readonly deleted_at?: string | null;
+}

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
@@ -15,9 +16,13 @@ export declare interface HotRepoCardProps {
 }
 
 const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
-  const { checkVoted } = useVotedRepos();
-
+  const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const { repo, isLoading, isError } = useRepo(repoName);
+  const [isVoted, setIsVoted] = useState(false);
+
+  useEffect(() => {
+    repo && setIsVoted(checkVoted(repo.id));
+  }, [votedReposIds, repo]);
 
   if (isError) {
     return (
@@ -39,6 +44,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   }
 
   const { id, full_name, name, description, issues, stars, contributions } = repo!;
+  const repo_id = parseInt(`${id}`);
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
   return (
@@ -58,16 +64,15 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
 
         <button
           className={`px-2 py-0.5 border rounded-lg flex justify-center items-center space-x-1 text-xs transition-all duration-200 ${
-            checkVoted(id) ? "bg-lightOrange01" : "bg-lightSlate01"
-          } ${checkVoted(id) ? "text-saucyRed border-saucyRed " : "text-lightSlate11 border-lightSlate06 "}`}
-
-          // onClick={() => voteHandler(votesCount, id)}
+            isVoted ? "bg-lightOrange01" : "bg-lightSlate01"
+          } ${isVoted ? "text-saucyRed border-saucyRed " : "text-lightSlate11 border-lightSlate06 "}`}
+          onClick={async () => voteHandler(0, repo_id)}
         >
           <span>
-            {checkVoted(id) ? "voted" : "upvote"}
+            {isVoted ? "voted" : "upvote"}
           </span>
 
-          {checkVoted(id)
+          {isVoted
             ? (
               <RiCheckboxCircleFill className="" />)
             : (

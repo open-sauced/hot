@@ -16,7 +16,7 @@ const useVotedRepos = () => {
         return setVotedReposIds(data.map(({ id }) => id));
       }
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
 
     setVotedReposIds([]);
@@ -26,7 +26,7 @@ const useVotedRepos = () => {
     votedReposIds.includes(parseInt(`${repo_id}`));
 
   const handleVoteUpdate = async (votes: number, repo_id: number) => {
-    await handleVoteUpdateByRepo(votes, repo_id, user?.id);
+    await handleVoteUpdateByRepo(votes, repo_id, user?.user_metadata.sub);
 
     handleVoted(repo_id);
   };

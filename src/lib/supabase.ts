@@ -14,9 +14,14 @@ export async function authenticatedVote (user_id: number, repo_id: number) {
     .single() as unknown as { data: DbRepoToUserVotes; error: Error | undefined };
 
   if (error) {
-    console.log(error);
+    await supabase
+      .from("users_to_repos_votes")
+      .insert({
+        user_id,
+        repo_id,
+      });
 
-    return 0;
+    return 1;
   }
 
   if (data.deleted_at !== null) {

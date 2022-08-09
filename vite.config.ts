@@ -65,7 +65,8 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
         injectTo: 'head-prepend',
         families: [
           'Inter:wght@400;600;900',
-          'Lexend:wght@400;600;900'
+          'Lexend:wght@400;600;900',
+          'Open Sans:wght@400'
         ],
       },
     }),

@@ -26,9 +26,11 @@ const useVotedRepos = () => {
     votedReposIds.includes(parseInt(`${repo_id}`));
 
   const handleVoteUpdate = async (votes: number, repo_id: number) => {
-    await handleVoteUpdateByRepo(votes, repo_id, user?.user_metadata.sub);
+    const voteCount = await handleVoteUpdateByRepo(votes, repo_id, user?.user_metadata.sub);
 
     handleVoted(repo_id);
+
+    return voteCount;
   };
 
   const handleVoted = (repo_id: number) => {

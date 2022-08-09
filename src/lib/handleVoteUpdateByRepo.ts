@@ -13,6 +13,7 @@ async function handleVoteUpdateByRepo (votes: number, repo_id: number, user_id: 
 
     return updatedVotes;
   }
+
   ToastTrigger({ message: "You must be signed in to vote", type: "error" });
   return 0;
 }

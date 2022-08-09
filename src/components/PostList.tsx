@@ -33,6 +33,8 @@ const PostList = ({ data }: PostListProps): JSX.Element => {
   const repo_id = parseInt(`${id}`);
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
+  const [votes, setVotes] = useState(votesCount);
+
   return (
     <div className="flex flex-col gap-y-[20px] md:flex-row bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]">
       <div>
@@ -101,7 +103,7 @@ const PostList = ({ data }: PostListProps): JSX.Element => {
           "md:w-[60px] md:py-0 md:flex-col",
           isVoted ? "hover:border-osGrey hover:bg-gray-100" : "hover:border-osOrange",
         )}
-        onClick={async () => voteHandler(votesCount, repo_id)}
+        onClick={async () => voteHandler(votes, repo_id).then(newVotes => typeof newVotes === "number" && setVotes(newVotes))}
       >
         {isVoted
           ? (
@@ -117,7 +119,7 @@ const PostList = ({ data }: PostListProps): JSX.Element => {
             isVoted ? "group-hover:text-osGrey" : "group-hover:text-osOrange",
           )}
         >
-          {humanizeNumber(votesCount)}
+          {humanizeNumber(votes)}
         </span>
       </button>
     </div>

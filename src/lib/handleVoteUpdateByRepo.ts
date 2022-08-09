@@ -6,13 +6,14 @@ import { ToastTrigger } from "./reactHotToast";
 async function handleVoteUpdateByRepo (votes: number, repo_id: number, user_id: unknown): Promise<number> {
   const checkUserId = parseInt(String(user_id));
 
-  if (typeof checkUserId === "number" && checkUserId !== 0) {
+  if (checkUserId !== 0) {
     capturePostHogAnayltics("User voted", "voteClick", "true");
 
     const updatedVotes = await updateVotesByRepo(votes, repo_id, checkUserId);
 
     return updatedVotes;
   }
+
   ToastTrigger({ message: "You must be signed in to vote", type: "error" });
   return 0;
 }

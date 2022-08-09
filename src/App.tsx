@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
 import PostsWrap from "./components/PostsWrap";
@@ -13,9 +12,9 @@ import Hero from "./components/Hero";
 import apiFetcher from "./hooks/useSWR";
 
 const App = (): JSX.Element => {
-  initiatePostHog();
   const { user } = useSupabaseAuth();
-  const [textToSearch] = useState("");
+
+  initiatePostHog();
 
   return (
     <SWRConfig
@@ -36,7 +35,7 @@ const App = (): JSX.Element => {
             <Hero />
           </GradBackground>
 
-          <PostsWrap textToSearch={textToSearch} />
+          <PostsWrap />
 
           <Footer />
         </div>

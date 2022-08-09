@@ -8,7 +8,7 @@ import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 
 export declare interface PostWrapProps {
-  textToSearch: string;
+  textToSearch?: string;
 }
 
 const parseLimitValue = (limit: string | null): number => {

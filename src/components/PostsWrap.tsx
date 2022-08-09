@@ -64,7 +64,6 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
         fetchedData={fetchedData}
         handleLoadingMore={handleLoadingMore}
         limit={limit}
-        user={user}
       />
     </div>
   );

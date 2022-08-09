@@ -1,4 +1,3 @@
-import { User } from "@supabase/supabase-js";
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 import PostList from "./PostList";
@@ -8,10 +7,9 @@ export declare interface ListRepositoriesProps {
   limit: number;
   handleLoadingMore: () => void;
   fetchedData: DbRepo[];
-  user?: User;
 }
 
-const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, user }: ListRepositoriesProps): JSX.Element => (
+const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData }: ListRepositoriesProps): JSX.Element => (
   <div className="mx-auto max-w-7xl px-[16px] mt-[40px]">
     <div className="flex flex-col gap-y-[20px]">
       <div className="flex items-center gap-x-[10px]">
@@ -28,7 +26,6 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData, u
           <PostList
             key={`${item.full_name}_${i}`}
             data={item}
-            user={user}
           />
         ))
       }

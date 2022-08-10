@@ -7,12 +7,12 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import Avatar from "./Avatar";
 
 export declare interface PostGridProps {
-  data: DbRepo;
+  data: DbRecomendation;
   user?: User;
 }
 
 const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
-  const { user_metadata: { sub: user_id } } = user!;
+  const { user_metadata: { sub: user_id } } = user! || { user_metadata: { sub: null } };
   const {
     id: repo_id,
     votesRelation: [{ votesCount }],

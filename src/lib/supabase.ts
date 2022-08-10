@@ -6,37 +6,25 @@ export const supabase = createClient(
 );
 
 export async function authenticatedVote (user_id: number, repo_id: number) {
-  const { data, error } = await supabase
+  const { error, count } = await supabase
     .from("users_to_repos_votes")
-    .select(`*`)
+    .select("count", { count: "exact" })
     .eq("user_id", user_id)
-    .eq("repo_id", repo_id)
-    .single() as unknown as { data: DbRepoToUserVotes; error: Error | undefined };
+    .eq("repo_id", repo_id);
 
-  if (error) {
+  if (error || count === 0) {
     await supabase
       .from("users_to_repos_votes")
-      .insert({
+      .upsert({
         user_id,
         repo_id,
       });
 
     return 1;
   }
-
-  if (data.deleted_at !== null) {
-    await supabase
-      .from("users_to_repos_votes")
-      .update({ deleted_at: null })
-      .eq("user_id", user_id)
-      .eq("repo_id", repo_id);
-
-    return 1;
-  }
-
   await supabase
     .from("users_to_repos_votes")
-    .update({ deleted_at: (new Date).toISOString() })
+    .delete()
     .eq("user_id", user_id)
     .eq("repo_id", repo_id);
 
@@ -94,14 +82,11 @@ export async function fetchRecommendations (
 
   const supabaseComposition = supabase
     .from("repos")
-    .select(selectStatement)
-    .filter("votesRelation.deleted_at", "is", null)
-    .filter("starsRelation.deleted_at", "is", null);
+    .select(selectStatement);
 
   if (user && activeLink === "myVotes") {
     await supabaseComposition
-      .filter("myVotesFilter.user_id", "eq", user.user_metadata.sub)
-      .filter("myVotesFilter.deleted_at", "is", null);
+      .filter("myVotesFilter.user_id", "eq", user.user_metadata.sub);
   }
 
   const searchColumn = textToSearchParam === "" ? "" : "full_name";
@@ -119,5 +104,5 @@ export async function fetchRecommendations (
 
   error && console.error(error);
 
-  return recommendations as DbRepo[];
+  return recommendations as DbRecomendation[];
 }

@@ -5,7 +5,7 @@ export declare interface GridDisplayProps {
   activeLink: string | null;
   limit: number;
   handleLoadingMore: () => void;
-  fetchedData: DbRepo[];
+  fetchedData: DbRecomendation[];
   user?: User;
 }
 

@@ -7,8 +7,8 @@ import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 
-export declare interface PostWrapProps {
-  textToSearch?: string;
+interface PostWrapProps {
+  textToSearch: string;
 }
 
 const parseLimitValue = (limit: string | null): number => {
@@ -28,7 +28,7 @@ const parseLimitValue = (limit: string | null): number => {
 
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
+  const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
@@ -57,13 +57,14 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
         user={user}
       />
 
-      <HotRepositories />
+      <HotRepositories user={user} />
 
       <ListRepositories
         activeLink={activeLink}
         fetchedData={fetchedData}
         handleLoadingMore={handleLoadingMore}
         limit={limit}
+        user={user}
       />
     </div>
   );

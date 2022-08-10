@@ -1,5 +1,4 @@
 import Avatar from "./Avatar";
-
 export declare interface StackedAvatarProps {
   contributors: DbContribution[];
 }

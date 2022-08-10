@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.23.0](https://github.com/open-sauced/hot-sauce/compare/v2.22.0...v2.23.0) (2022-08-10)
+
+
+### 🍕 Features
+
+* change title font to open sans bold ([#300](https://github.com/open-sauced/hot-sauce/issues/300)) ([a8c4e94](https://github.com/open-sauced/hot-sauce/commit/a8c4e948e8124db1cee99c7f4b8602a7af3effe4)), closes [#295](https://github.com/open-sauced/hot-sauce/issues/295)
+
 ## [2.22.0](https://github.com/open-sauced/hot-sauce/compare/v2.21.2...v2.22.0) (2022-08-09)
 
 

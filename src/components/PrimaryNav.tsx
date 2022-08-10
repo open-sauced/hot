@@ -22,7 +22,7 @@ const PrimaryNav = (): JSX.Element => {
               src={openSaucedLogo}
             />
 
-            <span className="text-base leading-snug font-normal">OpenSauced</span>
+            <span className="text-lg leading-snug font-black tracking-tighter">OpenSauced</span>
           </a>
         </div>
 

@@ -66,7 +66,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
         families: [
           'Inter:wght@400;600;900',
           'Lexend:wght@400;600;900',
-          'Open Sans:wght@400'
+          'Open Sans:wght@400;600;900'
         ],
       },
     }),

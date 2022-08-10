@@ -454,6 +454,7 @@ module.exports = {
       },
     ],
     "@typescript-eslint/promise-function-async": "error",
+    "@typescript-eslint/no-non-null-assertion": "off",
   },
   settings: {
     react: {

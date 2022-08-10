@@ -5,6 +5,14 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.22.0](https://github.com/open-sauced/hot-sauce/compare/v2.21.2...v2.22.0) (2022-08-09)
+
+
+### 🍕 Features
+
+* updated css to respect row in subnav ([#298](https://github.com/open-sauced/hot-sauce/issues/298)) ([3211cf4](https://github.com/open-sauced/hot-sauce/commit/3211cf4b3f6454b2d616a4b27206627250ad0d3a)), closes [#221](https://github.com/open-sauced/hot-sauce/issues/221)
+* use async hooks and beta api for hot repos ([#296](https://github.com/open-sauced/hot-sauce/issues/296)) ([6b5a06a](https://github.com/open-sauced/hot-sauce/commit/6b5a06a7cbb288ce864d75bb274c2f0d2f00ac22)), closes [#276](https://github.com/open-sauced/hot-sauce/issues/276) [#272](https://github.com/open-sauced/hot-sauce/issues/272) [#270](https://github.com/open-sauced/hot-sauce/issues/270)
+
 ### [2.21.2](https://github.com/open-sauced/hot-sauce/compare/v2.21.1...v2.21.2) (2022-08-06)
 
 

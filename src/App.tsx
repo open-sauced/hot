@@ -7,13 +7,10 @@ import { Toaster } from "react-hot-toast";
 import { SWRConfig } from "swr";
 import RepoSubmission from "./components/RepoSubmission";
 import GradBackground from "./components/GradBackground";
-import useSupabaseAuth from "./hooks/useSupabaseAuth";
 import Hero from "./components/Hero";
 import apiFetcher from "./hooks/useSWR";
 
 const App = (): JSX.Element => {
-  const { user } = useSupabaseAuth();
-
   initiatePostHog();
 
   return (
@@ -28,7 +25,7 @@ const App = (): JSX.Element => {
       <BrowserRouter>
         <div className="App overflow-hidden">
           <GradBackground>
-            {user && <RepoSubmission user={user} />}
+            <RepoSubmission />
 
             <PrimaryNav />
 

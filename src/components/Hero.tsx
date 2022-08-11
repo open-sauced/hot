@@ -14,7 +14,7 @@ const Hero = () => {
   const searchBoxRef = useRef<HTMLInputElement>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const setValueDebounced = useDebounce(setSearchTerm, 500);
-  const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
+  const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
   const [hasFocus, setFocus] = useState(false);
 
   const handleCmdK = async (e: KeyboardEvent) => {

@@ -13,7 +13,7 @@ const PrimaryNav = (): JSX.Element => {
 
   return (
     <header>
-      <div className="flex font-Inter py-[26px] px-[42px] justify-between max-w-screen-2xl mx-auto">
+      <div className="flex font-OpenSans py-[26px] px-[42px] justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">
             <img
@@ -22,7 +22,7 @@ const PrimaryNav = (): JSX.Element => {
               src={openSaucedLogo}
             />
 
-            <span className="text-base leading-snug font-semibold">OpenSauced</span>
+            <span className="text-lg leading-snug font-black tracking-tighter">OpenSauced</span>
           </a>
         </div>
 

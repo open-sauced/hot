@@ -5,6 +5,42 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.23.3](https://github.com/open-sauced/hot-sauce/compare/v2.23.2...v2.23.3) (2022-08-11)
+
+
+### 🐛 Bug Fixes
+
+* correct swr fetcher not throwing on error ([#306](https://github.com/open-sauced/hot-sauce/issues/306)) ([54efe49](https://github.com/open-sauced/hot-sauce/commit/54efe4953f38918402db5f457656dc3cc151d1c1)), closes [#305](https://github.com/open-sauced/hot-sauce/issues/305)
+
+### [2.23.2](https://github.com/open-sauced/hot-sauce/compare/v2.23.1...v2.23.2) (2022-08-11)
+
+
+### 🐛 Bug Fixes
+
+* load more doesn't load repositories ([#304](https://github.com/open-sauced/hot-sauce/issues/304)) ([fdbbee3](https://github.com/open-sauced/hot-sauce/commit/fdbbee38749df7e9462fac89dc477cb268230e77)), closes [#302](https://github.com/open-sauced/hot-sauce/issues/302)
+
+### [2.23.1](https://github.com/open-sauced/hot-sauce/compare/v2.23.0...v2.23.1) (2022-08-11)
+
+
+### 🐛 Bug Fixes
+
+* dedupe app global user state ([#303](https://github.com/open-sauced/hot-sauce/issues/303)) ([898d6ea](https://github.com/open-sauced/hot-sauce/commit/898d6ea22e467dbbe4814a23d23d2106955aa04b))
+
+## [2.23.0](https://github.com/open-sauced/hot-sauce/compare/v2.22.0...v2.23.0) (2022-08-10)
+
+
+### 🍕 Features
+
+* change title font to open sans bold ([#300](https://github.com/open-sauced/hot-sauce/issues/300)) ([a8c4e94](https://github.com/open-sauced/hot-sauce/commit/a8c4e948e8124db1cee99c7f4b8602a7af3effe4)), closes [#295](https://github.com/open-sauced/hot-sauce/issues/295)
+
+## [2.22.0](https://github.com/open-sauced/hot-sauce/compare/v2.21.2...v2.22.0) (2022-08-09)
+
+
+### 🍕 Features
+
+* updated css to respect row in subnav ([#298](https://github.com/open-sauced/hot-sauce/issues/298)) ([3211cf4](https://github.com/open-sauced/hot-sauce/commit/3211cf4b3f6454b2d616a4b27206627250ad0d3a)), closes [#221](https://github.com/open-sauced/hot-sauce/issues/221)
+* use async hooks and beta api for hot repos ([#296](https://github.com/open-sauced/hot-sauce/issues/296)) ([6b5a06a](https://github.com/open-sauced/hot-sauce/commit/6b5a06a7cbb288ce864d75bb274c2f0d2f00ac22)), closes [#276](https://github.com/open-sauced/hot-sauce/issues/276) [#272](https://github.com/open-sauced/hot-sauce/issues/272) [#270](https://github.com/open-sauced/hot-sauce/issues/270)
+
 ### [2.21.2](https://github.com/open-sauced/hot-sauce/compare/v2.21.1...v2.21.2) (2022-08-06)
 
 

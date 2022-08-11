@@ -37,7 +37,8 @@ module.exports = {
       },
       fontFamily: {
         Inter: ['Inter', 'sans-serif'],
-        Lexend: ['Lexend', 'sans-serif']
+        Lexend: ['Lexend', 'sans-serif'],
+        OpenSans: ['Open Sans', 'sans-serif']
       },
       container: {
         center: true,

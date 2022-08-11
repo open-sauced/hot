@@ -67,34 +67,8 @@ You can request a coverage report by running the following command:
 ```shell
 npm run test:coverage
 ```
-## 🔑 Database commands
 
-Starting the [Supabase Studio](https://supabase.com/docs/guides/local-development) locally at [localhost:54321](http://localhost:54321):
-
-```shell
-npm run db:start
-```
-If you are adding a new table structure, first do it visually in the Supabase Studio and test locally with the following command:
-
-```shell
-npm run db:changes
-```
-
-If everything is fine we can run the following command to apply the changes to the database:
-
-```shell
-npm run db:commit add_table_name
-```
-Test migrations are working is to reset the local database:
-
-```shell
-npm run db:reset
-```
-Push changes if everything is fine we can push the changes to the remote database:
-
-```shell
-npm run db:push
-```
+For writing tests, the rule is move business or service logic to the lib folder and write unit tests. Logic that needs to be in a React component, then leverage tools like [Cypress](https://www.cypress.io/) or [Vitest mocking](https://vitest.dev/guide/mocking.html) to write tests.
 
 ### 📦 Docker builds
 
@@ -125,6 +99,24 @@ To fix the linting errors, use the following command:
 
 ```shell
 npm run format
+```
+
+It is advised to run this command before committing or opening a pull request.
+
+### 📕 Types
+
+We have a couple of scripts to check and adjust missing types.
+
+In order to dry run what types would be added to `package.json`:
+
+```shell
+npm run types:auto-check 
+```
+
+In order to add any missing types to `package.json`:
+
+```shell
+npm run types:auto-add
 ```
 
 ### 🚀 Production deployment

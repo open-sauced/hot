@@ -1,60 +1,71 @@
-import React, { useState, useEffect } from 'react';
-import LayoutToggle from './LayoutToggle';
-import Modal from './Modal';
-import SecondaryNav from './SecondaryNav';
-import GridDisplay from './GridDisplay';
-import ListDisplay from './ListDisplay';
-import { fetchRecommendations } from '../lib/supabase';
-import useSupabaseAuth from '../hooks/useSupabaseAuth';
+import { useCallback, useEffect, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
+import { fetchRecommendations } from "../lib/supabase";
+import locationsHash from "../lib/locationsHash";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import HotRepositories from "./HotRepositories";
+import ListRepositories from "./ListRepositories";
+import SecondaryNav from "./SecondaryNav";
 
-interface PostWrapProps{
-  textToSearch: string
+export declare interface PostWrapProps {
+  textToSearch?: string;
 }
 
-const PostsWrap = ({ textToSearch } :PostWrapProps): JSX.Element => {
-  const [isGrid, setIsGrid] = useState(true);
-  const [activeLink, setActiveLink] = useState('popular');
-  const [fetchedData, setFetchedData] = useState<DbRecomendation[]>([]);
-  const [limit, setLimit] = useState(25);
+const parseLimitValue = (limit: string | null): number => {
+  if (!limit) {
+    return 25;
+  }
+  const value = parseInt(limit);
+
+  if (isNaN(value) || value <= 0) {
+    return 25;
+  }
+  if (value > 100) {
+    return 125;
+  }
+  return value;
+};
+
+const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
   const { user } = useSupabaseAuth();
+  const location = useLocation();
+
+  const activeLink = locationsHash[location.pathname] ?? "popular";
+  const limit = parseLimitValue(searchParams.get("limit"));
+
   const handleLoadingMore = () => {
-    setLimit((prevLimit) => prevLimit + 25);
+    setSearchParams({ limit: String(limit + 25) });
   };
 
+  const fetchData = useCallback(async () => {
+    const data = await fetchRecommendations(activeLink, limit, user, textToSearch);
+
+    setFetchedData(data);
+  }, [limit]);
+
   useEffect(() => {
-    fetchRecommendations(activeLink, limit, user, textToSearch).then((data) => {
-      setFetchedData(data);
-    });
+    fetchData()
+      .catch(console.error);
   }, [activeLink, limit, textToSearch]);
 
   return (
-    <>
-      <Modal/>
+    <div className="bg-darkestGrey">
       <SecondaryNav
-        setLimit={setLimit}
         activeLink={activeLink}
-        setActiveLink={setActiveLink}
         user={user}
       />
-      <LayoutToggle gridState={isGrid} setGridState={setIsGrid} />
-      <div className="bg-darkestGrey py-6 w-full min-h-screen">
-        {isGrid ?
-          <GridDisplay
-            limit={limit}
-            activeLink={activeLink}
-            handleLoadingMore={handleLoadingMore}
-            user={user}
-            fetchedData={fetchedData} /> :
 
-          <ListDisplay
-            limit={limit}
-            activeLink={activeLink}
-            handleLoadingMore={handleLoadingMore}
-            user={user}
-            fetchedData={fetchedData} />
-        }
-      </div>
-    </>
+      <HotRepositories />
+
+      <ListRepositories
+        activeLink={activeLink}
+        fetchedData={fetchedData}
+        handleLoadingMore={handleLoadingMore}
+        limit={limit}
+      />
+    </div>
   );
 };
 

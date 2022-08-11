@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.23.3](https://github.com/open-sauced/hot-sauce/compare/v2.23.2...v2.23.3) (2022-08-11)
+
+
+### 🐛 Bug Fixes
+
+* correct swr fetcher not throwing on error ([#306](https://github.com/open-sauced/hot-sauce/issues/306)) ([54efe49](https://github.com/open-sauced/hot-sauce/commit/54efe4953f38918402db5f457656dc3cc151d1c1)), closes [#305](https://github.com/open-sauced/hot-sauce/issues/305)
+
 ### [2.23.2](https://github.com/open-sauced/hot-sauce/compare/v2.23.1...v2.23.2) (2022-08-11)
 
 

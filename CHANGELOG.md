@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.23.1](https://github.com/open-sauced/hot-sauce/compare/v2.23.0...v2.23.1) (2022-08-11)
+
+
+### 🐛 Bug Fixes
+
+* dedupe app global user state ([#303](https://github.com/open-sauced/hot-sauce/issues/303)) ([898d6ea](https://github.com/open-sauced/hot-sauce/commit/898d6ea22e467dbbe4814a23d23d2106955aa04b))
+
 ## [2.23.0](https://github.com/open-sauced/hot-sauce/compare/v2.22.0...v2.23.0) (2022-08-10)
 
 

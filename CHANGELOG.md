@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.23.2](https://github.com/open-sauced/hot-sauce/compare/v2.23.1...v2.23.2) (2022-08-11)
+
+
+### 🐛 Bug Fixes
+
+* load more doesn't load repositories ([#304](https://github.com/open-sauced/hot-sauce/issues/304)) ([fdbbee3](https://github.com/open-sauced/hot-sauce/commit/fdbbee38749df7e9462fac89dc477cb268230e77)), closes [#302](https://github.com/open-sauced/hot-sauce/issues/302)
+
 ### [2.23.1](https://github.com/open-sauced/hot-sauce/compare/v2.23.0...v2.23.1) (2022-08-11)
 
 

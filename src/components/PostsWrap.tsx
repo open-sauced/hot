@@ -43,7 +43,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
     const data = await fetchRecommendations(activeLink, limit, user, textToSearch);
 
     setFetchedData(data);
-  }, []);
+  }, [limit]);
 
   useEffect(() => {
     fetchData()

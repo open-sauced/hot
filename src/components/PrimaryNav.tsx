@@ -125,7 +125,7 @@ const PrimaryNav = (): JSX.Element => {
 
         {!user && (
           <div className="flex justify-around">
-            <div className="flex invisible md:visible items-center text-osGrey">
+            <div className="hidden md:flex items-center text-osGrey">
               <a
                 href="https://github.com/open-sauced/hot"
                 rel="noreferrer"
@@ -138,7 +138,7 @@ const PrimaryNav = (): JSX.Element => {
             </div>
 
             <button
-              className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white ml-[20px]"
+              className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white md:ml-[20px]"
               onClick={async () => {
                 capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
                 await signIn({ provider: "github" });

@@ -123,30 +123,30 @@ const PrimaryNav = (): JSX.Element => {
           </Menu>
         )}
 
-        <div className="flex items-center gap-y-px text-osGrey">
-          <a
-            href="https://github.com/open-sauced/hot"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <AiOutlineStar className="justify-self-start inline-block mr-[10px]" />
-
-            <span className="text-base">
-              Star us on GitHub
-            </span>
-          </a>
-        </div>
-
         {!user && (
-          <button
-            className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white"
-            onClick={async () => {
-              capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
-              await signIn({ provider: "github" });
-            }}
-          >
-            Sign in
-          </button>
+          <div className="flex justify-around">
+            <div className="flex invisible md:visible items-center text-osGrey">
+              <a
+                href="https://github.com/open-sauced/hot"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <AiOutlineStar className="justify-self-start inline-block mr-[10px]" />
+
+                <span className="text-sm">Star us on GitHub</span>
+              </a>
+            </div>
+
+            <button
+              className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white ml-[20px]"
+              onClick={async () => {
+                capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
+                await signIn({ provider: "github" });
+              }}
+            >
+              Sign in
+            </button>
+          </div>
         )}
       </div>
     </header>

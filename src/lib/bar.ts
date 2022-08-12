@@ -1,0 +1,3 @@
+const bar = () => { };
+
+export { bar }

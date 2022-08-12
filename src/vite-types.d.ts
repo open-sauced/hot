@@ -8,7 +8,7 @@ interface DbContribution {
   readonly last_merged_at: string;
 }
 
-interface DbRecomendation {
+interface DbRepo {
   readonly id: number;
   readonly user_id?: number;
   readonly stars: number;
@@ -29,4 +29,17 @@ interface DbRecomendation {
   readonly updated_at?: string;
   readonly pushed_at?: string;
   readonly last_fetched_at?: string;
+  readonly votesCount?: number;
+  readonly starsCount?: number;
+  readonly submissionsCount?: number;
+  readonly stargazersCount?: number;
+}
+
+interface DbRepoToUserVotes {
+  readonly id: number;
+  readonly user_id: number;
+  readonly repo_id: number;
+  readonly created_at?: string;
+  readonly updated_at?: string;
+  readonly deleted_at?: string | null;
 }

@@ -1,21 +1,22 @@
 import { useState } from "react";
-import { User } from "@supabase/supabase-js";
 import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { ToastTrigger } from "../lib/reactHotToast";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
 
-export declare interface RepoSubmissionProps {
-  user: User | null;
-}
-
-const RepoSubmission = ({ user }: RepoSubmissionProps) => {
+const RepoSubmission = () => {
+  const { user } = useSupabaseAuth();
   const [buttonPlaceHolder, setButtonPlaceHolder] = useState("Submit repo?");
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [input, setInput] = useState("");
 
-  const userName = String(user?.user_metadata.user_name);
+  if (!user) {
+    return null;
+  }
+
+  const userName = String(user.user_metadata.user_name);
   const saveToDataBase = (repoUrl: string): void => {
     setIsSubmissionInProcess(true);
 

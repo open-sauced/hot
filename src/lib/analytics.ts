@@ -1,10 +1,11 @@
 import posthog from "posthog-js";
 
-function initiatePostHog () {
+
+function initiatePostHog() {
   posthog.init(import.meta.env.VITE_POSTHOG_ID, { api_host: "https://app.posthog.com" });
 }
 
-function capturePostHogAnayltics (
+function capturePostHogAnayltics(
   analyticsTitle: string,
   analyticsProperty: string,
   analyticsValue: string,

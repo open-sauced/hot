@@ -33,13 +33,27 @@ const PrimaryNav = (): JSX.Element => {
             className="flex z-50 text-left relative"
           >
             <Menu.Button>
-              <div className="hidden md:flex pl-[16px] border-l-[1px] border-lightOrange">
-                <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
-                  <img
-                    alt={String(user.user_metadata.user_name)}
-                    className="w-full h-full"
-                    src={getAvatarLink(String(user.user_metadata.user_name))}
-                  />
+              <div className="flex items-center">
+                <div className="hidden md:flex items-center text-osGrey">
+                  <a
+                    href="https://github.com/open-sauced/hot"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <AiOutlineStar className="inline-block mr-[10px]" />
+
+                    <span className="text-sm mr-[10px]">Star us on GitHub</span>
+                  </a>
+                </div>
+
+                <div className="hidden md:flex pl-[16px] border-l-[1px] border-lightOrange">
+                  <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
+                    <img
+                      alt={String(user.user_metadata.user_name)}
+                      className="w-full h-full"
+                      src={getAvatarLink(String(user.user_metadata.user_name))}
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -124,14 +138,14 @@ const PrimaryNav = (): JSX.Element => {
         )}
 
         {!user && (
-          <div className="flex justify-around">
+          <div className="flex items-center">
             <div className="hidden md:flex items-center text-osGrey">
               <a
                 href="https://github.com/open-sauced/hot"
                 rel="noreferrer"
                 target="_blank"
               >
-                <AiOutlineStar className="justify-self-start inline-block mr-[10px]" />
+                <AiOutlineStar className="inline-block mr-[10px]" />
 
                 <span className="text-sm">Star us on GitHub</span>
               </a>
@@ -146,6 +160,7 @@ const PrimaryNav = (): JSX.Element => {
             >
               Sign in
             </button>
+
           </div>
         )}
       </div>

@@ -9,6 +9,19 @@ import openSaucedLogo from "../assets/openSauced.svg";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
+const StarTheRepo = (): JSX.Element => (
+  <div className="hidden md:flex items-center text-osGrey">
+    <a
+      href="https://github.com/open-sauced/hot"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <AiOutlineStar className="inline-block mr-[10px]" />
+
+      <span className="text-sm mr-[10px]">Star us on GitHub</span>
+    </a>
+  </div>
+);
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
 
@@ -34,17 +47,7 @@ const PrimaryNav = (): JSX.Element => {
           >
             <Menu.Button>
               <div className="flex items-center">
-                <div className="hidden md:flex items-center text-osGrey">
-                  <a
-                    href="https://github.com/open-sauced/hot"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    <AiOutlineStar className="inline-block mr-[10px]" />
-
-                    <span className="text-sm mr-[10px]">Star us on GitHub</span>
-                  </a>
-                </div>
+                <StarTheRepo />
 
                 <div className="hidden md:flex pl-[16px] border-l-[1px] border-lightOrange">
                   <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
@@ -139,17 +142,7 @@ const PrimaryNav = (): JSX.Element => {
 
         {!user && (
           <div className="flex items-center">
-            <div className="hidden md:flex items-center text-osGrey">
-              <a
-                href="https://github.com/open-sauced/hot"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <AiOutlineStar className="inline-block mr-[10px]" />
-
-                <span className="text-sm">Star us on GitHub</span>
-              </a>
-            </div>
+            <StarTheRepo />
 
             <button
               className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white md:ml-[20px]"
@@ -160,7 +153,6 @@ const PrimaryNav = (): JSX.Element => {
             >
               Sign in
             </button>
-
           </div>
         )}
       </div>

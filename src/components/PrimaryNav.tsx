@@ -10,7 +10,7 @@ import openSaucedLogo from "../assets/openSauced.svg";
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
 const StarTheRepo = (): JSX.Element => (
-  <div className="hidden md:flex items-center text-osGrey">
+  <div className="flex items-center text-osGrey font-Inter">
     <a
       href="https://github.com/open-sauced/hot"
       rel="noreferrer"
@@ -18,7 +18,7 @@ const StarTheRepo = (): JSX.Element => (
     >
       <AiOutlineStar className="inline-block mr-[10px]" />
 
-      <span className="text-sm mr-[10px]">Star us on GitHub</span>
+      <span className="text-md font-light mr-[10px]">Star us on GitHub</span>
     </a>
   </div>
 );
@@ -58,10 +58,10 @@ const PrimaryNav = (): JSX.Element => {
                     />
                   </div>
                 </div>
-              </div>
 
-              <div className="flex md:hidden w-[20px] h-[20px]">
-                <GiHamburgerMenu />
+                <div className="flex md:hidden w-[20px] h-[20px]">
+                  <GiHamburgerMenu size={24} />
+                </div>
               </div>
             </Menu.Button>
 
@@ -145,7 +145,7 @@ const PrimaryNav = (): JSX.Element => {
             <StarTheRepo />
 
             <button
-              className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white md:ml-[20px]"
+              className="bg-osOrange w-[64px] h-[34px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white md:ml-[20px]"
               onClick={async () => {
                 capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
                 await signIn({ provider: "github" });

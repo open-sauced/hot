@@ -139,26 +139,15 @@ const PrimaryNav = (): JSX.Element => {
         )}
 
         {!user && (
-          <div className="flex">
-            <button
-              className="text-md font-semibold mr-[20px]"
-              onClick={() => setIsFormOpen(true)}
-            >
-              Submit a Repository
-            </button>
-
-            <div className="border-l-[1px] border-lightOrange pl-[20px]">
-              <button
-                className="bg-osOrange w-[64px] h-[24px] rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white"
-                onClick={async () => {
-                  capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
-                  await signIn({ provider: "github" });
-                }}
-              >
-                Sign in
-              </button>
-            </div>
-          </div>
+          <button
+            className="bg-osOrange w-[64px] h-[24px] rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white"
+            onClick={async () => {
+              capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
+              await signIn({ provider: "github" });
+            }}
+          >
+            Sign in
+          </button>
         )}
       </div>
 

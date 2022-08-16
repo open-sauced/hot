@@ -10,7 +10,7 @@ import openSaucedLogo from "../assets/openSauced.svg";
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
 const StarTheRepo = (): JSX.Element => (
-  <div className="flex items-center text-osGrey font-Inter">
+  <div className="hidden sm:flex items-center text-osGrey font-Inter">
     <a
       href="https://github.com/open-sauced/hot"
       rel="noreferrer"

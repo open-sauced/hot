@@ -1,67 +1,73 @@
 import { useState } from "react";
+
 import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { ToastTrigger } from "../lib/reactHotToast";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 
-const RepoSubmission = () => {
+export declare interface RepoSubmissionProps {
+  isFormOpen: boolean;
+  setIsFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const RepoSubmission = ({ isFormOpen, setIsFormOpen }: RepoSubmissionProps) => {
   const { user } = useSupabaseAuth();
-  const [buttonPlaceHolder, setButtonPlaceHolder] = useState("Submit repo?");
-  const [isFormOpen, setIsFormOpen] = useState(false);
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState({
+    username: "",
+    url: "",
+  });
 
-  if (!user) {
-    return null;
-  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
 
-  const userName = String(user.user_metadata.user_name);
-  const saveToDataBase = (repoUrl: string): void => {
+  const userName = String(user?.user_metadata.user_name);
+
+  const saveToDataBase = (info: typeof input): void => {
     setIsSubmissionInProcess(true);
 
     // todo: #5 import the submission function here instead
     setTimeout(() => {
       setIsSubmissionInProcess(false);
-      setSubmitted(true);
-      setButtonPlaceHolder("Close");
-      const { isValid, sanitizedUrl } = isValidRepoUrl(repoUrl.replace(/\s+/g, ""));
 
-      console.log("is valid: ", isValid);
-      if (isValid && userName) {
-        sendMessage(userName, sanitizedUrl);
-        ToastTrigger({ message: "Data Submitted", type: "success" });
-      }
+      const { isValid, sanitizedUrl } = isValidRepoUrl(info.url.replace(/\s+/g, ""));
 
       if (!isValid) {
         ToastTrigger({ message: "Invalid repo url", type: "error" });
+        return setIsSubmissionInProcess(false);
       }
 
       if (!userName) {
         ToastTrigger({ message: "No user name", type: "error" });
+        return setIsFormOpen(false);
       }
+
+      setSubmitted(true);
+
+      // if user is not logged in (user -> undefined), userName -> "undefined"
+      userName === "undefined" ? sendMessage(info.username, sanitizedUrl) : sendMessage(userName, sanitizedUrl);
+      return ToastTrigger({ message: "Data Submitted", type: "success" });
     }, 500);
   };
 
   const submitButtonHandler = (): void => {
-    if (!isFormOpen && !submitted) {
-      setButtonPlaceHolder("Submit now");
-      return setIsFormOpen(true);
-    }
-
     if (isFormOpen && !submitted) {
       saveToDataBase(input);
-      console.log(input);
     }
+
     if (submitted) {
-      setButtonPlaceHolder("Submit repo?");
       setSubmitted(false);
       return setIsFormOpen(false);
     }
   };
 
   // listening outside focus
-  document.querySelector(".App")?.addEventListener("click", e => {
+  // eslint-disable-next-line arrow-parens
+  document.querySelector(".App")?.addEventListener("click", (e) => {
     if (isSubmissionInProcess) {
       return;
     }
@@ -69,26 +75,48 @@ const RepoSubmission = () => {
     if (!document.querySelector(".submission-form")?.contains(e.target as unknown as Node)) {
       setIsFormOpen(false);
       setSubmitted(false);
-      setButtonPlaceHolder("Submit repo?");
     }
   });
 
   return (
-    <div className="fixed bottom-[40px] right-[40px] flex items-end flex-col gap-[10px] submission-form z-10">
+    <div className="fixed top-[60px] right-[120px] flex items-end flex-col gap-[10px] submission-form z-10">
       {isFormOpen}
 
       {isFormOpen && !isSubmissionInProcess && !submitted && (
-        <div className="bg-white p-[15px] rounded-md min-w-[300px] shadow-xl">
+        <div className="bg-white p-[15px] rounded-md min-w-[300px] shadow-xl w-52">
           <h6 className="text-lg mb-[8px] text-gray-700 font-medium">Suggest Repository</h6>
+
+          {!user && (
+            <>
+              <p className="text-xs mb-[5px] text-gray-500 font-medium">Username</p>
+
+              <input
+                className="bg-gray-200 py-[4px] w-full px-[10px] rounded-md outline-yellow-300 text-gray-500 text-xs mb-[10px]"
+                name="username"
+                placeholder="open-sauced"
+                type="text"
+                onChange={handleChange}
+              />
+            </>
+          )}
 
           <p className="text-xs mb-[5px] text-gray-500 font-medium">Repository URL</p>
 
           <input
             className="bg-gray-200 py-[4px] w-full px-[10px] rounded-md outline-yellow-300 text-gray-500 text-xs  "
+            name="url"
             placeholder="https://github.com/open-sauced/hot"
             type="text"
-            onChange={e => setInput(e.target.value)}
+            onChange={handleChange}
           />
+
+          <button
+            className="bg-saucyRed p-[10px] mt-[15px] w-full text-xs shadow-lg rounded-md text-white font-bold transform transition-all hover:bg-orange-700"
+            disabled={isSubmissionInProcess}
+            onClick={submitButtonHandler}
+          >
+            Submit now
+          </button>
         </div>
       )}
 
@@ -103,14 +131,6 @@ const RepoSubmission = () => {
           <p className="text-xs mb-[5px] text-gray-500 font-medium">Submission succeeded!</p>
         </div>
       )}
-
-      <button
-        className="bg-saucyRed p-[10px] text-xs shadow-lg rounded-md text-white font-bold transform transition-all hover:bg-orange-700 "
-        disabled={isSubmissionInProcess}
-        onClick={submitButtonHandler}
-      >
-        {buttonPlaceHolder}
-      </button>
     </div>
   );
 };

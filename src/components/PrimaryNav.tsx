@@ -5,11 +5,14 @@ import { getAvatarLink } from "../lib/github";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
 import openSaucedLogo from "../assets/openSauced.svg";
+import { useState } from "react";
+import RepoSubmission from "./RepoSubmission";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <header>
@@ -92,6 +95,19 @@ const PrimaryNav = (): JSX.Element => {
 
                 <Menu.Item>
                   {({ active }) => (
+                    <button
+                      className={`${
+                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
+                      onClick={() => setIsFormOpen(true)}
+                    >
+                      Submit a repository
+                    </button>
+                  )}
+                </Menu.Item>
+
+                <Menu.Item>
+                  {({ active }) => (
                     <a
                       href={bugReportLink}
                       rel="noreferrer"
@@ -123,17 +139,33 @@ const PrimaryNav = (): JSX.Element => {
         )}
 
         {!user && (
-          <button
-            className="bg-osOrange w-[64px] h-[24px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white"
-            onClick={async () => {
-              capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
-              await signIn({ provider: "github" });
-            }}
-          >
-            Sign in
-          </button>
+          <div className="flex">
+            <button
+              className="text-md font-semibold mr-[20px]"
+              onClick={() => setIsFormOpen(true)}
+            >
+              Submit a Repository
+            </button>
+
+            <div className="border-l-[1px] border-lightOrange pl-[20px]">
+              <button
+                className="bg-osOrange w-[64px] h-[24px] rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white"
+                onClick={async () => {
+                  capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
+                  await signIn({ provider: "github" });
+                }}
+              >
+                Sign in
+              </button>
+            </div>
+          </div>
         )}
       </div>
+
+      <RepoSubmission
+        isFormOpen={isFormOpen}
+        setIsFormOpen={setIsFormOpen}
+      />
     </header>
   );
 };

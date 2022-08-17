@@ -35,8 +35,8 @@ const RepoSubmission = ({ isFormOpen, setIsFormOpen }: RepoSubmissionProps) => {
         return setIsSubmissionInProcess(false);
       }
 
-      if (!userName || userName === "undefined") {
-        ToastTrigger({ message: "No user name", type: "error" });
+      if (userName === "undefined") {
+        ToastTrigger({ message: "Invalid user name", type: "error" });
         return setIsFormOpen(false);
       }
 

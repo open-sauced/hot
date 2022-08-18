@@ -4,23 +4,25 @@ import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { ToastTrigger } from "../lib/reactHotToast";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import useRepoForm from "../hooks/useRepoForm";
 
-export declare interface RepoSubmissionProps {
-  isFormOpen: boolean;
-  setIsFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+/*
+ * export declare interface RepoSubmissionProps {
+ *   isFormOpen: boolean;
+ *   setIsFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
+ * }
+ */
 
-const RepoSubmission = ({ isFormOpen, setIsFormOpen }: RepoSubmissionProps) => {
+const RepoSubmission = (): JSX.Element => {
   const { user } = useSupabaseAuth();
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [input, setInput] = useState("");
+  const { isFormOpen, handleFormOpen } = useRepoForm();
 
-  if (!user) {
-    return null;
-  }
+  console.log("RepoSubmission -> ", isFormOpen);
 
-  const userName = String(user.user_metadata.user_name);
+  const userName = String(user?.user_metadata.user_name);
 
   const saveToDataBase = (repoUrl: string): void => {
     setIsSubmissionInProcess(true);
@@ -35,9 +37,9 @@ const RepoSubmission = ({ isFormOpen, setIsFormOpen }: RepoSubmissionProps) => {
         return setIsSubmissionInProcess(false);
       }
 
-      if (userName === "undefined") {
+      if (!userName) {
         ToastTrigger({ message: "Invalid user name", type: "error" });
-        return setIsFormOpen(false);
+        return handleFormOpen(false);
       }
 
       setSubmitted(true);
@@ -53,7 +55,7 @@ const RepoSubmission = ({ isFormOpen, setIsFormOpen }: RepoSubmissionProps) => {
 
     if (submitted) {
       setSubmitted(false);
-      return setIsFormOpen(false);
+      return handleFormOpen(false);
     }
   };
 
@@ -64,7 +66,7 @@ const RepoSubmission = ({ isFormOpen, setIsFormOpen }: RepoSubmissionProps) => {
     }
 
     if (!document.querySelector(".submission-form")?.contains(e.target as unknown as Node)) {
-      setIsFormOpen(false);
+      handleFormOpen(false);
       setSubmitted(false);
     }
   });

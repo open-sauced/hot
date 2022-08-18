@@ -5,14 +5,18 @@ import { getAvatarLink } from "../lib/github";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
 import openSaucedLogo from "../assets/openSauced.svg";
-import { useState } from "react";
+
+// import { useState } from "react";
 import RepoSubmission from "./RepoSubmission";
+import useRepoForm from "../hooks/useRepoForm";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
-  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  // const [isFormOpen, setIsFormOpen] = useState(false);
+  const { handleFormOpen } = useRepoForm();
 
   return (
     <header>
@@ -99,7 +103,7 @@ const PrimaryNav = (): JSX.Element => {
                       className={`${
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-[6px] text-sm`}
-                      onClick={() => setIsFormOpen(true)}
+                      onClick={() => handleFormOpen(true)}
                     >
                       Submit a repository
                     </button>
@@ -151,10 +155,7 @@ const PrimaryNav = (): JSX.Element => {
         )}
       </div>
 
-      <RepoSubmission
-        isFormOpen={isFormOpen}
-        setIsFormOpen={setIsFormOpen}
-      />
+      <RepoSubmission />
     </header>
   );
 };

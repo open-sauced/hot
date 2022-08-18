@@ -68,12 +68,10 @@ const RepoSubmission = () => {
       return;
     }
 
-    if (!document.querySelector(".submission-form")?.contains(e.target as unknown as Node)) {
     setIsFormOpen(false);
     setSubmitted(false);
     setButtonPlaceHolder("Submit repo?");
   }
-  });
 
   return (
     <div

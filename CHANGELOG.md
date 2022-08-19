@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.24.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.24.0-beta.1...v2.24.0-beta.2) (2022-08-19)
+
+
+### 🐛 Bug Fixes
+
+* correct missing slice breaking render ([349ef59](https://github.com/open-sauced/hot-sauce/commit/349ef59155b70bb4806465461dc6114f788d5c35))
+
 ## [2.24.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.23.3...v2.24.0-beta.1) (2022-08-16)
 
 

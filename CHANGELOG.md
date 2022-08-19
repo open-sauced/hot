@@ -5,6 +5,20 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.24.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.24.0-beta.1...v2.24.0-beta.2) (2022-08-19)
+
+
+### 🐛 Bug Fixes
+
+* correct missing slice breaking render ([349ef59](https://github.com/open-sauced/hot-sauce/commit/349ef59155b70bb4806465461dc6114f788d5c35))
+
+## [2.24.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.23.3...v2.24.0-beta.1) (2022-08-16)
+
+
+### 🍕 Features
+
+* **primarynav:** adding AIOutlineStar icon and Star us on Github text to PrimaryNav ([#293](https://github.com/open-sauced/hot-sauce/issues/293)) ([b27acb5](https://github.com/open-sauced/hot-sauce/commit/b27acb5218657369ef6f19a5d12e09ae2443fa1d))
+
 ### [2.23.3](https://github.com/open-sauced/hot-sauce/compare/v2.23.2...v2.23.3) (2022-08-11)
 
 

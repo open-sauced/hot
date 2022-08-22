@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useOutsideClickRef } from "rooks";
 import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { ToastTrigger } from "../lib/reactHotToast";
@@ -11,6 +12,7 @@ const RepoSubmission = () => {
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [input, setInput] = useState("");
+  const [submissionRef] = useOutsideClickRef(handleClickOutsideRepoSubmission);
 
   if (!user) {
     return null;
@@ -61,20 +63,21 @@ const RepoSubmission = () => {
   };
 
   // listening outside focus
-  document.querySelector(".App")?.addEventListener("click", e => {
+  function handleClickOutsideRepoSubmission (): void {
     if (isSubmissionInProcess) {
       return;
     }
 
-    if (!document.querySelector(".submission-form")?.contains(e.target as unknown as Node)) {
-      setIsFormOpen(false);
-      setSubmitted(false);
-      setButtonPlaceHolder("Submit repo?");
-    }
-  });
+    setIsFormOpen(false);
+    setSubmitted(false);
+    setButtonPlaceHolder("Submit repo?");
+  }
 
   return (
-    <div className="fixed bottom-[40px] right-[40px] flex items-end flex-col gap-[10px] submission-form z-10">
+    <div
+      ref={submissionRef}
+      className="fixed bottom-[40px] right-[40px] flex items-end flex-col gap-[10px] submission-form z-10"
+    >
       {isFormOpen}
 
       {isFormOpen && !isSubmissionInProcess && !submitted && (

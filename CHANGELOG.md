@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.24.1](https://github.com/open-sauced/hot-sauce/compare/v2.24.0...v2.24.1) (2022-08-22)
+
+
+### 🧑‍💻 Code Refactoring
+
+* use outsideclickref instead of query selector ([#319](https://github.com/open-sauced/hot-sauce/issues/319)) ([6efdfe0](https://github.com/open-sauced/hot-sauce/commit/6efdfe0713c59f179f8259266dbc2b519379ba07)), closes [#311](https://github.com/open-sauced/hot-sauce/issues/311)
+
 ## [2.24.0](https://github.com/open-sauced/hot-sauce/compare/v2.23.3...v2.24.0) (2022-08-19)
 
 

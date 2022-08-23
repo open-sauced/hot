@@ -4,23 +4,17 @@ import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { ToastTrigger } from "../lib/reactHotToast";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import useRepoForm from "../hooks/useRepoForm";
 
-/*
- * export declare interface RepoSubmissionProps {
- *   isFormOpen: boolean;
- *   setIsFormOpen: React.Dispatch<React.SetStateAction<boolean>>;
- * }
- */
+export declare interface RepoSubmissionProps {
+  isFormOpen: boolean;
+  handleFormOpen: (state: boolean) => void;
+}
 
-const RepoSubmission = (): JSX.Element => {
+const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JSX.Element => {
   const { user } = useSupabaseAuth();
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [input, setInput] = useState("");
-  const { isFormOpen, handleFormOpen } = useRepoForm();
-
-  console.log("RepoSubmission -> ", isFormOpen);
 
   const userName = String(user?.user_metadata.user_name);
 

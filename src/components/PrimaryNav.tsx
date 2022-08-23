@@ -6,17 +6,19 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
 import openSaucedLogo from "../assets/openSauced.svg";
 
-// import { useState } from "react";
 import RepoSubmission from "./RepoSubmission";
-import useRepoForm from "../hooks/useRepoForm";
+
+import { useState } from "react";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
+
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
 
-  // const [isFormOpen, setIsFormOpen] = useState(false);
-  const { handleFormOpen } = useRepoForm();
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const handleFormOpen = (state: boolean) => setIsFormOpen(state);
 
   return (
     <header>
@@ -155,7 +157,10 @@ const PrimaryNav = (): JSX.Element => {
         )}
       </div>
 
-      <RepoSubmission />
+      <RepoSubmission
+        handleFormOpen={handleFormOpen}
+        isFormOpen={isFormOpen}
+      />
     </header>
   );
 };

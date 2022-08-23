@@ -34,6 +34,19 @@
       content="Open Sauced is a platform to gain insights on open source contributors and their contributions."
     />
     <meta property="twitter:image" content="/social-card.png" />
+
+    import { version } from "../../package.json";
+
+    console.log(`%c
+ ██████╗ ██████╗ ███████╗███╗   ██╗    ███████╗ █████╗ ██╗   ██╗ ██████╗███████╗██████╗
+██╔═══██╗██╔══██╗██╔════╝████╗  ██║    ██╔════╝██╔══██╗██║   ██║██╔════╝██╔════╝██╔══██╗
+██║   ██║██████╔╝█████╗  ██╔██╗ ██║    ███████╗███████║██║   ██║██║     █████╗  ██║  ██║
+██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║    ╚════██║██╔══██║██║   ██║██║     ██╔══╝  ██║  ██║
+╚██████╔╝██║     ███████╗██║ ╚████║    ███████║██║  ██║╚██████╔╝╚██████╗███████╗██████╔╝
+ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝╚══════╝╚═════╝%c v${version()}`,
+    "color:#f6d82b",
+    "color:green;font-weight:bold");
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

@@ -6,6 +6,7 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
+import { useRepositoriesList } from "../hooks/useRepositoriesList";
 
 export declare interface PostWrapProps {
   textToSearch?: string;
@@ -29,9 +30,11 @@ const parseLimitValue = (limit: string | null): number => {
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
+  const repodata = useRepositoriesList();
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
+  console.log(repodata);
   const activeLink = locationsHash[location.pathname] ?? "popular";
   const limit = parseLimitValue(searchParams.get("limit"));
 

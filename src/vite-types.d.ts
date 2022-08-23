@@ -43,3 +43,12 @@ interface DbRepoToUserVotes {
   readonly updated_at?: string;
   readonly deleted_at?: string | null;
 }
+
+export class PageMetaDto {
+  readonly page: number;
+  readonly take: number;
+  readonly itemCount: number;
+  readonly pageCount: number;
+  readonly hasPreviousPage: boolean;
+  readonly hasNextPage: boolean;
+}

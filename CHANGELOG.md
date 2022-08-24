@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.24.2](https://github.com/open-sauced/hot-sauce/compare/v2.24.1...v2.24.2) (2022-08-24)
+
+
+### 🧑‍💻 Code Refactoring
+
+* add submit a repo to the nav ([#310](https://github.com/open-sauced/hot-sauce/issues/310)) ([14c988a](https://github.com/open-sauced/hot-sauce/commit/14c988ae85ea05f06d213764789af00b16f7898e)), closes [#301](https://github.com/open-sauced/hot-sauce/issues/301)
+
 ### [2.24.1](https://github.com/open-sauced/hot-sauce/compare/v2.24.0...v2.24.1) (2022-08-22)
 
 

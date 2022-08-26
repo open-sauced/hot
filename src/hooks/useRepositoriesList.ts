@@ -1,8 +1,10 @@
 
 import useSWR from "swr";
 
-const useRepositoriesList = () => {
-  const { data, error, mutate } = useSWR<{ data: DbRepos[], meta: PaginatedMeta }, Error>("repos/list");
+export declare interface PaginatedMetaResponse { data: { data: DbRepos[]; meta: PaginatedMeta; } }
+
+const useRepositoriesList = (orderBy: string) => {
+  const { data, error, mutate } = useSWR<PaginatedMetaResponse, Error>(`repos/list?orderDirection=DESC&orderBy=${orderBy}`);
 
   return {
     repoList: data || { data: [] },

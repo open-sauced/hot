@@ -11,6 +11,8 @@ import { useRepositoriesList } from "../hooks/useRepositoriesList";
 const orderBy = {
   popular: "stars",
   recent: "created_at",
+  upvoted: "votesCount",
+  discussed: "issues",
 };
 export declare interface PostWrapProps {
   textToSearch?: string;
@@ -38,13 +40,12 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
-  console.log(repodata);
   const activeLink = locationsHash[location.pathname] ?? "popular";
   const {data, meta, isLoading} = useRepositoriesList(orderBy[activeLink]);
   const limit = parseLimitValue(searchParams.get("limit"));
-  console.log(orderBy[activeLink]);
-  console.log("api", data);
-  console.log("supabase", fetchedData);
+  // console.log(orderBy[activeLink]);
+  // console.log("api", data);
+  // console.log("supabase", fetchedData);
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 25) });
   };

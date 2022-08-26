@@ -8,6 +8,10 @@ import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 
+const orderBy = {
+  popular: "stars",
+  recent: "created_at",
+};
 export declare interface PostWrapProps {
   textToSearch?: string;
 }
@@ -30,14 +34,15 @@ const parseLimitValue = (limit: string | null): number => {
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
-  const repodata = useRepositoriesList();
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
-  console.log(repodata);
   const activeLink = locationsHash[location.pathname] ?? "popular";
+  const {data, meta, isLoading} = useRepositoriesList(orderBy[activeLink]);
   const limit = parseLimitValue(searchParams.get("limit"));
-
+  console.log(orderBy[activeLink]);
+  console.log("api", data);
+  console.log("supabase", fetchedData);
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 25) });
   };
@@ -62,12 +67,12 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
 
       <HotRepositories />
 
-      <ListRepositories
+      {!isLoading && <ListRepositories
         activeLink={activeLink}
-        fetchedData={fetchedData}
+        fetchedData={data}
         handleLoadingMore={handleLoadingMore}
         limit={limit}
-      />
+      />}
     </div>
   );
 };

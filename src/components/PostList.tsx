@@ -15,19 +15,20 @@ const PostList = ({ data }: PostListProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const [isVoted, setIsVoted] = useState(false);
 
+  // console.log(data)
   const {
     id,
-    votesRelation: [{ votesCount }],
     name,
     full_name,
     description,
     stars,
     issues,
-    contributions,
+    contributionsCount,
+    votesCount
   } = data;
 
   useEffect(() => {
-    setIsVoted(checkVoted(data.id));
+    setIsVoted(checkVoted(id));
   }, [votedReposIds]);
 
   const repo_id = parseInt(`${id}`);
@@ -92,7 +93,7 @@ const PostList = ({ data }: PostListProps): JSX.Element => {
             </p>
           </div>
 
-          <StackedAvatar contributors={contributions} />
+          {/* <StackedAvatar contributors={contributionsCount} /> */}
         </div>
       </div>
 

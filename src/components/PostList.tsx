@@ -15,7 +15,6 @@ const PostList = ({ data }: PostListProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const [isVoted, setIsVoted] = useState(false);
 
-  // console.log(data)
   const {
     id,
     name,
@@ -93,6 +92,7 @@ const PostList = ({ data }: PostListProps): JSX.Element => {
             </p>
           </div>
 
+          {/* TODO: Need to filter contributions in a hook or similar */}
           {/* <StackedAvatar contributors={contributionsCount} /> */}
         </div>
       </div>

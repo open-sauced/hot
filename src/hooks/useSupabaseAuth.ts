@@ -8,7 +8,6 @@ const useSupabaseAuth = () => {
 
   useEffect(() => {
     const currentUser = supabase.auth.session();
-    console.log(currentUser?.access_token)
 
     setUser(currentUser?.user ?? undefined);
 

@@ -43,9 +43,6 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const activeLink = locationsHash[location.pathname] ?? "popular";
   const {data, meta, isLoading} = useRepositoriesList(orderBy[activeLink]);
   const limit = parseLimitValue(searchParams.get("limit"));
-  // console.log(orderBy[activeLink]);
-  // console.log("api", data);
-  // console.log("supabase", fetchedData);
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 25) });
   };

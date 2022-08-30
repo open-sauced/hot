@@ -34,9 +34,11 @@ const parseLimitValue = (limit: string | null): number => {
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
+  const repodata = useRepositoriesList();
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
+  console.log(repodata);
   const activeLink = locationsHash[location.pathname] ?? "popular";
   const {data, meta, isLoading} = useRepositoriesList(orderBy[activeLink]);
   const limit = parseLimitValue(searchParams.get("limit"));

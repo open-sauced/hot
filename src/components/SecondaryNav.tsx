@@ -26,11 +26,12 @@ const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
     },
   ];
 
-  user &&
-    links.push({
-      link: "myVotes",
-      title: "My Votes",
-    });
+  // TODO: #257 My votes is broken for users with beta onboarding. Fix it.
+  // user &&
+  //   links.push({
+  //     link: "myVotes",
+  //     title: "My Votes",
+  //   });
 
   return (
     <div>

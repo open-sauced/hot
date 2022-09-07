@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.24.3-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.24.2...v2.24.3-beta.1) (2022-08-30)
+
+
+### 🐛 Bug Fixes
+
+* correct tailwind antipattern ([#326](https://github.com/open-sauced/hot-sauce/issues/326)) ([a6f2c8f](https://github.com/open-sauced/hot-sauce/commit/a6f2c8f655c594bdbe008ca5f01131c641dc18ae)), closes [#318](https://github.com/open-sauced/hot-sauce/issues/318)
+
 ### [2.24.2](https://github.com/open-sauced/hot-sauce/compare/v2.24.1...v2.24.2) (2022-08-24)
 
 

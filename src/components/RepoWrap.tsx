@@ -33,7 +33,7 @@ const parseLimitValue = (limit: string | null): number => {
   return value;
 };
 
-const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
+const RepoWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { user } = useSupabaseAuth();
   const location = useLocation();
@@ -64,4 +64,4 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   );
 };
 
-export default PostsWrap;
+export default RepoWrap;

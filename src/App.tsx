@@ -9,17 +9,19 @@ import GradBackground from "./components/GradBackground";
 import Hero from "./components/Hero";
 import apiFetcher from "./hooks/useSWR";
 
-import { version } from "../../package.json";
+import getAppVersion from "./lib/appVersion";
 
-    console.log(`%c
+console.log(
+  `%c
  ██████╗ ██████╗ ███████╗███╗   ██╗    ███████╗ █████╗ ██╗   ██╗ ██████╗███████╗██████╗
 ██╔═══██╗██╔══██╗██╔════╝████╗  ██║    ██╔════╝██╔══██╗██║   ██║██╔════╝██╔════╝██╔══██╗
 ██║   ██║██████╔╝█████╗  ██╔██╗ ██║    ███████╗███████║██║   ██║██║     █████╗  ██║  ██║
 ██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║    ╚════██║██╔══██║██║   ██║██║     ██╔══╝  ██║  ██║
 ╚██████╔╝██║     ███████╗██║ ╚████║    ███████║██║  ██║╚██████╔╝╚██████╗███████╗██████╔╝
- ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝╚══════╝╚═════╝%c v${version()}`,
-    "color:#f6d82b",
-    "color:green;font-weight:bold");
+ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝╚══════╝╚═════╝%c v${getAppVersion()}`,
+  "color:#f6d82b",
+  "color:green;font-weight:bold",
+);
 
 
 const App = (): JSX.Element => {

@@ -1,4 +1,4 @@
 import pkg from "../../package.json";
-export function getAppVersion() {
+export default function getAppVersion () {
   return pkg.version;
 }

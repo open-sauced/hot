@@ -44,7 +44,7 @@ const Hero = () => {
   }, [searchTerm]);
 
   return (
-    <div className="flex flex-col py-[95px] items-center mx-[10px]">
+    <div className="flex flex-col py-24 items-center mx-2.5">
       <div>
         <h1 className="font-Lexend text-4xl md:text-5xl text-center text-lightSlate leading-tight tracking-tight">
           {`Find `}
@@ -54,12 +54,11 @@ const Hero = () => {
           </span>
 
           <br />
-
           to contribute today
         </h1>
       </div>
 
-      <div className="mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px] flex">
+      <div className="mt-[2.8125rem] px-4 gap-x-2.5 py-2.5 justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[1rem] md:min-w-[422px] flex">
         <img
           alt="search icon"
           src={searchNormal}
@@ -80,15 +79,15 @@ const Hero = () => {
 
         <img
           alt="command k"
-          className="pt-[7px]"
+          className="pt-[.4375rem]"
           src={cmdKIcon}
         />
       </div>
 
-      <div className="mt-[10px] flex w-full justify-center relative">
+      <div className="mt-2.5 flex w-full justify-center relative">
         {fetchedData.length > 0 && hasFocus && (
           <div className="flex md:min-w-[400px] pb-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px] shadow-2xl">
-            <div className="bg-gray-100 py-[10px] px-[10px] md:px-[15px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full">
+            <div className="bg-gray-100 py-2.5 px-[10px] md:px-[15px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full">
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 

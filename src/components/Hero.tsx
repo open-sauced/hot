@@ -100,7 +100,7 @@ const Hero = () => {
               >
                 <div className="flex flex-col hover:bg-gray-50 ">
                   <div className="flex flex-col px-[10px] md:px-[15px] py-[10px]">
-                    <div className="flex items-center gap-x-[10px] mb-[5px]">
+                    <div className="flex items-center gap-x-2.5 mb-[5px]">
                       <div className="w-[25px] h-[25px] overflow-hidden border-gray-400 border-[1px] bg-red-100  rounded-full">
                         <img
                           alt={full_name}

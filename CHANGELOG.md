@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.25.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.1...v2.25.0-beta.2) (2022-09-08)
+
+
+### 🍕 Features
+
+* added version number and ascii art addition - bdougie edit ([#332](https://github.com/open-sauced/hot-sauce/issues/332)) ([07a40aa](https://github.com/open-sauced/hot-sauce/commit/07a40aa963d672f5a2e5f2e2b2dbc25f32d974cb)), closes [#106](https://github.com/open-sauced/hot-sauce/issues/106) [#322](https://github.com/open-sauced/hot-sauce/issues/322)
+
 ## [2.25.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.24.3-beta.2...v2.25.0-beta.1) (2022-09-08)
 
 

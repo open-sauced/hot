@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.25.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.24.3-beta.2...v2.25.0-beta.1) (2022-09-08)
+
+
+### 🍕 Features
+
+* Added white borders to Stacked Avatars Component ([#328](https://github.com/open-sauced/hot-sauce/issues/328)) ([8dda541](https://github.com/open-sauced/hot-sauce/commit/8dda541e996325d645c64bdc0e16ff69753970e9)), closes [#286](https://github.com/open-sauced/hot-sauce/issues/286)
+
 ### [2.24.3-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.24.3-beta.1...v2.24.3-beta.2) (2022-09-08)
 
 

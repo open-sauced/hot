@@ -92,7 +92,7 @@ const Hero = () => {
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 
-            {fetchedData.map(({ full_name, name, description, issues, stars, contributions }) => (
+            {fetchedData.map(({ full_name, name, description, issues, stars }) => (
               <a
                 key={full_name}
                 href={`https://app.opensauced.pizza/repos/${full_name}`}
@@ -120,9 +120,9 @@ const Hero = () => {
                     </p>
 
                     <div className="flex justify-between mt-[8px]">
-                      <div className="flex gap-x-[5px]">
+                      {/* <div className="flex gap-x-[5px]">
                         <StackedAvatar contributors={contributions} />
-                      </div>
+                      </div> */}
 
                       <div className="flex gap-x-[6px]">
                         <div className="flex items-center gap-x-[5px]">

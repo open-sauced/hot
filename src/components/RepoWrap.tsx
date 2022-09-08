@@ -8,7 +8,13 @@ import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 
-const orderBy = {
+interface StringByString {
+  [key: string]: string;
+}
+
+let orderBy: StringByString
+
+orderBy = {
   popular: "stars",
   recent: "created_at",
   upvoted: "votesCount",

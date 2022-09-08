@@ -43,7 +43,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
     );
   }
 
-  const { id, full_name, name, description, issues, stars, contributions } = repo;
+  const { id, full_name, name, description, issues, stars } = repo!;
   const repo_id = parseInt(`${id}`);
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
@@ -130,7 +130,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           </div>
         </div>
 
-        <StackedAvatar contributors={contributions} />
+        {/* <StackedAvatar utors={contributions} /> */}
       </div>
     </div>
   );

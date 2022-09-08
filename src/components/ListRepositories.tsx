@@ -1,6 +1,6 @@
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
-import PostList from "./PostList";
+import PostList from "./RepoList";
 
 export declare interface ListRepositoriesProps {
   activeLink: string | null;

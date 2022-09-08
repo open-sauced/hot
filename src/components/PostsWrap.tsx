@@ -35,8 +35,6 @@ const parseLimitValue = (limit: string | null): number => {
 
 const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
-  const repodata = useRepositoriesList();
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
@@ -46,17 +44,6 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 25) });
   };
-
-  const fetchData = useCallback(async () => {
-    const data = await fetchRecommendations(activeLink, limit, user, textToSearch);
-
-    setFetchedData(data);
-  }, [limit]);
-
-  useEffect(() => {
-    fetchData()
-      .catch(console.error);
-  }, [activeLink, limit, textToSearch]);
 
   return (
     <div className="bg-darkestGrey">

@@ -22,7 +22,7 @@ interface DbRepo {
   readonly language?: string;
   readonly license?: string;
   readonly url?: string;
-  readonly contributionsCount: number;
+  readonly contributionsCount?: number;
   readonly created_at?: string;
   readonly updated_at?: string;
   readonly pushed_at?: string;
@@ -42,7 +42,7 @@ interface DbRepoToUserVotes {
   readonly deleted_at?: string | null;
 }
 
-export class PageMetaDto {
+interface PageMetaDto {
   readonly page: number;
   readonly take: number;
   readonly itemCount: number;

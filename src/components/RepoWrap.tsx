@@ -20,10 +20,10 @@ const parseLimitValue = (limit: string | null): number => {
   const value = parseInt(limit);
 
   if (isNaN(value) || value <= 0) {
-    return 25;
+    return 15;
   }
-  if (value > 100) {
-    return 125;
+  if (value > 25) {
+    return 50;
   }
   return value;
 };
@@ -34,11 +34,11 @@ const RepoWrap = (): JSX.Element => {
   const location = useLocation();
 
   const activeLink = (locationsHash[location.pathname] ?? "popular") as keyof typeof RepoOrderByEnum;
-  const { data, meta, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink]);
-
   const limit = parseLimitValue(searchParams.get("limit"));
+  const { data, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
+
   const handleLoadingMore = () => {
-    setSearchParams({ limit: String(limit + 25) });
+    setSearchParams({ limit: String(limit + 10) });
   };
 
   return (

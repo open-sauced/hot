@@ -5,8 +5,8 @@ interface PaginatedRepoResponse {
   readonly meta: PageMetaDto;
 }
 
-const useRepositoriesList = (orderBy = "stars") => {
-  const { data, error, mutate } = useSWR<PaginatedRepoResponse, Error>(`repos/list?orderDirection=DESC&orderBy=${orderBy}`);
+const useRepositoriesList = (orderBy = "stars", limit = 10) => {
+  const { data, error, mutate } = useSWR<PaginatedRepoResponse, Error>(`repos/list?orderDirection=DESC&orderBy=${orderBy}&limit=${limit}`);
 
   return {
     data: data?.data ?? [],

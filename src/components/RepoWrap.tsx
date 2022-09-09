@@ -8,18 +8,12 @@ import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 
-interface StringByString {
-  [key: string]: string;
+export enum RepoOrderByEnum {
+  popular = "stars",
+  recent = "created_at",
+  upvoted = "votesCount",
+  discussed = "issues",
 }
-
-let orderBy: StringByString
-
-orderBy = {
-  popular: "stars",
-  recent: "created_at",
-  upvoted: "votesCount",
-  discussed: "issues",
-};
 export declare interface PostWrapProps {
   textToSearch?: string;
 }
@@ -44,8 +38,9 @@ const RepoWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
-  const activeLink = locationsHash[location.pathname] ?? "popular";
-  const {data, meta, isLoading} = useRepositoriesList(orderBy[activeLink]);
+  const activeLink = (locationsHash[location.pathname] ?? "popular") as keyof typeof RepoOrderByEnum;
+  const { data, meta, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink]);
+
   const limit = parseLimitValue(searchParams.get("limit"));
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 25) });

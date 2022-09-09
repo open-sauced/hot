@@ -1,6 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
-import { fetchRecommendations } from "../lib/supabase";
 import locationsHash from "../lib/locationsHash";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import HotRepositories from "./HotRepositories";

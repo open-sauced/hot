@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
-import StackedAvatar from "./StackedAvatar";
+// import StackedAvatar from "./StackedAvatar";
 import useVotedRepos from "../hooks/useVotedRepos";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import cx from "classnames";
@@ -11,7 +11,7 @@ export declare interface PostListProps {
   data: DbRepo;
 }
 
-const PostList = ({ data }: PostListProps): JSX.Element => {
+const RepoList = ({ data }: PostListProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const [isVoted, setIsVoted] = useState(false);
 
@@ -23,7 +23,7 @@ const PostList = ({ data }: PostListProps): JSX.Element => {
     stars,
     issues,
     // contributionsCount,
-    votesCount
+    votesCount,
   } = data;
 
   useEffect(() => {
@@ -127,4 +127,4 @@ const PostList = ({ data }: PostListProps): JSX.Element => {
   );
 };
 
-export default PostList;
+export default RepoList;

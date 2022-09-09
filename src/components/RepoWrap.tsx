@@ -12,9 +12,6 @@ export enum RepoOrderByEnum {
   upvoted = "votesCount",
   discussed = "issues",
 }
-export declare interface PostWrapProps {
-  textToSearch?: string;
-}
 
 const parseLimitValue = (limit: string | null): number => {
   if (!limit) {
@@ -31,7 +28,7 @@ const parseLimitValue = (limit: string | null): number => {
   return value;
 };
 
-const RepoWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
+const RepoWrap = (): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { user } = useSupabaseAuth();
   const location = useLocation();

@@ -22,7 +22,7 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData }:
       </div>
 
       {
-        fetchedData?.map((item, i) => (
+        fetchedData.map((item, i) => (
           <PostList
             key={`${item.full_name}_${i}`}
             data={item}
@@ -32,7 +32,7 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData }:
     </div>
 
     {
-      fetchedData?.length > 0 &&
+      fetchedData.length > 0 &&
         activeLink !== "myVotes" &&
         limit <= 100 &&
           <div className="flex justify-center">

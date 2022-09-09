@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
+
 // import StackedAvatar from "./StackedAvatar";
 import useVotedRepos from "../hooks/useVotedRepos";
 import { RiCheckboxCircleFill } from "react-icons/ri";
@@ -22,8 +23,9 @@ const RepoList = ({ data }: PostListProps): JSX.Element => {
     description,
     stars,
     issues,
-    // contributionsCount,
     votesCount,
+
+    // contributionsCount,
   } = data;
 
   useEffect(() => {
@@ -93,6 +95,7 @@ const RepoList = ({ data }: PostListProps): JSX.Element => {
           </div>
 
           {/* TODO: Need to filter contributions in a hook or similar */}
+
           {/* <StackedAvatar contributors={contributionsCount} /> */}
         </div>
       </div>

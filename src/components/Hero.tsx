@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
+
 // import StackedAvatar from "./StackedAvatar";
 import { fetchRecommendations } from "../lib/supabase";
 import humanizeNumber from "../lib/humanizeNumber";

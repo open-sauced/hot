@@ -7,6 +7,7 @@ import { VscIssues } from "react-icons/vsc";
 import Skeleton from "react-loading-skeleton";
 import { getAvatarLink } from "../lib/github";
 import humanizeNumber from "../lib/humanizeNumber";
+
 // import StackedAvatar from "./StackedAvatar";
 import useRepo from "../hooks/useRepo";
 import useVotedRepos from "../hooks/useVotedRepos";

@@ -1,7 +1,12 @@
-const sendMessage = (user: string, repoUrl : string) => {
+const sendMessage = (user: string, repoUrl: string) => {
   const request = (new XMLHttpRequest);
 
-  request.open("POST", "https://discord.com/api/webhooks/998629882764476448/ItO3_kUsGTKdDgqc6sTrraOmJFhIVTQmSbygV0z-dk-IjUXRB6H7MN5zakOB6ili7YTd");
+  /*
+   * request.open(
+   *   "POST",
+   *   import.meta.env.DISCORD_WEBHOOK_URL,
+   * );
+   */
 
   request.setRequestHeader("Content-type", "application/json");
 

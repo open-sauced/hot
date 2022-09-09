@@ -5,10 +5,24 @@ import { initiatePostHog } from "./lib/analytics";
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { SWRConfig } from "swr";
-import RepoSubmission from "./components/RepoSubmission";
 import GradBackground from "./components/GradBackground";
 import Hero from "./components/Hero";
 import apiFetcher from "./hooks/useSWR";
+
+import getAppVersion from "./lib/appVersion";
+
+console.log(
+  `%c
+ ██████╗ ██████╗ ███████╗███╗   ██╗    ███████╗ █████╗ ██╗   ██╗ ██████╗███████╗██████╗
+██╔═══██╗██╔══██╗██╔════╝████╗  ██║    ██╔════╝██╔══██╗██║   ██║██╔════╝██╔════╝██╔══██╗
+██║   ██║██████╔╝█████╗  ██╔██╗ ██║    ███████╗███████║██║   ██║██║     █████╗  ██║  ██║
+██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║    ╚════██║██╔══██║██║   ██║██║     ██╔══╝  ██║  ██║
+╚██████╔╝██║     ███████╗██║ ╚████║    ███████║██║  ██║╚██████╔╝╚██████╗███████╗██████╔╝
+ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝╚══════╝╚═════╝%c v${getAppVersion()}`,
+  "color:#f6d82b",
+  "color:green;font-weight:bold",
+);
+
 
 const App = (): JSX.Element => {
   initiatePostHog();
@@ -25,8 +39,6 @@ const App = (): JSX.Element => {
       <BrowserRouter>
         <div className="App overflow-hidden">
           <GradBackground>
-            <RepoSubmission />
-
             <PrimaryNav />
 
             <Hero />

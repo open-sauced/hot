@@ -9,6 +9,22 @@ import GradBackground from "./components/GradBackground";
 import Hero from "./components/Hero";
 import apiFetcher from "./hooks/useSWR";
 
+function localStorageProvider () {
+  // when initializing, we restore the data from `localStorage` into a map.
+  const map = new Map(JSON.parse(localStorage.getItem("app-cache") || "[]"));
+
+  // before unloading the app, we write back all the data into `localStorage`.
+
+  window.addEventListener("beforeunload", () => {
+    const appCache = JSON.stringify(Array.from(map.entries()));
+
+    localStorage.setItem("app-cache", appCache);
+  });
+
+  // we still use the map for write & read for performance.
+  return map;
+}
+
 import getAppVersion from "./lib/appVersion";
 
 console.log(
@@ -32,6 +48,7 @@ const App = (): JSX.Element => {
       value={{
         revalidateOnFocus: false,
         fetcher: apiFetcher,
+        provider: localStorageProvider,
       }}
     >
       <Toaster position="top-right" />

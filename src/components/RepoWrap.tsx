@@ -50,12 +50,13 @@ const RepoWrap = (): JSX.Element => {
 
       <HotRepositories />
 
-      {!isLoading && <ListRepositories
-        activeLink={activeLink}
-        fetchedData={data}
-        handleLoadingMore={handleLoadingMore}
-        limit={limit}
-      />}
+      {!isLoading &&
+        <ListRepositories
+          activeLink={activeLink}
+          fetchedData={data}
+          handleLoadingMore={handleLoadingMore}
+          limit={limit}
+        />}
     </div>
   );
 };

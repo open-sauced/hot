@@ -1,9 +1,6 @@
 // tailwind.config.cjs
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,svelte,ts,tsx,vue}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
       colors: {
@@ -23,22 +20,31 @@ module.exports = {
         osGrey: "#11181C",
         osOrange: "#ED5F00",
         lightOrange: "#FFCCA7",
-        lightSlate:"#11181C",
-        lightSlate11:"#687076",
-        lightSlate10:"#7E868C",
-        lightSlate06:"#DFE3E6",
-        lightSlate01:"#FBFCFD",
-        lightSlate09:"#889096",
-        lightOrange01:"#FEFCFB",
+        lightSlate: "#11181C",
+        lightSlate11: "#687076",
+        lightSlate10: "#7E868C",
+        lightSlate06: "#DFE3E6",
+        lightSlate01: "#FBFCFD",
+        lightSlate09: "#889096",
+        lightOrange01: "#FEFCFB",
         gradFirst: "#FF932F",
         gradMiddle: "#FF3C3C",
         gradLast: "#FF3C3C",
-        osBackgroundGrey: "#FBFCFD"
+        osBackgroundGrey: "#FBFCFD",
+      },
+      spacing: {
+        7: "7px",
+        ten: "10px",
+        15: "15px",
+      },
+      minWidth: {
+        400: "400px",
+        422: "422px",
       },
       fontFamily: {
-        Inter: ['Inter', 'sans-serif'],
-        Lexend: ['Lexend', 'sans-serif'],
-        OpenSans: ['Open Sans', 'sans-serif']
+        Inter: ["Inter", "sans-serif"],
+        Lexend: ["Lexend", "sans-serif"],
+        OpenSans: ["Open Sans", "sans-serif"],
       },
       container: {
         center: true,
@@ -58,5 +64,4 @@ module.exports = {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     require("tailwindcss-radix")(),
   ],
-
 };

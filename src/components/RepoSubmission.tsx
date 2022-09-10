@@ -67,15 +67,15 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
   return (
     <div
       ref={submissionRef}
-      className="fixed top-[3.75rem] right-[7.5rem] flex items-end flex-col gap-2.5 submission-form z-10"
+      className="fixed top-14 right-28 flex items-end flex-col gap-2.5 submission-form z-10"
     >
       {isFormOpen}
 
       {isFormOpen && !isSubmissionInProcess && !submitted && (
-        <div className="bg-white p-[0.938rem] rounded-md min-w-[18.75rem] shadow-xl">
+        <div className="bg-white p-3.5 rounded-md shadow-xl">
           <h6 className="text-lg mb-2 text-gray-700 font-medium">Suggest Repository</h6>
 
-          <p className="text-xs mb-[0.313rem] text-gray-500 font-medium">Repository URL</p>
+          <p className="text-xs mb-1.5 text-gray-500 font-medium">Repository URL</p>
 
           <input
             className="bg-gray-200 py-1 w-full px-2.5 rounded-md outline-yellow-300 text-gray-500 text-xs  "
@@ -85,7 +85,7 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
           />
 
           <button
-            className="bg-saucyRed p-2.5 mt-[0.938rem] w-full text-xs shadow-lg rounded-md text-white font-bold transform transition-all hover:bg-orange-700"
+            className="bg-saucyRed p-2.5 mt-4 w-full text-xs shadow-lg rounded-md text-white font-bold transform transition-all hover:bg-orange-700"
             disabled={isSubmissionInProcess}
             onClick={submitButtonHandler}
           >
@@ -95,14 +95,14 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
       )}
 
       {isSubmissionInProcess && (
-        <div className="bg-white p-[15px] rounded-md min-w-[300px]">
-          <p className="text-xs mb-[5px] text-gray-500 font-medium">Submission in process ...</p>
+        <div className="bg-white p-4 rounded-md">
+          <p className="text-xs mb-1.5 text-gray-500 font-medium">Submission in process ...</p>
         </div>
       )}
 
       {submitted && !isSubmissionInProcess && (
-        <div className="bg-white p-[15px] rounded-md min-w-[300px]">
-          <p className="text-xs mb-[5px] text-gray-500 font-medium">Submission succeeded!</p>
+        <div className="bg-white p-1.5 rounded-md ">
+          <p className="text-xs mb-1.5 text-gray-500 font-medium">Submission succeeded!</p>
         </div>
       )}
     </div>

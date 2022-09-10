@@ -67,7 +67,7 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
   return (
     <div
       ref={submissionRef}
-      className="fixed top-14 right-28 flex items-end flex-col gap-2.5 submission-form z-10"
+      className="fixed top-14 right-40 flex items-end flex-col gap-2.5 submission-form z-10"
     >
       {isFormOpen}
 

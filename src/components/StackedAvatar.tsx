@@ -8,7 +8,7 @@ const StackedAvatar = ({ contributors }: StackedAvatarProps) => (
     {contributors && contributors.slice(0, 5).map(({ contributor, last_merged_at }) => (
       <div
         key={`contributor-avatar-${contributor}`}
-        className="w-6 h-6 overflow-hidden rounded-full transition-all duration-300"
+        className="w-7 h-7 overflow-hidden rounded-full transition-all duration-300 border-2 border-white"
       >
         <Avatar
           contributor={contributor}

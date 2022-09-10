@@ -21,9 +21,9 @@ const StarTheRepo = (): JSX.Element => (
       rel="noreferrer"
       target="_blank"
     >
-      <AiOutlineStar className="inline-block mr-[10px]" />
+      <AiOutlineStar className="inline-block mr-2.5" />
 
-      <span className="text-md font-light mr-[10px]">Star us on GitHub</span>
+      <span className="text-md font-light mr-2.5">Star us on GitHub</span>
     </a>
   </div>
 );
@@ -37,12 +37,12 @@ const PrimaryNav = (): JSX.Element => {
 
   return (
     <header>
-      <div className="flex font-OpenSans py-[26px] px-[42px] justify-between max-w-screen-2xl mx-auto">
+      <div className="flex font-OpenSans py-6 px-10 justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">
             <img
               alt="Open Sauced Logo"
-              className="inline-block w-[22px] h-[22px] mr-[5px]"
+              className="inline-block w-6 h-6 mr-1"
               src={openSaucedLogo}
             />
 
@@ -59,8 +59,8 @@ const PrimaryNav = (): JSX.Element => {
               <div className="flex items-center">
                 <StarTheRepo />
 
-                <div className="hidden md:flex pl-[16px] border-l-[1px] border-lightOrange">
-                  <div className="w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
+                <div className="hidden md:flex pl-4 border-l border-lightOrange">
+                  <div className="w-8 h-8 overflow-hidden rounded-full border-osOrange border">
                     <img
                       alt={String(user.user_metadata.user_name)}
                       className="w-full h-full"
@@ -69,7 +69,7 @@ const PrimaryNav = (): JSX.Element => {
                   </div>
                 </div>
 
-                <div className="flex md:hidden w-[20px] h-[20px]">
+                <div className="flex md:hidden w-5 h-5">
                   <GiHamburgerMenu size={24} />
                 </div>
               </div>
@@ -85,8 +85,8 @@ const PrimaryNav = (): JSX.Element => {
             >
               <Menu.Items className="z-40 absolute right-0 top-10 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <Menu.Item>
-                  <div className="flex items-center px-[8px] py-[10px] mb-[5px] gap-x-[10px]">
-                    <div className="flex-col shrink-0 grow-0 w-[30px] h-[30px] overflow-hidden rounded-full border-osOrange border-[1px]">
+                  <div className="flex items-center px-2 py-2.5 mb-1 gap-x-2.5">
+                    <div className="flex-col shrink-0 grow-0 w-8 h-8 overflow-hidden rounded-full border-osOrange border">
                       <img
                         alt={String(user.user_metadata.user_name)}
                         className="w-full h-full"
@@ -111,7 +111,7 @@ const PrimaryNav = (): JSX.Element => {
                     <button
                       className={`${
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       {`v${version}`}
                     </button>
@@ -123,7 +123,7 @@ const PrimaryNav = (): JSX.Element => {
                     <button
                       className={`${
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-5 py-[6px] text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={() => handleFormOpen(true)}
                     >
                       Submit a repository
@@ -139,7 +139,7 @@ const PrimaryNav = (): JSX.Element => {
                       target="_blank"
                       className={`${
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       Report a bug
                     </a>
@@ -151,7 +151,7 @@ const PrimaryNav = (): JSX.Element => {
                     <button
                       className={`${
                         active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-[20px] py-[6px] text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={async () => signOut()}
                     >
                       Logout
@@ -168,7 +168,7 @@ const PrimaryNav = (): JSX.Element => {
             <StarTheRepo />
 
             <button
-              className="bg-osOrange w-[64px] h-[34px]  rounded-[6px] px-[12px] py-[2px] text-xs font-semibold text-white md:ml-[20px]"
+              className="bg-osOrange w-16 h-9 rounded-md px-3 py-0.5 text-xs font-semibold text-white md:ml-5"
               onClick={async () => {
                 capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
                 await signIn({ provider: "github" });

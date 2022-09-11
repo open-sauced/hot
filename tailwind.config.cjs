@@ -32,15 +32,6 @@ module.exports = {
         gradLast: "#FF3C3C",
         osBackgroundGrey: "#FBFCFD",
       },
-      spacing: {
-        7: "7px",
-        ten: "10px",
-        15: "15px",
-      },
-      minWidth: {
-        400: "400px",
-        422: "422px",
-      },
       fontFamily: {
         Inter: ["Inter", "sans-serif"],
         Lexend: ["Lexend", "sans-serif"],

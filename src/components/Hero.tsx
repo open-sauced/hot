@@ -135,7 +135,7 @@ const Hero = () => {
                         <div className="flex items-center gap-x-1">
                           <AiOutlineStar
                             aria-hidden="true"
-                            className="mr-[4px]"
+                            className="mr-1"
                           />
 
                           <p className="text-gray-500 text-xs">

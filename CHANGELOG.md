@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.25.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.2...v2.25.0-beta.3) (2022-09-13)
+
+
+### 🐛 Bug Fixes
+
+* remove anti-pattern from RepoSubmission ([#330](https://github.com/open-sauced/hot-sauce/issues/330)) ([e313a8d](https://github.com/open-sauced/hot-sauce/commit/e313a8db4b267716a1f206600479baf0e1653519)), closes [#317](https://github.com/open-sauced/hot-sauce/issues/317)
+
 ## [2.25.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.1...v2.25.0-beta.2) (2022-09-08)
 
 

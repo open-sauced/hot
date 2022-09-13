@@ -58,7 +58,7 @@ const Hero = () => {
         </h1>
       </div>
 
-      <div className="mt-11 px-4 gap-x-2.5 py-2.5 justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-2xl md:min-w-[26.375rem] flex">
+      <div className="mt-11 px-4 gap-x-2.5 py-2.5 justify-between bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex">
         <img
           alt="search icon"
           src={searchNormal}

@@ -35,6 +35,10 @@ const Hero = () => {
 
   useKeys(["ControlLeft", "KeyK"], handleCmdK, { target: containerRef });
 
+  useKeys(["ControlRight", "KeyK"], handleCmdK, { target: containerRef });
+
+  useKeys(["MetaRight", "KeyK"], handleCmdK, { target: containerRef });
+
   useKeys(["MetaLeft", "KeyK"], handleCmdK, { target: containerRef });
 
   useDidUpdate(async () => {

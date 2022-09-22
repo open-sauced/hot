@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.25.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.3...v2.25.0-beta.4) (2022-09-22)
+
+
+### 🐛 Bug Fixes
+
+* enables cmd+k and crtl+k from the right side of the keyboard ([#341](https://github.com/open-sauced/hot-sauce/issues/341)) ([91c3bb4](https://github.com/open-sauced/hot-sauce/commit/91c3bb49c7c0d8ef245ed3e65488c99f13b5fe61)), closes [#339](https://github.com/open-sauced/hot-sauce/issues/339)
+
 ## [2.25.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.2...v2.25.0-beta.3) (2022-09-13)
 
 

@@ -9,21 +9,6 @@ import GradBackground from "./components/GradBackground";
 import Hero from "./components/Hero";
 import apiFetcher from "./hooks/useSWR";
 
-function localStorageProvider () {
-  // when initializing, we restore the data from `localStorage` into a map.
-  const map = new Map(JSON.parse(localStorage.getItem("app-cache") || "[]"));
-
-  // before unloading the app, we write back all the data into `localStorage`.
-
-  window.addEventListener("beforeunload", () => {
-    const appCache = JSON.stringify(Array.from(map.entries()));
-
-    localStorage.setItem("app-cache", appCache);
-  });
-
-  // we still use the map for write & read for performance.
-  return map;
-}
 
 import getAppVersion from "./lib/appVersion";
 
@@ -38,10 +23,42 @@ console.log(
   "color:#f6d82b",
   "color:green;font-weight:bold",
 );
-
-
+interface MyObj {
+  myString: string;
+  myNumber: number;
+}
 const App = (): JSX.Element => {
   initiatePostHog();
+
+  const localStorageProvider = () => {
+    if (!import.meta.env.SSR) {
+      console.log("You are on the browser");
+
+      /*
+       * console.log(localStorage)
+       * when initializing, we restore the data from `localStorage` into a map.
+       */
+
+      const appCache = localStorage.getItem("app-cache") ?? "[]";
+      const JSONdata = (JSON.parse(appCache));
+      const map = new Map(JSONdata);
+
+      // before unloading the app, we write back all the data into `localStorage`.
+      window.addEventListener("beforeunload", () => {
+        const appCache = JSON.stringify(Array.from(map.entries()));
+
+        localStorage.setItem("app-cache", appCache);
+      });
+
+      // we still use the map for write & read for performance.
+      return map;
+    }
+    console.log("You are on the server");
+
+    // 👉️ can't use localStorage
+
+    return (new Map);
+  };
 
   return (
     <SWRConfig

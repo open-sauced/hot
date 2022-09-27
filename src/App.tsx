@@ -9,7 +9,6 @@ import GradBackground from "./components/GradBackground";
 import Hero from "./components/Hero";
 import apiFetcher from "./hooks/useSWR";
 
-
 import getAppVersion from "./lib/appVersion";
 
 console.log(
@@ -23,10 +22,7 @@ console.log(
   "color:#f6d82b",
   "color:green;font-weight:bold",
 );
-interface MyObj {
-  myString: string;
-  myNumber: number;
-}
+
 const App = (): JSX.Element => {
   initiatePostHog();
 

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.25.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.5...v2.25.0-beta.6) (2022-09-27)
+
+
+### 🧑‍💻 Code Refactoring
+
+* dry in cmd k handling ([#344](https://github.com/open-sauced/hot-sauce/issues/344)) ([7b03ed6](https://github.com/open-sauced/hot-sauce/commit/7b03ed6ee64c4cf4fb06abedcf663f3bd0757dd3)), closes [#342](https://github.com/open-sauced/hot-sauce/issues/342)
+
 ## [2.25.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.4...v2.25.0-beta.5) (2022-09-27)
 
 

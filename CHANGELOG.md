@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.25.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.6...v2.25.0-beta.7) (2022-09-28)
+
+
+### 🍕 Features
+
+* replace existing footer with brand unified one ([#347](https://github.com/open-sauced/hot-sauce/issues/347)) ([27bde34](https://github.com/open-sauced/hot-sauce/commit/27bde344b20e0a7e5789d8ad21f8b7b270212032)), closes [#345](https://github.com/open-sauced/hot-sauce/issues/345)
+
 ## [2.25.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.5...v2.25.0-beta.6) (2022-09-27)
 
 

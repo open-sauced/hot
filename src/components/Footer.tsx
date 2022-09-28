@@ -1,82 +1,161 @@
-import { FaDev, FaDiscord, FaGithub, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaDev, FaDiscord } from "react-icons/fa";
+import OpenSaucedLogo from "../assets/openSauced-icon.png";
+
+// icons
+import
+{
+  AiOutlineTwitter,
+  AiOutlineGithub,
+  AiFillInstagram,
+  AiFillYoutube,
+} from "react-icons/ai";
+
+
+const footerContext = [
+  {
+    privacy: { url: "https://app.termly.io/document/privacy-policy/5e303854-d262-468a-80ec-54b645d01c2e", text: "Privacy" },
+    terms: { url: "https://app.termly.io/document/terms-of-use-for-saas/03e4e1c1-53ad-4fc4-b415-5c3f0e8c25ef", text: "Terms" },
+    status: { url: "https://api.opensauced.pizza/docs#/Health%20check%20service/healthStatusWeb", text: "Status" },
+  },
+  {
+    hot: { url: "https://hot.opensauced.pizza", text: "hot.opensauced.pizza" },
+    openSauced: { url: "https://opensauced.pizza", text: "opensauced.pizza" },
+  },
+  {
+    socials: [
+      { url: "https://twitter.com/saucedopen", icon: <AiOutlineTwitter className="text-2xl hover:text-light-slate-10 text-light-slate-9" /> },
+      { url: "https://github.com/open-sauced", icon: <AiOutlineGithub className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
+      { url: "https://www.instagram.com/opensauced/", icon: <AiFillInstagram className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
+      { url: "https://www.youtube.com/opensauced", icon: <AiFillYoutube className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
+      { url: "https://discord.com/invite/U2peSNf23P", icon: <FaDiscord className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
+      { url: "https://dev.to/opensauced/", icon: <FaDev className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
+    ],
+  },
+];
 
 const Footer = (): JSX.Element => (
   <div>
-    <div className="bg-darkestGrey py-14 md:py-16">
-      <nav className="container">
-        <ul className="flex sm:flex-row text-xl font-righteous text-accent font-bold justify-center items-center cursor-pointer">
-          <li className="p-2 sm:mr-5">
-            <a
-              aria-label="Hot Open Sauced on GitHub"
-              href="https://github.com/open-sauced/hot"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <FaGithub
-                aria-hidden="true"
-                className="text-offWhite hover:text-accent"
-              />
-            </a>
-          </li>
+    <footer className="px-6 md:px-16 h-24 w-full bg-light-slate-2 transition">
+      <div className=" font-medium lg:border-t lg:py-8 lg:items-center lg:justify-between lg:gap-x-4 flex flex-col gap-y-4 lg:flex-row py-2 w-full">
+        <div className="text-center lg:text-left justify-center gap-1 flex items-center">
+          <div className="w-6 h-6 relative !min-w-[24px] min-h-[24px]">
+            <img
+              alt="brand logo"
+              src={OpenSaucedLogo}
+            />
+          </div>
 
-          <li className="p-2 sm:mr-5">
-            <a
-              aria-label="@saucedopen on Twitter"
-              href="https://twitter.com/saucedopen"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <FaTwitter
-                aria-hidden="true"
-                className="text-offWhite hover:text-accent"
-              />
-            </a>
-          </li>
+          <span className="lg:hidden font-bold text-light-slate-12 ">OpenSauced</span>
 
-          <li className="p-2 sm:mr-5">
-            <a
-              aria-label="Open Sauced on Discord"
-              href="https://discord.com/invite/U2peSNf23P"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <FaDiscord
-                aria-hidden="true"
-                className="text-offWhite hover:text-accent"
-              />
-            </a>
-          </li>
+          <p className="hidden !text-light-slate-9 lg:inline-block">
+            © 2022
+            {" "}
 
-          <li className="p-2 sm:mr-5">
-            <a
-              aria-label="Open Sauced on Discord"
-              href="https://www.youtube.com/opensauced"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <FaYoutube
-                aria-hidden="true"
-                className="text-offWhite hover:text-accent"
-              />
-            </a>
-          </li>
+            <span className="hidden lg:inline-block">OpenSauced</span>
+          </p>
+        </div>
 
-          <li className="p-2 sm:mr-5">
+        <div className="flex lg:mr-auto lg:text-sm text-light-slate-11 justify-center gap-x-4">
+          <a
+            className="px-2 hover:text-light-slate-12 "
+            href={footerContext[1].hot?.url}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {footerContext[1].hot?.text}
+          </a>
+
+          <a
+            className="px-2 hover:text-light-slate-12"
+            href={footerContext[1].openSauced?.url}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {footerContext[1].openSauced?.text}
+          </a>
+        </div>
+
+        <div className="flex justify-center gap-x-4 ">
+          <div className=" hidden lg:flex items-center border-r pr-4   gap-x-4 text-light-slate-11 text-sm">
             <a
-              aria-label="Open Sauced on dev.to"
-              href="https://www.dev.to/opensauced"
+              className="px-2 hover:text-light-slate-12"
+              href={footerContext[0].terms?.url}
               rel="noreferrer"
               target="_blank"
             >
-              <FaDev
-                aria-hidden="true"
-                className="text-offWhite hover:text-accent"
-              />
+              {footerContext[0].terms?.text}
             </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+
+            <a
+              className="px-2 hover:text-light-slate-12"
+              href={footerContext[0].privacy?.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {footerContext[0].privacy?.text}
+            </a>
+
+            <a
+              className="px-2 hover:text-light-slate-12"
+              href={footerContext[0].status?.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {footerContext[0].status?.text}
+            </a>
+          </div>
+
+          {footerContext[2].socials?.map(({ url, icon }, index) => (
+            <a
+              key={index}
+              href={url}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {icon}
+            </a>
+          ))}
+        </div>
+
+        <div className="flex md:justify-center lg:hidden lg:border-none lg:order-2 border-t py-3 pb-4 mt-2 text-sm justify-between">
+          <p className="text-light-slate-9">
+            © 2022
+            {" "}
+
+            <span className="hidden md:inline-block">Open sauced</span>
+          </p>
+
+          <div className="flex items-center gap-x-3 text-light-slate-11 text-sm">
+            <a
+              className="px-2"
+              href={footerContext[0].terms?.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {footerContext[0].terms?.text}
+            </a>
+
+            <a
+              className="px-2"
+              href={footerContext[0].privacy?.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {footerContext[0].privacy?.text}
+            </a>
+
+            <a
+              className="px-2"
+              href={footerContext[0].status?.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              {footerContext[0].status?.text}
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 );
 

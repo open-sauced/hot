@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
@@ -33,9 +33,17 @@ const Hero = () => {
     e.preventDefault();
   };
 
-  useKeys(["ControlLeft", "KeyK"], handleCmdK, { target: containerRef });
+  const useKey = (superKey: string, key: string, target: MutableRefObject<Document>) => {
+    useKeys([superKey, key], handleCmdK, { target });
+  };
 
-  useKeys(["MetaLeft", "KeyK"], handleCmdK, { target: containerRef });
+  useKey("ControlLeft", "KeyK", containerRef);
+
+  useKey("ControlRight", "KeyK", containerRef);
+
+  useKey("MetaRight", "KeyK", containerRef);
+
+  useKey("MetaLeft", "KeyK", containerRef);
 
   useDidUpdate(async () => {
     const results = await fetchRecommendations("stars", 3, null, searchTerm);

@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { RiCheckboxCircleFill } from "react-icons/ri";
-import { FaArrowAltCircleUp } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 import { BiGitPullRequest } from "react-icons/bi";
+import { FaArrowAltCircleUp } from "react-icons/fa";
+import { RiCheckboxCircleFill } from "react-icons/ri";
 import { VscIssues } from "react-icons/vsc";
 import Skeleton from "react-loading-skeleton";
+import useRepo from "../hooks/useRepo";
+import useVotedRepos from "../hooks/useVotedRepos";
 import { getAvatarLink } from "../lib/github";
 import humanizeNumber from "../lib/humanizeNumber";
 import StackedAvatar from "./StackedAvatar";
-import useRepo from "../hooks/useRepo";
-import useVotedRepos from "../hooks/useVotedRepos";
+
+const bugReportLink =
+        "https://github.com/open-sauced/hot/issues/new?assignees=&title=fix:";
 
 export declare interface HotRepoCardProps {
   repoName: string;
@@ -26,8 +29,19 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
 
   if (isError) {
     return (
-      <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">
-        {`${repoName} failed to load`}
+      <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative flex flex-col justify-between">
+        {`⚠️ ${repoName} repo could not be loaded`}
+
+        <div className="flex justify-center">
+          <a
+            className="bg-cheesyYellow text-grey rounded-xl font-bold hover:text-saucyRed transition-all duration-300 mr-3 p-2 flex w-5/6 h-fit justify-center"
+            href={bugReportLink + ' repo not found&body=Please take a look why this ' + `${repoName}` + 'not founded'}
+            rel="noreferrer"
+            target="_blank"
+          >
+            Report a bug
+          </a>
+        </div>
       </div>
     );
   }

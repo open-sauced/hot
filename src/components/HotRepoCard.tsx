@@ -35,7 +35,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
         <div className="flex justify-center">
           <a
             className="bg-cheesyYellow text-grey rounded-xl font-bold hover:text-saucyRed transition-all duration-300 mr-3 p-2 flex w-5/6 h-fit justify-center"
-            href={bugReportLink + ' repo not found&body=Please take a look why this ' + `${repoName}` + 'not founded'}
+            href={`${bugReportLink} repo not found&body=Please take a look why this ` + `${repoName}` + `not founded`}
             rel="noreferrer"
             target="_blank"
           >

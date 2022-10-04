@@ -7,7 +7,7 @@ import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 
-export declare interface PostWrapProps {
+export declare interface RepoWrapProps {
   textToSearch?: string;
 }
 
@@ -26,7 +26,7 @@ const parseLimitValue = (limit: string | null): number => {
   return value;
 };
 
-const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
+const RepoWrap = ({ textToSearch }: RepoWrapProps): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
   const { user } = useSupabaseAuth();
@@ -46,8 +46,7 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   }, [limit]);
 
   useEffect(() => {
-    fetchData()
-      .catch(console.error);
+    fetchData().catch(console.error);
   }, [activeLink, limit, textToSearch]);
 
   return (
@@ -69,4 +68,4 @@ const PostsWrap = ({ textToSearch }: PostWrapProps): JSX.Element => {
   );
 };
 
-export default PostsWrap;
+export default RepoWrap;

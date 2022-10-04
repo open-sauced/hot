@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.25.0-beta.9](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.8...v2.25.0-beta.9) (2022-10-04)
+
+
+### 🐛 Bug Fixes
+
+* rename everything from Post to Repo  ([#356](https://github.com/open-sauced/hot-sauce/issues/356)) ([0267009](https://github.com/open-sauced/hot-sauce/commit/02670098541ba8d68eafb4fd8c910396a9aa6465)), closes [#313](https://github.com/open-sauced/hot-sauce/issues/313)
+
 ## [2.25.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.7...v2.25.0-beta.8) (2022-10-04)
 
 

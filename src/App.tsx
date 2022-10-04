@@ -1,6 +1,6 @@
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
-import PostsWrap from "./components/PostsWrap";
+import PostsWrap from "./components/RepoWrap";
 import { initiatePostHog } from "./lib/analytics";
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.25.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.7...v2.25.0-beta.8) (2022-10-04)
+
+
+### 🍕 Features
+
+* added custom tailwind variables and removed anti patterns ([#337](https://github.com/open-sauced/hot-sauce/issues/337)) ([549e676](https://github.com/open-sauced/hot-sauce/commit/549e6765a8452e7a21dde9201058960cbb832eed)), closes [#315](https://github.com/open-sauced/hot-sauce/issues/315)
+
 ## [2.25.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.6...v2.25.0-beta.7) (2022-09-28)
 
 

@@ -1,6 +1,6 @@
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
-import PostsWrap from "./components/PostsWrap";
+import RepoWrap from "./components/RepoWrap";
 import { initiatePostHog } from "./lib/analytics";
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -20,9 +20,8 @@ console.log(
 ╚██████╔╝██║     ███████╗██║ ╚████║    ███████║██║  ██║╚██████╔╝╚██████╗███████╗██████╔╝
  ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝╚══════╝╚═════╝%c v${getAppVersion()}`,
   "color:#f6d82b",
-  "color:green;font-weight:bold",
+  "color:green;font-weight:bold"
 );
-
 
 const App = (): JSX.Element => {
   initiatePostHog();
@@ -44,7 +43,7 @@ const App = (): JSX.Element => {
             <Hero />
           </GradBackground>
 
-          <PostsWrap />
+          <RepoWrap />
 
           <Footer />
         </div>

@@ -1,5 +1,5 @@
 import { User } from "@supabase/supabase-js";
-import PostGrid from "./PostGrid";
+import RepoGrid from "./RepoGrid";
 
 export declare interface GridDisplayProps {
   activeLink: string | null;
@@ -13,11 +13,7 @@ const GridDisplay = ({ activeLink, limit, handleLoadingMore, fetchedData, user }
   <div>
     <div className="container grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-screen-xl mx-auto auto-rows-fr">
       {fetchedData.map((item, i) => (
-        <PostGrid
-          key={`${item.full_name}_${i}`}
-          data={item}
-          user={user}
-        />
+        <RepoGrid key={`${item.full_name}_${i}`} data={item} user={user} />
       ))}
 
       {fetchedData.length > 0 && activeLink !== "myVotes" && limit <= 100 && (

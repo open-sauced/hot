@@ -12,9 +12,7 @@ export declare interface RepoGridProps {
 }
 
 const RepoGrid = ({ data, user }: RepoGridProps): JSX.Element => {
-  const {
-    user_metadata: { sub: user_id },
-  } = user!;
+  const { user_metadata: { sub: user_id } } = user!;
   const {
     id: repo_id,
     votesRelation: [{ votesCount }],
@@ -23,7 +21,7 @@ const RepoGrid = ({ data, user }: RepoGridProps): JSX.Element => {
   const [votes, updateVotesState] = useState(votesCount || 0);
   const { signIn } = useSupabaseAuth();
 
-  async function handleVoteUpdate(votes: number, repo_id: number) {
+  async function handleVoteUpdate (votes: number, repo_id: number) {
     const updatedVotes = await handleVoteUpdateByRepo(votes, repo_id, user_id);
 
     updatedVotes > 0 && updateVotesState(updatedVotes);
@@ -34,11 +32,17 @@ const RepoGrid = ({ data, user }: RepoGridProps): JSX.Element => {
       <div className="w-full flex justify-between items-center mb-3">
         <div className="flex w-full">
           {data.contributions[0] && (
-            <Avatar contributor={data.contributions[0]?.contributor} lastPr={data.contributions[0]?.last_merged_at} />
+            <Avatar
+              contributor={data.contributions[0]?.contributor}
+              lastPr={data.contributions[0]?.last_merged_at}
+            />
           )}
 
           {data.contributions[1] && (
-            <Avatar contributor={data.contributions[1]?.contributor} lastPr={data.contributions[1]?.last_merged_at} />
+            <Avatar
+              contributor={data.contributions[1]?.contributor}
+              lastPr={data.contributions[1]?.last_merged_at}
+            />
           )}
         </div>
 
@@ -49,7 +53,9 @@ const RepoGrid = ({ data, user }: RepoGridProps): JSX.Element => {
           >
             <FaArrowAltCircleUp aria-hidden="true" />
 
-            <p className="font-bold">{votes}</p>
+            <p className="font-bold">
+              {votes}
+            </p>
           </button>
         </div>
       </div>

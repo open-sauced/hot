@@ -51,7 +51,10 @@ const RepoWrap = ({ textToSearch }: RepoWrapProps): JSX.Element => {
 
   return (
     <div className="bg-darkestGrey">
-      <SecondaryNav activeLink={activeLink} user={user} />
+      <SecondaryNav
+        activeLink={activeLink}
+        user={user}
+      />
 
       <HotRepositories />
 

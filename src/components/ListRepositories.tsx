@@ -21,12 +21,17 @@ const ListRepositories = ({
         <BsFillCalendar2Fill className="w-8 h-8 text-white" />
 
         {activeLink && (
-          <h1 className="text-2xl text-white font-semibold">{`${camelCaseToTitleCase(activeLink)} Repositories`}</h1>
+          <h1 className="text-2xl text-white font-semibold">
+            {`${camelCaseToTitleCase(activeLink)} Repositories`}
+          </h1>
         )}
       </div>
 
       {fetchedData.map((item, i) => (
-        <RepoList key={`${item.full_name}_${i}`} data={item} />
+        <RepoList
+          key={`${item.full_name}_${i}`}
+          data={item}
+        />
       ))}
     </div>
 

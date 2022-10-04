@@ -5,118 +5,20 @@
 
 > All notable changes to this project will be documented in this file
 
-## [2.26.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.4...v2.26.0-beta.5) (2022-10-10)
-
-
-### 🐛 Bug Fixes
-
-* add menu drop to generate token on console ([#367](https://github.com/open-sauced/hot-sauce/issues/367)) ([dce7249](https://github.com/open-sauced/hot-sauce/commit/dce7249fda0c50af2b5a4473810f6528f9546d94)), closes [#364](https://github.com/open-sauced/hot-sauce/issues/364)
-
-## [2.26.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.3...v2.26.0-beta.4) (2022-10-09)
-
-
-### 🐛 Bug Fixes
-
-* remove swr local storage cache provider ([#371](https://github.com/open-sauced/hot-sauce/issues/371)) ([334081c](https://github.com/open-sauced/hot-sauce/commit/334081cb68468ce24516a8f81499e7f5f124ebe9)), closes [#365](https://github.com/open-sauced/hot-sauce/issues/365)
-
-## [2.26.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.2...v2.26.0-beta.3) (2022-10-07)
-
-
-### 🍕 Features
-
-* Update SVG favicon ([#369](https://github.com/open-sauced/hot-sauce/issues/369)) ([bf78ca0](https://github.com/open-sauced/hot-sauce/commit/bf78ca00f858e8660ae43b83519826d56c79d62b)), closes [#368](https://github.com/open-sauced/hot-sauce/issues/368)
-
-## [2.26.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.1...v2.26.0-beta.2) (2022-10-06)
-
-
-### 🍕 Features
-
-* New Favicon Replacement ([#363](https://github.com/open-sauced/hot-sauce/issues/363)) ([bb680a6](https://github.com/open-sauced/hot-sauce/commit/bb680a6beaa7da543f19eb636cd962ec15d2f78e)), closes [#362](https://github.com/open-sauced/hot-sauce/issues/362)
-
-## [2.26.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.25.0...v2.26.0-beta.1) (2022-10-05)
-
-
-### 🐛 Bug Fixes
-
-* rename everything from Post to Repo  ([#356](https://github.com/open-sauced/hot-sauce/issues/356)) ([0267009](https://github.com/open-sauced/hot-sauce/commit/02670098541ba8d68eafb4fd8c910396a9aa6465)), closes [#313](https://github.com/open-sauced/hot-sauce/issues/313)
-
-
-### 🍕 Features
-
-* added custom tailwind variables and removed anti patterns ([#337](https://github.com/open-sauced/hot-sauce/issues/337)) ([549e676](https://github.com/open-sauced/hot-sauce/commit/549e6765a8452e7a21dde9201058960cbb832eed)), closes [#315](https://github.com/open-sauced/hot-sauce/issues/315)
-* adds localstorageprovider ([#361](https://github.com/open-sauced/hot-sauce/issues/361)) ([f030796](https://github.com/open-sauced/hot-sauce/commit/f0307960592f0e72045bc12b94bae3c50ad4e061)), closes [#335](https://github.com/open-sauced/hot-sauce/issues/335)
-
-## [2.25.0](https://github.com/open-sauced/hot-sauce/compare/v2.24.2...v2.25.0) (2022-09-28)
+## [2.25.0-alpha.1](https://github.com/open-sauced/hot-sauce/compare/v2.24.2...v2.25.0-alpha.1) (2022-10-04)
 
 
 ### 🐛 Bug Fixes
 
 * correct tailwind antipattern ([#326](https://github.com/open-sauced/hot-sauce/issues/326)) ([a6f2c8f](https://github.com/open-sauced/hot-sauce/commit/a6f2c8f655c594bdbe008ca5f01131c641dc18ae)), closes [#318](https://github.com/open-sauced/hot-sauce/issues/318)
 * correct tailwind antipattern in primary nav ([#329](https://github.com/open-sauced/hot-sauce/issues/329)) ([b301293](https://github.com/open-sauced/hot-sauce/commit/b301293d4b02d6c1d7c0cce7f965f0ba0ea801aa)), closes [#314](https://github.com/open-sauced/hot-sauce/issues/314)
-* enables cmd+k and crtl+k from the right side of the keyboard ([#341](https://github.com/open-sauced/hot-sauce/issues/341)) ([91c3bb4](https://github.com/open-sauced/hot-sauce/commit/91c3bb49c7c0d8ef245ed3e65488c99f13b5fe61)), closes [#339](https://github.com/open-sauced/hot-sauce/issues/339)
-* remove anti-pattern from ListRepositories ([#346](https://github.com/open-sauced/hot-sauce/issues/346)) ([80e9594](https://github.com/open-sauced/hot-sauce/commit/80e95944064ba38cc95763be2f64d6bc497a214f)), closes [#316](https://github.com/open-sauced/hot-sauce/issues/316)
-* remove anti-pattern from RepoSubmission ([#330](https://github.com/open-sauced/hot-sauce/issues/330)) ([e313a8d](https://github.com/open-sauced/hot-sauce/commit/e313a8db4b267716a1f206600479baf0e1653519)), closes [#317](https://github.com/open-sauced/hot-sauce/issues/317)
-
-
-### 🧑‍💻 Code Refactoring
-
-* dry in cmd k handling ([#344](https://github.com/open-sauced/hot-sauce/issues/344)) ([7b03ed6](https://github.com/open-sauced/hot-sauce/commit/7b03ed6ee64c4cf4fb06abedcf663f3bd0757dd3)), closes [#342](https://github.com/open-sauced/hot-sauce/issues/342)
 
 
 ### 🍕 Features
 
 * added version number and ascii art addition - bdougie edit ([#332](https://github.com/open-sauced/hot-sauce/issues/332)) ([07a40aa](https://github.com/open-sauced/hot-sauce/commit/07a40aa963d672f5a2e5f2e2b2dbc25f32d974cb)), closes [#106](https://github.com/open-sauced/hot-sauce/issues/106) [#322](https://github.com/open-sauced/hot-sauce/issues/322)
 * Added white borders to Stacked Avatars Component ([#328](https://github.com/open-sauced/hot-sauce/issues/328)) ([8dda541](https://github.com/open-sauced/hot-sauce/commit/8dda541e996325d645c64bdc0e16ff69753970e9)), closes [#286](https://github.com/open-sauced/hot-sauce/issues/286)
-* replace existing footer with brand unified one ([#347](https://github.com/open-sauced/hot-sauce/issues/347)) ([27bde34](https://github.com/open-sauced/hot-sauce/commit/27bde344b20e0a7e5789d8ad21f8b7b270212032)), closes [#345](https://github.com/open-sauced/hot-sauce/issues/345)
-
-## [2.25.0-beta.9](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.8...v2.25.0-beta.9) (2022-10-04)
-
-
-### 🐛 Bug Fixes
-
-* rename everything from Post to Repo  ([#356](https://github.com/open-sauced/hot-sauce/issues/356)) ([0267009](https://github.com/open-sauced/hot-sauce/commit/02670098541ba8d68eafb4fd8c910396a9aa6465)), closes [#313](https://github.com/open-sauced/hot-sauce/issues/313)
-
-## [2.25.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.7...v2.25.0-beta.8) (2022-10-04)
-
-
-### 🍕 Features
-
-* added custom tailwind variables and removed anti patterns ([#337](https://github.com/open-sauced/hot-sauce/issues/337)) ([549e676](https://github.com/open-sauced/hot-sauce/commit/549e6765a8452e7a21dde9201058960cbb832eed)), closes [#315](https://github.com/open-sauced/hot-sauce/issues/315)
-
-## [2.25.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.6...v2.25.0-beta.7) (2022-09-28)
-
-
-### 🍕 Features
-
-* replace existing footer with brand unified one ([#347](https://github.com/open-sauced/hot-sauce/issues/347)) ([27bde34](https://github.com/open-sauced/hot-sauce/commit/27bde344b20e0a7e5789d8ad21f8b7b270212032)), closes [#345](https://github.com/open-sauced/hot-sauce/issues/345)
-
-## [2.25.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.5...v2.25.0-beta.6) (2022-09-27)
-
-
-### 🧑‍💻 Code Refactoring
-
-* dry in cmd k handling ([#344](https://github.com/open-sauced/hot-sauce/issues/344)) ([7b03ed6](https://github.com/open-sauced/hot-sauce/commit/7b03ed6ee64c4cf4fb06abedcf663f3bd0757dd3)), closes [#342](https://github.com/open-sauced/hot-sauce/issues/342)
-
-## [2.25.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.4...v2.25.0-beta.5) (2022-09-27)
-
-
-### 🐛 Bug Fixes
-
-* remove anti-pattern from ListRepositories ([#346](https://github.com/open-sauced/hot-sauce/issues/346)) ([80e9594](https://github.com/open-sauced/hot-sauce/commit/80e95944064ba38cc95763be2f64d6bc497a214f)), closes [#316](https://github.com/open-sauced/hot-sauce/issues/316)
-
-## [2.25.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.3...v2.25.0-beta.4) (2022-09-22)
-
-
-### 🐛 Bug Fixes
-
-* enables cmd+k and crtl+k from the right side of the keyboard ([#341](https://github.com/open-sauced/hot-sauce/issues/341)) ([91c3bb4](https://github.com/open-sauced/hot-sauce/commit/91c3bb49c7c0d8ef245ed3e65488c99f13b5fe61)), closes [#339](https://github.com/open-sauced/hot-sauce/issues/339)
-
-## [2.25.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.2...v2.25.0-beta.3) (2022-09-13)
-
-
-### 🐛 Bug Fixes
-
-* remove anti-pattern from RepoSubmission ([#330](https://github.com/open-sauced/hot-sauce/issues/330)) ([e313a8d](https://github.com/open-sauced/hot-sauce/commit/e313a8db4b267716a1f206600479baf0e1653519)), closes [#317](https://github.com/open-sauced/hot-sauce/issues/317)
+* **api:** leverage the api over sdk ([#321](https://github.com/open-sauced/hot-sauce/issues/321)) ([a471317](https://github.com/open-sauced/hot-sauce/commit/a471317a6bedd932a35666c374abf000c98c4f23)), closes [#312](https://github.com/open-sauced/hot-sauce/issues/312) [#312](https://github.com/open-sauced/hot-sauce/issues/312) [#312](https://github.com/open-sauced/hot-sauce/issues/312)
 
 ## [2.25.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.25.0-beta.1...v2.25.0-beta.2) (2022-09-08)
 

@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-alpha.1](https://github.com/open-sauced/hot-sauce/compare/v2.25.0...v2.26.0-alpha.1) (2022-10-04)
+
+
+### 🍕 Features
+
+* **api:** leverage the api over sdk ([#321](https://github.com/open-sauced/hot-sauce/issues/321)) ([a471317](https://github.com/open-sauced/hot-sauce/commit/a471317a6bedd932a35666c374abf000c98c4f23)), closes [#312](https://github.com/open-sauced/hot-sauce/issues/312) [#312](https://github.com/open-sauced/hot-sauce/issues/312) [#312](https://github.com/open-sauced/hot-sauce/issues/312)
+
+
+### 🐛 Bug Fixes
+
+* trigger build on alpha ([#359](https://github.com/open-sauced/hot-sauce/issues/359)) ([dbbbea5](https://github.com/open-sauced/hot-sauce/commit/dbbbea577797cfcee0b59e8efa9246bc208709d0))
+
 ## [2.25.0](https://github.com/open-sauced/hot-sauce/compare/v2.24.2...v2.25.0) (2022-09-28)
 
 

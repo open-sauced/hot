@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
 import RepoWrap from "./components/RepoWrap";
@@ -49,6 +50,7 @@ const App = (): JSX.Element => {
       // we still use the map for write & read for performance.
       return map;
     }
+
     // console.log("You are on the server");
 
     // 👉️ can't use localStorage

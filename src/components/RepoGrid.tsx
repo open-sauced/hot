@@ -6,12 +6,12 @@ import { getRepoLink } from "../lib/github";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import Avatar from "./Avatar";
 
-export declare interface PostGridProps {
+export declare interface RepoGridProps {
   data: DbRepo;
   user?: User;
 }
 
-const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
+const RepoGrid = ({ data, user }: RepoGridProps): JSX.Element => {
   const { user_metadata: { sub: user_id } } = user!;
   const {
     id: repo_id,
@@ -77,4 +77,4 @@ const PostGrid = ({ data, user }: PostGridProps): JSX.Element => {
   );
 };
 
-export default PostGrid;
+export default RepoGrid;

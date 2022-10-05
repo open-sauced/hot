@@ -12,7 +12,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 import StackedAvatar from "./StackedAvatar";
 
 const bugReportLink =
-        "https://github.com/open-sauced/hot/issues/new?assignees=&title=fix:";
+        "https://github.com/open-sauced/hot/issues/new";
 
 export declare interface HotRepoCardProps {
   repoName: string;

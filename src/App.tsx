@@ -1,4 +1,6 @@
+
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
 import RepoWrap from "./components/RepoWrap";
@@ -38,6 +40,8 @@ const App = (): JSX.Element => {
 
       const appCache = localStorage.getItem("app-cache") ?? "[]";
       const JSONdata = (JSON.parse(appCache));
+
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       const map = new Map(JSONdata);
 
       // before unloading the app, we write back all the data into `localStorage`.

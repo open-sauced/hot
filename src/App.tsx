@@ -1,3 +1,6 @@
+
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
 import RepoWrap from "./components/RepoWrap";
@@ -26,11 +29,45 @@ console.log(
 const App = (): JSX.Element => {
   initiatePostHog();
 
+  const localStorageProvider = () => {
+    if (!import.meta.env.SSR) {
+      // console.log("You are on the browser");
+
+      /*
+       * console.log(localStorage)
+       * when initializing, we restore the data from `localStorage` into a map.
+       */
+
+      const appCache = localStorage.getItem("app-cache") ?? "[]";
+      const JSONdata = (JSON.parse(appCache));
+
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      const map = new Map(JSONdata);
+
+      // before unloading the app, we write back all the data into `localStorage`.
+      window.addEventListener("beforeunload", () => {
+        const appCache = JSON.stringify(Array.from(map.entries()));
+
+        localStorage.setItem("app-cache", appCache);
+      });
+
+      // we still use the map for write & read for performance.
+      return map;
+    }
+
+    // console.log("You are on the server");
+
+    // 👉️ can't use localStorage
+
+    return (new Map);
+  };
+
   return (
     <SWRConfig
       value={{
         revalidateOnFocus: false,
         fetcher: apiFetcher,
+        provider: localStorageProvider,
       }}
     >
       <Toaster position="top-right" />

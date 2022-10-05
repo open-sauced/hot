@@ -5,6 +5,19 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.25.0...v2.26.0-beta.1) (2022-10-05)
+
+
+### 🐛 Bug Fixes
+
+* rename everything from Post to Repo  ([#356](https://github.com/open-sauced/hot-sauce/issues/356)) ([0267009](https://github.com/open-sauced/hot-sauce/commit/02670098541ba8d68eafb4fd8c910396a9aa6465)), closes [#313](https://github.com/open-sauced/hot-sauce/issues/313)
+
+
+### 🍕 Features
+
+* added custom tailwind variables and removed anti patterns ([#337](https://github.com/open-sauced/hot-sauce/issues/337)) ([549e676](https://github.com/open-sauced/hot-sauce/commit/549e6765a8452e7a21dde9201058960cbb832eed)), closes [#315](https://github.com/open-sauced/hot-sauce/issues/315)
+* adds localstorageprovider ([#361](https://github.com/open-sauced/hot-sauce/issues/361)) ([f030796](https://github.com/open-sauced/hot-sauce/commit/f0307960592f0e72045bc12b94bae3c50ad4e061)), closes [#335](https://github.com/open-sauced/hot-sauce/issues/335)
+
 ## [2.25.0](https://github.com/open-sauced/hot-sauce/compare/v2.24.2...v2.25.0) (2022-09-28)
 
 

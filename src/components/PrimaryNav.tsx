@@ -6,6 +6,7 @@ import { getAvatarLink } from "../lib/github";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
 import openSaucedLogo from "../assets/openSauced.svg";
+import { supabase } from "../lib/supabase";
 
 import RepoSubmission from "./RepoSubmission";
 
@@ -30,7 +31,7 @@ const StarTheRepo = (): JSX.Element => (
 
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
-
+  const currentUser = supabase.auth.session();
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
@@ -127,6 +128,19 @@ const PrimaryNav = (): JSX.Element => {
                       onClick={() => handleFormOpen(true)}
                     >
                       Submit a repository
+                    </button>
+                  )}
+                </Menu.Item>
+
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${
+                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      onClick={() => console.log("Token: ", currentUser?.access_token)}
+                    >
+                      Generate Token on Console
                     </button>
                   )}
                 </Menu.Item>

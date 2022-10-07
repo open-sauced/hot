@@ -140,7 +140,7 @@ const PrimaryNav = (): JSX.Element => {
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={() => console.log("Token: ", currentUser?.access_token)}
                     >
-                      Generate Token on Console
+                      Print auth JWT
                     </button>
                   )}
                 </Menu.Item>

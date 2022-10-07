@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.2...v2.26.0-beta.3) (2022-10-07)
+
+
+### 🍕 Features
+
+* Update SVG favicon ([#369](https://github.com/open-sauced/hot-sauce/issues/369)) ([bf78ca0](https://github.com/open-sauced/hot-sauce/commit/bf78ca00f858e8660ae43b83519826d56c79d62b)), closes [#368](https://github.com/open-sauced/hot-sauce/issues/368)
+
 ## [2.26.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.1...v2.26.0-beta.2) (2022-10-06)
 
 

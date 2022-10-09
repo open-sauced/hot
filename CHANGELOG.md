@@ -5,6 +5,27 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.3...v2.26.0-beta.4) (2022-10-09)
+
+
+### 🐛 Bug Fixes
+
+* remove swr local storage cache provider ([#371](https://github.com/open-sauced/hot-sauce/issues/371)) ([334081c](https://github.com/open-sauced/hot-sauce/commit/334081cb68468ce24516a8f81499e7f5f124ebe9)), closes [#365](https://github.com/open-sauced/hot-sauce/issues/365)
+
+## [2.26.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.2...v2.26.0-beta.3) (2022-10-07)
+
+
+### 🍕 Features
+
+* Update SVG favicon ([#369](https://github.com/open-sauced/hot-sauce/issues/369)) ([bf78ca0](https://github.com/open-sauced/hot-sauce/commit/bf78ca00f858e8660ae43b83519826d56c79d62b)), closes [#368](https://github.com/open-sauced/hot-sauce/issues/368)
+
+## [2.26.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.1...v2.26.0-beta.2) (2022-10-06)
+
+
+### 🍕 Features
+
+* New Favicon Replacement ([#363](https://github.com/open-sauced/hot-sauce/issues/363)) ([bb680a6](https://github.com/open-sauced/hot-sauce/commit/bb680a6beaa7da543f19eb636cd962ec15d2f78e)), closes [#362](https://github.com/open-sauced/hot-sauce/issues/362)
+
 ## [2.26.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.25.0...v2.26.0-beta.1) (2022-10-05)
 
 

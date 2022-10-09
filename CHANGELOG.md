@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.3...v2.26.0-beta.4) (2022-10-09)
+
+
+### 🐛 Bug Fixes
+
+* remove swr local storage cache provider ([#371](https://github.com/open-sauced/hot-sauce/issues/371)) ([334081c](https://github.com/open-sauced/hot-sauce/commit/334081cb68468ce24516a8f81499e7f5f124ebe9)), closes [#365](https://github.com/open-sauced/hot-sauce/issues/365)
+
 ## [2.26.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.2...v2.26.0-beta.3) (2022-10-07)
 
 

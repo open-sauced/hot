@@ -12,7 +12,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 import StackedAvatar from "./StackedAvatar";
 
 const bugReportLink =
-        "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
+        "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml";
 
 export declare interface HotRepoCardProps {
   repoName: string;
@@ -35,7 +35,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
         <div className="flex justify-center">
           <a
             className="bg-cheesyYellow text-grey rounded-xl font-bold hover:text-saucyRed transition-all duration-300 mr-3 p-2 flex w-5/6 h-fit justify-center"
-            href={`${String(bugReportLink)}`}
+            href={`${String(`${bugReportLink}&title=Bug: ${repoName} could not be loaded`)}`}
             rel="noreferrer"
             target="_blank"
           >

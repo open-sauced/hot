@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.4...v2.26.0-beta.5) (2022-10-10)
+
+
+### 🐛 Bug Fixes
+
+* add menu drop to generate token on console ([#367](https://github.com/open-sauced/hot-sauce/issues/367)) ([dce7249](https://github.com/open-sauced/hot-sauce/commit/dce7249fda0c50af2b5a4473810f6528f9546d94)), closes [#364](https://github.com/open-sauced/hot-sauce/issues/364)
+
 ## [2.26.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.3...v2.26.0-beta.4) (2022-10-09)
 
 

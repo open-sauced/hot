@@ -10,7 +10,7 @@ import { supabase } from "../lib/supabase";
 
 import RepoSubmission from "./RepoSubmission";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
@@ -41,6 +41,16 @@ const PrimaryNav = async (): Promise<JSX.Element> => {
 
     console.log("reponse to auth/session call", res.json());
   }
+
+  useEffect(() => {
+    const fetchAuthSession = async () => {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json" } });
+
+      console.log("reponse to auth/session call", res.json());
+    };
+
+    fetchAuthSession();
+  }, [user]);
 
   return (
     <header>

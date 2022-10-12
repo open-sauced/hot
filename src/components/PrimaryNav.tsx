@@ -29,12 +29,18 @@ const StarTheRepo = (): JSX.Element => (
   </div>
 );
 
-const PrimaryNav = (): JSX.Element => {
+const PrimaryNav = async (): Promise<JSX.Element> => {
   const { signIn, signOut, user } = useSupabaseAuth();
   const currentUser = supabase.auth.session();
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
+
+  if (user) {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json" } });
+
+    console.log("reponse to auth/session call", res.json());
+  }
 
   return (
     <header>

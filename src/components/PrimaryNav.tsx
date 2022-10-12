@@ -36,12 +36,6 @@ const PrimaryNav = async (): Promise<JSX.Element> => {
 
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
 
-  if (user) {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json" } });
-
-    console.log("reponse to auth/session call", res.json());
-  }
-
   useEffect(() => {
     const fetchAuthSession = async () => {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json" } });

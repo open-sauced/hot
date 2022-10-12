@@ -17,11 +17,7 @@ const bugReportLink =
 
 const StarTheRepo = (): JSX.Element => (
   <div className="hidden sm:flex items-center text-osGrey font-Inter">
-    <a
-      href="https://github.com/open-sauced/hot"
-      rel="noreferrer"
-      target="_blank"
-    >
+    <a href="https://github.com/open-sauced/hot" rel="noreferrer" target="_blank">
       <AiOutlineStar className="inline-block mr-2.5" />
 
       <span className="text-md font-light mr-2.5">Star us on GitHub</span>
@@ -29,7 +25,7 @@ const StarTheRepo = (): JSX.Element => (
   </div>
 );
 
-const PrimaryNav = async (): Promise<JSX.Element> => {
+const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
   const currentUser = supabase.auth.session();
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -38,7 +34,9 @@ const PrimaryNav = async (): Promise<JSX.Element> => {
 
   useEffect(() => {
     const fetchAuthSession = async () => {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json" } });
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, {
+        headers: { accept: "application/json" },
+      });
 
       console.log("reponse to auth/session call", res.json());
     };
@@ -51,21 +49,14 @@ const PrimaryNav = async (): Promise<JSX.Element> => {
       <div className="flex font-OpenSans py-6 px-10 justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">
-            <img
-              alt="Open Sauced Logo"
-              className="inline-block w-6 h-6 mr-1"
-              src={openSaucedLogo}
-            />
+            <img alt="Open Sauced Logo" className="inline-block w-6 h-6 mr-1" src={openSaucedLogo} />
 
             <span className="text-lg leading-snug font-black tracking-tighter">OpenSauced</span>
           </a>
         </div>
 
         {user && (
-          <Menu
-            as="div"
-            className="flex z-50 text-left relative"
-          >
+          <Menu as="div" className="flex z-50 text-left relative">
             <Menu.Button>
               <div className="flex items-center">
                 <StarTheRepo />
@@ -106,13 +97,9 @@ const PrimaryNav = async (): Promise<JSX.Element> => {
                     </div>
 
                     <div className="flex-col shrink">
-                      <p className="text-osGrey text-xs font-semibold">
-                        {user.user_metadata.full_name}
-                      </p>
+                      <p className="text-osGrey text-xs font-semibold">{user.user_metadata.full_name}</p>
 
-                      <p className="text-gray-500 text-xs font-normal">
-                        {user.user_metadata.user_name}
-                      </p>
+                      <p className="text-gray-500 text-xs font-normal">{user.user_metadata.user_name}</p>
                     </div>
                   </div>
                 </Menu.Item>
@@ -204,10 +191,7 @@ const PrimaryNav = async (): Promise<JSX.Element> => {
         )}
       </div>
 
-      <RepoSubmission
-        handleFormOpen={handleFormOpen}
-        isFormOpen={isFormOpen}
-      />
+      <RepoSubmission handleFormOpen={handleFormOpen} isFormOpen={isFormOpen} />
     </header>
   );
 };

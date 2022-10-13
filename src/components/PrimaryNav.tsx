@@ -38,12 +38,10 @@ const PrimaryNav = (): JSX.Element => {
 
   useEffect(() => {
     const fetchAuthSession = async () => {
-      try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json" } });
-
-        console.log("response: ", res);
-      } catch (err) {
-        console.log("error: ", err);
+      if (currentUser?.access_token) {
+        await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json", Authorization: `Bearer ${currentUser.access_token}` } })
+          .then(res => console.log("response: ", res))
+          .catch(err => console.log("error: ", err));
       }
     };
 

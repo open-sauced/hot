@@ -1,4 +1,5 @@
 import { BsFillCalendar2Fill } from "react-icons/bs";
+import Skeleton from "react-loading-skeleton";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 import RepoList from "./RepoList";
 
@@ -26,6 +27,22 @@ const ListRepositories = ({
           </h1>
         )}
       </div>
+
+      {!fetchedData.length && (
+        <div className="flex flex-col gap-y-5 overflow-hidden mb-12">
+          {Array.from(Array(5).keys()).map(item => (
+            <div
+              key={item}
+              className="p-4 border rounded-2xl bg-white w-full space-y-1 relative"
+            >
+              <Skeleton
+                enableAnimation
+                count={4}
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       {fetchedData.map((item, i) => (
         <RepoList

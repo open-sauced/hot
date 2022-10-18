@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-alpha.5](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-alpha.4...v2.26.0-alpha.5) (2022-10-18)
+
+
+### 🐛 Bug Fixes
+
+* correct [#321](https://github.com/open-sauced/hot-sauce/issues/321) changes ([0080521](https://github.com/open-sauced/hot-sauce/commit/0080521ff30532538edd5170bfe6e8e9b9f617cd))
+
 ## [2.26.0-alpha.4](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-alpha.3...v2.26.0-alpha.4) (2022-10-18)
 
 

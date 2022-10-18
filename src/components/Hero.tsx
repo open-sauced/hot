@@ -101,7 +101,7 @@ const Hero = () => {
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 
-            {fetchedData.map(({ full_name, name, description, issues, stars, contributions }) => (
+            {fetchedData.map(({ full_name, name, description, issues, stars }) => (
               <a
                 key={full_name}
                 href={`https://app.opensauced.pizza/repos/${full_name}`}

@@ -155,6 +155,6 @@ Find Open Sauced videos and release overviews on our [YouTube Channel](https://w
 [![Visualization of this repository](./public/diagram.svg)
 ](./src)
 
-## ⚖️ LICENSE.
+## ⚖️ LICENSE
 
 MIT © [Open Sauced](LICENSE)

@@ -22,7 +22,9 @@ interface DbRepo {
   readonly language?: string;
   readonly license?: string;
   readonly url?: string;
-  readonly contributionsCount?: number;
+  readonly contributions: DbContribution[];
+  readonly starsRelation: { starsCount: number }[],
+  readonly votesRelation: { votesCount: number }[],
   readonly created_at?: string;
   readonly updated_at?: string;
   readonly pushed_at?: string;

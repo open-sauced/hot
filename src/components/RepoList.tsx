@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
+
 // import StackedAvatar from "./StackedAvatar";
 import useVotedRepos from "../hooks/useVotedRepos";
 import { RiCheckboxCircleFill } from "react-icons/ri";
@@ -23,7 +24,6 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
     description,
     stars,
     issues,
-    contributions,
   } = data;
 
   useEffect(() => {
@@ -92,7 +92,7 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
             </p>
           </div>
 
-          {/*<StackedAvatar contributors={contributions} />*/}
+          {/* <StackedAvatar contributors={contributions} />*/}
         </div>
       </div>
 

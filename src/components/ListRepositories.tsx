@@ -1,6 +1,6 @@
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
-import PostList from "./RepoList";
+import RepoList from "./RepoList";
 
 export declare interface ListRepositoriesProps {
   activeLink: string | null;
@@ -23,7 +23,7 @@ const ListRepositories = ({ activeLink, limit, handleLoadingMore, fetchedData }:
 
       {
         fetchedData.map((item, i) => (
-          <PostList
+          <RepoList
             key={`${item.full_name}_${i}`}
             data={item}
           />

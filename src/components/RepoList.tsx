@@ -8,11 +8,11 @@ import useVotedRepos from "../hooks/useVotedRepos";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import cx from "classnames";
 
-export declare interface PostListProps {
+export declare interface RepoListProps {
   data: DbRepo;
 }
 
-const RepoList = ({ data }: PostListProps): JSX.Element => {
+const RepoList = ({ data }: RepoListProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const [isVoted, setIsVoted] = useState(false);
 

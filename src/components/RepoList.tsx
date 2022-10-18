@@ -2,40 +2,38 @@ import { useEffect, useState } from "react";
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
-
 // import StackedAvatar from "./StackedAvatar";
 import useVotedRepos from "../hooks/useVotedRepos";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import cx from "classnames";
 
-export declare interface PostListProps {
+export declare interface RepoListProps {
   data: DbRepo;
 }
 
-const RepoList = ({ data }: PostListProps): JSX.Element => {
+const RepoList = ({ data }: RepoListProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const [isVoted, setIsVoted] = useState(false);
 
   const {
     id,
+    votesRelation: [{ votesCount }],
     name,
     full_name,
     description,
     stars,
     issues,
-    votesCount,
-
-    // contributionsCount,
+    contributions,
   } = data;
 
   useEffect(() => {
-    setIsVoted(checkVoted(id));
+    setIsVoted(checkVoted(data.id));
   }, [votedReposIds]);
 
   const repo_id = parseInt(`${id}`);
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
-  const [votes, setVotes] = useState(votesCount ?? 0);
+  const [votes, setVotes] = useState(votesCount);
 
   return (
     <div className="flex flex-col gap-y-[20px] md:flex-row bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]">
@@ -94,9 +92,7 @@ const RepoList = ({ data }: PostListProps): JSX.Element => {
             </p>
           </div>
 
-          {/* TODO: Need to filter contributions in a hook or similar */}
-
-          {/* <StackedAvatar contributors={contributionsCount} /> */}
+          {/*<StackedAvatar contributors={contributions} />*/}
         </div>
       </div>
 
@@ -107,11 +103,13 @@ const RepoList = ({ data }: PostListProps): JSX.Element => {
           "md:w-[60px] md:py-0 md:flex-col",
           isVoted ? "hover:border-osGrey hover:bg-gray-100" : "hover:border-osOrange",
         )}
-        onClick={async () => voteHandler(votes, repo_id).then(newVotes => typeof newVotes === "number" && setVotes(newVotes))}
+        onClick={async () =>
+          voteHandler(votes, repo_id).then(newVotes => typeof newVotes === "number" && setVotes(newVotes))}
       >
         {isVoted
           ? (
-            <RiCheckboxCircleFill className="text-osOrange group-hover:text-osGrey transition-all duration-300 w-[15px] h-[15px]" />)
+            <RiCheckboxCircleFill className="text-osOrange group-hover:text-osGrey transition-all duration-300 w-[15px] h-[15px]" />
+          )
           : (
             <FaArrowAltCircleUp className="text-gray-500 group-hover:text-osOrange transition-all duration-300 w-[13px] h-[13px]" />
           )}

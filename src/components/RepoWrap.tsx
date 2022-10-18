@@ -32,7 +32,7 @@ const RepoWrap = ({ textToSearch }: RepoWrapProps): JSX.Element => {
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
-  const activeLink = locationsHash[location.pathname] ?? "popular";
+  const activeLink = locationsHash[location.pathname] ?? "recent";
   const limit = parseLimitValue(searchParams.get("limit"));
 
   const handleLoadingMore = () => {

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
@@ -34,9 +34,17 @@ const Hero = () => {
     e.preventDefault();
   };
 
-  useKeys(["ControlLeft", "KeyK"], handleCmdK, { target: containerRef });
+  const useKey = (superKey: string, key: string, target: MutableRefObject<Document>) => {
+    useKeys([superKey, key], handleCmdK, { target });
+  };
 
-  useKeys(["MetaLeft", "KeyK"], handleCmdK, { target: containerRef });
+  useKey("ControlLeft", "KeyK", containerRef);
+
+  useKey("ControlRight", "KeyK", containerRef);
+
+  useKey("MetaRight", "KeyK", containerRef);
+
+  useKey("MetaLeft", "KeyK", containerRef);
 
   useDidUpdate(async () => {
     const results = await fetchRecommendations("stars", 3, null, searchTerm);
@@ -45,7 +53,7 @@ const Hero = () => {
   }, [searchTerm]);
 
   return (
-    <div className="flex flex-col py-[95px] items-center mx-[10px]">
+    <div className="flex flex-col py-24 items-center mx-2.5">
       <div>
         <h1 className="font-Lexend text-4xl md:text-5xl text-center text-lightSlate leading-tight tracking-tight">
           {`Find `}
@@ -60,7 +68,7 @@ const Hero = () => {
         </h1>
       </div>
 
-      <div className="mt-[45px] px-[15px] gap-x-[10px] py-[10px] justify-between bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] rounded-[16px] md:min-w-[422px] flex">
+      <div className="mt-11 px-4 gap-x-2.5 py-2.5 justify-between bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex">
         <img
           alt="search icon"
           src={searchNormal}
@@ -81,15 +89,15 @@ const Hero = () => {
 
         <img
           alt="command k"
-          className="pt-[7px]"
+          className="pt-1.5"
           src={cmdKIcon}
         />
       </div>
 
-      <div className="mt-[10px] flex w-full justify-center relative">
+      <div className="mt-2.5 flex w-full justify-center relative">
         {fetchedData.length > 0 && hasFocus && (
-          <div className="flex md:min-w-[400px] pb-[8px] absolute z-50 max-w-[400px] flex-col bg-white rounded-[10px] shadow-2xl">
-            <div className="bg-gray-100 py-[10px] px-[10px] md:px-[15px] border-b-gray-100 border-b-[2px] rounded-[10px] rounded-b-none w-full">
+          <div className="flex md:min-w-96 pb-2 absolute z-50 max-w-96 flex-col bg-white rounded-2.5 shadow-2xl">
+            <div className="bg-gray-100 py-2.5 px-10 md:px-3.5 border-b-gray-100 border-b-0.5 rounded-2.5 rounded-b-none w-full">
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 
@@ -101,9 +109,9 @@ const Hero = () => {
                 target="_blank"
               >
                 <div className="flex flex-col hover:bg-gray-50 ">
-                  <div className="flex flex-col px-[10px] md:px-[15px] py-[10px]">
-                    <div className="flex items-center gap-x-[10px] mb-[5px]">
-                      <div className="w-[25px] h-[25px] overflow-hidden border-gray-400 border-[1px] bg-red-100  rounded-full">
+                  <div className="flex flex-col px-10 md:px-3.5 py-2.5">
+                    <div className="flex items-center gap-x-2.5 mb-1">
+                      <div className="w-6 h-6 overflow-hidden border-gray-400 border-px bg-red-100 rounded-full">
                         <img
                           alt={full_name}
                           className="w-full h-full"
@@ -120,13 +128,13 @@ const Hero = () => {
                       {description}
                     </p>
 
-                    <div className="flex justify-between mt-[8px]">
-                      {/* <div className="flex gap-x-[5px]">
+                    <div className="flex justify-between mt-2">
+                      {/* <div className="flex gap-x-1">
                         <StackedAvatar contributors={contributions} />
                       </div> */}
 
-                      <div className="flex gap-x-[6px]">
-                        <div className="flex items-center gap-x-[5px]">
+                      <div className="flex gap-x-1.5">
+                        <div className="flex items-center gap-x-1">
                           <FaRegDotCircle aria-hidden="true" />
 
                           <p className="text-gray-500 text-xs">
@@ -134,7 +142,7 @@ const Hero = () => {
                           </p>
                         </div>
 
-                        <div className="flex items-center gap-x-[5px]">
+                        <div className="flex items-center gap-x-1">
                           <AiOutlineStar
                             aria-hidden="true"
                             className="mr-1"

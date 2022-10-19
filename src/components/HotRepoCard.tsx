@@ -131,7 +131,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           </div>
         </div>
 
-        {/* <StackedAvatar utors={contributions} /> */}
+        {/* <StackedAvatar contributors={contributions} /> */}
       </div>
     </div>
   );

@@ -45,7 +45,7 @@ const PrimaryNav = (): JSX.Element => {
       }
     };
 
-    fetchAuthSession();
+    fetchAuthSession().catch(err => console.log(err));
   }, [user]);
 
   return (

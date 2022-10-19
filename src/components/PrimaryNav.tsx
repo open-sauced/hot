@@ -7,7 +7,7 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
 import openSaucedLogo from "../assets/openSauced.svg";
 import { supabase } from "../lib/supabase";
-import useSession from "../hooks/useSession";
+
 import RepoSubmission from "./RepoSubmission";
 
 import { useState, useEffect } from "react";
@@ -30,15 +30,23 @@ const StarTheRepo = (): JSX.Element => (
 );
 
 const PrimaryNav = (): JSX.Element => {
-  const { sessionOpened } = useSession();
   const { signIn, signOut, user } = useSupabaseAuth();
   const currentUser = supabase.auth.session();
   const [isFormOpen, setIsFormOpen] = useState(false);
+
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
 
   useEffect(() => {
-    console.log(sessionOpened);
-  }, [sessionOpened]);
+    const fetchAuthSession = async () => {
+      if (currentUser?.access_token) {
+        await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json", Authorization: `Bearer ${currentUser.access_token}` } })
+          .then(res => console.log("response: ", res))
+          .catch(err => console.log("error: ", err));
+      }
+    };
+
+    fetchAuthSession();
+  }, [user]);
 
   return (
     <header>

@@ -5,6 +5,24 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.5...v2.26.0-beta.6) (2022-10-19)
+
+
+### 🍕 Features
+
+* **api:** leverage the api over sdk ([#321](https://github.com/open-sauced/hot-sauce/issues/321)) ([a471317](https://github.com/open-sauced/hot-sauce/commit/a471317a6bedd932a35666c374abf000c98c4f23)), closes [#312](https://github.com/open-sauced/hot-sauce/issues/312) [#312](https://github.com/open-sauced/hot-sauce/issues/312) [#312](https://github.com/open-sauced/hot-sauce/issues/312)
+
+
+### 🐛 Bug Fixes
+
+* alpha build ([#360](https://github.com/open-sauced/hot-sauce/issues/360)) ([06a5ef2](https://github.com/open-sauced/hot-sauce/commit/06a5ef2ea0b2c3e0d590048b089e78ef6b5cf92a))
+* correct [#321](https://github.com/open-sauced/hot-sauce/issues/321) changes ([0080521](https://github.com/open-sauced/hot-sauce/commit/0080521ff30532538edd5170bfe6e8e9b9f617cd))
+* correct alpha mistakes ([#381](https://github.com/open-sauced/hot-sauce/issues/381)) ([f917ac2](https://github.com/open-sauced/hot-sauce/commit/f917ac2cb7f5d665fd9b44df7cd4150fa614d568))
+* correct latest alpha ([6e82aa6](https://github.com/open-sauced/hot-sauce/commit/6e82aa617a046c3dfe02324979eeca0881942d42))
+* correct merge conflicts from bad heads ([566f753](https://github.com/open-sauced/hot-sauce/commit/566f753647b57a26f937db24730d47e3ef26f60d))
+* correct upstream fast forward ([2897584](https://github.com/open-sauced/hot-sauce/commit/289758479ff236d331b0b0c25e42334433bf3aeb))
+* trigger build on alpha ([#359](https://github.com/open-sauced/hot-sauce/issues/359)) ([dbbbea5](https://github.com/open-sauced/hot-sauce/commit/dbbbea577797cfcee0b59e8efa9246bc208709d0))
+
 ## [2.26.0-alpha.6](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-alpha.5...v2.26.0-alpha.6) (2022-10-19)
 
 

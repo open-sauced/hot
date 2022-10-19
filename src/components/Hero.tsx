@@ -2,7 +2,8 @@ import { MutableRefObject, useRef, useState } from "react";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
-import StackedAvatar from "./StackedAvatar";
+
+// import StackedAvatar from "./StackedAvatar";
 import { fetchRecommendations } from "../lib/supabase";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink } from "../lib/github";
@@ -62,6 +63,7 @@ const Hero = () => {
           </span>
 
           <br />
+
           to contribute today
         </h1>
       </div>
@@ -99,7 +101,7 @@ const Hero = () => {
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 
-            {fetchedData.map(({ full_name, name, description, issues, stars, contributions }) => (
+            {fetchedData.map(({ full_name, name, description, issues, stars }) => (
               <a
                 key={full_name}
                 href={`https://app.opensauced.pizza/repos/${full_name}`}
@@ -127,9 +129,9 @@ const Hero = () => {
                     </p>
 
                     <div className="flex justify-between mt-2">
-                      <div className="flex gap-x-1">
+                      {/* <div className="flex gap-x-1">
                         <StackedAvatar contributors={contributions} />
-                      </div>
+                      </div> */}
 
                       <div className="flex gap-x-1.5">
                         <div className="flex items-center gap-x-1">

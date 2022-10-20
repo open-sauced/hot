@@ -3,10 +3,11 @@ import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
 
-// import StackedAvatar from "./StackedAvatar";
+import StackedAvatar from "./StackedAvatar";
 import useVotedRepos from "../hooks/useVotedRepos";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import cx from "classnames";
+import useSWR from "swr";
 
 export declare interface RepoListProps {
   data: DbRepo;
@@ -27,6 +28,9 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
 
     // contributionsCount,
   } = data;
+
+  // {full_name} consists of `{owner}/{repo}`, so this link is actually `repos/{owner}/{repo}/contributions`
+  const { data: contributions, error, mutate } = useSWR<{data: DbContribution[]}, Error>(`repos/${full_name}/contributions?page=1&limit=10`);
 
   useEffect(() => {
     setIsVoted(checkVoted(id));
@@ -94,7 +98,7 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
             </p>
           </div>
 
-          {/* <StackedAvatar contributors={contributions} />*/}
+          { !error && contributions && <StackedAvatar contributors={contributions.data} />}
         </div>
       </div>
 

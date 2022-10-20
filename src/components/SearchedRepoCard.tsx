@@ -10,6 +10,7 @@ export declare interface SearchedRepoCardProps {
 }
 
 const SearchedRepoCard = ({ data: {full_name, name, description, issues, stars} }: SearchedRepoCardProps) => {
+  const { data: contributions } = useSWR<{ data: DbContribution[] }, Error>(`repos/${full_name}/contributions`);
 
   return (
     <a
@@ -39,7 +40,7 @@ const SearchedRepoCard = ({ data: {full_name, name, description, issues, stars} 
 
           <div className="flex justify-between mt-2">
             <div className="flex gap-x-1">
-              {/* <StackedAvatar contributors={contributions?.data} /> */}
+              <StackedAvatar contributors={contributions?.data} />
             </div>
 
             <div className="flex gap-x-1.5">

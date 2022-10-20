@@ -1,6 +1,6 @@
 import { AiOutlineStar } from "react-icons/ai";
 import { FaRegDotCircle } from "react-icons/fa";
-import useSWR from "swr";
+import useContributions from "../hooks/useContributions";
 import { getAvatarLink } from "../lib/github";
 import humanizeNumber from "../lib/humanizeNumber";
 import StackedAvatar from "./StackedAvatar";
@@ -10,7 +10,7 @@ export declare interface SearchedRepoCardProps {
 }
 
 const SearchedRepoCard = ({ data: {full_name, name, description, issues, stars} }: SearchedRepoCardProps) => {
-  const { data: contributions } = useSWR<{ data: DbContribution[] }, Error>(`repos/${full_name}/contributions`);
+  const { data: contributions } = useContributions(full_name);
 
   return (
     <a
@@ -40,7 +40,7 @@ const SearchedRepoCard = ({ data: {full_name, name, description, issues, stars} 
 
           <div className="flex justify-between mt-2">
             <div className="flex gap-x-1">
-              <StackedAvatar contributors={contributions?.data} />
+              <StackedAvatar contributors={contributions} />
             </div>
 
             <div className="flex gap-x-1.5">

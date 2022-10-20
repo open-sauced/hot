@@ -11,7 +11,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 import StackedAvatar from "./StackedAvatar";
 import useRepo from "../hooks/useRepo";
 import useVotedRepos from "../hooks/useVotedRepos";
-import useSWR from "swr";
+import useContributions from "../hooks/useContributions";
 
 export declare interface HotRepoCardProps {
   repoName: string;
@@ -21,7 +21,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const { repo, isLoading, isError } = useRepo(repoName);
   const [isVoted, setIsVoted] = useState(false);
-  const { data: contributions } = useSWR<{ data: DbContribution[] }, Error>(`repos/${repoName}/contributions`);
+  const { data: contributions } = useContributions(repoName);
 
   useEffect(() => {
     repo && setIsVoted(checkVoted(repo.id));
@@ -133,7 +133,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           </div>
         </div>
 
-        <StackedAvatar contributors={contributions?.data} />
+        <StackedAvatar contributors={contributions} />
       </div>
     </div>
   );

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.7...v2.26.0-beta.8) (2022-10-20)
+
+
+### 🍕 Features
+
+* add loading skeleton for the repoWrap component ([#374](https://github.com/open-sauced/hot-sauce/issues/374)) ([058beab](https://github.com/open-sauced/hot-sauce/commit/058beab5257e52d23334e3f2fc2f5e852682bd88)), closes [#357](https://github.com/open-sauced/hot-sauce/issues/357)
+
 ## [2.26.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.6...v2.26.0-beta.7) (2022-10-20)
 
 

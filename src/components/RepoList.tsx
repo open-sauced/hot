@@ -94,9 +94,7 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
             </p>
           </div>
 
-          {/* TODO: Need to filter contributions in a hook or similar */}
-
-          {/* <StackedAvatar contributors={contributionsCount} /> */}
+          {/* <StackedAvatar contributors={contributions} />*/}
         </div>
       </div>
 
@@ -107,7 +105,8 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
           "md:w-[60px] md:py-0 md:flex-col",
           isVoted ? "hover:border-osGrey hover:bg-gray-100" : "hover:border-osOrange",
         )}
-        onClick={async () => voteHandler(votes, repo_id).then(newVotes => typeof newVotes === "number" && setVotes(newVotes))}
+        onClick={async () =>
+          voteHandler(votes, repo_id).then(newVotes => typeof newVotes === "number" && setVotes(newVotes))}
       >
         {isVoted
           ? (

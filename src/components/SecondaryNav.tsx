@@ -6,7 +6,7 @@ export declare interface SecondaryNavProps {
   user?: User;
 }
 
-const SecondaryNav = ({ activeLink }: SecondaryNavProps): JSX.Element => {
+const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
   const links = [
     {
       link: "recent",
@@ -26,14 +26,11 @@ const SecondaryNav = ({ activeLink }: SecondaryNavProps): JSX.Element => {
     },
   ];
 
-  /*
-   * todo: #257 My votes is broken for users with beta onboarding. Fix it.
-   * user &&
-   *   links.push({
-   *     link: "myVotes",
-   *     title: "My Votes",
-   *   });
-   */
+  user &&
+    links.push({
+      link: "myVotes",
+      title: "My Votes",
+    });
 
   return (
     <div>

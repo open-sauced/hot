@@ -23,7 +23,6 @@ console.log(
   "color:green;font-weight:bold",
 );
 
-
 const App = (): JSX.Element => {
   initiatePostHog();
 

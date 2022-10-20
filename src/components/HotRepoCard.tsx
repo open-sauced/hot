@@ -21,7 +21,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const { repo, isLoading, isError } = useRepo(repoName);
   const [isVoted, setIsVoted] = useState(false);
-  // const { data, error, mutate } = useSWR<DbRepo, Error>(`repos/${owner}/${repo}/contributions`);
+  const { data: contributions } = useSWR<{ data: DbContribution[] }, Error>(`repos/${repoName}/contributions`);
 
   useEffect(() => {
     repo && setIsVoted(checkVoted(repo.id));
@@ -133,7 +133,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           </div>
         </div>
 
-        {/* <StackedAvatar contributors={contributions} /> */}
+        <StackedAvatar contributors={contributions?.data} />
       </div>
     </div>
   );

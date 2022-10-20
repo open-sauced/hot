@@ -10,7 +10,7 @@ import { supabase } from "../lib/supabase";
 
 import RepoSubmission from "./RepoSubmission";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
@@ -35,6 +35,18 @@ const PrimaryNav = (): JSX.Element => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
+
+  useEffect(() => {
+    const fetchAuthSession = async () => {
+      if (currentUser?.access_token) {
+        await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json", Authorization: `Bearer ${currentUser.access_token}` } })
+          .then(res => console.log("response: ", res))
+          .catch(err => console.log("error: ", err));
+      }
+    };
+
+    fetchAuthSession().catch(err => console.log(err));
+  }, [user]);
 
   return (
     <header>

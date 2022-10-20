@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.6...v2.26.0-beta.7) (2022-10-20)
+
+
+### 🍕 Features
+
+* make recent the default filter ([#377](https://github.com/open-sauced/hot-sauce/issues/377)) ([3ace891](https://github.com/open-sauced/hot-sauce/commit/3ace8912b9e5177d5a666afc88d66f895580105d)), closes [#376](https://github.com/open-sauced/hot-sauce/issues/376) [#380](https://github.com/open-sauced/hot-sauce/issues/380)
+
 ## [2.26.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.5...v2.26.0-beta.6) (2022-10-19)
 
 

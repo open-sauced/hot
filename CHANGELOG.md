@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.9](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.8...v2.26.0-beta.9) (2022-10-20)
+
+
+### 🍕 Features
+
+* auth/session API call temporary at Navbar component. ([#379](https://github.com/open-sauced/hot-sauce/issues/379)) ([841b635](https://github.com/open-sauced/hot-sauce/commit/841b635b3f75221f7d08f1cf660b5fd92c406da9)), closes [#366](https://github.com/open-sauced/hot-sauce/issues/366)
+
 ## [2.26.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.7...v2.26.0-beta.8) (2022-10-20)
 
 

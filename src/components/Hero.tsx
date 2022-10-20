@@ -97,8 +97,11 @@ const Hero = () => {
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 
-            {fetchedData.map((data) => (
-              <SearchedRepoCard key={data.full_name} data={data} />
+            {fetchedData.map(data => (
+              <SearchedRepoCard
+                key={data.full_name}
+                data={data}
+              />
             ))}
           </div>
         )}

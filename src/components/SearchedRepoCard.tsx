@@ -9,7 +9,7 @@ export declare interface SearchedRepoCardProps {
   data: DbRepo;
 }
 
-const SearchedRepoCard = ({ data: {full_name, name, description, issues, stars} }: SearchedRepoCardProps) => {
+const SearchedRepoCard = ({ data: { full_name, name, description, issues, stars } }: SearchedRepoCardProps) => {
   const { data: contributions } = useContributions(full_name);
 
   return (
@@ -67,7 +67,7 @@ const SearchedRepoCard = ({ data: {full_name, name, description, issues, stars} 
         </div>
       </div>
     </a>
-  )
-}
+  );
+};
 
 export default SearchedRepoCard;

@@ -33,7 +33,7 @@ const RepoWrap = (): JSX.Element => {
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
-  const activeLink = (locationsHash[location.pathname] ?? "popular") as keyof typeof RepoOrderByEnum;
+  const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
   const { data, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
 

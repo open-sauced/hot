@@ -1,4 +1,3 @@
-
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import Footer from "./components/Footer";
@@ -39,7 +38,7 @@ const App = (): JSX.Element => {
        */
 
       const appCache = localStorage.getItem("app-cache") ?? "[]";
-      const JSONdata = (JSON.parse(appCache));
+      const JSONdata = JSON.parse(appCache);
 
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       const map = new Map(JSONdata);

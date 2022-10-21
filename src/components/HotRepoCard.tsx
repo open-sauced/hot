@@ -21,6 +21,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const [isVoted, setIsVoted] = useState(false);
 
   useEffect(() => {
+    console.log(repo);
     repo && setIsVoted(checkVoted(repo.id));
   }, [votedReposIds, repo]);
 

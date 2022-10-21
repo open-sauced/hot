@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
+=======
+>>>>>>> 2fc96d4739a7d3c4b6b9566aef1a8760fc48506b
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
 import RepoWrap from "./components/RepoWrap";
@@ -28,6 +31,7 @@ console.log(
 const App = (): JSX.Element => {
   initiatePostHog();
 
+<<<<<<< HEAD
   const localStorageProvider = () => {
     if (!import.meta.env.SSR) {
       // console.log("You are on the browser");
@@ -61,12 +65,13 @@ const App = (): JSX.Element => {
     return (new Map);
   };
 
+=======
+>>>>>>> 2fc96d4739a7d3c4b6b9566aef1a8760fc48506b
   return (
     <SWRConfig
       value={{
         revalidateOnFocus: false,
         fetcher: apiFetcher,
-        provider: localStorageProvider,
       }}
     >
       <Toaster position="top-right" />

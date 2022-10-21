@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
+import { RiCheckboxCircleFill } from "react-icons/ri";
+import { FaArrowAltCircleUp } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 import { BiGitPullRequest } from "react-icons/bi";
-import { FaArrowAltCircleUp } from "react-icons/fa";
-import { RiCheckboxCircleFill } from "react-icons/ri";
 import { VscIssues } from "react-icons/vsc";
 import Skeleton from "react-loading-skeleton";
-import useRepo from "../hooks/useRepo";
-import useVotedRepos from "../hooks/useVotedRepos";
 import { getAvatarLink } from "../lib/github";
 import humanizeNumber from "../lib/humanizeNumber";
-import StackedAvatar from "./StackedAvatar";
 
+// import StackedAvatar from "./StackedAvatar";
+import useRepo from "../hooks/useRepo";
+import useVotedRepos from "../hooks/useVotedRepos";
 const bugReportLink =
         "https://github.com/open-sauced/hot/issues/new?assignees=&title=fix:";
 
@@ -57,7 +57,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
     );
   }
 
-  const { id, full_name, name, description, issues, stars, contributions } = repo!;
+  const { id, full_name, name, description, issues, stars } = repo!;
   const repo_id = parseInt(`${id}`);
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
@@ -144,7 +144,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           </div>
         </div>
 
-        <StackedAvatar contributors={contributions} />
+        {/* <StackedAvatar contributors={contributions} /> */}
       </div>
     </div>
   );

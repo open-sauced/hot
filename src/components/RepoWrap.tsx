@@ -1,14 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
-import { fetchRecommendations } from "../lib/supabase";
 import locationsHash from "../lib/locationsHash";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
+import { useRepositoriesList } from "../hooks/useRepositoriesList";
 
-export declare interface RepoWrapProps {
-  textToSearch?: string;
+export enum RepoOrderByEnum {
+  popular = "stars",
+  recent = "created_at",
+  upvoted = "votesCount",
+  discussed = "issues",
 }
 
 const parseLimitValue = (limit: string | null): number => {
@@ -18,36 +20,26 @@ const parseLimitValue = (limit: string | null): number => {
   const value = parseInt(limit);
 
   if (isNaN(value) || value <= 0) {
-    return 25;
+    return 15;
   }
-  if (value > 100) {
-    return 125;
+  if (value > 25) {
+    return 50;
   }
   return value;
 };
 
-const RepoWrap = ({ textToSearch }: RepoWrapProps): JSX.Element => {
+const RepoWrap = (): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
   const { user } = useSupabaseAuth();
   const location = useLocation();
 
-  const activeLink = locationsHash[location.pathname] ?? "popular";
+  const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
+  const { data, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
 
   const handleLoadingMore = () => {
-    setSearchParams({ limit: String(limit + 25) });
+    setSearchParams({ limit: String(limit + 10) });
   };
-
-  const fetchData = useCallback(async () => {
-    const data = await fetchRecommendations(activeLink, limit, user, textToSearch);
-
-    setFetchedData(data);
-  }, [limit]);
-
-  useEffect(() => {
-    fetchData().catch(console.error);
-  }, [activeLink, limit, textToSearch]);
 
   return (
     <div className="bg-darkestGrey">
@@ -58,12 +50,13 @@ const RepoWrap = ({ textToSearch }: RepoWrapProps): JSX.Element => {
 
       <HotRepositories />
 
-      <ListRepositories
-        activeLink={activeLink}
-        fetchedData={fetchedData}
-        handleLoadingMore={handleLoadingMore}
-        limit={limit}
-      />
+      {!isLoading &&
+        <ListRepositories
+          activeLink={activeLink}
+          fetchedData={data}
+          handleLoadingMore={handleLoadingMore}
+          limit={limit}
+        />}
     </div>
   );
 };

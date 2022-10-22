@@ -5,9 +5,9 @@ interface PaginatedContributorsResponse {
   readonly meta: PageMetaDto;
 }
 
-const useContributions = (repoName: string, limit = "", orderBy = "") => {
+const useContributions = (repoName: string, limit = 10, orderBy = "recent") => {
   const baseEndpoint = `repos/${repoName}/contributions`;
-  const limitQuery = `${limit === "" ? limit : `&limit=${limit}`}`;
+  const limitQuery = `&limit=${limit}`;
   const orderByQuery = orderBy ? `&updated_at=${orderBy}` : "";
   const endpointString = `${baseEndpoint}?${limitQuery}${orderByQuery}`;
 

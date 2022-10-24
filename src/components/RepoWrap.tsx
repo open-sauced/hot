@@ -11,7 +11,7 @@ export enum RepoOrderByEnum {
   recent = "created_at",
   upvoted = "votesCount",
   discussed = "issues",
-  myVotes = ""
+  myVotes = "myvotes"
 }
 
 const parseLimitValue = (limit: string | null): number => {

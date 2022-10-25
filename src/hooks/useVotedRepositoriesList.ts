@@ -10,18 +10,18 @@ const apiFetcherWithToken = async (apiUrl: string) => {
   const authSession = supabase.auth.session();
 
   const authToken = authSession ? authSession.access_token : "";
-  const res = await fetch(`${import.meta.env.VITE_API_URL}/${apiUrl}`, { headers: { accept: "application/json", Authorization: `Bearer ${authToken}` } });
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/${apiUrl}`, { headers: { accept: "application/json", Authorization: `Bearer ${authToken}` } });
 
-  if (!res.ok) {
+  if (!response.ok) {
     const error = new Error("HttpError");
 
-    error.message = `${res.status} ${res.statusText}`;
-    error.stack = JSON.stringify(await res.json());
+    error.message = `${response.status} ${response.statusText}`;
+    error.stack = JSON.stringify(await response.json());
 
     throw error;
   }
 
-  return res.json();
+  return response.json();
 };
 
 const useVotedRepositoriesList = (orderBy = "stars", limit = 10) => {

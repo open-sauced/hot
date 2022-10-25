@@ -27,10 +27,16 @@ const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
   ];
 
   user &&
-    links.push({
-      link: "myVotes",
-      title: "My Votes",
-    });
+    links.push(
+      {
+        link: "myVotes",
+        title: "My Votes",
+      },
+      {
+        link: "myStars",
+        title: "My Stars",
+      }
+    );
 
   return (
     <div>
@@ -38,10 +44,7 @@ const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
         <nav className="container">
           <div className="flex space-y-2 flex-row text-sm sm:text-xl font-righteous text-accent font-bold justify-center items-baseline cursor-pointer">
             {links.map(({ link, title }) => (
-              <Link
-                key={link}
-                to={link}
-              >
+              <Link key={link} to={link}>
                 <span
                   className={`${
                     activeLink === link ? "bg-cheesyYellow text-grey " : " "

@@ -43,20 +43,17 @@ const RepoWrap = (): JSX.Element => {
 
   return (
     <div className="bg-darkestGrey">
-      <SecondaryNav
-        activeLink={activeLink}
-        user={user}
-      />
+      <SecondaryNav activeLink={activeLink} user={user} />
 
       <HotRepositories />
 
-      {!isLoading &&
-        <ListRepositories
-          activeLink={activeLink}
-          fetchedData={data}
-          handleLoadingMore={handleLoadingMore}
-          limit={limit}
-        />}
+      <ListRepositories
+        activeLink={activeLink}
+        fetchedData={data}
+        handleLoadingMore={handleLoadingMore}
+        limit={limit}
+        loading={isLoading}
+      />
     </div>
   );
 };

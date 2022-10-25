@@ -8,6 +8,7 @@ export declare interface ListRepositoriesProps {
   limit: number;
   handleLoadingMore: () => void;
   fetchedData: DbRepo[];
+  loading: boolean;
 }
 
 const ListRepositories = ({
@@ -15,20 +16,15 @@ const ListRepositories = ({
   limit,
   handleLoadingMore,
   fetchedData,
+  loading,
 }: ListRepositoriesProps): JSX.Element => {
-  if (!fetchedData.length) {
+  if (loading) {
     return (
       <div className="mx-auto max-w-7xl px-4 mt-10">
         <div className="flex flex-col gap-y-5 overflow-hidden mb-12">
-          {Array.from(Array(10).keys()).map(item => (
-            <div
-              key={item}
-              className="p-4 border rounded-2xl bg-white w-full space-y-1 relative"
-            >
-              <Skeleton
-                enableAnimation
-                count={4}
-              />
+          {Array.from(Array(10).keys()).map((item) => (
+            <div key={item} className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">
+              <Skeleton enableAnimation count={4} />
             </div>
           ))}
         </div>
@@ -43,17 +39,12 @@ const ListRepositories = ({
           <BsFillCalendar2Fill className="w-8 h-8 text-white" />
 
           {activeLink && (
-            <h1 className="text-2xl text-white font-semibold">
-              {`${camelCaseToTitleCase(activeLink)} Repositories`}
-            </h1>
+            <h1 className="text-2xl text-white font-semibold">{`${camelCaseToTitleCase(activeLink)} Repositories`}</h1>
           )}
         </div>
 
         {fetchedData.map((item, i) => (
-          <RepoList
-            key={`${item.full_name}_${i}`}
-            data={item}
-          />
+          <RepoList key={`${item.full_name}_${i}`} data={item} />
         ))}
       </div>
 

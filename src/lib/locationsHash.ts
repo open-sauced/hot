@@ -4,6 +4,7 @@ const locationsHash: Record<string, string | undefined> = {
   "/discussed": "discussed",
   "/recent": "recent",
   "/myVotes": "myVotes",
+  "/myStars": "myStars",
 };
 
 export default locationsHash;

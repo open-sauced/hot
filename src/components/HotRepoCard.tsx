@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { RiCheckboxCircleFill } from "react-icons/ri";
-import { FaArrowAltCircleUp } from "react-icons/fa";
+import { FaArrowAltCircleUp, FaStar } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 import { BiGitPullRequest } from "react-icons/bi";
 import { VscIssues } from "react-icons/vsc";
 import Skeleton from "react-loading-skeleton";
-import { getAvatarLink } from "../lib/github";
-import humanizeNumber from "../lib/humanizeNumber";
 
 // import StackedAvatar from "./StackedAvatar";
+import { getAvatarLink } from "../lib/github";
+import humanizeNumber from "../lib/humanizeNumber";
 import useRepo from "../hooks/useRepo";
 import useVotedRepos from "../hooks/useVotedRepos";
+import useStarRepos from "../hooks/useStarRepos";
 
 export declare interface HotRepoCardProps {
   repoName: string;
@@ -18,33 +19,33 @@ export declare interface HotRepoCardProps {
 
 const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
+  const { starredReposIds, checkStarred, starHandler } = useStarRepos();
   const { repo, isLoading, isError } = useRepo(repoName);
   const [isVoted, setIsVoted] = useState(false);
+  const [isStarred, setIsStarred] = useState(false);
+  const [stars, setStars] = useState(0);
 
   useEffect(() => {
     repo && setIsVoted(checkVoted(repo.id));
-  }, [votedReposIds, repo]);
+    repo && setIsStarred(checkStarred(repo.id));
+    setStars(repo?.stars ?? 0);
+  }, [votedReposIds, starredReposIds, repo]);
 
   if (isError) {
     return (
-      <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">
-        {`${repoName} failed to load`}
-      </div>
+      <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">{`${repoName} failed to load`}</div>
     );
   }
 
   if (isLoading) {
     return (
       <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">
-        <Skeleton
-          enableAnimation
-          count={5}
-        />
+        <Skeleton enableAnimation count={5} />
       </div>
     );
   }
 
-  const { id, full_name, name, description, issues, stars } = repo!;
+  const { id, full_name, name, description, issues } = repo!;
   const repo_id = parseInt(`${id}`);
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
@@ -52,15 +53,9 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
     <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">
       <div className="flex justify-between w-full">
         <div className="flex space-x-1 items-center">
-          <img
-            alt="Hot Repo Icon"
-            className="h-4 w-4 rounded-md overflow-hidden"
-            src={getAvatarLink(owner)}
-          />
+          <img alt="Hot Repo Icon" className="h-4 w-4 rounded-md overflow-hidden" src={getAvatarLink(owner)} />
 
-          <span className="text-sm font-medium text-lightSlate11">
-            {owner}
-          </span>
+          <span className="text-sm font-medium text-lightSlate11">{owner}</span>
         </div>
 
         <button
@@ -69,16 +64,9 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           } ${isVoted ? "text-saucyRed border-saucyRed " : "text-lightSlate11 border-lightSlate06 "}`}
           onClick={async () => voteHandler(0, repo_id)}
         >
-          <span>
-            {isVoted ? "voted" : "upvote"}
-          </span>
+          <span>{isVoted ? "voted" : "upvote"}</span>
 
-          {isVoted
-            ? (
-              <RiCheckboxCircleFill className="" />)
-            : (
-              <FaArrowAltCircleUp className="fill-lightSlate09" />
-            )}
+          {isVoted ? <RiCheckboxCircleFill className="" /> : <FaArrowAltCircleUp className="fill-lightSlate09" />}
         </button>
       </div>
 
@@ -92,40 +80,34 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           {name}
         </a>
 
-        <p className="text-gray-500 font-medium text-xs w-5/6">
-          {description}
-        </p>
+        <p className="text-gray-500 font-medium text-xs w-5/6">{description}</p>
       </div>
 
       <div className="flex items-center justify-between absolute bottom-3 inset-x-0 px-4">
         <div className="flex space-x-3 text-xs">
           <div className="flex text-sm space-x-1 justify-center items-center">
-            <VscIssues
-              className="fill-lightSlate10"
-              size={16}
-            />
+            <VscIssues className="fill-lightSlate10" size={16} />
 
-            <span className="text-lightSlate11">
-              {humanizeNumber(issues)}
-            </span>
+            <span className="text-lightSlate11">{humanizeNumber(issues)}</span>
+          </div>
+
+          <div
+            className="flex text-sm space-x-1 justify-center items-center cursor-pointer"
+            onClick={async () =>
+              starHandler(stars, repo_id).then((newStars) => typeof newStars === "number" && setStars(newStars))
+            }
+          >
+            {isStarred ? (
+              <FaStar className="text-osOrange" size={16} />
+            ) : (
+              <AiOutlineStar className="fill-lightSlate10" size={16} />
+            )}
+
+            <span className={isStarred ? "text-osOrange" : "text-lightSlate11"}>{humanizeNumber(stars)}</span>
           </div>
 
           <div className="flex text-sm space-x-1 justify-center items-center">
-            <AiOutlineStar
-              className="fill-lightSlate10"
-              size={16}
-            />
-
-            <span className="text-lightSlate11">
-              {humanizeNumber(stars)}
-            </span>
-          </div>
-
-          <div className="flex text-sm space-x-1 justify-center items-center">
-            <BiGitPullRequest
-              className="fill-lightSlate10"
-              size={16}
-            />
+            <BiGitPullRequest className="fill-lightSlate10" size={16} />
 
             <span className="text-lightSlate11">0</span>
           </div>

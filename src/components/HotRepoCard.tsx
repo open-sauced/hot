@@ -13,6 +13,8 @@ import useRepo from "../hooks/useRepo";
 import useVotedRepos from "../hooks/useVotedRepos";
 import useContributions from "../hooks/useContributions";
 
+const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&title=fix:";
+
 export declare interface HotRepoCardProps {
   repoName: string;
 }
@@ -29,8 +31,19 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
 
   if (isError) {
     return (
-      <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">
-        {`${repoName} failed to load`}
+      <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative flex flex-col justify-between">
+        {`⚠️ ${repoName} repo could not be loaded`}
+
+        <div className="flex justify-center">
+          <a
+            className="bg-cheesyYellow text-grey rounded-xl font-bold hover:text-saucyRed transition-all duration-300 mr-3 p-2 flex w-5/6 h-fit justify-center"
+            href={`${String(`${bugReportLink} repo not found [${repoName}]&body=Please take a look why this  ${repoName} not founded`)}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            Report a bug
+          </a>
+        </div>
       </div>
     );
   }

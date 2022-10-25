@@ -127,6 +127,9 @@ web_modules/
 # Optional eslint cache
 .eslintcache
 
+# Optional snyk cache
+.dccache
+
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
@@ -181,6 +184,7 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+.vscode
 
 # yarn v2
 .yarn/cache

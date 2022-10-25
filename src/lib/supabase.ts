@@ -2,7 +2,7 @@ import { User, createClient } from "@supabase/supabase-js";
 
 export const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_API_KEY);
 
-export async function authenticatedVote(user_id: number, repo_id: number) {
+export async function authenticatedVote (user_id: number, repo_id: number) {
   const { data, error } = (await supabase
     .from("users_to_repos_votes")
     .select(`*`)
@@ -31,14 +31,14 @@ export async function authenticatedVote(user_id: number, repo_id: number) {
 
   await supabase
     .from("users_to_repos_votes")
-    .update({ deleted_at: new Date().toISOString() })
+    .update({ deleted_at: (new Date).toISOString() })
     .eq("user_id", user_id)
     .eq("repo_id", repo_id);
 
   return -1;
 }
 
-export async function authenticatedStar(user_id: number, repo_id: number) {
+export async function authenticatedStar (user_id: number, repo_id: number) {
   const { data, error } = (await supabase
     .from("users_to_repos_stars")
     .select(`*`)
@@ -67,38 +67,38 @@ export async function authenticatedStar(user_id: number, repo_id: number) {
 
   await supabase
     .from("users_to_repos_stars")
-    .update({ deleted_at: new Date().toISOString() })
+    .update({ deleted_at: (new Date).toISOString() })
     .eq("user_id", user_id)
     .eq("repo_id", repo_id);
 
   return -1;
 }
 
-export async function updateVotesByRepo(votes: number, repo_id: number, user_id: number) {
+export async function updateVotesByRepo (votes: number, repo_id: number, user_id: number) {
   const modifier = await authenticatedVote(user_id, repo_id);
 
   return votes + modifier;
 }
 
-export async function updateStarsByRepo(stars: number, repo_id: number, user_id: number) {
+export async function updateStarsByRepo (stars: number, repo_id: number, user_id: number) {
   const modifier = await authenticatedStar(user_id, repo_id);
 
   return stars + modifier;
 }
 
-export async function fetchRecommendations(
+export async function fetchRecommendations (
   activeLink = "popular",
   limit = 25,
   user: User | null = null,
-  textToSearchParam = ""
+  textToSearchParam = "",
 ) {
   const orderBy = "stars";
   const orderByOptions:
     | {
-        ascending?: boolean;
-        nullsFirst?: boolean;
-        foreignTable?: string;
-      }
+      ascending?: boolean;
+      nullsFirst?: boolean;
+      foreignTable?: string;
+    }
     | undefined = { ascending: false };
   let selectStatement = `
     id,

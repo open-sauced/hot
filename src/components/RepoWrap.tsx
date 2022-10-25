@@ -35,7 +35,7 @@ const RepoWrap = (): JSX.Element => {
 
   const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
-  const { data, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
+  const { data, isLoading, isError } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
 
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 10) });
@@ -43,12 +43,16 @@ const RepoWrap = (): JSX.Element => {
 
   return (
     <div className="bg-darkestGrey">
-      <SecondaryNav activeLink={activeLink} user={user} />
+      <SecondaryNav
+        activeLink={activeLink}
+        user={user}
+      />
 
       <HotRepositories />
 
       <ListRepositories
         activeLink={activeLink}
+        error={isError}
         fetchedData={data}
         handleLoadingMore={handleLoadingMore}
         limit={limit}

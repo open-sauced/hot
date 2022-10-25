@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useEffect, useRef, useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
 import { FaRegDotCircle, FaStar } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
@@ -19,7 +19,8 @@ const Hero = () => {
   const setValueDebounced = useDebounce(setSearchTerm, 500);
   const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
   const [hasFocus, setFocus] = useState(false);
-  const [stars, setStars] = useState(0);
+
+  // const [stars, setStars] = useState(0);
   const { starHandler, checkStarred } = useStarRepos();
 
   const handleCmdK = async (e: KeyboardEvent) => {
@@ -56,39 +57,45 @@ const Hero = () => {
     setFetchedData(results);
   }, [searchTerm]);
 
-  // const handleStar = (e: React.ChangeEvent<HTMLDivElement>) => console.log({ click: e.target.nodeValue });
-
   return (
     <div className="flex flex-col py-24 items-center mx-2.5">
       <div>
         <h1 className="font-Lexend text-4xl md:text-5xl text-center text-lightSlate leading-tight tracking-tight">
           {`Find `}
+
           <span className="bg-gradient-to-r from-gradFirst via-gradMiddle to-gradLast bg-clip-text text-transparent">
             Open-Source Repositories
           </span>
+
           <br />
           to contribute today
         </h1>
       </div>
 
       <div className="mt-11 px-4 gap-x-2.5 py-2.5 justify-between bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex">
-        <img alt="search icon" src={searchNormal} />
+        <img
+          alt="search icon"
+          src={searchNormal}
+        />
 
         <input
           ref={searchBoxRef}
           className="w-full outline-none text-base text-lightSlate"
           placeholder="Search repositories"
           type="text"
-          onChange={(e) => setValueDebounced(e.target.value)}
+          onChange={e => setValueDebounced(e.target.value)}
           onFocus={() => setFocus(true)}
           onBlur={() =>
             setTimeout(() => {
               setFocus(false);
-            }, 200)
-          }
+            }, 200)}
         />
 
-        <img alt="command k" className="pt-1.5" src={cmdKIcon} />
+        <img
+          alt="command k"
+          className="pt-1.5"
+          src={cmdKIcon}
+        />
       </div>
 
       <div className="mt-2.5 flex w-full justify-center relative">
@@ -98,13 +105,20 @@ const Hero = () => {
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 
-            {fetchedData.map(({ id, full_name, name, description, issues, stars: repoStars }) => {
+            {fetchedData.map(({ id, full_name, name, description, issues, starsCount }) => {
               const isStarred = checkStarred(id);
 
               return (
-                <div key={full_name} className="flex flex-col hover:bg-gray-50 ">
+                <div
+                  key={full_name}
+                  className="flex flex-col hover:bg-gray-50 "
+                >
                   <div className="flex flex-col px-10 md:px-3.5 py-2.5">
-                    <a href={`https://app.opensauced.pizza/repos/${full_name}`} rel="noreferrer" target="_blank">
+                    <a
+                      href={`https://app.opensauced.pizza/repos/${full_name}`}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
                       <div className="flex items-center gap-x-2.5 mb-1">
                         <div className="w-6 h-6 overflow-hidden border-gray-400 border-px bg-red-100 rounded-full">
                           <img
@@ -114,10 +128,14 @@ const Hero = () => {
                           />
                         </div>
 
-                        <p className="text-base text-gray-500 font-semibold">{full_name}</p>
+                        <p className="text-base text-gray-500 font-semibold">
+                          {full_name}
+                        </p>
                       </div>
 
-                      <p className="text-sm text-gray-500">{description}</p>
+                      <p className="text-sm text-gray-500">
+                        {description}
+                      </p>
                     </a>
 
                     <div className="flex justify-between mt-2">
@@ -129,7 +147,9 @@ const Hero = () => {
                         <div className="flex items-center gap-x-1">
                           <FaRegDotCircle aria-hidden="true" />
 
-                          <p className="text-gray-500 text-xs">{humanizeNumber(issues)}</p>
+                          <p className="text-gray-500 text-xs">
+                            {humanizeNumber(issues)}
+                          </p>
                         </div>
 
                         <div
@@ -138,19 +158,25 @@ const Hero = () => {
                             setTimeout(() => {
                               setFocus(true);
                             }, 100);
-                            starHandler(repoStars, id).then(
-                              (newStars) => typeof newStars === "number" && setStars(newStars)
-                            );
+                            starHandler(starsCount, id);
                           }}
                         >
-                          {isStarred ? (
-                            <FaStar aria-hidden="true" className="mr-1 text-osOrange" />
-                          ) : (
-                            <AiOutlineStar aria-hidden="true" className="mr-1" />
-                          )}
+                          {isStarred
+                            ? (
+                              <FaStar
+                                aria-hidden="true"
+                                className="mr-1 text-osOrange"
+                              />
+                            )
+                            : (
+                              <AiOutlineStar
+                                aria-hidden="true"
+                                className="mr-1"
+                              />
+                            )}
 
                           <p className={cx("text-xs", isStarred ? "text-osOrange" : "text-gray-500")}>
-                            {humanizeNumber(stars > repoStars ? stars : repoStars)}
+                            {humanizeNumber(starsCount)}
                           </p>
                         </div>
                       </div>

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.26.0-beta.10](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.9...v2.26.0-beta.10) (2022-10-22)
+
+
+### 🍕 Features
+
+* display repos' contributors avatars ([#383](https://github.com/open-sauced/hot-sauce/issues/383)) ([ecebb1e](https://github.com/open-sauced/hot-sauce/commit/ecebb1ef0e85d46fb2fa67424081ae9250ff991e)), closes [#333](https://github.com/open-sauced/hot-sauce/issues/333)
+
 ## [2.26.0-beta.9](https://github.com/open-sauced/hot-sauce/compare/v2.26.0-beta.8...v2.26.0-beta.9) (2022-10-20)
 
 

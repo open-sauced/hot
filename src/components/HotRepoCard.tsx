@@ -8,9 +8,10 @@ import Skeleton from "react-loading-skeleton";
 import { getAvatarLink } from "../lib/github";
 import humanizeNumber from "../lib/humanizeNumber";
 
-// import StackedAvatar from "./StackedAvatar";
+import StackedAvatar from "./StackedAvatar";
 import useRepo from "../hooks/useRepo";
 import useVotedRepos from "../hooks/useVotedRepos";
+import useContributions from "../hooks/useContributions";
 
 export declare interface HotRepoCardProps {
   repoName: string;
@@ -20,6 +21,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const { repo, isLoading, isError } = useRepo(repoName);
   const [isVoted, setIsVoted] = useState(false);
+  const { data: contributions } = useContributions(repoName);
 
   useEffect(() => {
     if (!repo) {
@@ -135,7 +137,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           </div>
         </div>
 
-        {/* <StackedAvatar contributors={contributions} /> */}
+        <StackedAvatar contributors={contributions} />
       </div>
     </div>
   );

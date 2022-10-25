@@ -6,12 +6,13 @@ import { BiGitPullRequest } from "react-icons/bi";
 import { VscIssues } from "react-icons/vsc";
 import Skeleton from "react-loading-skeleton";
 
-// import StackedAvatar from "./StackedAvatar";
-import { getAvatarLink } from "../lib/github";
-import humanizeNumber from "../lib/humanizeNumber";
+import StackedAvatar from "./StackedAvatar";
 import useRepo from "../hooks/useRepo";
 import useVotedRepos from "../hooks/useVotedRepos";
+import useContributions from "../hooks/useContributions";
 import useStarRepos from "../hooks/useStarRepos";
+import { getAvatarLink } from "../lib/github";
+import humanizeNumber from "../lib/humanizeNumber";
 
 export declare interface HotRepoCardProps {
   repoName: string;
@@ -24,6 +25,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const [isVoted, setIsVoted] = useState(false);
   const [isStarred, setIsStarred] = useState(false);
   const [starsCount, setStarsCount] = useState(0);
+  const { data: contributions } = useContributions(repoName);
 
   useEffect(() => {
     repo && setIsVoted(checkVoted(repo.id));
@@ -113,6 +115,9 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
 
           <div
             className="flex text-sm space-x-1 justify-center items-center cursor-pointer"
+            role="button"
+            tabIndex={0}
+            onKeyDown={e => e.preventDefault()}
             onClick={async () => starHandler(starsCount, repo_id)
               .then(newStars => typeof newStars === "number" && setStarsCount(newStars))}
           >
@@ -145,7 +150,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           </div>
         </div>
 
-        {/* <StackedAvatar contributors={contributions} /> */}
+        <StackedAvatar contributors={contributions} />
       </div>
     </div>
   );

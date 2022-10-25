@@ -1,16 +1,10 @@
 import { MutableRefObject, useRef, useState } from "react";
 import { useDebounce, useDidUpdate, useKeys } from "rooks";
-import { FaRegDotCircle, FaStar } from "react-icons/fa";
-import { AiOutlineStar } from "react-icons/ai";
-import cx from "classnames";
 
-// import StackedAvatar from "./StackedAvatar";
 import { fetchRecommendations } from "../lib/supabase";
-import humanizeNumber from "../lib/humanizeNumber";
-import { getAvatarLink } from "../lib/github";
 import searchNormal from "../assets/searchNormal.svg";
 import cmdKIcon from "../assets/cmdK.svg";
-import useStarRepos from "../hooks/useStarRepos";
+import SearchedRepoCard from "./SearchedRepoCard";
 
 const Hero = () => {
   const containerRef = useRef<Document>(document);
@@ -19,9 +13,6 @@ const Hero = () => {
   const setValueDebounced = useDebounce(setSearchTerm, 500);
   const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
   const [hasFocus, setFocus] = useState(false);
-
-  // const [stars, setStars] = useState(0);
-  const { starHandler, checkStarred } = useStarRepos();
 
   const handleCmdK = async (e: KeyboardEvent) => {
     if (!hasFocus) {
@@ -105,86 +96,12 @@ const Hero = () => {
               <p className="text-gray-500 text-sm font-semibold">Repository</p>
             </div>
 
-            {fetchedData.map(({ id, full_name, name, description, issues, starsCount }) => {
-              const isStarred = checkStarred(id);
-
-              return (
-                <div
-                  key={full_name}
-                  className="flex flex-col hover:bg-gray-50 "
-                >
-                  <div className="flex flex-col px-10 md:px-3.5 py-2.5">
-                    <a
-                      href={`https://app.opensauced.pizza/repos/${full_name}`}
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      <div className="flex items-center gap-x-2.5 mb-1">
-                        <div className="w-6 h-6 overflow-hidden border-gray-400 border-px bg-red-100 rounded-full">
-                          <img
-                            alt={full_name}
-                            className="w-full h-full"
-                            src={getAvatarLink(full_name.replace(`/${String(name)}`, ""))}
-                          />
-                        </div>
-
-                        <p className="text-base text-gray-500 font-semibold">
-                          {full_name}
-                        </p>
-                      </div>
-
-                      <p className="text-sm text-gray-500">
-                        {description}
-                      </p>
-                    </a>
-
-                    <div className="flex justify-between mt-2">
-                      {/* <div className="flex gap-x-1">
-                          <StackedAvatar contributors={contributions} />
-                        </div> */}
-
-                      <div className="flex gap-x-1.5">
-                        <div className="flex items-center gap-x-1">
-                          <FaRegDotCircle aria-hidden="true" />
-
-                          <p className="text-gray-500 text-xs">
-                            {humanizeNumber(issues)}
-                          </p>
-                        </div>
-
-                        <div
-                          className="flex items-center gap-x-1"
-                          onClick={async () => {
-                            setTimeout(() => {
-                              setFocus(true);
-                            }, 100);
-                            starHandler(starsCount, id);
-                          }}
-                        >
-                          {isStarred
-                            ? (
-                              <FaStar
-                                aria-hidden="true"
-                                className="mr-1 text-osOrange"
-                              />
-                            )
-                            : (
-                              <AiOutlineStar
-                                aria-hidden="true"
-                                className="mr-1"
-                              />
-                            )}
-
-                          <p className={cx("text-xs", isStarred ? "text-osOrange" : "text-gray-500")}>
-                            {humanizeNumber(starsCount)}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {fetchedData.map(data => (
+              <SearchedRepoCard
+                key={data.full_name}
+                data={data}
+              />
+            ))}
           </div>
         )}
       </div>

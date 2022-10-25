@@ -5,6 +5,7 @@ import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
+import { useVotedRepositoriesList } from "../hooks/useVotedRepositoriesList";
 
 export enum RepoOrderByEnum {
   popular = "stars",
@@ -36,7 +37,9 @@ const RepoWrap = (): JSX.Element => {
 
   const activeLink = (locationsHash[location.pathname] ?? "popular") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
-  const { data, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
+
+  const fetchHook = RepoOrderByEnum[activeLink] !== RepoOrderByEnum.myVotes ? useRepositoriesList : useVotedRepositoriesList;
+  const { data, isLoading } = fetchHook(RepoOrderByEnum[activeLink], limit);
 
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 10) });

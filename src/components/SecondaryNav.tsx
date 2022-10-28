@@ -9,8 +9,8 @@ export declare interface SecondaryNavProps {
 const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
   const links = [
     {
-      link: "popular",
-      title: "Popular",
+      link: "recent",
+      title: "Recent",
     },
     {
       link: "upvoted",
@@ -21,8 +21,8 @@ const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
       title: "Discussed",
     },
     {
-      link: "recent",
-      title: "Recent",
+      link: "popular",
+      title: "Popular",
     },
   ];
 

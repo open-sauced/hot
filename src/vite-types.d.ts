@@ -22,9 +22,7 @@ interface DbRepo {
   readonly language?: string;
   readonly license?: string;
   readonly url?: string;
-  readonly contributions: DbContribution[];
-  readonly starsRelation: { starsCount: number }[],
-  readonly votesRelation: { votesCount: number }[],
+  readonly contributionsCount?: number;
   readonly created_at?: string;
   readonly updated_at?: string;
   readonly pushed_at?: string;
@@ -42,4 +40,13 @@ interface DbRepoToUserVotes {
   readonly created_at?: string;
   readonly updated_at?: string;
   readonly deleted_at?: string | null;
+}
+
+interface PageMetaDto {
+  readonly page: number;
+  readonly take: number;
+  readonly itemCount: number;
+  readonly pageCount: number;
+  readonly hasPreviousPage: boolean;
+  readonly hasNextPage: boolean;
 }

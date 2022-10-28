@@ -6,10 +6,11 @@ import { getAvatarLink } from "../lib/github";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
 import openSaucedLogo from "../assets/openSauced.svg";
+import { supabase } from "../lib/supabase";
 
 import RepoSubmission from "./RepoSubmission";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
@@ -30,10 +31,22 @@ const StarTheRepo = (): JSX.Element => (
 
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
-
+  const currentUser = supabase.auth.session();
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
+
+  useEffect(() => {
+    const fetchAuthSession = async () => {
+      if (currentUser?.access_token) {
+        await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json", Authorization: `Bearer ${currentUser.access_token}` } })
+          .then(res => console.log("response: ", res))
+          .catch(err => console.log("error: ", err));
+      }
+    };
+
+    fetchAuthSession().catch(err => console.log(err));
+  }, [user]);
 
   return (
     <header>
@@ -127,6 +140,19 @@ const PrimaryNav = (): JSX.Element => {
                       onClick={() => handleFormOpen(true)}
                     >
                       Submit a repository
+                    </button>
+                  )}
+                </Menu.Item>
+
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      className={`${
+                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      onClick={() => console.log("Token: ", currentUser?.access_token)}
+                    >
+                      Print auth token
                     </button>
                   )}
                 </Menu.Item>

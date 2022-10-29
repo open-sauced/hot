@@ -1,5 +1,4 @@
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
@@ -28,7 +27,7 @@ console.log(
 
 const App = (): JSX.Element => {
   initiatePostHog();
-  
+
   return (
     <SWRConfig
       value={{

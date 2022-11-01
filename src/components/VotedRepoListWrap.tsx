@@ -6,7 +6,7 @@ import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 import { useVotedRepositoriesList } from "../hooks/useVotedRepositoriesList";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 
 export enum RepoOrderByEnum {
@@ -41,6 +41,29 @@ const VotedRepoListWrap = (): JSX.Element => {
   const limit = parseLimitValue(searchParams.get("limit"));
 
   const { data, isLoading } = useVotedRepositoriesList(RepoOrderByEnum[activeLink], limit);
+  const [thisWeek, setThisWeek] = useState<DbRepo[] | null>(null);
+  const [lastWeek, setLastWeek] = useState<DbRepo[] | null>(null);
+  const [older, setOlder] = useState<DbRepo[] | null>(null);
+
+  useEffect( () => {
+    const lastSunday = new Date()
+    lastSunday.setDate(lastSunday.getDate() - lastSunday.getDay())
+    lastSunday.setHours(0, 0, 0, 0)
+
+    if(!isLoading) {
+      let thisWeekData = data.filter( (repo) => repo.created_at && new Date(repo.created_at) > lastSunday);
+      thisWeekData.sort( (a, b) => new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1);
+      setThisWeek(thisWeekData);
+
+      let lastWeekData = data.filter( (repo) => repo.created_at && new Date(repo.created_at) < lastSunday && new Date(repo.created_at) > new Date(lastSunday.getTime() - 7 * 24 * 60 * 60 * 1000));
+      lastWeekData.sort( (a, b) => new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1);
+      setLastWeek(lastWeekData);
+
+      let olderData = data.filter( (repo) => repo.created_at && new Date(repo.created_at) < new Date(lastSunday.getTime() - 7 * 24 * 60 * 60 * 1000));
+      olderData.sort( (a, b) => new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1);
+      setOlder(olderData);
+    }
+  }, [data])
 
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 10) });
@@ -56,13 +79,38 @@ const VotedRepoListWrap = (): JSX.Element => {
       <HotRepositories />
 
       {!isLoading &&
-        <ListRepositories
-          activeLink={activeLink}
-          title={`${camelCaseToTitleCase(activeLink)} Repositories`}
-          fetchedData={data}
-          handleLoadingMore={handleLoadingMore}
-          limit={limit}
-        />}
+        (
+          <>
+            {thisWeek && thisWeek.length > 0 &&
+              <ListRepositories
+                activeLink={activeLink}
+                title={`this week`}
+                fetchedData={thisWeek}
+                handleLoadingMore={handleLoadingMore}
+                limit={limit}
+              />
+            }
+            {lastWeek && lastWeek.length > 0 &&
+              <ListRepositories
+                activeLink={activeLink}
+                title={`last week`}
+                fetchedData={lastWeek}
+                handleLoadingMore={handleLoadingMore}
+                limit={limit}
+              />
+            }
+            {older && older.length > 0 &&
+              <ListRepositories
+                activeLink={activeLink}
+                title={`Older`}
+                fetchedData={older}
+                handleLoadingMore={handleLoadingMore}
+                limit={limit}
+              />
+            }
+          </>
+        )
+      }
     </div>
   );
 };

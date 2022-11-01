@@ -1,6 +1,5 @@
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import Skeleton from "react-loading-skeleton";
-import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 import RepoList from "./RepoList";
 
 export declare interface ListRepositoriesProps {
@@ -16,7 +15,7 @@ const ListRepositories = ({
   limit,
   handleLoadingMore,
   fetchedData,
-  title
+  title,
 }: ListRepositoriesProps): JSX.Element => {
   if (!fetchedData.length) {
     return (

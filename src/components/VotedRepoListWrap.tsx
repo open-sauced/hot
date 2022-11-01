@@ -4,10 +4,8 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
-import { useRepositoriesList } from "../hooks/useRepositoriesList";
 import { useVotedRepositoriesList } from "../hooks/useVotedRepositoriesList";
 import { useEffect, useState } from "react";
-import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 
 export enum RepoOrderByEnum {
   popular = "stars",
@@ -46,24 +44,28 @@ const VotedRepoListWrap = (): JSX.Element => {
   const [older, setOlder] = useState<DbRepo[] | null>(null);
 
   useEffect( () => {
-    const lastSunday = new Date()
-    lastSunday.setDate(lastSunday.getDate() - lastSunday.getDay())
-    lastSunday.setHours(0, 0, 0, 0)
+    const lastSunday = (new Date);
 
-    if(!isLoading) {
-      let thisWeekData = data.filter( (repo) => repo.created_at && new Date(repo.created_at) > lastSunday);
-      thisWeekData.sort( (a, b) => new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1);
+    lastSunday.setDate(lastSunday.getDate() - lastSunday.getDay());
+    lastSunday.setHours(0, 0, 0, 0);
+
+    if (!isLoading) {
+      const thisWeekData = data.filter( repo => repo.created_at && new Date(repo.created_at) > lastSunday);
+
+      thisWeekData.sort( (a, b) => (new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1));
       setThisWeek(thisWeekData);
 
-      let lastWeekData = data.filter( (repo) => repo.created_at && new Date(repo.created_at) < lastSunday && new Date(repo.created_at) > new Date(lastSunday.getTime() - 7 * 24 * 60 * 60 * 1000));
-      lastWeekData.sort( (a, b) => new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1);
+      const lastWeekData = data.filter( repo => repo.created_at && new Date(repo.created_at) < lastSunday && new Date(repo.created_at) > new Date(lastSunday.getTime() - 7 * 24 * 60 * 60 * 1000));
+
+      lastWeekData.sort( (a, b) => (new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1));
       setLastWeek(lastWeekData);
 
-      let olderData = data.filter( (repo) => repo.created_at && new Date(repo.created_at) < new Date(lastSunday.getTime() - 7 * 24 * 60 * 60 * 1000));
-      olderData.sort( (a, b) => new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1);
+      const olderData = data.filter( repo => repo.created_at && new Date(repo.created_at) < new Date(lastSunday.getTime() - 7 * 24 * 60 * 60 * 1000));
+
+      olderData.sort( (a, b) => (new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1));
       setOlder(olderData);
     }
-  }, [data])
+  }, [data]);
 
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 10) });
@@ -84,33 +86,31 @@ const VotedRepoListWrap = (): JSX.Element => {
             {thisWeek && thisWeek.length > 0 &&
               <ListRepositories
                 activeLink={activeLink}
-                title={`this week`}
                 fetchedData={thisWeek}
                 handleLoadingMore={handleLoadingMore}
                 limit={limit}
-              />
-            }
+                title="this week"
+              />}
+
             {lastWeek && lastWeek.length > 0 &&
               <ListRepositories
                 activeLink={activeLink}
-                title={`last week`}
                 fetchedData={lastWeek}
                 handleLoadingMore={handleLoadingMore}
                 limit={limit}
-              />
-            }
+                title="last week"
+              />}
+
             {older && older.length > 0 &&
               <ListRepositories
                 activeLink={activeLink}
-                title={`Older`}
                 fetchedData={older}
                 handleLoadingMore={handleLoadingMore}
                 limit={limit}
-              />
-            }
+                title="Older"
+              />}
           </>
-        )
-      }
+        )}
     </div>
   );
 };

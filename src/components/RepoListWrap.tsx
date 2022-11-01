@@ -5,7 +5,6 @@ import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import SecondaryNav from "./SecondaryNav";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
-import { useVotedRepositoriesList } from "../hooks/useVotedRepositoriesList";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 
 export enum RepoOrderByEnum {
@@ -57,10 +56,10 @@ const RepoListWrap = (): JSX.Element => {
       {!isLoading &&
         <ListRepositories
           activeLink={activeLink}
-          title={`${camelCaseToTitleCase(activeLink)} Repositories`}
           fetchedData={data}
           handleLoadingMore={handleLoadingMore}
           limit={limit}
+          title={`${camelCaseToTitleCase(activeLink)} Repositories`}
         />}
     </div>
   );

@@ -43,9 +43,17 @@ const App = (): JSX.Element => {
 
             <Hero />
           </GradBackground>
+
           <Routes>
-            <Route path="myVotes" element={<VotedRepoListWrap />} />
-            <Route path="*" element={<RepoListWrap />} />
+            <Route
+              element={<VotedRepoListWrap />}
+              path="myVotes"
+            />
+
+            <Route
+              element={<RepoListWrap />}
+              path="*"
+            />
           </Routes>
 
           <Footer />

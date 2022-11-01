@@ -7,6 +7,7 @@ import SecondaryNav from "./SecondaryNav";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 import { useVotedRepositoriesList } from "../hooks/useVotedRepositoriesList";
 import { useEffect } from "react";
+import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 
 export enum RepoOrderByEnum {
   popular = "stars",
@@ -57,6 +58,7 @@ const VotedRepoListWrap = (): JSX.Element => {
       {!isLoading &&
         <ListRepositories
           activeLink={activeLink}
+          title={`${camelCaseToTitleCase(activeLink)} Repositories`}
           fetchedData={data}
           handleLoadingMore={handleLoadingMore}
           limit={limit}

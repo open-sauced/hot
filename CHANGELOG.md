@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+### [2.26.1-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.26.0...v2.26.1-beta.1) (2022-11-01)
+
+
+### 🐛 Bug Fixes
+
+* star us on GitHub button redirect ([#392](https://github.com/open-sauced/hot-sauce/issues/392)) ([83272f6](https://github.com/open-sauced/hot-sauce/commit/83272f633d8b0c472a83eecbf7dd3501b928d459)), closes [#391](https://github.com/open-sauced/hot-sauce/issues/391)
+
 ## [2.26.0](https://github.com/open-sauced/hot-sauce/compare/v2.25.0...v2.26.0) (2022-10-28)
 
 

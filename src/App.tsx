@@ -1,8 +1,8 @@
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
-import RepoWrap from "./components/RepoWrap";
+import RepoListWrap from "./components/RepoListWrap";
 import { initiatePostHog } from "./lib/analytics";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { SWRConfig } from "swr";
 import GradBackground from "./components/GradBackground";
@@ -10,6 +10,7 @@ import Hero from "./components/Hero";
 import apiFetcher from "./hooks/useSWR";
 
 import getAppVersion from "./lib/appVersion";
+import VotedRepoListWrap from "./components/VotedRepoListWrap";
 
 console.log(
   `%c
@@ -42,8 +43,10 @@ const App = (): JSX.Element => {
 
             <Hero />
           </GradBackground>
-
-          <RepoWrap />
+          <Routes>
+            <Route path="myVotes" element={<VotedRepoListWrap />} />
+            <Route path="*" element={<RepoListWrap />} />
+          </Routes>
 
           <Footer />
         </div>

@@ -24,7 +24,7 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
   const saveToDataBase = (repoUrl: string): void => {
     setIsSubmissionInProcess(true);
 
-    setTimeout(() => {
+    setTimeout(async () => {
       setIsSubmissionInProcess(false);
 
       const { isValid, sanitizedUrl } = isValidRepoUrl(repoUrl.replace(/\s+/g, ""));
@@ -39,7 +39,9 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
         return handleFormOpen(false);
       }
 
-      if (currentUser?.access_token) submitRepo(sanitizedUrl, currentUser.access_token);
+      if (currentUser?.access_token) {
+        await submitRepo(sanitizedUrl, currentUser.access_token);
+      }
       setSubmitted(true);
       sendMessage(userName, sanitizedUrl);
       return ToastTrigger({ message: "Data Submitted", type: "success" });
@@ -47,12 +49,14 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
   };
 
   const submitRepo = async (sanitizedUrl: string, userToken: string) => {
-    await fetch(`${import.meta.env.VITE_API_URL}/repos/${sanitizedUrl}`, {
+    const [owner, repo] = sanitizedUrl.split("/");
+    const body: { owner: string; repo: string } = { owner, repo };
+
+    await fetch(`${import.meta.env.VITE_API_URL}/repos/${sanitizedUrl}/submit`, {
       method: "PUT",
+      body: JSON.stringify(body),
       headers: { accept: "application/json", Authorization: `Bearer ${userToken}` },
-    })
-      .then((res) => console.log("response: ", res))
-      .catch((err) => console.log("error: ", err));
+    });
   };
 
   const submitButtonHandler = (): void => {
@@ -67,7 +71,7 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
   };
 
   // listening outside focus
-  function handleClickOutsideRepoSubmission(): void {
+  function handleClickOutsideRepoSubmission (): void {
     if (isSubmissionInProcess) {
       return;
     }
@@ -77,7 +81,10 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
   }
 
   return (
-    <div ref={submissionRef} className="fixed top-14 right-40 flex items-end flex-col gap-2.5 submission-form z-10">
+    <div
+      ref={submissionRef}
+      className="fixed top-14 right-40 flex items-end flex-col gap-2.5 submission-form z-10"
+    >
       {isFormOpen}
 
       {isFormOpen && !isSubmissionInProcess && !submitted && (
@@ -90,7 +97,7 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
             className="bg-gray-200 py-1 w-full px-2.5 rounded-md outline-yellow-300 text-gray-500 text-xs  "
             placeholder="https://github.com/open-sauced/hot"
             type="text"
-            onChange={(e) => setInput(e.target.value)}
+            onChange={e => setInput(e.target.value)}
           />
 
           <button

@@ -11,6 +11,7 @@ import apiFetcher from "./hooks/useSWR";
 
 import getAppVersion from "./lib/appVersion";
 import VotedRepoListWrap from "./components/VotedRepoListWrap";
+import RecentRepoListWrap from "./components/RecentRepoListWrap";
 
 console.log(
   `%c
@@ -48,6 +49,11 @@ const App = (): JSX.Element => {
             <Route
               element={<VotedRepoListWrap />}
               path="myVotes"
+            />
+
+            <Route
+              element={<RecentRepoListWrap />}
+              path="recent"
             />
 
             <Route

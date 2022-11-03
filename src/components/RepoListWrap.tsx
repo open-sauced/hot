@@ -1,9 +1,7 @@
 import { useLocation, useSearchParams } from "react-router-dom";
 import locationsHash from "../lib/locationsHash";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
-import SecondaryNav from "./SecondaryNav";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 
@@ -32,7 +30,6 @@ const parseLimitValue = (limit: string | null): number => {
 
 const RepoListWrap = (): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { user } = useSupabaseAuth();
   const location = useLocation();
 
   const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;

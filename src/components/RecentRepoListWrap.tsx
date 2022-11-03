@@ -1,9 +1,7 @@
 import { useLocation, useSearchParams } from "react-router-dom";
 import locationsHash from "../lib/locationsHash";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
-import SecondaryNav from "./SecondaryNav";
 import { useEffect, useState } from "react";
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
@@ -33,7 +31,6 @@ const parseLimitValue = (limit: string | null): number => {
 
 const RecentRepoListWrap = (): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { user } = useSupabaseAuth();
   const location = useLocation();
 
   const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
@@ -82,6 +79,7 @@ const RecentRepoListWrap = (): JSX.Element => {
             <div className="mx-auto max-w-7xl px-4 mt-10">
               <div className="flex items-center gap-x-2.5">
                 <BsFillCalendar2Fill className="w-8 h-8 text-white" />
+
                 <h1 className="text-3xl text-white font-semibold">
                   Recent Repositories
                 </h1>

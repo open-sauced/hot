@@ -1,6 +1,6 @@
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
-import RepoListWrap from "./components/RepoListWrap";
+import RepoListWrap, { RepoOrderByEnum } from "./components/RepoListWrap";
 import { initiatePostHog } from "./lib/analytics";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -12,6 +12,9 @@ import apiFetcher from "./hooks/useSWR";
 import getAppVersion from "./lib/appVersion";
 import VotedRepoListWrap from "./components/VotedRepoListWrap";
 import RecentRepoListWrap from "./components/RecentRepoListWrap";
+import SecondaryNav from "./components/SecondaryNav";
+import useSupabaseAuth from "./hooks/useSupabaseAuth";
+import locationsHash from "./lib/locationsHash";
 
 console.log(
   `%c
@@ -27,6 +30,9 @@ console.log(
 
 const App = (): JSX.Element => {
   initiatePostHog();
+
+  const { user } = useSupabaseAuth();
+  const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
 
   return (
     <SWRConfig
@@ -45,22 +51,29 @@ const App = (): JSX.Element => {
             <Hero />
           </GradBackground>
 
-          <Routes>
-            <Route
-              element={<VotedRepoListWrap />}
-              path="myVotes"
+          <div className="bg-darkestGrey">
+            <SecondaryNav
+              activeLink={activeLink}
+              user={user}
             />
 
-            <Route
-              element={<RecentRepoListWrap />}
-              path="recent"
-            />
+            <Routes>
+              <Route
+                element={<VotedRepoListWrap />}
+                path="myVotes"
+              />
 
-            <Route
-              element={<RepoListWrap />}
-              path="*"
-            />
-          </Routes>
+              <Route
+                element={<RecentRepoListWrap />}
+                path="recent"
+              />
+
+              <Route
+                element={<RepoListWrap />}
+                path="*"
+              />
+            </Routes>
+          </div>
 
           <Footer />
         </div>

@@ -44,12 +44,7 @@ const VotedRepoListWrap = (): JSX.Element => {
   };
 
   return (
-    <div className="bg-darkestGrey">
-      <SecondaryNav
-        activeLink={activeLink}
-        user={user}
-      />
-
+    <>
       <HotRepositories />
 
       {!isLoading &&
@@ -60,7 +55,7 @@ const VotedRepoListWrap = (): JSX.Element => {
           limit={limit}
           title={`My Votes Repositories`}
         />}
-    </div>
+    </>
   );
 };
 

@@ -45,12 +45,7 @@ const RepoListWrap = (): JSX.Element => {
   };
 
   return (
-    <div className="bg-darkestGrey">
-      <SecondaryNav
-        activeLink={activeLink}
-        user={user}
-      />
-
+    <>
       <HotRepositories />
 
       {!isLoading &&
@@ -61,7 +56,7 @@ const RepoListWrap = (): JSX.Element => {
           limit={limit}
           title={`${camelCaseToTitleCase(activeLink)} Repositories`}
         />}
-    </div>
+    </>
   );
 };
 

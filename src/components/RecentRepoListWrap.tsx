@@ -73,12 +73,7 @@ const RecentRepoListWrap = (): JSX.Element => {
   };
 
   return (
-    <div className="bg-darkestGrey">
-      <SecondaryNav
-        activeLink={activeLink}
-        user={user}
-      />
-
+    <>
       <HotRepositories />
 
       {!isLoading &&
@@ -121,7 +116,7 @@ const RecentRepoListWrap = (): JSX.Element => {
               />}
           </>
         )}
-    </div>
+    </>
   );
 };
 

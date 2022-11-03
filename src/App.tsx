@@ -1,6 +1,6 @@
 import Footer from "./components/Footer";
 import PrimaryNav from "./components/PrimaryNav";
-import RepoListWrap, { RepoOrderByEnum } from "./components/RepoListWrap";
+import RepoListWrap from "./components/RepoListWrap";
 import { initiatePostHog } from "./lib/analytics";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
@@ -13,8 +13,6 @@ import getAppVersion from "./lib/appVersion";
 import VotedRepoListWrap from "./components/VotedRepoListWrap";
 import RecentRepoListWrap from "./components/RecentRepoListWrap";
 import SecondaryNav from "./components/SecondaryNav";
-import useSupabaseAuth from "./hooks/useSupabaseAuth";
-import locationsHash from "./lib/locationsHash";
 
 console.log(
   `%c
@@ -30,9 +28,6 @@ console.log(
 
 const App = (): JSX.Element => {
   initiatePostHog();
-
-  const { user } = useSupabaseAuth();
-  const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
 
   return (
     <SWRConfig
@@ -52,10 +47,7 @@ const App = (): JSX.Element => {
           </GradBackground>
 
           <div className="bg-darkestGrey">
-            <SecondaryNav
-              activeLink={activeLink}
-              user={user}
-            />
+            <SecondaryNav />
 
             <Routes>
               <Route

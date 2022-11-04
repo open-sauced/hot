@@ -86,12 +86,15 @@ const RecentRepoListWrap = (): JSX.Element => {
               </div>
             </div>
 
+            {/* limit set to 101, a temporary fix to hide "Load More" from "This Week" & "Last Week".
+              TODO: Make a real solution for this. */}
+
             {thisWeek && thisWeek.length > 0 &&
               <ListRepositories
                 activeLink={activeLink}
                 fetchedData={thisWeek}
                 handleLoadingMore={handleLoadingMore}
-                limit={limit}
+                limit={101}
                 title="This Week"
               />}
 
@@ -100,7 +103,7 @@ const RecentRepoListWrap = (): JSX.Element => {
                 activeLink={activeLink}
                 fetchedData={lastWeek}
                 handleLoadingMore={handleLoadingMore}
-                limit={limit}
+                limit={101}
                 title="Last Week"
               />}
 

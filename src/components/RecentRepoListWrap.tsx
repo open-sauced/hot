@@ -76,16 +76,6 @@ const RecentRepoListWrap = (): JSX.Element => {
       {!isLoading &&
         (
           <>
-            <div className="mx-auto max-w-7xl px-4 mt-10">
-              <div className="flex items-center gap-x-2.5">
-                <BsFillCalendar2Fill className="w-8 h-8 text-white" />
-
-                <h1 className="text-3xl text-white font-semibold">
-                  Recent Repositories
-                </h1>
-              </div>
-            </div>
-
             {/* limit set to 101, a temporary fix to hide "Load More" from "This Week" & "Last Week".
               TODO: Make a real solution for this. */}
 

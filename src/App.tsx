@@ -57,6 +57,11 @@ const App = (): JSX.Element => {
 
               <Route
                 element={<RecentRepoListWrap />}
+                path="/"
+              />
+
+              <Route
+                element={<RecentRepoListWrap />}
                 path="recent"
               />
 

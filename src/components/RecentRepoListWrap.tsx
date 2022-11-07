@@ -3,7 +3,6 @@ import locationsHash from "../lib/locationsHash";
 import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import { useEffect, useState } from "react";
-import { BsFillCalendar2Fill } from "react-icons/bs";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 
 export enum RepoOrderByEnum {

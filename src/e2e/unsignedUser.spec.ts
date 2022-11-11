@@ -1,27 +1,31 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('unsigned user should see all categories except My Votes', async ({ page }) => {
-  await page.goto('/');
+test("unsigned user should see all categories except My Votes", async ({ page }) => {
+  await page.goto("/");
 
-  // The categories that should be visible and functional
-  const recent = page.locator('a', { hasText: 'Recent' });
-  await expect(recent).toHaveAttribute('href', '/recent');
+  // the categories that should be visible and functional
+  const recent = page.locator("a", { hasText: "Recent" });
+
+  await expect(recent).toHaveAttribute("href", "/recent");
   await expect(recent).toBeVisible();
 
-  const upvoted = page.locator('a', { hasText: 'Upvoted' });
-  await expect(upvoted).toHaveAttribute('href', '/upvoted');
+  const upvoted = page.locator("a", { hasText: "Upvoted" });
+
+  await expect(upvoted).toHaveAttribute("href", "/upvoted");
   await expect(upvoted).toBeVisible();
 
-  const discussed = page.locator('a', { hasText: 'Discussed' });
-  await expect(discussed).toHaveAttribute('href', '/discussed');
+  const discussed = page.locator("a", { hasText: "Discussed" });
+
+  await expect(discussed).toHaveAttribute("href", "/discussed");
   await expect(discussed).toBeVisible();
 
-  const popular = page.locator('a', { hasText: 'Popular' });
-  await expect(popular).toHaveAttribute('href', '/popular');
+  const popular = page.locator("a", { hasText: "Popular" });
+
+  await expect(popular).toHaveAttribute("href", "/popular");
   await expect(popular).toBeVisible();
 
-  // The categories that should not be visible
-  const element = page.getByText('My Votes')
-  await expect(element).not.toBeVisible()
+  // the categories that should not be visible
+  const element = page.getByText("My Votes");
 
+  await expect(element).not.toBeVisible();
 });

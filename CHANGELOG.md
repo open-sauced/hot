@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.27.0](https://github.com/open-sauced/hot-sauce/compare/v2.26.0...v2.27.0) (2022-11-11)
+
+
+### 🐛 Bug Fixes
+
+* star us on GitHub button redirect ([#392](https://github.com/open-sauced/hot-sauce/issues/392)) ([83272f6](https://github.com/open-sauced/hot-sauce/commit/83272f633d8b0c472a83eecbf7dd3501b928d459)), closes [#391](https://github.com/open-sauced/hot-sauce/issues/391)
+
+
+### 🍕 Features
+
+* organize voted repo list by week ([#393](https://github.com/open-sauced/hot-sauce/issues/393)) ([5795c3b](https://github.com/open-sauced/hot-sauce/commit/5795c3b925f4aeede8fe9cb1f54f6569bd0bbd71)), closes [#198](https://github.com/open-sauced/hot-sauce/issues/198)
+
 ## [2.27.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.26.1-beta.1...v2.27.0-beta.1) (2022-11-07)
 
 

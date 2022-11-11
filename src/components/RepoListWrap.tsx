@@ -1,16 +1,16 @@
 import { useLocation, useSearchParams } from "react-router-dom";
 import locationsHash from "../lib/locationsHash";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
-import SecondaryNav from "./SecondaryNav";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
+import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 
 export enum RepoOrderByEnum {
   popular = "stars",
   recent = "created_at",
   upvoted = "votesCount",
   discussed = "issues",
+  myVotes = "myVotes"
 }
 
 const parseLimitValue = (limit: string | null): number => {
@@ -28,13 +28,13 @@ const parseLimitValue = (limit: string | null): number => {
   return value;
 };
 
-const RepoWrap = (): JSX.Element => {
+const RepoListWrap = (): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { user } = useSupabaseAuth();
   const location = useLocation();
 
-  const activeLink = (locationsHash[location.pathname] ?? "popular") as keyof typeof RepoOrderByEnum;
+  const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
+
   const { data, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
 
   const handleLoadingMore = () => {
@@ -42,12 +42,7 @@ const RepoWrap = (): JSX.Element => {
   };
 
   return (
-    <div className="bg-darkestGrey">
-      <SecondaryNav
-        activeLink={activeLink}
-        user={user}
-      />
-
+    <>
       <HotRepositories />
 
       {!isLoading &&
@@ -56,9 +51,10 @@ const RepoWrap = (): JSX.Element => {
           fetchedData={data}
           handleLoadingMore={handleLoadingMore}
           limit={limit}
+          title={`${camelCaseToTitleCase(activeLink)} Repositories`}
         />}
-    </div>
+    </>
   );
 };
 
-export default RepoWrap;
+export default RepoListWrap;

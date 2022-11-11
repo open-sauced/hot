@@ -10,7 +10,7 @@ import { supabase } from "../lib/supabase";
 
 import RepoSubmission from "./RepoSubmission";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
@@ -36,6 +36,18 @@ const PrimaryNav = (): JSX.Element => {
 
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
 
+  useEffect(() => {
+    const fetchAuthSession = async () => {
+      if (currentUser?.access_token) {
+        await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json", Authorization: `Bearer ${currentUser.access_token}` } })
+          .then(res => console.log("response: ", res))
+          .catch(err => console.log("error: ", err));
+      }
+    };
+
+    fetchAuthSession().catch(err => console.log(err));
+  }, [user]);
+
   return (
     <header>
       <div className="flex font-OpenSans py-6 px-10 justify-between max-w-screen-2xl mx-auto">
@@ -56,10 +68,11 @@ const PrimaryNav = (): JSX.Element => {
             as="div"
             className="flex z-50 text-left relative"
           >
-            <Menu.Button>
-              <div className="flex items-center">
-                <StarTheRepo />
 
+            <div className="flex items-center">
+              <StarTheRepo />
+
+              <Menu.Button>
                 <div className="hidden md:flex pl-4 border-l border-lightOrange">
                   <div className="w-8 h-8 overflow-hidden rounded-full border-osOrange border">
                     <img
@@ -69,12 +82,13 @@ const PrimaryNav = (): JSX.Element => {
                     />
                   </div>
                 </div>
+              </Menu.Button>
 
-                <div className="flex md:hidden w-5 h-5">
-                  <GiHamburgerMenu size={24} />
-                </div>
+              <div className="flex md:hidden w-5 h-5">
+                <GiHamburgerMenu size={24} />
               </div>
-            </Menu.Button>
+            </div>
+
 
             <Transition
               enter="transition ease-out duration-100"

@@ -1,16 +1,17 @@
-import { User } from "@supabase/supabase-js";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import useSupabaseAuth from "../hooks/useSupabaseAuth";
+import locationsHash from "../lib/locationsHash";
+import { RepoOrderByEnum } from "./RepoListWrap";
 
-export declare interface SecondaryNavProps {
-  activeLink: string | null;
-  user?: User;
-}
+const SecondaryNav = (): JSX.Element => {
+  const { user } = useSupabaseAuth();
+  const location = useLocation();
+  const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
 
-const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
   const links = [
     {
-      link: "popular",
-      title: "Popular",
+      link: "recent",
+      title: "Recent",
     },
     {
       link: "upvoted",
@@ -21,8 +22,8 @@ const SecondaryNav = ({ activeLink, user }: SecondaryNavProps): JSX.Element => {
       title: "Discussed",
     },
     {
-      link: "recent",
-      title: "Recent",
+      link: "popular",
+      title: "Popular",
     },
   ];
 

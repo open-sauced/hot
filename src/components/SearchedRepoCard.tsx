@@ -14,7 +14,7 @@ const SearchedRepoCard = ({ data: { full_name, name, description, issues, stars 
 
   return (
     <a
-      href={`https://app.opensauced.pizza/repos/${full_name}`}
+      href={`https://insights.opensauced.pizza/hot/dashboard/filter/${full_name}`}
       rel="noreferrer"
       target="_blank"
     >

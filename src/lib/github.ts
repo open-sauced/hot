@@ -5,7 +5,7 @@ const getProfileLink = (username: string | null) =>
   `https://github.com/${username ?? ""}`;
 
 const getRepoLink = (repoName: string | null) =>
-  `https://app.opensauced.pizza/repos/${repoName ?? ""}`;
+  `https://insights.opensauced.pizza/hot/dashboard/filter/${repoName ?? ""}`;
 
 const getRepoIssuesLink = (repoName: string | null) =>
   `https://github.com/${repoName && `${repoName}/issues` || ""}`;

@@ -54,7 +54,7 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
     },
     test: {
       include: ["src/**/*.test.ts", "src/**/*.test.tsx"],
-      exclude: ['**/e2e/**'],
+      exclude: ['**/e2e-tests/**'],
     },
     preview: {
       port: 3000,

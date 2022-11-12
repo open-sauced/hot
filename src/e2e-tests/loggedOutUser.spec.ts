@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("unsigned user should see all categories except My Votes", async ({ page }) => {
+test("logged out user should see all categories except My Votes", async ({ page }) => {
   await page.goto("/");
 
   // the categories that should be visible and functional

@@ -100,7 +100,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
       <div className="flex flex-col pb-10">
         <a
           className="text-xl font-semibold"
-          href={`https://insights.opensauced.pizza/hot/dashboard/filter/${full_name}`}
+          href={`https://insights.opensauced.pizza/hot/repositories/filter/${full_name}`}
           rel="noopener noreferrer"
           target="_blank"
         >

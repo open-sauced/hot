@@ -39,7 +39,7 @@ module.exports = {
     jest: true,
     es2021: true,
   },
-  ignorePatterns: ["test", "dist", "build", "public", "/**/node_modules/*", ".eslintrc.cjs", "vite.config.ts"],
+  ignorePatterns: ["test", "dist", "build", "public", "/**/node_modules/*", ".eslintrc.cjs", "vite.config.ts", "playwright.config.ts"],
   rules: {
     // eslint:recommended
     "arrow-body-style": ["error", "as-needed"],

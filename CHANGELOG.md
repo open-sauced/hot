@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.28.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.27.0...v2.28.0-beta.1) (2022-11-14)
+
+
+### 🍕 Features
+
+* End-to-End testing setup ([#396](https://github.com/open-sauced/hot-sauce/issues/396)) ([4533edd](https://github.com/open-sauced/hot-sauce/commit/4533eddddeea7a7afe2d2e46df5f3559104f2a8e)), closes [#395](https://github.com/open-sauced/hot-sauce/issues/395)
+
 ## [2.27.0](https://github.com/open-sauced/hot-sauce/compare/v2.26.0...v2.27.0) (2022-11-11)
 
 

@@ -27,6 +27,7 @@
     "types:auto-check": "npm run types:auto-add -- --dry",
     "preinstall": "npx @open-sauced/check-engines",
     "prestart": "npx @open-sauced/check-engines",
+    "pretest": "npm run test:e2e-install",
     "push": "npx @open-sauced/conventional-commit",
     "start": "npx vite",
     "build": "npx tsc && npx vite build",

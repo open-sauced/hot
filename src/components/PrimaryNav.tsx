@@ -11,6 +11,7 @@ import { supabase } from "../lib/supabase";
 import RepoSubmission from "./RepoSubmission";
 
 import { useState, useEffect } from "react";
+import AdminStatsBar from "./AdminStatusBar";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
@@ -50,6 +51,7 @@ const PrimaryNav = (): JSX.Element => {
 
   return (
     <header>
+      { user && <AdminStatsBar /> }
       <div className="flex font-OpenSans py-6 px-10 justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">

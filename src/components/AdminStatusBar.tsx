@@ -86,20 +86,17 @@ function AdminStatsBar() {
   const [repoCount, setRepoCount] = useState("⌛");
 
   const getDeployment = async () => {
-    const deployment = await githubAPI.getDeploymentEnvironment();
-    if(deployment) setDeployment(deployment.environments[0].name);
+    // const deployment = await githubAPI.getDeploymentEnvironment();
+    // if(deployment) setDeployment(deployment.environments[0].name);
+    const { MODE } = import.meta.env
+    console.log(MODE)
+    setDeployment(MODE)
   };
 
-  // const getRepoCount = () => {
-  //   api
-  //     .fetchRepoCount()
-  //     .then(res => {
-  //       const repoCount = res.data.gitHub.search.repositoryCount;
-  //       setRepoCount(repoCount);
-  //     })
-  //     .catch(e => {
-  //       console.log(e);
-  //     });
+  const getRepoCount = async () => {
+    const repoCount = await githubAPI.getOpensaucedGoalsReposCount();
+    setRepoCount(`${repoCount}`);
+  }
 
   const getTiming = () => {
     const timingAPI = window.performance.timing;
@@ -121,7 +118,7 @@ function AdminStatsBar() {
   useEffect(() => {
     getTiming();
     getDeployment();
-    // getRepoCount();
+    getRepoCount();
 
   }, []);
 

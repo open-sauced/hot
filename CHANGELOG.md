@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.28.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.28.0-beta.1...v2.28.0-beta.2) (2022-11-21)
+
+
+### 🍕 Features
+
+* adds links for hot topic insights ([#398](https://github.com/open-sauced/hot-sauce/issues/398)) ([19b367c](https://github.com/open-sauced/hot-sauce/commit/19b367ce0eeb34efbc5f17f0a5177b37c57ab60b))
+
 ## [2.28.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.27.0...v2.28.0-beta.1) (2022-11-14)
 
 

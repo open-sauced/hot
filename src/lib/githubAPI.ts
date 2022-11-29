@@ -1,34 +1,20 @@
-import { supabase } from "./supabase";
+async function getOpensaucedGoalsReposCount (): Promise<number> {
+  const res = await fetch(`https://api.github.com/search/repositories?q=open-sauced-goals&order=asc&per_page=100`);
 
-async function getDeploymentEnvironment() {
-  const authSession = supabase.auth.session()?.access_token;
+  const data = await res.json() as ReposCountFetchObject;
 
-  const res = await fetch(`https://api.github.com/repos/open-sauced/hot/environments`)
-
-  const data = await res.json()
-  if(res.ok) {
-    return data
-  } else {
-    console.error(data)
-    return null
+  if (res.ok) {
+    return data.total_count;
   }
-}
-
-async function getOpensaucedGoalsReposCount(): Promise<number> {
-  const res = await fetch(`https://api.github.com/search/repositories?q=open-sauced-goals&order=asc&per_page=100`)
-
-  const data = await res.json()
-  if(res.ok) {
-    return data.total_count
-  } else {
-    console.error(data)
-    return 0
-  }
+  console.error(data);
+  return 0;
 }
 
 
-const githubAPI = {
-  getDeploymentEnvironment,
-  getOpensaucedGoalsReposCount
+const githubAPI = { getOpensaucedGoalsReposCount };
+
+interface ReposCountFetchObject {
+  total_count: number;
 }
+
 export default githubAPI;

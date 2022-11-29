@@ -49,7 +49,7 @@ const App = (): JSX.Element => {
 
           <div className="bg-darkestGrey">
             <SecondaryNav />
-            
+
             <HotRepositories />
 
             <Routes>

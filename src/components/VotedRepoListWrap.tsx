@@ -41,17 +41,13 @@ const VotedRepoListWrap = (): JSX.Element => {
   };
 
   return (
-    <>
-      <HotRepositories />
-
-      <ListRepositories
-        activeLink={activeLink}
-        fetchedData={data}
-        handleLoadingMore={handleLoadingMore}
-        limit={limit}
-        title="My Votes Repositories"
-      />
-    </>
+    <ListRepositories
+      activeLink={activeLink}
+      fetchedData={data}
+      handleLoadingMore={handleLoadingMore}
+      limit={limit}
+      title="My Votes Repositories"
+    />
   );
 };
 

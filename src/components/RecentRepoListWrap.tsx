@@ -70,8 +70,6 @@ const RecentRepoListWrap = (): JSX.Element => {
 
   return (
     <>
-      <HotRepositories />
-
       {!isLoading &&
         (
           <>

@@ -42,17 +42,13 @@ const RepoListWrap = (): JSX.Element => {
   };
 
   return (
-    <>
-      <HotRepositories />
-
-      <ListRepositories
-        activeLink={activeLink}
-        fetchedData={data}
-        handleLoadingMore={handleLoadingMore}
-        limit={limit}
-        title={`${camelCaseToTitleCase(activeLink)} Repositories`}
-      />
-    </>
+    <ListRepositories
+      activeLink={activeLink}
+      fetchedData={data}
+      handleLoadingMore={handleLoadingMore}
+      limit={limit}
+      title={`${camelCaseToTitleCase(activeLink)} Repositories`}
+    />
   );
 };
 

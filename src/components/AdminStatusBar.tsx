@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from "react";
-// import {AdminNav} from "../styles/Header";
 import getAppVersion from "../lib/appVersion";
 import humanizeDuration from "humanize-duration";
 import githubAPI from "../lib/githubAPI";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
-// import api from "../lib/apiGraphQL";
+import classes from '../styles/AdminStatusBar.module.css';
 
 declare interface TimingObject {
   loadTime: number;
@@ -40,12 +38,12 @@ function LeftSide({deployment}: LeftSideProps) {
         <li>
           <span>🌵</span>{deployment}
         </li>
-        <li>
+        <li className={classes.tabletView}>
           <a href={`https://github.com/open-sauced/open-sauced/releases/tag/v${getAppVersion()}`} rel="noreferrer" target="_blank">
             <span>📦</span>v{getAppVersion()}
           </a>
         </li>
-        <li className="no-well">
+        <li className={classes['no-well']}>
           <a href={`https://github.com/facebook/react/releases/tag/v${React.version}`} rel="noreferrer" target="_blank">
             <span>⚛️</span> <b>React</b> v{React.version}
           </a>
@@ -65,12 +63,12 @@ function RightSide({timing, repoCount}: RightSideProps) {
     <div>
       <ul>
         <li>
-          <span>🕒</span>{humanizer(timing.renderTime)} <span className="helper">render</span>
+          <span>🕒</span>{humanizer(timing.renderTime)} <span className={classes.helper}>render</span>
         </li>
         <li>
-          <span>🕒</span>{humanizer(timing.loadTime)} <span className="helper">load</span>
+          <span>🕒</span>{humanizer(timing.loadTime)} <span className={classes.helper}>load</span>
         </li>
-        <li>
+        <li className={classes.tabletView}>
           <a href="https://github.com/search?o=desc&q=open-sauced-goals&s=updated&type=Repositories" target="_blank" rel="noreferrer">
             <span>😍</span>Users: {repoCount}
           </a>
@@ -123,8 +121,7 @@ function AdminStatsBar() {
   }, []);
 
   return (
-    <nav>
-      {/* <AdminNav> */}
+    <nav className={classes.nav}>
       <LeftSide
         deployment={deployment}
       />
@@ -132,7 +129,6 @@ function AdminStatsBar() {
         timing={timing}
         repoCount={repoCount}
       />
-      {/* </AdminNav> */}
     </nav>
   );
 }

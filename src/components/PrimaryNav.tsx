@@ -34,6 +34,7 @@ const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
   const currentUser = supabase.auth.session();
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [openAdminBar, setOpenAdminBar] = useState(false);
 
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
 
@@ -49,9 +50,23 @@ const PrimaryNav = (): JSX.Element => {
     fetchAuthSession().catch(err => console.log(err));
   }, [user]);
 
+  const handleAdminBar = (e: KeyboardEvent) => {
+    if (e.key === "`") {
+      setOpenAdminBar((state) => !state);
+    }
+  };
+
+  useEffect(() => {
+
+    window.addEventListener("keydown", handleAdminBar);
+
+    return () => window.removeEventListener("keydown", handleAdminBar);
+  }, []);
+
+
   return (
     <header>
-      { user && <AdminStatsBar /> }
+      { user && openAdminBar && <AdminStatsBar /> }
       <div className="flex font-OpenSans py-6 px-10 justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">

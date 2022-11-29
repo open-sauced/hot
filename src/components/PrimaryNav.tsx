@@ -68,10 +68,11 @@ const PrimaryNav = (): JSX.Element => {
             as="div"
             className="flex z-50 text-left relative"
           >
-            <Menu.Button>
-              <div className="flex items-center">
-                <StarTheRepo />
 
+            <div className="flex items-center">
+              <StarTheRepo />
+
+              <Menu.Button>
                 <div className="hidden md:flex pl-4 border-l border-lightOrange">
                   <div className="w-8 h-8 overflow-hidden rounded-full border-osOrange border">
                     <img
@@ -81,12 +82,13 @@ const PrimaryNav = (): JSX.Element => {
                     />
                   </div>
                 </div>
+              </Menu.Button>
 
-                <div className="flex md:hidden w-5 h-5">
-                  <GiHamburgerMenu size={24} />
-                </div>
+              <div className="flex md:hidden w-5 h-5">
+                <GiHamburgerMenu size={24} />
               </div>
-            </Menu.Button>
+            </div>
+
 
             <Transition
               enter="transition ease-out duration-100"

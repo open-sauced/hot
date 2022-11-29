@@ -5,6 +5,9 @@ command = "npm run build"
 [context.beta]
 environment = { CHANNEL = "beta" }
 
+[context.alpha]
+environment = { CHANNEL = "alpha" }
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

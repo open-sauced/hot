@@ -7,9 +7,13 @@ import { VscIssues } from "react-icons/vsc";
 import Skeleton from "react-loading-skeleton";
 import { getAvatarLink } from "../lib/github";
 import humanizeNumber from "../lib/humanizeNumber";
+
 import StackedAvatar from "./StackedAvatar";
 import useRepo from "../hooks/useRepo";
 import useVotedRepos from "../hooks/useVotedRepos";
+import useContributions from "../hooks/useContributions";
+
+const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&title=fix:";
 
 export declare interface HotRepoCardProps {
   repoName: string;
@@ -19,6 +23,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
   const { repo, isLoading, isError } = useRepo(repoName);
   const [isVoted, setIsVoted] = useState(false);
+  const { data: contributions } = useContributions(repoName);
 
   useEffect(() => {
     repo && setIsVoted(checkVoted(repo.id));
@@ -26,8 +31,19 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
 
   if (isError) {
     return (
-      <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative">
-        {`${repoName} failed to load`}
+      <div className="p-4 border rounded-2xl bg-white w-full space-y-1 relative flex flex-col justify-between">
+        {`⚠️ ${repoName} repo could not be loaded`}
+
+        <div className="flex justify-center">
+          <a
+            className="bg-cheesyYellow text-grey rounded-xl font-bold hover:text-saucyRed transition-all duration-300 mr-3 p-2 flex w-5/6 h-fit justify-center"
+            href={`${String(`${bugReportLink} repo not found [${repoName}]&body=Please take a look why this  ${repoName} not founded`)}`}
+            rel="noreferrer"
+            target="_blank"
+          >
+            Report a bug
+          </a>
+        </div>
       </div>
     );
   }
@@ -43,7 +59,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
     );
   }
 
-  const { id, full_name, name, description, issues, stars, contributions } = repo!;
+  const { id, full_name, name, description, issues, stars } = repo!;
   const repo_id = parseInt(`${id}`);
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
@@ -84,7 +100,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
       <div className="flex flex-col pb-10">
         <a
           className="text-xl font-semibold"
-          href={`https://app.opensauced.pizza/repos/${full_name}`}
+          href={`https://insights.opensauced.pizza/hot/repositories/filter/${full_name}`}
           rel="noopener noreferrer"
           target="_blank"
         >

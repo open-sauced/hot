@@ -6,6 +6,7 @@ import StackedAvatar from "./StackedAvatar";
 import useVotedRepos from "../hooks/useVotedRepos";
 import { RiCheckboxCircleFill } from "react-icons/ri";
 import cx from "classnames";
+import useContributions from "../hooks/useContributions";
 
 export declare interface RepoListProps {
   data: DbRepo;
@@ -17,23 +18,27 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
 
   const {
     id,
-    votesRelation: [{ votesCount }],
     name,
     full_name,
     description,
     stars,
     issues,
-    contributions,
+    votesCount,
+
+    // contributionsCount,
   } = data;
 
+  // {full_name} consists of `{owner}/{repo}`, so this link is actually `repos/{owner}/{repo}/contributions`
+  const { data: contributions } = useContributions(full_name);
+
   useEffect(() => {
-    setIsVoted(checkVoted(data.id));
+    setIsVoted(checkVoted(id));
   }, [votedReposIds]);
 
   const repo_id = parseInt(`${id}`);
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
-  const [votes, setVotes] = useState(votesCount);
+  const [votes, setVotes] = useState(votesCount ?? 0);
 
   return (
     <div className="flex flex-col gap-y-[20px] md:flex-row bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]">
@@ -108,8 +113,7 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
       >
         {isVoted
           ? (
-            <RiCheckboxCircleFill className="text-osOrange group-hover:text-osGrey transition-all duration-300 w-[15px] h-[15px]" />
-          )
+            <RiCheckboxCircleFill className="text-osOrange group-hover:text-osGrey transition-all duration-300 w-[15px] h-[15px]" />)
           : (
             <FaArrowAltCircleUp className="text-gray-500 group-hover:text-osOrange transition-all duration-300 w-[13px] h-[13px]" />
           )}

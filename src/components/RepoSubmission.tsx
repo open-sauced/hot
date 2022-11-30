@@ -126,18 +126,6 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
           </button>
         </div>
       )}
-
-      {isSubmissionInProcess && (
-        <div className="bg-white p-4 rounded-md">
-          <p className="text-xs mb-1.5 text-gray-500 font-medium">Submission in process ...</p>
-        </div>
-      )}
-
-      {submitted && !isSubmissionInProcess && (
-        <div className="bg-white p-1.5 rounded-md ">
-          <p className="text-xs mb-1.5 text-gray-500 font-medium">Submission succeeded!</p>
-        </div>
-      )}
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import { BsFillCalendar2Fill } from "react-icons/bs";
 import Skeleton from "react-loading-skeleton";
-import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 import RepoList from "./RepoList";
 
 export declare interface ListRepositoriesProps {
@@ -10,6 +9,7 @@ export declare interface ListRepositoriesProps {
   fetchedData: DbRepo[];
   loading: boolean;
   error: Error | undefined | boolean
+  title: string;
 }
 
 const ListRepositories = ({
@@ -19,6 +19,7 @@ const ListRepositories = ({
   fetchedData,
   loading,
   error,
+  title,
 }: ListRepositoriesProps): JSX.Element => {
   if (error) {
     console.error(error);
@@ -52,7 +53,7 @@ const ListRepositories = ({
 
           {activeLink && (
             <h1 className="text-2xl text-white font-semibold">
-              {`${camelCaseToTitleCase(activeLink)} Repositories`}
+              {title}
             </h1>
           )}
         </div>

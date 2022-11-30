@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vitest/config'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { execaSync } from 'execa'
 import ViteEslint from '@nabla/vite-plugin-eslint'
@@ -51,6 +51,10 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
       sourcemap: !isDev,
       rollupOptions: {},
       manifest: false,
+    },
+    test: {
+      include: ["src/**/*.test.ts", "src/**/*.test.tsx"],
+      exclude: ['**/e2e-tests/**'],
     },
     preview: {
       port: 3000,

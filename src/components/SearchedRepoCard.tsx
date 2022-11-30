@@ -33,7 +33,7 @@ const SearchedRepoCard = ({ data: { id, full_name, name, description, issues, st
     <div className="flex flex-col hover:bg-gray-50 ">
       <div className="flex flex-col px-10 md:px-3.5 py-2.5">
         <a
-          href={`https://app.opensauced.pizza/repos/${full_name}`}
+          href={`https://insights.opensauced.pizza/hot/repositories/filter/${full_name}`}
           rel="noreferrer"
           target="_blank"
         >

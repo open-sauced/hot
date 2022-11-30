@@ -7,8 +7,8 @@ export declare interface ListRepositoriesProps {
   limit: number;
   handleLoadingMore: () => void;
   fetchedData: DbRepo[];
-  loading: boolean;
-  error: Error | undefined | boolean
+  loading?: boolean;
+  error?: Error | undefined | boolean
   title: string;
 }
 

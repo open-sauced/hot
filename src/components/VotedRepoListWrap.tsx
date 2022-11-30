@@ -55,7 +55,7 @@ const VotedRepoListWrap = (): JSX.Element => {
           <div
             className="p-4 border rounded-2xl bg-white w-full space-y-1 relative"
           >
-            <h1 className="text-2xl text-center">You didn&apos;t vote on any Repositories. Your votes will appear here.</h1>
+            <h1 className="text-2xl text-center">Try voting on any repository. Your vote will appear here.</h1>
           </div>
         </div>
       </div>

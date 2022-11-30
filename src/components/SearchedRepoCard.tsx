@@ -10,9 +10,10 @@ import useStarRepos from "../hooks/useStarRepos";
 
 export declare interface SearchedRepoCardProps {
   data: DbRepo;
+  keepFocus: () => void
 }
 
-const SearchedRepoCard = ({ data: { id, full_name, name, description, issues, stars } }: SearchedRepoCardProps) => {
+const SearchedRepoCard = ({ data: { id, full_name, name, description, issues, stars }, keepFocus }: SearchedRepoCardProps) => {
   const { data: contributions } = useContributions(full_name);
   const { starredReposIds, starHandler, checkStarred } = useStarRepos();
 
@@ -22,6 +23,11 @@ const SearchedRepoCard = ({ data: { id, full_name, name, description, issues, st
   useEffect(() => {
     setIsStarred(checkStarred(id));
   }, [starredReposIds]);
+
+  const handleStarRepo = async () => {
+    keepFocus();
+    return starHandler(starsCount, id).then(newStars => typeof newStars === "number" && setStarsCount(newStars));
+  };
 
   return (
     <div className="flex flex-col hover:bg-gray-50 ">
@@ -48,51 +54,51 @@ const SearchedRepoCard = ({ data: { id, full_name, name, description, issues, st
           <p className="text-sm text-gray-500">
             {description}
           </p>
+        </a>
 
-          <div className="flex justify-between mt-2">
-            <div className="flex gap-x-1">
-              <StackedAvatar contributors={contributions} />
+        <div className="flex justify-between mt-2">
+          <div className="flex gap-x-1">
+            <StackedAvatar contributors={contributions} />
+          </div>
+
+          <div className="flex gap-x-1.5">
+            <div className="flex items-center gap-x-1">
+              <FaRegDotCircle aria-hidden="true" />
+
+              <p className="text-gray-500 text-xs">
+                {humanizeNumber(issues)}
+              </p>
             </div>
 
-            <div className="flex gap-x-1.5">
-              <div className="flex items-center gap-x-1">
-                <FaRegDotCircle aria-hidden="true" />
+            <div
+              className="flex items-center gap-x-1"
+              role="button"
+              tabIndex={0}
+              onClick={handleStarRepo}
+              onKeyDown={e => e.preventDefault()}
+            >
+              {isStarred
+                ? (
+                  <FaStar
+                    aria-hidden="true"
+                    className="mr-1 text-osOrange"
+                  />
+                )
+                : (
 
-                <p className="text-gray-500 text-xs">
-                  {humanizeNumber(issues)}
-                </p>
-              </div>
+                  <AiOutlineStar
+                    aria-hidden="true"
+                    className="mr-1"
+                  />
+                )}
 
-              <div
-                className="flex items-center gap-x-1"
-                role="button"
-                tabIndex={0}
-                onKeyDown={e => e.preventDefault()}
-                onClick={async () =>
-                  starHandler(starsCount, id).then(newStars => typeof newStars === "number" && setStarsCount(newStars))}
-              >
-                {isStarred
-                  ? (
-                    <FaStar
-                      aria-hidden="true"
-                      className="mr-1 text-osOrange"
-                    />
-                  )
-                  : (
-
-                    <AiOutlineStar
-                      aria-hidden="true"
-                      className="mr-1"
-                    />
-                  )}
-
-                <p className={cx("text-xs", isStarred ? "text-osOrange" : "text-gray-500")}>
-                  {humanizeNumber(starsCount)}
-                </p>
-              </div>
+              <p className={cx("text-xs", isStarred ? "text-osOrange" : "text-gray-500")}>
+                {humanizeNumber(starsCount)}
+              </p>
             </div>
           </div>
-        </a>
+        </div>
+
       </div>
     </div>
   );

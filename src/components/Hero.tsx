@@ -100,6 +100,7 @@ const Hero = () => {
               <SearchedRepoCard
                 key={data.full_name}
                 data={data}
+                keepFocus={() => setTimeout(() => searchBoxRef.current?.focus(), 200)}
               />
             ))}
           </div>

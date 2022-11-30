@@ -47,12 +47,13 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
         try {
           if (resp.status === 200) {
             ToastTrigger({ message: "Repo submitted successfully", type: "success" });
+
             // issue #409 - TODO: This sendMessage is not working
             sendMessage(sanitizedUrl, userName);
           }
 
           if (resp.status === 404) {
-            ToastTrigger({ message: "Repo is now being queue", type: "error" });
+            ToastTrigger({ message: "Repo is now being queue", type: "success" });
 
             // issue #404 - TODO: Add a request to queue the repo
           }

@@ -39,12 +39,27 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
         return handleFormOpen(false);
       }
 
-      if (currentUser?.access_token) {
-        await submitRepo(sanitizedUrl, currentUser.access_token);
-      }
       setSubmitted(true);
-      sendMessage(userName, sanitizedUrl);
-      return ToastTrigger({ message: "Data Submitted", type: "success" });
+
+      if (currentUser?.access_token) {
+        const resp = await submitRepo(sanitizedUrl, currentUser.access_token);
+
+        try {
+          if (resp.status === 200) {
+            ToastTrigger({ message: "Repo submitted successfully", type: "success" });
+            // issue #409 - TODO: This sendMessage is not working
+            sendMessage(sanitizedUrl, userName);
+          }
+
+          if (resp.status === 404) {
+            ToastTrigger({ message: "Repo is now being queue", type: "error" });
+
+            // issue #404 - TODO: Add a request to queue the repo
+          }
+        } catch (err) {
+          ToastTrigger({ message: "Something went wrong", type: "error" });
+        }
+      }
     }, 500);
   };
 
@@ -52,11 +67,13 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
     const [owner, repo] = sanitizedUrl.split("/");
     const body: { owner: string; repo: string } = { owner, repo };
 
-    await fetch(`${import.meta.env.VITE_API_URL}/repos/${sanitizedUrl}/submit`, {
+    const resp = await fetch(`${import.meta.env.VITE_API_URL}/repos/${sanitizedUrl}/submit`, {
       method: "PUT",
       body: JSON.stringify(body),
       headers: { accept: "application/json", Authorization: `Bearer ${userToken}` },
     });
+
+    return resp;
   };
 
   const submitButtonHandler = (): void => {

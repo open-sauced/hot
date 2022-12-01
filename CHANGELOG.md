@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.28.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.28.0-beta.2...v2.28.0-beta.3) (2022-12-01)
+
+
+### 🍕 Features
+
+* add my votes page placeholder and textual explanation ([#406](https://github.com/open-sauced/hot-sauce/issues/406)) ([c2888dc](https://github.com/open-sauced/hot-sauce/commit/c2888dc71c6529264961914656c8dbfe48a4b42b)), closes [#208](https://github.com/open-sauced/hot-sauce/issues/208)
+
 ## [2.28.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.28.0-beta.1...v2.28.0-beta.2) (2022-11-21)
 
 

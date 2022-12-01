@@ -4,8 +4,6 @@ import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { ToastTrigger } from "../lib/reactHotToast";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-import { supabase } from "../lib/supabase";
-
 export declare interface RepoSubmissionProps {
   isFormOpen: boolean;
   handleFormOpen: (state: boolean) => void;

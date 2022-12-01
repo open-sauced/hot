@@ -12,8 +12,7 @@ export declare interface RepoSubmissionProps {
 }
 
 const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JSX.Element => {
-  const { user } = useSupabaseAuth();
-  const currentUser = supabase.auth.session();
+  const { user, token } = useSupabaseAuth();
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [input, setInput] = useState("");
@@ -41,8 +40,8 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
 
       setSubmitted(true);
 
-      if (currentUser?.access_token) {
-        const resp = await submitRepo(sanitizedUrl, currentUser.access_token);
+      if (token) {
+        const resp = await submitRepo(sanitizedUrl, token);
 
         try {
           if (resp.status === 200) {

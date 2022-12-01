@@ -50,16 +50,19 @@ const RecentRepoListWrap = (): JSX.Element => {
       const thisWeekData = data.filter( repo => repo.created_at && new Date(repo.created_at) > lastSunday);
 
       thisWeekData.sort( (a, b) => (new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1));
+      thisWeekData.sort( (a, b) => (a.votesCount! > b.votesCount! ? -1 : 1));
       setThisWeek(thisWeekData);
 
       const lastWeekData = data.filter( repo => repo.created_at && new Date(repo.created_at) < lastSunday && new Date(repo.created_at) > new Date(lastSunday.getTime() - 7 * 24 * 60 * 60 * 1000));
 
       lastWeekData.sort( (a, b) => (new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1));
+      lastWeekData.sort( (a, b) => (a.votesCount! > b.votesCount! ? -1 : 1));
       setLastWeek(lastWeekData);
 
       const olderData = data.filter( repo => repo.created_at && new Date(repo.created_at) < new Date(lastSunday.getTime() - 7 * 24 * 60 * 60 * 1000));
 
       olderData.sort( (a, b) => (new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1));
+      olderData.sort( (a, b) => (a.votesCount! > b.votesCount! ? -1 : 1));
       setOlder(olderData);
     }
   }, [data]);

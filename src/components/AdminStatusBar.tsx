@@ -127,7 +127,6 @@ const AdminStatsBar = () => {
   const getDeployment = () => {
     const { MODE } = import.meta.env;
 
-    console.log(MODE);
     setDeployment(MODE);
   };
 

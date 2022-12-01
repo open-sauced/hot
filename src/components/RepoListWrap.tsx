@@ -1,6 +1,5 @@
 import { useLocation, useSearchParams } from "react-router-dom";
 import locationsHash from "../lib/locationsHash";
-import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
@@ -41,19 +40,15 @@ const RepoListWrap = (): JSX.Element => {
   };
 
   return (
-    <>
-      <HotRepositories />
-
-      <ListRepositories
-        activeLink={activeLink}
-        error={isError}
-        fetchedData={data}
-        handleLoadingMore={handleLoadingMore}
-        limit={limit}
-        loading={isLoading}
-        title={`${camelCaseToTitleCase(activeLink)} Repositories`}
-      />
-    </>
+    <ListRepositories
+      activeLink={activeLink}
+      error={isError}
+      fetchedData={data}
+      handleLoadingMore={handleLoadingMore}
+      limit={limit}
+      loading={isLoading}
+      title={`${camelCaseToTitleCase(activeLink)} Repositories`}
+    />
   );
 };
 

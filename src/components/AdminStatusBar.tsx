@@ -149,9 +149,6 @@ const AdminStatsBar = () => {
      * console.log("all timing", window.performance.getEntriesByType("navigation"));
      */
 
-    console.log("timing", timingAPI);
-    console.log("loadTime", loadTime);
-    console.log("renderTime", renderTime);
     setTiming({
       loadTime,
       renderTime,

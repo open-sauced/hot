@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import getAppVersion from "../lib/appVersion";
 import humanizeDuration from "humanize-duration";
 import githubAPI from "../lib/githubAPI";
-import classes from "../styles/AdminStatusBar.module.css";
 
 declare interface TimingObject {
   loadTime: number;

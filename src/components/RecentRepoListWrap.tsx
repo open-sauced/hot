@@ -1,6 +1,5 @@
 import { useLocation, useSearchParams } from "react-router-dom";
 import locationsHash from "../lib/locationsHash";
-import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import { useEffect, useState } from "react";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
@@ -70,8 +69,6 @@ const RecentRepoListWrap = (): JSX.Element => {
 
   return (
     <>
-      <HotRepositories />
-
       {!isLoading &&
         (
           <>

@@ -33,33 +33,35 @@ declare interface LeftSideProps {
 
 const LeftSide = ({ deployment }: LeftSideProps) => (
   <div>
-    <ul>
-      <li>
-        <span>🌵</span>
+    <ul className="list-none inline-flex pl-2.5">
+      <li className="text-base mr-4 py-[2px] px-[7px] bg-[#2C3137] rounded-md hidden md:block">
+        <span className="mr-1">🌵</span>
 
         {deployment}
       </li>
 
-      <li className={classes.tabletView}>
+      <li className="text-base mr-4 py-[2px] px-[7px] bg-[#2C3137] rounded-md">
         <a
+          className="align-middle no-underline text-white"
           href={`https://github.com/open-sauced/open-sauced/releases/tag/v${getAppVersion()}`}
           rel="noreferrer"
           target="_blank"
         >
-          <span>📦</span>
+          <span className="mr-1">📦</span>
 
           v
           {getAppVersion()}
         </a>
       </li>
 
-      <li className={classes["no-well"]}>
+      <li className="text-base mr-4 py-[2px] px-[7px] bg-[#2C3137] rounded-md bg-transparent font-normal hidden md:block">
         <a
+          className="align-middle no-underline text-white"
           href={`https://github.com/facebook/react/releases/tag/v${React.version}`}
           rel="noreferrer"
           target="_blank"
         >
-          <span>⚛️</span>
+          <span className="mr-1">⚛️</span>
 
           {" "}
 
@@ -82,34 +84,35 @@ declare interface RightSideProps {
 
 const RightSide = ({ timing, repoCount }: RightSideProps) => (
   <div>
-    <ul>
-      <li>
-        <span>🕒</span>
+    <ul className="list-none inline-flex pl-2.5">
+      <li className="text-base mr-4 py-[2px] px-[7px] bg-[#2C3137] rounded-md hidden md:block">
+        <span className="mr-1">🕒</span>
 
         {humanizer(timing.renderTime)}
 
         {" "}
 
-        <span className={classes.helper}>render</span>
+        <span className="mr-1 md:m-0 text-[#8b8b8b]">render</span>
       </li>
 
-      <li>
-        <span>🕒</span>
+      <li className="text-base mr-4 py-[2px] px-[7px] bg-[#2C3137] rounded-md hidden md:block">
+        <span className="mr-1">🕒</span>
 
         {humanizer(timing.loadTime)}
 
         {" "}
 
-        <span className={classes.helper}>load</span>
+        <span className="mr-1 md:m-0 text-[#8b8b8b]">load</span>
       </li>
 
-      <li className={classes.tabletView}>
+      <li className="text-base mr-4 py-[2px] px-[7px] bg-[#2C3137] rounded-md">
         <a
+          className="align-middle no-underline text-white"
           href="https://github.com/search?o=desc&q=open-sauced-goals&s=updated&type=Repositories"
           rel="noreferrer"
           target="_blank"
         >
-          <span>😍</span>
+          <span className="mr-1">😍</span>
 
           Users:
           {repoCount}
@@ -169,7 +172,7 @@ const AdminStatsBar = () => {
   }, []);
 
   return (
-    <nav className={classes.nav}>
+    <nav className="flex justify-between text-white bg-black text-base font-bold py-4">
       <LeftSide
         deployment={deployment}
       />

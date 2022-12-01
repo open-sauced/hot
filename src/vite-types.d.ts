@@ -11,7 +11,7 @@ interface DbContribution {
 interface DbRepo {
   readonly id: number;
   readonly user_id?: number;
-  readonly stars: number;
+  readonly stars: string;
   readonly issues: number;
   readonly watchers?: number;
   readonly subscribers?: number;

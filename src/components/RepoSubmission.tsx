@@ -4,14 +4,13 @@ import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { ToastTrigger } from "../lib/reactHotToast";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
-
 export declare interface RepoSubmissionProps {
   isFormOpen: boolean;
   handleFormOpen: (state: boolean) => void;
 }
 
 const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JSX.Element => {
-  const { user } = useSupabaseAuth();
+  const { user, token } = useSupabaseAuth();
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [input, setInput] = useState("");
@@ -22,7 +21,7 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
   const saveToDataBase = (repoUrl: string): void => {
     setIsSubmissionInProcess(true);
 
-    setTimeout(() => {
+    setTimeout(async () => {
       setIsSubmissionInProcess(false);
 
       const { isValid, sanitizedUrl } = isValidRepoUrl(repoUrl.replace(/\s+/g, ""));
@@ -38,9 +37,41 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
       }
 
       setSubmitted(true);
-      sendMessage(userName, sanitizedUrl);
-      return ToastTrigger({ message: "Data Submitted", type: "success" });
+
+      if (token) {
+        const resp = await submitRepo(sanitizedUrl, token);
+
+        try {
+          if (resp.status === 200) {
+            ToastTrigger({ message: "Repo submitted successfully", type: "success" });
+
+            // issue #409 - TODO: This sendMessage is not working
+            sendMessage(sanitizedUrl, userName);
+          }
+
+          if (resp.status === 404) {
+            ToastTrigger({ message: "Repo is now being queue", type: "success" });
+
+            // issue #404 - TODO: Add a request to queue the repo
+          }
+        } catch (err) {
+          ToastTrigger({ message: "Something went wrong", type: "error" });
+        }
+      }
     }, 500);
+  };
+
+  const submitRepo = async (sanitizedUrl: string, userToken: string) => {
+    const [owner, repo] = sanitizedUrl.split("/");
+    const body: { owner: string; repo: string } = { owner, repo };
+
+    const resp = await fetch(`${import.meta.env.VITE_API_URL}/repos/${sanitizedUrl}/submit`, {
+      method: "PUT",
+      body: JSON.stringify(body),
+      headers: { accept: "application/json", Authorization: `Bearer ${userToken}` },
+    });
+
+    return resp;
   };
 
   const submitButtonHandler = (): void => {
@@ -91,18 +122,6 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
           >
             Submit now
           </button>
-        </div>
-      )}
-
-      {isSubmissionInProcess && (
-        <div className="bg-white p-4 rounded-md">
-          <p className="text-xs mb-1.5 text-gray-500 font-medium">Submission in process ...</p>
-        </div>
-      )}
-
-      {submitted && !isSubmissionInProcess && (
-        <div className="bg-white p-1.5 rounded-md ">
-          <p className="text-xs mb-1.5 text-gray-500 font-medium">Submission succeeded!</p>
         </div>
       )}
     </div>

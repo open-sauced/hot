@@ -13,6 +13,7 @@ import getAppVersion from "./lib/appVersion";
 import VotedRepoListWrap from "./components/VotedRepoListWrap";
 import RecentRepoListWrap from "./components/RecentRepoListWrap";
 import SecondaryNav from "./components/SecondaryNav";
+import HotRepositories from "./components/HotRepositories";
 
 console.log(
   `%c
@@ -48,6 +49,8 @@ const App = (): JSX.Element => {
 
           <div className="bg-darkestGrey">
             <SecondaryNav />
+
+            <HotRepositories />
 
             <Routes>
               <Route

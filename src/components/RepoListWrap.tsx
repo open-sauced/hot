@@ -1,6 +1,5 @@
 import { useLocation, useSearchParams } from "react-router-dom";
 import locationsHash from "../lib/locationsHash";
-import HotRepositories from "./HotRepositories";
 import ListRepositories from "./ListRepositories";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
@@ -35,25 +34,20 @@ const RepoListWrap = (): JSX.Element => {
   const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
 
-  const { data, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
+  const { data } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
 
   const handleLoadingMore = () => {
     setSearchParams({ limit: String(limit + 10) });
   };
 
   return (
-    <>
-      <HotRepositories />
-
-      {!isLoading &&
-        <ListRepositories
-          activeLink={activeLink}
-          fetchedData={data}
-          handleLoadingMore={handleLoadingMore}
-          limit={limit}
-          title={`${camelCaseToTitleCase(activeLink)} Repositories`}
-        />}
-    </>
+    <ListRepositories
+      activeLink={activeLink}
+      fetchedData={data}
+      handleLoadingMore={handleLoadingMore}
+      limit={limit}
+      title={`${camelCaseToTitleCase(activeLink)} Repositories`}
+    />
   );
 };
 

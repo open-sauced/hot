@@ -279,3 +279,6 @@ build
 
 #local history folder
 /.history
+/test-results/
+/playwright-report/
+/playwright/.cache/

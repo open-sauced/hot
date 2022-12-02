@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import getAppVersion from "../lib/appVersion";
 import humanizeDuration from "humanize-duration";
 import githubAPI from "../lib/githubAPI";
+import { useRepositoriesList } from "../hooks/useRepositoriesList";
 
 declare interface TimingObject {
   loadTime: number;
@@ -114,7 +115,7 @@ const RightSide = ({ timing, repoCount }: RightSideProps) => (
           <span className="mr-1">😍</span>
 
           Users:
-          {repoCount}
+          {" "+repoCount}
         </a>
       </li>
     </ul>
@@ -124,7 +125,8 @@ const RightSide = ({ timing, repoCount }: RightSideProps) => (
 const AdminStatsBar = () => {
   const [timing, setTiming] = useState<TimingObject>({} as TimingObject);
   const [deployment, setDeployment] = useState("⌛");
-  const [repoCount, setRepoCount] = useState("⌛");
+  const [repoCount, setRepoCount] = useState(0);
+  const { meta, isError } = useRepositoriesList("stars", 1);
 
   const getDeployment = () => {
     const { MODE } = import.meta.env;
@@ -133,10 +135,12 @@ const AdminStatsBar = () => {
   };
 
   const getRepoCount = async () => {
-    // const repoCount = await githubAPI.getOpensaucedGoalsReposCount();
-    const repoCount = ' X'
+    if (isError) {
+      setRepoCount(0);
+    } else {
+      setRepoCount(meta?.itemCount || 0);
+    }
 
-    setRepoCount(`${repoCount}`);
   };
 
   const getTiming = () => {
@@ -170,6 +174,17 @@ const AdminStatsBar = () => {
         console.error(error);
       });
   }, []);
+
+  useEffect(() => {
+    const handleUpdate = async () => {
+      await getRepoCount();
+    };
+
+    handleUpdate()
+      .catch(error => {
+        console.error(error);
+      });
+  }, [meta])
 
   return (
     <nav className="flex justify-between text-white bg-black text-base font-bold py-4">

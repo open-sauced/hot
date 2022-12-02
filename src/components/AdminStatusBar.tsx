@@ -133,7 +133,8 @@ const AdminStatsBar = () => {
   };
 
   const getRepoCount = async () => {
-    const repoCount = await githubAPI.getOpensaucedGoalsReposCount();
+    // const repoCount = await githubAPI.getOpensaucedGoalsReposCount();
+    const repoCount = ' X'
 
     setRepoCount(`${repoCount}`);
   };

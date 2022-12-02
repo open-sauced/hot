@@ -161,27 +161,12 @@ const AdminStatsBar = () => {
   };
 
   useEffect(() => {
-    const handleUpdate = async () => {
-      getTiming();
-      getDeployment();
-      getRepoCount();
-    };
-
-    handleUpdate()
-      .catch(error => {
-        console.error(error);
-      });
+    getTiming();
+    getDeployment();
   }, []);
 
   useEffect(() => {
-    const handleUpdate = async () => {
-      await getRepoCount();
-    };
-
-    handleUpdate()
-      .catch(error => {
-        console.error(error);
-      });
+    getRepoCount();
   }, [meta]);
 
   return (

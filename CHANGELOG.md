@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.28.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.28.0-beta.4...v2.28.0-beta.5) (2022-12-02)
+
+
+### 🍕 Features
+
+* Sort recent repos by votes ([#419](https://github.com/open-sauced/hot-sauce/issues/419)) ([7116eeb](https://github.com/open-sauced/hot-sauce/commit/7116eebf4ec1d62f36eadc513a2cb02d05112702)), closes [#399](https://github.com/open-sauced/hot-sauce/issues/399)
+
+
+### 🐛 Bug Fixes
+
+* unwanted drop shadow to the right side of the hero section. ([#402](https://github.com/open-sauced/hot-sauce/issues/402)) ([62f3570](https://github.com/open-sauced/hot-sauce/commit/62f357000f5ec6535d44f5077cec05c4f40bd880)), closes [#227](https://github.com/open-sauced/hot-sauce/issues/227)
+
 ## [2.28.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.28.0-beta.3...v2.28.0-beta.4) (2022-12-01)
 
 

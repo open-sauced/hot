@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getAppVersion from "../lib/appVersion";
 import humanizeDuration from "humanize-duration";
-import githubAPI from "../lib/githubAPI";
 import { useRepositoriesList } from "../hooks/useRepositoriesList";
 
 declare interface TimingObject {
@@ -115,7 +114,7 @@ const RightSide = ({ timing, repoCount }: RightSideProps) => (
           <span className="mr-1">😍</span>
 
           Users:
-          {" "+repoCount}
+          {` ${repoCount}`}
         </a>
       </li>
     </ul>
@@ -134,13 +133,12 @@ const AdminStatsBar = () => {
     setDeployment(MODE);
   };
 
-  const getRepoCount = async () => {
+  const getRepoCount = () => {
     if (isError) {
       setRepoCount(0);
     } else {
-      setRepoCount(meta?.itemCount || 0);
+      setRepoCount(meta.itemCount || 0);
     }
-
   };
 
   const getTiming = () => {
@@ -166,7 +164,7 @@ const AdminStatsBar = () => {
     const handleUpdate = async () => {
       getTiming();
       getDeployment();
-      await getRepoCount();
+      getRepoCount();
     };
 
     handleUpdate()
@@ -184,7 +182,7 @@ const AdminStatsBar = () => {
       .catch(error => {
         console.error(error);
       });
-  }, [meta])
+  }, [meta]);
 
   return (
     <nav className="flex justify-between text-white bg-black text-base font-bold py-4">

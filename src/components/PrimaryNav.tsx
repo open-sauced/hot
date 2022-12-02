@@ -36,7 +36,8 @@ const PrimaryNav = (): JSX.Element => {
   const currentUser = supabase.auth.session();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [openAdminBar, setOpenAdminBar] = useState(false);
-  useKey('`', () => setOpenAdminBar(!openAdminBar));
+
+  useKey("`", () => setOpenAdminBar(!openAdminBar));
 
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
 

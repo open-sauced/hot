@@ -5,7 +5,7 @@ interface Props {
 }
 
 const GradBackground = ({ children }: Props): JSX.Element => (
-  <div className="h-fit bg-[url('../assets/gradBG.svg')] bg-no-repeat bg-center bg-cover">
+  <div className="h-fit bg-[url('../assets/gradBackground.svg')] bg-no-repeat bg-center bg-cover ">
     {children}
   </div>
 );

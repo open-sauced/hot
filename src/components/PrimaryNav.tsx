@@ -11,6 +11,8 @@ import { supabase } from "../lib/supabase";
 import RepoSubmission from "./RepoSubmission";
 
 import { useState, useEffect } from "react";
+import AdminStatsBar from "./AdminStatusBar";
+import { useKey } from "rooks";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
@@ -33,6 +35,9 @@ const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, user } = useSupabaseAuth();
   const currentUser = supabase.auth.session();
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [openAdminBar, setOpenAdminBar] = useState(false);
+
+  useKey("`", () => setOpenAdminBar(!openAdminBar));
 
   const handleFormOpen = (state: boolean) => setIsFormOpen(state);
 
@@ -49,6 +54,8 @@ const PrimaryNav = (): JSX.Element => {
 
   return (
     <header>
+      { user && openAdminBar && <AdminStatsBar /> }
+
       <div className="flex font-OpenSans py-6 px-10 justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">

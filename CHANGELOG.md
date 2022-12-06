@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.29.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.28.0...v2.29.0-beta.1) (2022-12-06)
+
+
+### 🍕 Features
+
+* create admin status bar ([#401](https://github.com/open-sauced/hot-sauce/issues/401)) ([91b1ee3](https://github.com/open-sauced/hot-sauce/commit/91b1ee3e312d3bb6d10eb88131b2a304ed927ef2)), closes [#110](https://github.com/open-sauced/hot-sauce/issues/110)
+
 ## [2.28.0](https://github.com/open-sauced/hot-sauce/compare/v2.27.0...v2.28.0) (2022-12-02)
 
 

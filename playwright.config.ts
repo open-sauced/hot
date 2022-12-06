@@ -26,7 +26,7 @@ const config: PlaywrightTestConfig = {
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['html', {
-      outputFolder: 'coverage/e2e',
+      outputFolder: 'coverage/e2e-html',
       open: "on-failure",
     }]
   ],

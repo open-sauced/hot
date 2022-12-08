@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.29.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.29.0-beta.1...v2.29.0-beta.2) (2022-12-08)
+
+
+### 🐛 Bug Fixes
+
+* e2e testing not working in CI ([#421](https://github.com/open-sauced/hot-sauce/issues/421)) ([8fd254f](https://github.com/open-sauced/hot-sauce/commit/8fd254fd6b6593ef5e82c74fab117e4c84c5a814))
+
 ## [2.29.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.28.0...v2.29.0-beta.1) (2022-12-06)
 
 

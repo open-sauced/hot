@@ -5,6 +5,14 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.29.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.29.0-beta.2...v2.29.0-beta.3) (2022-12-12)
+
+
+### 🐛 Bug Fixes
+
+* header and footer accessibility fixes: color contrast and image titles ([#427](https://github.com/open-sauced/hot-sauce/issues/427)) ([c154634](https://github.com/open-sauced/hot-sauce/commit/c15463460f7c0c8239b0b9a2c7d35c8b454d6309))
+* typo in handleVoteUpdateByRepo.ts ([#424](https://github.com/open-sauced/hot-sauce/issues/424)) ([4033a80](https://github.com/open-sauced/hot-sauce/commit/4033a80bb1e9b9c73a734342fd91c0a6c1c58e6d))
+
 ## [2.29.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.29.0-beta.1...v2.29.0-beta.2) (2022-12-08)
 
 

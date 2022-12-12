@@ -23,12 +23,36 @@ const footerContext = [
   },
   {
     socials: [
-      { url: "https://twitter.com/saucedopen", icon: <AiOutlineTwitter className="text-2xl hover:text-light-slate-10 text-light-slate-9" /> },
-      { url: "https://github.com/open-sauced", icon: <AiOutlineGithub className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
-      { url: "https://www.instagram.com/opensauced/", icon: <AiFillInstagram className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
-      { url: "https://www.youtube.com/opensauced", icon: <AiFillYoutube className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
-      { url: "https://discord.com/invite/U2peSNf23P", icon: <FaDiscord className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
-      { url: "https://dev.to/opensauced/", icon: <FaDev className="text-2xl hover:text-light-slate-10  text-light-slate-9" /> },
+      {
+        icon: AiOutlineTwitter,
+        title: "Twitter",
+        url: "https://twitter.com/saucedopen",
+      },
+      {
+        icon: AiOutlineGithub,
+        title: "GitHub",
+        url: "https://github.com/open-sauced",
+      },
+      {
+        icon: AiFillInstagram,
+        title: "Instagram",
+        url: "https://www.instagram.com/opensauced/",
+      },
+      {
+        icon: AiFillYoutube,
+        title: "YouTube",
+        url: "https://www.youtube.com/opensauced",
+      },
+      {
+        icon: FaDiscord,
+        title: "Discord",
+        url: "https://discord.com/invite/U2peSNf23P",
+      },
+      {
+        icon: FaDev,
+        title: "Devto",
+        url: "https://dev.to/opensauced/",
+      },
     ],
   },
 ];
@@ -105,14 +129,17 @@ const Footer = (): JSX.Element => (
             </a>
           </div>
 
-          {footerContext[2].socials?.map(({ url, icon }, index) => (
+          {footerContext[2].socials?.map(({ icon: Icon, url, title }, index) => (
             <a
               key={index}
               href={url}
               rel="noopener noreferrer"
               target="_blank"
             >
-              {icon}
+              <Icon
+                className="text-2xl hover:text-light-slate-10 text-light-slate-9"
+                title={title}
+              />
             </a>
           ))}
         </div>

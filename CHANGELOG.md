@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.29.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.29.0-beta.3...v2.29.0-beta.4) (2022-12-14)
+
+
+### 🐛 Bug Fixes
+
+* use aria-label instead of title for footer icons ([#428](https://github.com/open-sauced/hot-sauce/issues/428)) ([7b150a6](https://github.com/open-sauced/hot-sauce/commit/7b150a623c2c34cb7e02b3da93891381763bb1ad))
+
 ## [2.29.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.29.0-beta.2...v2.29.0-beta.3) (2022-12-12)
 
 

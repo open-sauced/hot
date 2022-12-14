@@ -25,32 +25,32 @@ const footerContext = [
     socials: [
       {
         icon: AiOutlineTwitter,
-        title: "Twitter",
+        label: "Twitter",
         url: "https://twitter.com/saucedopen",
       },
       {
         icon: AiOutlineGithub,
-        title: "GitHub",
+        label: "GitHub",
         url: "https://github.com/open-sauced",
       },
       {
         icon: AiFillInstagram,
-        title: "Instagram",
+        label: "Instagram",
         url: "https://www.instagram.com/opensauced/",
       },
       {
         icon: AiFillYoutube,
-        title: "YouTube",
+        label: "YouTube",
         url: "https://www.youtube.com/opensauced",
       },
       {
         icon: FaDiscord,
-        title: "Discord",
+        label: "Discord",
         url: "https://discord.com/invite/U2peSNf23P",
       },
       {
         icon: FaDev,
-        title: "Devto",
+        label: "Devto",
         url: "https://dev.to/opensauced/",
       },
     ],
@@ -129,7 +129,7 @@ const Footer = (): JSX.Element => (
             </a>
           </div>
 
-          {footerContext[2].socials?.map(({ icon: Icon, url, title }, index) => (
+          {footerContext[2].socials?.map(({ icon: Icon, label, url }, index) => (
             <a
               key={index}
               href={url}
@@ -137,8 +137,8 @@ const Footer = (): JSX.Element => (
               target="_blank"
             >
               <Icon
+                aria-label={label}
                 className="text-2xl hover:text-light-slate-10 text-light-slate-9"
-                title={title}
               />
             </a>
           ))}

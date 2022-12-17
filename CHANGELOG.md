@@ -5,6 +5,21 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.30.0](https://github.com/open-sauced/hot-sauce/compare/v2.29.0...v2.30.0) (2022-12-17)
+
+
+### 🍕 Features
+
+* create admin status bar ([#401](https://github.com/open-sauced/hot-sauce/issues/401)) ([91b1ee3](https://github.com/open-sauced/hot-sauce/commit/91b1ee3e312d3bb6d10eb88131b2a304ed927ef2)), closes [#110](https://github.com/open-sauced/hot-sauce/issues/110)
+
+
+### 🐛 Bug Fixes
+
+* e2e testing not working in CI ([#421](https://github.com/open-sauced/hot-sauce/issues/421)) ([8fd254f](https://github.com/open-sauced/hot-sauce/commit/8fd254fd6b6593ef5e82c74fab117e4c84c5a814))
+* header and footer accessibility fixes: color contrast and image titles ([#427](https://github.com/open-sauced/hot-sauce/issues/427)) ([c154634](https://github.com/open-sauced/hot-sauce/commit/c15463460f7c0c8239b0b9a2c7d35c8b454d6309))
+* typo in handleVoteUpdateByRepo.ts ([#424](https://github.com/open-sauced/hot-sauce/issues/424)) ([4033a80](https://github.com/open-sauced/hot-sauce/commit/4033a80bb1e9b9c73a734342fd91c0a6c1c58e6d))
+* use aria-label instead of title for footer icons ([#428](https://github.com/open-sauced/hot-sauce/issues/428)) ([7b150a6](https://github.com/open-sauced/hot-sauce/commit/7b150a623c2c34cb7e02b3da93891381763bb1ad))
+
 ## [2.30.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.29.0...v2.30.0-beta.1) (2022-12-17)
 
 

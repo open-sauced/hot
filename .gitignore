@@ -276,9 +276,3 @@ build
 **/__snapshots__
 .env*
 !.env
-
-#local history folder
-/.history
-/test-results/
-/playwright-report/
-/playwright/.cache/

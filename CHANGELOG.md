@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.29.0](https://github.com/open-sauced/hot-sauce/compare/v2.28.0...v2.29.0) (2022-12-17)
+
+
+### 🍕 Features
+
+* Update HotRepositories repos ([#430](https://github.com/open-sauced/hot-sauce/issues/430)) ([50286ff](https://github.com/open-sauced/hot-sauce/commit/50286ffc6ad556536896a1e04dd78ec8fe52345a))
+
 ## [2.28.0](https://github.com/open-sauced/hot-sauce/compare/v2.27.0...v2.28.0) (2022-12-02)
 
 

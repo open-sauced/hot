@@ -1,20 +1,36 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
-import { User } from "@supabase/supabase-js";
+import { Session, User } from "@supabase/supabase-js";
 import { UserCredentials } from "@supabase/gotrue-js/src/lib/types";
 
+export interface UserAndTokens {
+  user: User;
+  providerToken: string | undefined;
+  supabaseToken: string;
+}
+
 const useSupabaseAuth = () => {
-  const [user, setUser] = useState<User>();
-  const [token, setToken] = useState<string>();
+  const [userAndTokens, setUserAndTokens] = useState<UserAndTokens>();
+
+  const setNewUserAndTokens = (session: Session | null) => {
+    if (session?.user) {
+      setUserAndTokens({
+        user: session.user,
+        providerToken: session.provider_token ?? undefined,
+        supabaseToken: session.access_token,
+      });
+    } else {
+      setUserAndTokens(undefined);
+    }
+  };
 
   useEffect(() => {
-    const currentUser = supabase.auth.session();
+    const session = supabase.auth.session();
 
-    setUser(currentUser?.user ?? undefined);
-    setToken(currentUser?.access_token ?? undefined);
+    setNewUserAndTokens(session);
 
     const { data: listener } = supabase.auth.onAuthStateChange((_, session) => {
-      setUser(session?.user ?? undefined);
+      setNewUserAndTokens(session);
     });
 
     return () => {
@@ -25,8 +41,7 @@ const useSupabaseAuth = () => {
   return {
     signIn: async (data: UserCredentials) => supabase.auth.signIn(data, { redirectTo: import.meta.env.BASE_URL }),
     signOut: async () => supabase.auth.signOut(),
-    user,
-    token,
+    userAndTokens,
   };
 };
 

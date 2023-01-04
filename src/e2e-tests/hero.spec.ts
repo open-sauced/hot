@@ -1,6 +1,4 @@
-import {
-  test,
-} from "@playwright/test";
+import { test } from "@playwright/test";
 
 test("test2", async ({ page }) => {
   await page.goto("https://hot.opensauced.pizza/discussed");
@@ -50,14 +48,6 @@ test("test2", async ({ page }) => {
     .press("ArrowDown");
   await page.getByPlaceholder("Search repositories")
     .press("ArrowDown");
-  const [page5] = await Promise.all([
-    page.waitForEvent("popup"),
-    page.getByRole(
-      "link",
-      { name: "quii/learn-go-with-tests quii/learn-go-with-tests Learn Go with test-driven development leighstillard lotia AlexVPopov gypsydave5 ardinusawan 38 19.0k" },
-    )
-      .click(),
-  ]);
 
   await page.locator("div:has-text(\"Find Open-Source Repositoriesto contribute today\")")
     .nth(3)

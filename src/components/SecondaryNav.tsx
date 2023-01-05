@@ -4,7 +4,7 @@ import locationsHash from "../lib/locationsHash";
 import { RepoOrderByEnum } from "./RepoListWrap";
 
 const SecondaryNav = (): JSX.Element => {
-  const { user } = useSupabaseAuth();
+  const { userAndTokens } = useSupabaseAuth();
   const location = useLocation();
   const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
 
@@ -27,7 +27,7 @@ const SecondaryNav = (): JSX.Element => {
     },
   ];
 
-  user &&
+  userAndTokens &&
     links.push({
       link: "myVotes",
       title: "My Votes",

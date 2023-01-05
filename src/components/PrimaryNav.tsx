@@ -1,6 +1,5 @@
 import { Menu, Transition } from "@headlessui/react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { AiOutlineStar } from "react-icons/ai";
 import { capturePostHogAnayltics } from "../lib/analytics";
 import { getAvatarLink } from "../lib/github";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
@@ -13,26 +12,13 @@ import RepoSubmission from "./RepoSubmission";
 import { useState, useEffect } from "react";
 import AdminStatsBar from "./AdminStatusBar";
 import { useKey } from "rooks";
+import { StarTheRepo } from "./StarTheRepo";
 
 const bugReportLink =
   "https://github.com/open-sauced/hot/issues/new?assignees=&labels=%F0%9F%91%80+needs+triage%2C%F0%9F%90%9B+bug&template=bug_report.yml&title=Bug%3A+";
 
-const StarTheRepo = (): JSX.Element => (
-  <div className="hidden sm:flex items-center text-osGrey font-Inter">
-    <a
-      href="https://github.com/open-sauced/hot"
-      rel="noreferrer"
-      target="_blank"
-    >
-      <AiOutlineStar className="inline-block mr-2.5" />
-
-      <span className="text-md font-light mr-2.5">Star us on GitHub</span>
-    </a>
-  </div>
-);
-
 const PrimaryNav = (): JSX.Element => {
-  const { signIn, signOut, user } = useSupabaseAuth();
+  const { signIn, signOut, userAndTokens } = useSupabaseAuth();
   const currentUser = supabase.auth.session();
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [openAdminBar, setOpenAdminBar] = useState(false);
@@ -50,11 +36,11 @@ const PrimaryNav = (): JSX.Element => {
     };
 
     fetchAuthSession().catch(err => console.log(err));
-  }, [user]);
+  }, [userAndTokens]);
 
   return (
     <header>
-      { user && openAdminBar && <AdminStatsBar /> }
+      { userAndTokens && openAdminBar && <AdminStatsBar /> }
 
       <div className="flex font-OpenSans py-6 px-10 justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
@@ -69,22 +55,22 @@ const PrimaryNav = (): JSX.Element => {
           </a>
         </div>
 
-        {user && (
+        {userAndTokens && (
           <Menu
             as="div"
             className="flex z-50 text-left relative"
           >
 
             <div className="flex items-center">
-              <StarTheRepo />
+              <StarTheRepo userAndTokens={userAndTokens} />
 
               <Menu.Button>
                 <div className="hidden md:flex pl-4 border-l border-lightOrange">
                   <div className="w-8 h-8 overflow-hidden rounded-full border-osOrange border">
                     <img
-                      alt={String(user.user_metadata.user_name)}
+                      alt={String(userAndTokens.user.user_metadata.user_name)}
                       className="w-full h-full"
-                      src={getAvatarLink(String(user.user_metadata.user_name))}
+                      src={getAvatarLink(String(userAndTokens.user.user_metadata.user_name))}
                     />
                   </div>
                 </div>
@@ -109,19 +95,19 @@ const PrimaryNav = (): JSX.Element => {
                   <div className="flex items-center px-2 py-2.5 mb-1 gap-x-2.5">
                     <div className="flex-col shrink-0 grow-0 w-8 h-8 overflow-hidden rounded-full border-osOrange border">
                       <img
-                        alt={String(user.user_metadata.user_name)}
+                        alt={String(userAndTokens.user.user_metadata.user_name)}
                         className="w-full h-full"
-                        src={getAvatarLink(String(user.user_metadata.user_name))}
+                        src={getAvatarLink(String(userAndTokens.user.user_metadata.user_name))}
                       />
                     </div>
 
                     <div className="flex-col shrink">
                       <p className="text-osGrey text-xs font-semibold">
-                        {user.user_metadata.full_name}
+                        {userAndTokens.user.user_metadata.full_name}
                       </p>
 
                       <p className="text-gray-500 text-xs font-normal">
-                        {user.user_metadata.user_name}
+                        {userAndTokens.user.user_metadata.user_name}
                       </p>
                     </div>
                   </div>
@@ -197,7 +183,7 @@ const PrimaryNav = (): JSX.Element => {
           </Menu>
         )}
 
-        {!user && (
+        {!userAndTokens && (
           <div className="flex items-center">
             <StarTheRepo />
 

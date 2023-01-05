@@ -276,3 +276,6 @@ build
 **/__snapshots__
 .env*
 !.env
+
+#local history folder
+/.history

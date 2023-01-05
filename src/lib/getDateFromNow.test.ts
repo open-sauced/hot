@@ -2,7 +2,7 @@ import getDateFromNow from "./getDatefromNow";
 import { describe, expect, test } from "vitest";
 
 describe("Test: getDateFromNow() without suffix", () => {
-  test("should return 20 years", () => {
+  test("should return 24 years", () => {
     const date = (new Date);
 
     date.setFullYear(date.getFullYear() - 24);

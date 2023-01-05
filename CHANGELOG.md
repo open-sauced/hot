@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.1...v2.31.0-beta.2) (2023-01-05)
+
+
+### 🧑‍💻 Code Refactoring
+
+*  Add test for dayjs `getDateFromNow` method ([#390](https://github.com/open-sauced/hot-sauce/issues/390)) ([e5fd935](https://github.com/open-sauced/hot-sauce/commit/e5fd93597262f2baad0c01934a006e1ebf1fde62))
+
 ## [2.31.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.30.0...v2.31.0-beta.1) (2023-01-05)
 
 

@@ -46,6 +46,7 @@
     "test:e2e": "npm run test:playwright -- test",
     "test:e2e-report": "npm run test:playwright -- show-report",
     "lint": "npx eslint . --report-unused-disable-directives",
+    "lint:prune": "! ts-prune | grep -v \"used in module\"",
     "format": "npm run lint -- --fix"
   },
   "dependencies": {
@@ -108,6 +109,7 @@
     "p-limit": "^4.0.0",
     "rollup-plugin-visualizer": "^5.7.1",
     "svgo": "^2.8.0",
+    "ts-prune": "^0.10.3",
     "typescript": "^4.7.4",
     "typesync": "^0.9.2",
     "vite": "^3.0.4",

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.30.0...v2.31.0-beta.1) (2023-01-05)
+
+
+### 🍕 Features
+
+* check whether repo is starred for nav UI ([#431](https://github.com/open-sauced/hot-sauce/issues/431)) ([bca5833](https://github.com/open-sauced/hot-sauce/commit/bca5833409fc9c323bb59ede3e8e2754b381c09e))
+
 ## [2.30.0](https://github.com/open-sauced/hot-sauce/compare/v2.29.0...v2.30.0) (2022-12-17)
 
 

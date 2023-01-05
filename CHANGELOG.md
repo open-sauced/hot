@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.2...v2.31.0-beta.3) (2023-01-05)
+
+
+### 🐛 Bug Fixes
+
+* remove height from footer to prevent socials from being truncated ([#436](https://github.com/open-sauced/hot-sauce/issues/436)) ([149fbf0](https://github.com/open-sauced/hot-sauce/commit/149fbf01eacf67eb7053c6a4dd675e265f18ec86)), closes [#435](https://github.com/open-sauced/hot-sauce/issues/435)
+
 ## [2.31.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.1...v2.31.0-beta.2) (2023-01-05)
 
 

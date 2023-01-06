@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.3...v2.31.0-beta.4) (2023-01-06)
+
+
+### 🐛 Bug Fixes
+
+* correct mobile view secondary nav so it wraps on two lines ([#440](https://github.com/open-sauced/hot-sauce/issues/440)) ([8545ce2](https://github.com/open-sauced/hot-sauce/commit/8545ce2b0b0b297a747a17cc49534a47849860df)), closes [#438](https://github.com/open-sauced/hot-sauce/issues/438)
+
 ## [2.31.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.2...v2.31.0-beta.3) (2023-01-05)
 
 

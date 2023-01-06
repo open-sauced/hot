@@ -37,7 +37,7 @@ const SecondaryNav = (): JSX.Element => {
     <div>
       <div className="bg-darkestGrey py-12 md:py-16 ">
         <nav className="container">
-          <div className="flex space-y-3 flexk-row flex-wrap text-sm sm:text-xl font-righteous text-accent font-bold justify-center items-baseline cursor-pointer">
+          <div className="flex space-y-3 flex-row flex-wrap text-sm sm:text-xl font-righteous text-accent font-bold justify-center items-baseline cursor-pointer">
             {links.map(({ link, title }) => (
               <Link key={link} to={link}>
                 <span

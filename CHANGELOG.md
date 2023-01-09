@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.4...v2.31.0-beta.5) (2023-01-09)
+
+
+### 🤖 Build System
+
+* used ts-prune to find unused code ([9738c56](https://github.com/open-sauced/hot-sauce/commit/9738c569d3087f2f24dc679f40b3eaa93d8f0fb0)), closes [#432](https://github.com/open-sauced/hot-sauce/issues/432)
+
 ## [2.31.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.3...v2.31.0-beta.4) (2023-01-06)
 
 

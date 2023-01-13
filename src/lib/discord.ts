@@ -1,10 +1,10 @@
 const sendMessage = (user: string, repoUrl: string) => {
   const request = (new XMLHttpRequest);
 
-   request.open(
-     "POST",
-     import.meta.env.DISCORD_WEBHOOK_URL,
-   );
+  request.open(
+    "POST",
+    import.meta.env.DISCORD_WEBHOOK_URL as string | URL,
+  );
 
   request.setRequestHeader("Content-type", "application/json");
 

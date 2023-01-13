@@ -44,8 +44,6 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
         try {
           if (resp.status === 200) {
             ToastTrigger({ message: "Repo submitted successfully", type: "success" });
-
-            // issue #409 - TODO: This sendMessage is not working
             sendMessage(sanitizedUrl, userName);
           }
 

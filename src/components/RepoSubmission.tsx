@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useOutsideClickRef } from "rooks";
-import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { ToastTrigger } from "../lib/reactHotToast";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
@@ -44,7 +43,6 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
         try {
           if (resp.status === 200) {
             ToastTrigger({ message: "Repo submitted successfully", type: "success" });
-            sendMessage(sanitizedUrl, userName);
           }
 
           if (resp.status === 404) {

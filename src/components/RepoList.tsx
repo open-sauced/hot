@@ -41,8 +41,8 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
   const [votes, setVotes] = useState(votesCount ?? 0);
 
   return (
-    <div className="flex flex-col gap-y-[20px] md:flex-row bg-white border-[1px] p-[16px] gap-x-[20px] font-Inter border-borderGrey overflow-hidden rounded-[16px]">
-      <div className="flex gap-y-[20px] gap-x-[20px] font-Inter overflow-hidden w-full">
+    <div className="flex flex-col gap-y-5 md:flex-row bg-white border-[1px] p-4 gap-x-5 font-Inter border-borderGrey overflow-hidden rounded-[16px]">
+      <div className="flex gap-y-5 gap-x-5 font-Inter overflow-hidden w-full">
         <div>
           <div className="rounded-[8px] overflow-hidden w-[88px] h-[88px]">
             <a

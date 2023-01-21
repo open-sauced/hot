@@ -5,16 +5,20 @@ import { fetchRecommendations } from "../lib/supabase";
 import searchNormal from "../assets/searchNormal.svg";
 import cmdKIcon from "../assets/cmdK.svg";
 import SearchedRepoCard from "./SearchedRepoCard";
+import { Combobox } from "@headlessui/react";
 
 const Hero = () => {
   const containerRef = useRef<Document>(document);
   const searchBoxRef = useRef<HTMLInputElement>(null);
+  const comboButtonRef = useRef<HTMLButtonElement>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const setValueDebounced = useDebounce(setSearchTerm, 500);
   const [fetchedData, setFetchedData] = useState<DbRepo[]>([]);
+  const [comboBoxSelection, setComboBoxSelection] = useState("");
   const [hasFocus, setFocus] = useState(false);
 
   const handleCmdK = async (e: KeyboardEvent) => {
+    comboButtonRef.current?.click();
     if (!hasFocus) {
       searchBoxRef.current?.focus();
       setFocus(true);
@@ -42,6 +46,7 @@ const Hero = () => {
 
   useKey("MetaLeft", "KeyK", containerRef);
 
+
   useDidUpdate(async () => {
     const results = await fetchRecommendations("stars", 3, null, searchTerm);
 
@@ -64,48 +69,66 @@ const Hero = () => {
         </h1>
       </div>
 
-      <div className="mt-11 px-4 gap-x-2.5 py-2.5 justify-between bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex">
-        <img
-          alt="search icon"
-          src={searchNormal}
-        />
+      <Combobox
+        as="div"
+        value={comboBoxSelection}
+        onChange={setComboBoxSelection}
+      >
+        <div className="mt-11 px-4 gap-x-2.5 py-2.5 justify-between bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex">
+          <img
+            alt="search icon"
+            src={searchNormal}
+          />
 
-        <input
-          ref={searchBoxRef}
-          className="w-full outline-none text-base text-lightSlate"
-          placeholder="Search repositories"
-          type="text"
-          onChange={e => setValueDebounced(e.target.value)}
-          onFocus={() => setFocus(true)}
-          onBlur={() =>
-            setTimeout(() => {
-              setFocus(false);
-            }, 200)}
-        />
+          <Combobox.Button
+            ref={comboButtonRef}
+          >
+            <Combobox.Input
+              ref={searchBoxRef}
+              className="w-full outline-none text-base text-lightSlate"
+              displayValue={() => searchTerm}
+              placeholder="Search repositories"
+              type="text"
+              value={searchTerm}
+              onChange={e => setValueDebounced(e.target.value)}
+              onFocus={() => setFocus(true)}
+              onBlur={() =>
+                setTimeout(() => {
+                  setFocus(false);
+                }, 200)}
+            />
+          </Combobox.Button>
 
-        <img
-          alt="command k"
-          className="pt-1.5"
-          src={cmdKIcon}
-        />
-      </div>
+          <img
+            alt="command k"
+            className="pt-1.5"
+            src={cmdKIcon}
+          />
+        </div>
 
-      <div className="mt-2.5 flex w-full justify-center relative">
-        {fetchedData.length > 0 && hasFocus && (
-          <div className="flex md:min-w-96 pb-2 absolute z-50 max-w-96 flex-col bg-white rounded-2.5 shadow-2xl">
-            <div className="bg-gray-100 py-2.5 px-10 md:px-3.5 border-b-gray-100 border-b-0.5 rounded-2.5 rounded-b-none w-full">
-              <p className="text-gray-500 text-sm font-semibold">Repository</p>
-            </div>
+        <div className="mt-2.5">
+          <Combobox.Options className="flex w-full justify-center">
+            {fetchedData.length > 0 && (
+              <div className="flex md:min-w-96 pb-2 absolute z-50 max-w-96 flex-col bg-white rounded-2.5 shadow-2xl">
+                <div className="bg-gray-100 py-2.5 px-10 md:px-3.5 border-b-gray-100 border-b-0.5 rounded-2.5 rounded-b-none w-full">
+                  <p className="text-gray-500 text-sm font-semibold">Repository</p>
+                </div>
 
-            {fetchedData.map(data => (
-              <SearchedRepoCard
-                key={data.full_name}
-                data={data}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+                {fetchedData.map(data => (
+                  <Combobox.Option
+                    key={data.full_name}
+                    value={data}
+                  >
+                    <SearchedRepoCard
+                      data={data}
+                    />
+                  </Combobox.Option>
+                ))}
+              </div>
+            )}
+          </Combobox.Options>
+        </div>
+      </Combobox>
     </div>
   );
 };

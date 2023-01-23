@@ -5,6 +5,41 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.4...v2.31.0-beta.5) (2023-01-09)
+
+
+### 🤖 Build System
+
+* used ts-prune to find unused code ([9738c56](https://github.com/open-sauced/hot-sauce/commit/9738c569d3087f2f24dc679f40b3eaa93d8f0fb0)), closes [#432](https://github.com/open-sauced/hot-sauce/issues/432)
+
+## [2.31.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.3...v2.31.0-beta.4) (2023-01-06)
+
+
+### 🐛 Bug Fixes
+
+* correct mobile view secondary nav so it wraps on two lines ([#440](https://github.com/open-sauced/hot-sauce/issues/440)) ([8545ce2](https://github.com/open-sauced/hot-sauce/commit/8545ce2b0b0b297a747a17cc49534a47849860df)), closes [#438](https://github.com/open-sauced/hot-sauce/issues/438)
+
+## [2.31.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.2...v2.31.0-beta.3) (2023-01-05)
+
+
+### 🐛 Bug Fixes
+
+* remove height from footer to prevent socials from being truncated ([#436](https://github.com/open-sauced/hot-sauce/issues/436)) ([149fbf0](https://github.com/open-sauced/hot-sauce/commit/149fbf01eacf67eb7053c6a4dd675e265f18ec86)), closes [#435](https://github.com/open-sauced/hot-sauce/issues/435)
+
+## [2.31.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.1...v2.31.0-beta.2) (2023-01-05)
+
+
+### 🧑‍💻 Code Refactoring
+
+*  Add test for dayjs `getDateFromNow` method ([#390](https://github.com/open-sauced/hot-sauce/issues/390)) ([e5fd935](https://github.com/open-sauced/hot-sauce/commit/e5fd93597262f2baad0c01934a006e1ebf1fde62))
+
+## [2.31.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.30.0...v2.31.0-beta.1) (2023-01-05)
+
+
+### 🍕 Features
+
+* check whether repo is starred for nav UI ([#431](https://github.com/open-sauced/hot-sauce/issues/431)) ([bca5833](https://github.com/open-sauced/hot-sauce/commit/bca5833409fc9c323bb59ede3e8e2754b381c09e))
+
 ## [2.30.0](https://github.com/open-sauced/hot-sauce/compare/v2.29.0...v2.30.0) (2022-12-17)
 
 

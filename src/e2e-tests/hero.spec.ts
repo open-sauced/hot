@@ -4,7 +4,7 @@ import {
 } from "@playwright/test";
 
 test("should test accessibility", async ({ page }) => {
-  await page.goto("https://hot.opensauced.pizza/");
+  await page.goto("/");
   await page.getByText("Open-Source Repositories")
     .click();
   await page.locator(

@@ -9,7 +9,7 @@ export enum RepoOrderByEnum {
   recent = "created_at",
   upvoted = "votesCount",
   discussed = "issues",
-  myVotes = "myVotes"
+  myVotes = "myVotes",
 }
 
 const parseLimitValue = (limit: string | null): number => {
@@ -20,9 +20,6 @@ const parseLimitValue = (limit: string | null): number => {
 
   if (isNaN(value) || value <= 0) {
     return 15;
-  }
-  if (value > 25) {
-    return 50;
   }
   return value;
 };

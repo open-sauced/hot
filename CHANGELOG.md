@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.5...v2.31.0-beta.6) (2023-02-11)
+
+
+### 📝 Documentation
+
+* **readme:** fix typo and unformatted link ([#447](https://github.com/open-sauced/hot-sauce/issues/447)) ([3ffd929](https://github.com/open-sauced/hot-sauce/commit/3ffd929dd4d9e5627cb67d45b29239a132dcbc5a))
+
 ## [2.31.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.4...v2.31.0-beta.5) (2023-01-09)
 
 

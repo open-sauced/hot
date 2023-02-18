@@ -2,7 +2,7 @@
   <br>
   <img alt="Open Sauced" src="https://i.ibb.co/7jPXt0Z/logo1-92f1a87f.png" width="300px">
   <h1>🍕 hot.opensauced.pizza 🍕</h1>
-  <strong>The site that recommends the hottest sauce. Inspried by [daily.dev](https://daily.dev/)</strong>
+  <strong>The site that recommends the hottest sauce. Inspired by <a href="https://daily.dev/">daily.dev</a></strong>
 </div>
 <br>
 <p align="center">
@@ -35,11 +35,11 @@
 ## Prerequisites
 
 In order to run the project we need the following software binaries installed on our development machines:
+
 - `node>=16.7.0`
-- `npm>=8.0.0` 
+- `npm>=8.0.0`
 
 We can also use one of the listed cloud providers we support:
-
 
 ## 🖥️ Local development
 
@@ -54,6 +54,7 @@ To start a local copy of the app on port `3000`:
 ```shell
 npm start
 ```
+
 ### 🧪 Test
 
 For running the test suite, use the following command. Since the tests run in watch mode by default, some users may encounter errors about too many files being open. In this case, it may be beneficial to [install watchman](https://facebook.github.io/watchman/docs/install.html).
@@ -110,7 +111,7 @@ We have a couple of scripts to check and adjust missing types.
 In order to dry run what types would be added to `package.json`:
 
 ```shell
-npm run types:auto-check 
+npm run types:auto-check
 ```
 
 In order to add any missing types to `package.json`:

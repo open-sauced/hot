@@ -46,7 +46,6 @@ const Hero = () => {
 
   useKey("MetaLeft", "KeyK", containerRef);
 
-
   useDidUpdate(async () => {
     const results = await fetchRecommendations("stars", 3, null, searchTerm);
 

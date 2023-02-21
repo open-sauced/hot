@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.6...v2.31.0-beta.7) (2023-02-21)
+
+
+### 🐛 Bug Fixes
+
+* remove discord webhook ([#441](https://github.com/open-sauced/hot-sauce/issues/441)) ([eae0ac0](https://github.com/open-sauced/hot-sauce/commit/eae0ac0ef3ddb2af85861f6998337af67099459e))
+
 ## [2.31.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.5...v2.31.0-beta.6) (2023-02-11)
 
 

@@ -73,7 +73,7 @@ const Hero = () => {
         value={comboBoxSelection}
         onChange={setComboBoxSelection}
       >
-        <div className="mt-11 px-4 gap-x-2.5 py-2.5 justify-between bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex">
+        <div className="mt-11 px-4 gap-x-2.5 py-2.5  bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex">
           <img
             alt="search icon"
             src={searchNormal}

@@ -95,6 +95,11 @@ const Hero = () => {
                 setTimeout(() => {
                   setFocus(false);
                 }, 200)}
+              onKeyUp={(event: React.KeyboardEvent) => {
+                if (event.key === "Enter") {
+                  window.open(comboBoxSelection, "_blank", "noreferrer");
+                }
+              }}
             />
           </Combobox.Button>
 
@@ -116,7 +121,9 @@ const Hero = () => {
                 {fetchedData.map(data => (
                   <Combobox.Option
                     key={data.full_name}
-                    value={data}
+                    as="a"
+                    className={({ active }) => (active ? "bg-gray-50" : "")}
+                    value={`https://insights.opensauced.pizza/hot/repositories/filter/${data.full_name}`}
                   >
                     <SearchedRepoCard
                       data={data}

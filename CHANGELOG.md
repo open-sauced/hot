@@ -5,6 +5,14 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.7...v2.31.0-beta.8) (2023-03-24)
+
+
+### 🐛 Bug Fixes
+
+* triage.yml ([#458](https://github.com/open-sauced/hot-sauce/issues/458)) ([aec6ba8](https://github.com/open-sauced/hot-sauce/commit/aec6ba803bad2fe67fb9ce72f79a1e3eadcad6b7))
+* update the status URL in the footer ([#454](https://github.com/open-sauced/hot-sauce/issues/454)) ([8381d16](https://github.com/open-sauced/hot-sauce/commit/8381d169b969c19bce156565c6e77545cb9a2ab2)), closes [#453](https://github.com/open-sauced/hot-sauce/issues/453)
+
 ## [2.31.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.6...v2.31.0-beta.7) (2023-02-21)
 
 

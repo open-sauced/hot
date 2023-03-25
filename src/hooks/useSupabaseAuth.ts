@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
 import { Session, User } from "@supabase/supabase-js";
-import { UserCredentials } from "@supabase/gotrue-js/src/lib/types";
 
 export interface UserAndTokens {
   user: User;
@@ -34,12 +33,20 @@ const useSupabaseAuth = () => {
     });
 
     return () => {
-      listener?.unsubscribe();
+      // -TODO: Fix types
+      // eslint-disable-next-line
+      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+      listener.subscription.unsubscribe();
     };
   }, []);
 
   return {
-    signIn: async (data: UserCredentials) => supabase.auth.signIn(data, { redirectTo: import.meta.env.BASE_URL }),
+    // -TODO: Fix types
+    // eslint-disable-next-line
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-return, no-return-await, @typescript-eslint/no-unsafe-call
+    signIn: async (data: any) => await supabase.auth.signInWithOAuth(data || { provider: "github" }),
     signOut: async () => supabase.auth.signOut(),
     userAndTokens,
   };

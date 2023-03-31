@@ -72,10 +72,12 @@ const Footer = (): JSX.Element => (
           <span className="lg:hidden font-bold text-light-slate-12 ">OpenSauced</span>
 
           <p className="hidden !text-light-slate-9 lg:inline-block">
-          ©
-          {" "}
-          {(new Date).getFullYear()}
-          {" "}
+            ©
+            {" "}
+
+            {(new Date).getFullYear()}
+
+            {" "}
 
             <span className="hidden lg:inline-block">OpenSauced</span>
           </p>

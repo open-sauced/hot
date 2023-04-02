@@ -150,7 +150,11 @@ const Footer = (): JSX.Element => (
 
         <div className="flex md:justify-center lg:hidden lg:border-none lg:order-2 border-t py-3 pb-4 mt-2 text-sm justify-between">
           <p className="text-light-slate-9">
-            © 2022
+            ©
+            {" "}
+
+            {(new Date).getFullYear()}
+
             {" "}
 
             <span className="hidden md:inline-block">Open sauced</span>

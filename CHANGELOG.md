@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.9](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.8...v2.31.0-beta.9) (2023-04-04)
+
+
+### 🐛 Bug Fixes
+
+* make year dynamic in footer ([#462](https://github.com/open-sauced/hot-sauce/issues/462)) ([9b75f36](https://github.com/open-sauced/hot-sauce/commit/9b75f36a561c621d2bf5a1e69239120a5a8e67aa)), closes [#455](https://github.com/open-sauced/hot-sauce/issues/455)
+
 ## [2.31.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.7...v2.31.0-beta.8) (2023-03-24)
 
 

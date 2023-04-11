@@ -1,3 +1,4 @@
+import { emojify } from "node-emoji";
 import { useEffect, useState } from "react";
 import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
@@ -70,7 +71,7 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
           </p>
 
           <p className="text-base text-textGrey">
-            {description}
+            {emojify(description)}
           </p>
         </a>
 

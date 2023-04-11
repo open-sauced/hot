@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.10](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.9...v2.31.0-beta.10) (2023-04-11)
+
+
+### 🍕 Features
+
+* allow :emoji: in repository list descriptions ([#449](https://github.com/open-sauced/hot-sauce/issues/449)) ([7e4a601](https://github.com/open-sauced/hot-sauce/commit/7e4a6011db5af508ab8d7a0544270c6778ca05e2)), closes [#370](https://github.com/open-sauced/hot-sauce/issues/370)
+
 ## [2.31.0-beta.9](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.8...v2.31.0-beta.9) (2023-04-04)
 
 

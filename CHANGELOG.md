@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.12](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.11...v2.31.0-beta.12) (2023-05-16)
+
+
+### 🍕 Features
+
+* Close search pop-up when escape is pressed ([#445](https://github.com/open-sauced/hot-sauce/issues/445)) ([96e3072](https://github.com/open-sauced/hot-sauce/commit/96e3072aa7bab43d04959f9ca3f479cf4c017fb2))
+
 ## [2.31.0-beta.11](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.10...v2.31.0-beta.11) (2023-05-16)
 
 

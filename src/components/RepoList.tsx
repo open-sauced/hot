@@ -106,7 +106,6 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
               {description}
             </p>
           </div>
-          </a>
 
           <div className="flex gap-x-[16px] mt-[16px]">
             <div className="flex gap-[5px] items-center text-textGrey">

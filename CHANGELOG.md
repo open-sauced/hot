@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.11](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.10...v2.31.0-beta.11) (2023-05-16)
+
+
+### 🤖 Build System
+
+* bump node-emoji to 2 ([#465](https://github.com/open-sauced/hot-sauce/issues/465)) ([b1f7f20](https://github.com/open-sauced/hot-sauce/commit/b1f7f20c642036a28358f6aae1656105a67b3020))
+
 ## [2.31.0-beta.10](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.9...v2.31.0-beta.10) (2023-04-11)
 
 

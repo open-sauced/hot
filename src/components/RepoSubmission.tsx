@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useOutsideClickRef } from "rooks";
-import { sendMessage } from "../lib/discord";
 import isValidRepoUrl from "../lib/validateUrl";
 import { ToastTrigger } from "../lib/reactHotToast";
 import useSupabaseAuth from "../hooks/useSupabaseAuth";
@@ -10,13 +9,13 @@ export declare interface RepoSubmissionProps {
 }
 
 const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JSX.Element => {
-  const { user, token } = useSupabaseAuth();
+  const { userAndTokens } = useSupabaseAuth();
   const [isSubmissionInProcess, setIsSubmissionInProcess] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [input, setInput] = useState("");
   const [submissionRef] = useOutsideClickRef(handleClickOutsideRepoSubmission);
 
-  const userName = String(user?.user_metadata.user_name);
+  const userName = String(userAndTokens?.user.user_metadata.user_name);
 
   const saveToDataBase = (repoUrl: string): void => {
     setIsSubmissionInProcess(true);
@@ -38,15 +37,12 @@ const RepoSubmission = ({ isFormOpen, handleFormOpen }: RepoSubmissionProps): JS
 
       setSubmitted(true);
 
-      if (token) {
-        const resp = await submitRepo(sanitizedUrl, token);
+      if (userAndTokens) {
+        const resp = await submitRepo(sanitizedUrl, userAndTokens.supabaseToken);
 
         try {
           if (resp.status === 200) {
             ToastTrigger({ message: "Repo submitted successfully", type: "success" });
-
-            // issue #409 - TODO: This sendMessage is not working
-            sendMessage(sanitizedUrl, userName);
           }
 
           if (resp.status === 404) {

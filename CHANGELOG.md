@@ -5,6 +5,91 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.12](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.11...v2.31.0-beta.12) (2023-05-16)
+
+
+### 🍕 Features
+
+* Close search pop-up when escape is pressed ([#445](https://github.com/open-sauced/hot-sauce/issues/445)) ([96e3072](https://github.com/open-sauced/hot-sauce/commit/96e3072aa7bab43d04959f9ca3f479cf4c017fb2))
+
+## [2.31.0-beta.11](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.10...v2.31.0-beta.11) (2023-05-16)
+
+
+### 🤖 Build System
+
+* bump node-emoji to 2 ([#465](https://github.com/open-sauced/hot-sauce/issues/465)) ([b1f7f20](https://github.com/open-sauced/hot-sauce/commit/b1f7f20c642036a28358f6aae1656105a67b3020))
+
+## [2.31.0-beta.10](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.9...v2.31.0-beta.10) (2023-04-11)
+
+
+### 🍕 Features
+
+* allow :emoji: in repository list descriptions ([#449](https://github.com/open-sauced/hot-sauce/issues/449)) ([7e4a601](https://github.com/open-sauced/hot-sauce/commit/7e4a6011db5af508ab8d7a0544270c6778ca05e2)), closes [#370](https://github.com/open-sauced/hot-sauce/issues/370)
+
+## [2.31.0-beta.9](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.8...v2.31.0-beta.9) (2023-04-04)
+
+
+### 🐛 Bug Fixes
+
+* make year dynamic in footer ([#462](https://github.com/open-sauced/hot-sauce/issues/462)) ([9b75f36](https://github.com/open-sauced/hot-sauce/commit/9b75f36a561c621d2bf5a1e69239120a5a8e67aa)), closes [#455](https://github.com/open-sauced/hot-sauce/issues/455)
+
+## [2.31.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.7...v2.31.0-beta.8) (2023-03-24)
+
+
+### 🐛 Bug Fixes
+
+* triage.yml ([#458](https://github.com/open-sauced/hot-sauce/issues/458)) ([aec6ba8](https://github.com/open-sauced/hot-sauce/commit/aec6ba803bad2fe67fb9ce72f79a1e3eadcad6b7))
+* update the status URL in the footer ([#454](https://github.com/open-sauced/hot-sauce/issues/454)) ([8381d16](https://github.com/open-sauced/hot-sauce/commit/8381d169b969c19bce156565c6e77545cb9a2ab2)), closes [#453](https://github.com/open-sauced/hot-sauce/issues/453)
+
+## [2.31.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.6...v2.31.0-beta.7) (2023-02-21)
+
+
+### 🐛 Bug Fixes
+
+* remove discord webhook ([#441](https://github.com/open-sauced/hot-sauce/issues/441)) ([eae0ac0](https://github.com/open-sauced/hot-sauce/commit/eae0ac0ef3ddb2af85861f6998337af67099459e))
+
+## [2.31.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.5...v2.31.0-beta.6) (2023-02-11)
+
+
+### 📝 Documentation
+
+* **readme:** fix typo and unformatted link ([#447](https://github.com/open-sauced/hot-sauce/issues/447)) ([3ffd929](https://github.com/open-sauced/hot-sauce/commit/3ffd929dd4d9e5627cb67d45b29239a132dcbc5a))
+
+## [2.31.0-beta.5](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.4...v2.31.0-beta.5) (2023-01-09)
+
+
+### 🤖 Build System
+
+* used ts-prune to find unused code ([9738c56](https://github.com/open-sauced/hot-sauce/commit/9738c569d3087f2f24dc679f40b3eaa93d8f0fb0)), closes [#432](https://github.com/open-sauced/hot-sauce/issues/432)
+
+## [2.31.0-beta.4](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.3...v2.31.0-beta.4) (2023-01-06)
+
+
+### 🐛 Bug Fixes
+
+* correct mobile view secondary nav so it wraps on two lines ([#440](https://github.com/open-sauced/hot-sauce/issues/440)) ([8545ce2](https://github.com/open-sauced/hot-sauce/commit/8545ce2b0b0b297a747a17cc49534a47849860df)), closes [#438](https://github.com/open-sauced/hot-sauce/issues/438)
+
+## [2.31.0-beta.3](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.2...v2.31.0-beta.3) (2023-01-05)
+
+
+### 🐛 Bug Fixes
+
+* remove height from footer to prevent socials from being truncated ([#436](https://github.com/open-sauced/hot-sauce/issues/436)) ([149fbf0](https://github.com/open-sauced/hot-sauce/commit/149fbf01eacf67eb7053c6a4dd675e265f18ec86)), closes [#435](https://github.com/open-sauced/hot-sauce/issues/435)
+
+## [2.31.0-beta.2](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.1...v2.31.0-beta.2) (2023-01-05)
+
+
+### 🧑‍💻 Code Refactoring
+
+*  Add test for dayjs `getDateFromNow` method ([#390](https://github.com/open-sauced/hot-sauce/issues/390)) ([e5fd935](https://github.com/open-sauced/hot-sauce/commit/e5fd93597262f2baad0c01934a006e1ebf1fde62))
+
+## [2.31.0-beta.1](https://github.com/open-sauced/hot-sauce/compare/v2.30.0...v2.31.0-beta.1) (2023-01-05)
+
+
+### 🍕 Features
+
+* check whether repo is starred for nav UI ([#431](https://github.com/open-sauced/hot-sauce/issues/431)) ([bca5833](https://github.com/open-sauced/hot-sauce/commit/bca5833409fc9c323bb59ede3e8e2754b381c09e))
+
 ## [2.30.0](https://github.com/open-sauced/hot-sauce/compare/v2.29.0...v2.30.0) (2022-12-17)
 
 

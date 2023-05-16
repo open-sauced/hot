@@ -5,6 +5,35 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.31.0-beta.10](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.9...v2.31.0-beta.10) (2023-04-11)
+
+
+### 🍕 Features
+
+* allow :emoji: in repository list descriptions ([#449](https://github.com/open-sauced/hot-sauce/issues/449)) ([7e4a601](https://github.com/open-sauced/hot-sauce/commit/7e4a6011db5af508ab8d7a0544270c6778ca05e2)), closes [#370](https://github.com/open-sauced/hot-sauce/issues/370)
+
+## [2.31.0-beta.9](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.8...v2.31.0-beta.9) (2023-04-04)
+
+
+### 🐛 Bug Fixes
+
+* make year dynamic in footer ([#462](https://github.com/open-sauced/hot-sauce/issues/462)) ([9b75f36](https://github.com/open-sauced/hot-sauce/commit/9b75f36a561c621d2bf5a1e69239120a5a8e67aa)), closes [#455](https://github.com/open-sauced/hot-sauce/issues/455)
+
+## [2.31.0-beta.8](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.7...v2.31.0-beta.8) (2023-03-24)
+
+
+### 🐛 Bug Fixes
+
+* triage.yml ([#458](https://github.com/open-sauced/hot-sauce/issues/458)) ([aec6ba8](https://github.com/open-sauced/hot-sauce/commit/aec6ba803bad2fe67fb9ce72f79a1e3eadcad6b7))
+* update the status URL in the footer ([#454](https://github.com/open-sauced/hot-sauce/issues/454)) ([8381d16](https://github.com/open-sauced/hot-sauce/commit/8381d169b969c19bce156565c6e77545cb9a2ab2)), closes [#453](https://github.com/open-sauced/hot-sauce/issues/453)
+
+## [2.31.0-beta.7](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.6...v2.31.0-beta.7) (2023-02-21)
+
+
+### 🐛 Bug Fixes
+
+* remove discord webhook ([#441](https://github.com/open-sauced/hot-sauce/issues/441)) ([eae0ac0](https://github.com/open-sauced/hot-sauce/commit/eae0ac0ef3ddb2af85861f6998337af67099459e))
+
 ## [2.31.0-beta.6](https://github.com/open-sauced/hot-sauce/compare/v2.31.0-beta.5...v2.31.0-beta.6) (2023-02-11)
 
 

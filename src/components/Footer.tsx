@@ -15,7 +15,7 @@ const footerContext = [
   {
     privacy: { url: "https://app.termly.io/document/privacy-policy/5e303854-d262-468a-80ec-54b645d01c2e", text: "Privacy" },
     terms: { url: "https://app.termly.io/document/terms-of-use-for-saas/03e4e1c1-53ad-4fc4-b415-5c3f0e8c25ef", text: "Terms" },
-    status: { url: "https://api.opensauced.pizza/docs#/Health%20check%20service/healthStatusWeb", text: "Status" },
+    status: { url: "https://status.opensauced.pizza", text: "Status" },
   },
   {
     hot: { url: "https://hot.opensauced.pizza", text: "hot.opensauced.pizza" },
@@ -72,7 +72,11 @@ const Footer = (): JSX.Element => (
           <span className="lg:hidden font-bold text-light-slate-12 ">OpenSauced</span>
 
           <p className="hidden !text-light-slate-9 lg:inline-block">
-            © 2022
+            ©
+            {" "}
+
+            {(new Date).getFullYear()}
+
             {" "}
 
             <span className="hidden lg:inline-block">OpenSauced</span>
@@ -146,7 +150,11 @@ const Footer = (): JSX.Element => (
 
         <div className="flex md:justify-center lg:hidden lg:border-none lg:order-2 border-t py-3 pb-4 mt-2 text-sm justify-between">
           <p className="text-light-slate-9">
-            © 2022
+            ©
+            {" "}
+
+            {(new Date).getFullYear()}
+
             {" "}
 
             <span className="hidden md:inline-block">Open sauced</span>

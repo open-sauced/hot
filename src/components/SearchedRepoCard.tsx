@@ -1,3 +1,4 @@
+import { emojify } from "node-emoji";
 import { AiOutlineStar } from "react-icons/ai";
 import { FaRegDotCircle } from "react-icons/fa";
 import useContributions from "../hooks/useContributions";
@@ -24,8 +25,8 @@ const SearchedRepoCard = ({ data: { full_name, name, description, issues, stars 
             />
           </div>
 
-          <p className="text-base text-gray-500 font-semibold">
-            {full_name}
+          <p className="text-sm text-gray-500">
+            {emojify(description)}
           </p>
         </div>
 

@@ -21,7 +21,7 @@ jobs:
 
   test:
     name: Test and lint
-    uses: open-sauced/open-sauced/.github/workflows/development.yml@main
+    uses: ./.github/workflows/development.yml
 
   docker:
     name: Build container
@@ -75,7 +75,7 @@ jobs:
       - name: "🔧 setup node"
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: "🔧 install npm@latest"
         run: npm i -g npm@latest

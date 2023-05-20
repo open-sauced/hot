@@ -2,7 +2,7 @@
   "name": "@open-sauced/hot",
   "description": "🍕The site that recommends the hottest sauce.",
   "keywords": [],
-  "version": "2.31.0-beta.11",
+  "version": "2.31.1-beta.1",
   "author": "TED Vortex <ted.vortex@gmail.com>",
   "private": true,
   "license": "MIT",
@@ -12,15 +12,15 @@
   ],
   "homepage": "https://hot.opensauced.pizza",
   "bugs": {
-    "url": "https://github.com/open-sauced/hot-sauce/issues"
+    "url": "https://github.com/open-sauced/hot/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/open-sauced/hot-sauce.git"
+    "url": "git+ssh://git@github.com/open-sauced/hot.git"
   },
   "engines": {
-    "node": ">= 16.7.0",
-    "npm": ">= 8.0.0"
+    "node": ">=18",
+    "npm": ">=8"
   },
   "scripts": {
     "types:auto-add": "npx typesync",
@@ -74,7 +74,6 @@
     "@open-sauced/check-engines": "^1.2.0",
     "@open-sauced/conventional-commit": "^1.0.1",
     "@playwright/test": "^1.27.1",
-    "@squoosh/cli": "^0.7.2",
     "@testing-library/react": "^13.3.0",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^14.4.1",
@@ -110,6 +109,7 @@
     "node-notifier": "^10.0.1",
     "p-limit": "^4.0.0",
     "rollup-plugin-visualizer": "^5.7.1",
+    "sharp": "^0.32.1",
     "svgo": "^2.8.0",
     "ts-prune": "^0.10.3",
     "typescript": "^4.7.4",

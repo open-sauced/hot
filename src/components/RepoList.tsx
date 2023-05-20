@@ -67,45 +67,15 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
             target="_blank"
             title={`Visit ${full_name}`}
           >
-            <img
-              alt={full_name}
-              src={getAvatarLink(owner)}
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="flex-1">
-        <a
-          href={getRepoLink(full_name)}
-          rel="noopener noreferrer"
-          target="_blank"
-          title={`Visit ${full_name}`}
-        >
-          <p className="text-sm text-textGrey">
-            {full_name}
-          </p>
-
-          <p className="text-base text-textGrey">
-            {emojify(description)}
-          </p>
-        </a>
-
-        <div className="flex gap-x-[16px] mt-[16px]">
-          <div className="flex gap-[5px] items-center text-textGrey">
-            <FaDotCircle
-              aria-hidden="true"
-              className="w-[16px]"
-            />
-
-            <p className="text-sm">
-              {humanizeNumber(issues)}
+            <p className="text-sm text-textGrey">
+              {full_name}
             </p>
 
             <p className="text-base text-textGrey">
-              {description}
+              {emojify(description)}
             </p>
-          </div>
+          </a>
+
 
           <div className="flex gap-x-[16px] mt-[16px]">
             <div className="flex gap-[5px] items-center text-textGrey">

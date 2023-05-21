@@ -5,6 +5,30 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.32.0-beta.1](https://github.com/open-sauced/hot/compare/v2.31.1-beta.1...v2.32.0-beta.1) (2023-05-21)
+
+
+### 🍕 Features
+
+* Add flex wrapper around repo list content ([#443](https://github.com/open-sauced/hot/issues/443)) ([13f61f9](https://github.com/open-sauced/hot/commit/13f61f9b341ae0a536e412cf8ae23d8d825f18fb))
+
+## [2.31.1-beta.1](https://github.com/open-sauced/hot/compare/v2.31.0...v2.31.1-beta.1) (2023-05-18)
+
+
+### 🐛 Bug Fixes
+
+* correct squoosh leveled dependencies ([#468](https://github.com/open-sauced/hot/issues/468)) ([c6da752](https://github.com/open-sauced/hot/commit/c6da7523180ed6789bd9ae2189e152cc7faafa0a))
+
+
+### 🔁 Continuous Integration
+
+* correct build environment ([7b6ee33](https://github.com/open-sauced/hot/commit/7b6ee335256a3f78158b6be5a33e395e92a50518))
+
+
+### 🤖 Build System
+
+* correct node version in docker build ([ccd2f6c](https://github.com/open-sauced/hot/commit/ccd2f6c8da01d1827f8a42423d3212f1e5f42ff2))
+
 ## [2.31.0](https://github.com/open-sauced/hot-sauce/compare/v2.30.0...v2.31.0) (2023-05-16)
 
 

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.32.0-beta.1](https://github.com/open-sauced/hot/compare/v2.31.1-beta.1...v2.32.0-beta.1) (2023-05-21)
+
+
+### 🍕 Features
+
+* Add flex wrapper around repo list content ([#443](https://github.com/open-sauced/hot/issues/443)) ([13f61f9](https://github.com/open-sauced/hot/commit/13f61f9b341ae0a536e412cf8ae23d8d825f18fb))
+
 ## [2.31.1-beta.1](https://github.com/open-sauced/hot/compare/v2.31.0...v2.31.1-beta.1) (2023-05-18)
 
 

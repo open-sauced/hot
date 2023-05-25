@@ -1,6 +1,7 @@
 name: Assign issues with .take
 
 on:
+  workflow_call:
   issue_comment:
     types:
       - created

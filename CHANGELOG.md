@@ -5,6 +5,20 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.33.0-beta.2](https://github.com/open-sauced/hot/compare/v2.33.0-beta.1...v2.33.0-beta.2) (2023-05-25)
+
+
+### 🐛 Bug Fixes
+
+* add workflow_call to triage.yml ([3a1bc14](https://github.com/open-sauced/hot/commit/3a1bc1416588f4febc4cc219e44e6af48ec95aef))
+
+## [2.33.0-beta.1](https://github.com/open-sauced/hot/compare/v2.32.0...v2.33.0-beta.1) (2023-05-24)
+
+
+### 🍕 Features
+
+* Remove open-sauced/open-sauced workflows ([#470](https://github.com/open-sauced/hot/issues/470)) ([4ab3e53](https://github.com/open-sauced/hot/commit/4ab3e53792d1b672f1f5eeb5808c621e271e546e))
+
 ## [2.32.0](https://github.com/open-sauced/hot/compare/v2.31.0...v2.32.0) (2023-05-21)
 
 

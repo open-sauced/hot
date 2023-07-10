@@ -73,35 +73,37 @@ const Hero = () => {
         value={comboBoxSelection}
         onChange={setComboBoxSelection}
       >
-        <div className="mt-11 px-4 gap-x-2.5 py-2.5  bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex">
-          <img
-            alt="search icon"
-            src={searchNormal}
-          />
-
-          <Combobox.Button
-            ref={comboButtonRef}
-          >
-            <Combobox.Input
-              ref={searchBoxRef}
-              className="w-full outline-none text-base text-lightSlate"
-              displayValue={() => searchTerm}
-              placeholder="Search repositories"
-              type="text"
-              value={searchTerm}
-              onChange={e => setValueDebounced(e.target.value)}
-              onFocus={() => setFocus(true)}
-              onBlur={() =>
-                setTimeout(() => {
-                  setFocus(false);
-                }, 200)}
-              onKeyUp={(event: React.KeyboardEvent) => {
-                if (event.key === "Enter") {
-                  window.open(comboBoxSelection, "_blank", "noreferrer");
-                }
-              }}
+        <div className="mt-11 px-4 gap-x-2.5 py-2.5  bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex justify-between">
+          <div className="flex">
+            <img
+              alt="search icon"
+              src={searchNormal}
             />
-          </Combobox.Button>
+
+            <Combobox.Button
+              ref={comboButtonRef}
+            >
+              <Combobox.Input
+                ref={searchBoxRef}
+                className="w-full outline-none text-base text-lightSlate"
+                displayValue={() => searchTerm}
+                placeholder="Search repositories"
+                type="text"
+                value={searchTerm}
+                onChange={e => setValueDebounced(e.target.value)}
+                onFocus={() => setFocus(true)}
+                onBlur={() =>
+                  setTimeout(() => {
+                    setFocus(false);
+                  }, 200)}
+                onKeyUp={(event: React.KeyboardEvent) => {
+                  if (event.key === "Enter") {
+                    window.open(comboBoxSelection, "_blank", "noreferrer");
+                  }
+                }}
+              />
+            </Combobox.Button>
+          </div>
 
           <img
             alt="command k"

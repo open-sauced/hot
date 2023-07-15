@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.33.1-beta.1](https://github.com/open-sauced/hot/compare/v2.33.0...v2.33.1-beta.1) (2023-07-15)
+
+
+### 🐛 Bug Fixes
+
+* Styled input field ([#475](https://github.com/open-sauced/hot/issues/475)) ([4f2d743](https://github.com/open-sauced/hot/commit/4f2d743ad9ada77ce7c42bbb68ceb174b4764f3a))
+
 ## [2.33.0](https://github.com/open-sauced/hot/compare/v2.32.0...v2.33.0) (2023-05-25)
 
 

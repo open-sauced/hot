@@ -1,6 +1,6 @@
 import { BsFillCalendar2Fill } from "react-icons/bs";
-import Skeleton from "react-loading-skeleton";
 import RepoList from "./RepoList";
+import Skeleton from "react-loading-skeleton";
 
 export declare interface ListRepositoriesProps {
   activeLink: string | null;

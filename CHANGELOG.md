@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.33.1-beta.2](https://github.com/open-sauced/hot/compare/v2.33.1-beta.1...v2.33.1-beta.2) (2023-07-18)
+
+
+### 🐛 Bug Fixes
+
+* Footer position on initial render ([#474](https://github.com/open-sauced/hot/issues/474)) ([676477d](https://github.com/open-sauced/hot/commit/676477dcc71a7acf496c2c0c1bbe9042a4f56d76))
+
 ## [2.33.1-beta.1](https://github.com/open-sauced/hot/compare/v2.33.0...v2.33.1-beta.1) (2023-07-15)
 
 

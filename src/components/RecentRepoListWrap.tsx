@@ -34,8 +34,9 @@ const RecentRepoListWrap = (): JSX.Element => {
 
   const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
+  const pageNumber = parseInt(searchParams.get("pageNumber")!) || 1;
 
-  const { data, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
+  const { data, meta, isLoading } = useRepositoriesList(RepoOrderByEnum[activeLink], limit, pageNumber);
   const [thisWeek, setThisWeek] = useState<DbRepo[] | null>(null);
   const [lastWeek, setLastWeek] = useState<DbRepo[] | null>(null);
   const [older, setOlder] = useState<DbRepo[] | null>(null);
@@ -76,7 +77,7 @@ const RecentRepoListWrap = (): JSX.Element => {
   }, [data]);
 
   const handleLoadingMore = () => {
-    setSearchParams({ limit: String(limit + 10) });
+    setSearchParams({ pageNumber: String(pageNumber + 1), limit: String(limit) });
   };
 
   return (
@@ -85,7 +86,7 @@ const RecentRepoListWrap = (): JSX.Element => {
         ? (
           <div className="mx-auto max-w-7xl px-4 mt-10">
             <div className="flex flex-col gap-y-5 overflow-hidden mb-12">
-              {Array.from(Array(10).keys()).map(item => (
+              {Array.from(Array(25).keys()).map(item => (
                 <div
                   key={item}
                   className="p-4 border rounded-2xl bg-white w-full space-y-1 relative"
@@ -101,15 +102,13 @@ const RecentRepoListWrap = (): JSX.Element => {
         )
         : (
           <>
-            {/* limit set to 101, a temporary fix to hide "Load More" from "This Week" & "Last Week".
-              TODO: Make a real solution for this. */}
 
             {thisWeek && thisWeek.length > 0 && (
               <ListRepositories
                 activeLink={activeLink}
                 fetchedData={thisWeek}
                 handleLoadingMore={handleLoadingMore}
-                limit={101}
+                hasNextPage={meta.hasNextPage}
                 title="This Week"
               />
             )}
@@ -119,7 +118,7 @@ const RecentRepoListWrap = (): JSX.Element => {
                 activeLink={activeLink}
                 fetchedData={lastWeek}
                 handleLoadingMore={handleLoadingMore}
-                limit={101}
+                hasNextPage={meta.hasNextPage}
                 title="Last Week"
               />
             )}
@@ -129,7 +128,7 @@ const RecentRepoListWrap = (): JSX.Element => {
                 activeLink={activeLink}
                 fetchedData={older}
                 handleLoadingMore={handleLoadingMore}
-                limit={limit}
+                hasNextPage={meta.hasNextPage}
                 title="Older"
               />
             )}

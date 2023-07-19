@@ -4,24 +4,24 @@ import Skeleton from "react-loading-skeleton";
 
 export declare interface ListRepositoriesProps {
   activeLink: string | null;
-  limit: number;
   handleLoadingMore: () => void;
   fetchedData: DbRepo[];
   title: string;
+  hasNextPage: boolean;
 }
 
 const ListRepositories = ({
   activeLink,
-  limit,
   handleLoadingMore,
   fetchedData,
   title,
+  hasNextPage,
 }: ListRepositoriesProps): JSX.Element => {
   if (!fetchedData.length) {
     return (
       <div className="mx-auto max-w-7xl px-4 mt-10">
         <div className="flex flex-col gap-y-5 overflow-hidden mb-12">
-          {Array.from(Array(10).keys()).map(item => (
+          {Array.from(Array(25).keys()).map(item => (
             <div
               key={item}
               className="p-4 border rounded-2xl bg-white w-full space-y-1 relative"
@@ -58,7 +58,7 @@ const ListRepositories = ({
         ))}
       </div>
 
-      {fetchedData.length > 0 && activeLink !== "myVotes" && limit <= 100 && (
+      {fetchedData.length > 0 && activeLink !== "myVotes" && hasNextPage && (
         <div className="flex justify-center">
           <button
             className="bg-white text-gray-700 mt-4 mb-4 text-base border-gray-400 border font-normal py-1 px-4 rounded"

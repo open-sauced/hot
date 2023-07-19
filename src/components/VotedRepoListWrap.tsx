@@ -33,11 +33,13 @@ const VotedRepoListWrap = (): JSX.Element => {
 
   const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
+  const pageNumber = parseInt(searchParams.get("pageNumber")!) || 1;
 
-  const { data, isLoading } = useVotedRepositoriesList(RepoOrderByEnum[activeLink], limit);
+
+  const { data, meta, isLoading } = useVotedRepositoriesList(RepoOrderByEnum[activeLink], limit, pageNumber);
 
   const handleLoadingMore = () => {
-    setSearchParams({ limit: String(limit + 10) });
+    setSearchParams({ pageNumber: String(pageNumber + 1), limit: String(limit) });
   };
 
   if (!isLoading && !data.length) {
@@ -67,7 +69,7 @@ const VotedRepoListWrap = (): JSX.Element => {
       activeLink={activeLink}
       fetchedData={data}
       handleLoadingMore={handleLoadingMore}
-      limit={limit}
+      hasNextPage={meta.hasNextPage}
       title="My Votes Repositories"
     />
   );

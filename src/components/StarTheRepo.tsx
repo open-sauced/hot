@@ -38,6 +38,7 @@ export const StarTheRepo = ({ userAndTokens }: StarTheRepoProps): JSX.Element | 
         href="https://github.com/open-sauced/hot"
         rel="noreferrer"
         target="_blank"
+        className="flex justify-center items-center"
       >
         <Icon className="inline-block mr-2.5" />
 

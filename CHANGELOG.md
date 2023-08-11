@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.33.1-beta.3](https://github.com/open-sauced/hot/compare/v2.33.1-beta.2...v2.33.1-beta.3) (2023-08-11)
+
+
+### 🐛 Bug Fixes
+
+* Load more button visibility issue  and now loads data upon clicking ([#478](https://github.com/open-sauced/hot/issues/478)) ([43f1fb0](https://github.com/open-sauced/hot/commit/43f1fb0e0ff6dbfc29dce5e8fd4d3d0569a7e72e))
+
 ## [2.33.1-beta.2](https://github.com/open-sauced/hot/compare/v2.33.1-beta.1...v2.33.1-beta.2) (2023-07-18)
 
 

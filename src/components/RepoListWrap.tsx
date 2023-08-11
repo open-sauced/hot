@@ -33,11 +33,13 @@ const RepoListWrap = (): JSX.Element => {
 
   const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
+  const pageNumber = parseInt(searchParams.get("pageNumber")!) || 1;
 
-  const { data } = useRepositoriesList(RepoOrderByEnum[activeLink], limit);
+
+  const { data, meta } = useRepositoriesList(RepoOrderByEnum[activeLink], limit, pageNumber);
 
   const handleLoadingMore = () => {
-    setSearchParams({ limit: String(limit + 10) });
+    setSearchParams({ pageNumber: String(pageNumber + 1), limit: String(limit) });
   };
 
   return (
@@ -45,7 +47,7 @@ const RepoListWrap = (): JSX.Element => {
       activeLink={activeLink}
       fetchedData={data}
       handleLoadingMore={handleLoadingMore}
-      limit={limit}
+      hasNextPage={meta.hasNextPage}
       title={`${camelCaseToTitleCase(activeLink)} Repositories`}
     />
   );

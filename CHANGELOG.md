@@ -5,6 +5,27 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.33.1-beta.3](https://github.com/open-sauced/hot/compare/v2.33.1-beta.2...v2.33.1-beta.3) (2023-08-11)
+
+
+### 🐛 Bug Fixes
+
+* Load more button visibility issue  and now loads data upon clicking ([#478](https://github.com/open-sauced/hot/issues/478)) ([43f1fb0](https://github.com/open-sauced/hot/commit/43f1fb0e0ff6dbfc29dce5e8fd4d3d0569a7e72e))
+
+## [2.33.1-beta.2](https://github.com/open-sauced/hot/compare/v2.33.1-beta.1...v2.33.1-beta.2) (2023-07-18)
+
+
+### 🐛 Bug Fixes
+
+* Footer position on initial render ([#474](https://github.com/open-sauced/hot/issues/474)) ([676477d](https://github.com/open-sauced/hot/commit/676477dcc71a7acf496c2c0c1bbe9042a4f56d76))
+
+## [2.33.1-beta.1](https://github.com/open-sauced/hot/compare/v2.33.0...v2.33.1-beta.1) (2023-07-15)
+
+
+### 🐛 Bug Fixes
+
+* Styled input field ([#475](https://github.com/open-sauced/hot/issues/475)) ([4f2d743](https://github.com/open-sauced/hot/commit/4f2d743ad9ada77ce7c42bbb68ceb174b4764f3a))
+
 ## [2.33.0](https://github.com/open-sauced/hot/compare/v2.32.0...v2.33.0) (2023-05-25)
 
 

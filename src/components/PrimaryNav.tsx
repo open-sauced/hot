@@ -68,6 +68,7 @@ const PrimaryNav = (): JSX.Element => {
                 <div className="flex md:hidden w-5 h-5">
                   <GiHamburgerMenu size={24} />
                 </div>
+
                 <div className="hidden md:flex pl-4 border-l border-lightOrange">
                   <div className="w-8 h-8 overflow-hidden rounded-full border-osOrange border">
                     <img
@@ -77,7 +78,7 @@ const PrimaryNav = (): JSX.Element => {
                     />
                   </div>
                 </div>
-                
+
               </Menu.Button>
 
 
@@ -119,7 +120,7 @@ const PrimaryNav = (): JSX.Element => {
                   {({ active }) => (
                     <button
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                        } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       {`v${version}`}
                     </button>
@@ -130,7 +131,7 @@ const PrimaryNav = (): JSX.Element => {
                   {({ active }) => (
                     <button
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                        } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={() => handleFormOpen(true)}
                     >
                       Submit a repository
@@ -142,7 +143,7 @@ const PrimaryNav = (): JSX.Element => {
                   {({ active }) => (
                     <button
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                        } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={() => console.log("Token: ", currentUser?.access_token)}
                     >
                       Print auth token
@@ -157,7 +158,7 @@ const PrimaryNav = (): JSX.Element => {
                       rel="noreferrer"
                       target="_blank"
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                        } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       Report a bug
                     </a>
@@ -168,7 +169,7 @@ const PrimaryNav = (): JSX.Element => {
                   {({ active }) => (
                     <button
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                        } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={async () => signOut()}
                     >
                       Logout

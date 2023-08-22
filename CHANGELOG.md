@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.33.2-beta.1](https://github.com/open-sauced/hot/compare/v2.33.1...v2.33.2-beta.1) (2023-08-22)
+
+
+### 🐛 Bug Fixes
+
+* fixed nav menu button ([#483](https://github.com/open-sauced/hot/issues/483)) ([dba7890](https://github.com/open-sauced/hot/commit/dba789099c3bc0cb847c9d927d39d4cbd1da0147))
+
 ## [2.33.1](https://github.com/open-sauced/hot/compare/v2.33.0...v2.33.1) (2023-08-11)
 
 

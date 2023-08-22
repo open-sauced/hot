@@ -40,7 +40,7 @@ const PrimaryNav = (): JSX.Element => {
 
   return (
     <header>
-      { userAndTokens && openAdminBar && <AdminStatsBar /> }
+      {userAndTokens && openAdminBar && <AdminStatsBar />}
 
       <div className="flex font-OpenSans py-6 px-10 justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
@@ -65,6 +65,10 @@ const PrimaryNav = (): JSX.Element => {
               <StarTheRepo userAndTokens={userAndTokens} />
 
               <Menu.Button>
+                <div className="flex md:hidden w-5 h-5">
+                  <GiHamburgerMenu size={24} />
+                </div>
+
                 <div className="hidden md:flex pl-4 border-l border-lightOrange">
                   <div className="w-8 h-8 overflow-hidden rounded-full border-osOrange border">
                     <img
@@ -74,11 +78,10 @@ const PrimaryNav = (): JSX.Element => {
                     />
                   </div>
                 </div>
+
               </Menu.Button>
 
-              <div className="flex md:hidden w-5 h-5">
-                <GiHamburgerMenu size={24} />
-              </div>
+
             </div>
 
 
@@ -116,8 +119,7 @@ const PrimaryNav = (): JSX.Element => {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       {`v${version}`}
@@ -128,8 +130,7 @@ const PrimaryNav = (): JSX.Element => {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={() => handleFormOpen(true)}
                     >
@@ -141,8 +142,7 @@ const PrimaryNav = (): JSX.Element => {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={() => console.log("Token: ", currentUser?.access_token)}
                     >
@@ -157,8 +157,7 @@ const PrimaryNav = (): JSX.Element => {
                       href={bugReportLink}
                       rel="noreferrer"
                       target="_blank"
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       Report a bug
@@ -169,8 +168,7 @@ const PrimaryNav = (): JSX.Element => {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={async () => signOut()}
                     >

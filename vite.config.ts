@@ -1,3 +1,4 @@
+import million from "million/compiler";
 import { defineConfig } from 'vitest/config'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { execaSync } from 'execa'
@@ -9,6 +10,10 @@ import ViteVisualizer from 'rollup-plugin-visualizer'
 import { VitePluginFonts } from 'vite-plugin-fonts'
 
 import type { ConfigEnv, UserConfig } from 'vite'
+
+const millionConfig = {
+  auto: { rsc: true },
+};
 
 // https://vitejs.dev/config/
 export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
@@ -151,5 +156,5 @@ export default defineConfig(({command, mode}: ConfigEnv): UserConfig => {
     }
   }
 
-  return config;
+  return million.next(config,millionConfig);
 })

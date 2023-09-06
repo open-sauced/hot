@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.33.2-beta.2](https://github.com/open-sauced/hot/compare/v2.33.2-beta.1...v2.33.2-beta.2) (2023-09-06)
+
+
+### 🐛 Bug Fixes
+
+* update repo to open-sauced/app ([#485](https://github.com/open-sauced/hot/issues/485)) ([0fd1f73](https://github.com/open-sauced/hot/commit/0fd1f73f1c134a94e55b1448a9e1deab9e0d4e25))
+
 ## [2.33.2-beta.1](https://github.com/open-sauced/hot/compare/v2.33.1...v2.33.2-beta.1) (2023-08-22)
 
 

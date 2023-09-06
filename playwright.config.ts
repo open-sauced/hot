@@ -1,5 +1,10 @@
+import million from "million/compiler";
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
+
+const millionConfig = {
+  auto: { rsc: true },
+};
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -103,4 +108,4 @@ const config: PlaywrightTestConfig = {
   },
 };
 
-export default config;
+export default million.next(config,millionConfig);

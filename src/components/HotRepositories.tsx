@@ -2,7 +2,7 @@ import hotIcon from "../assets/hotIcon.png";
 import HotRepoCard from "./HotRepoCard";
 
 const HotRepositories = (): JSX.Element => {
-  const staticHot = ["pocketbase/pocketbase", "ThePrimeagen/undefined", "open-sauced/insights"];
+  const staticHot = ["pocketbase/pocketbase", "ThePrimeagen/undefined", "open-sauced/app"];
 
   return (
     <div className="flex flex-col px-4 max-w-screen-xl mx-auto">

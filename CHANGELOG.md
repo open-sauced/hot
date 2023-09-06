@@ -5,6 +5,19 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.34.0](https://github.com/open-sauced/hot/compare/v2.33.1...v2.34.0) (2023-09-06)
+
+
+### 🐛 Bug Fixes
+
+* fixed nav menu button ([#483](https://github.com/open-sauced/hot/issues/483)) ([dba7890](https://github.com/open-sauced/hot/commit/dba789099c3bc0cb847c9d927d39d4cbd1da0147))
+* update repo to open-sauced/app ([#485](https://github.com/open-sauced/hot/issues/485)) ([0fd1f73](https://github.com/open-sauced/hot/commit/0fd1f73f1c134a94e55b1448a9e1deab9e0d4e25))
+
+
+### 🍕 Features
+
+* add million.js ([#487](https://github.com/open-sauced/hot/issues/487)) ([b8acfb8](https://github.com/open-sauced/hot/commit/b8acfb8da73cf0b49d2fd9667ddfab21dc04f09a))
+
 ## [2.34.0-beta.1](https://github.com/open-sauced/hot/compare/v2.33.2-beta.2...v2.34.0-beta.1) (2023-09-06)
 
 

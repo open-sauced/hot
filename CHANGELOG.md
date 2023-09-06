@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.34.0-beta.1](https://github.com/open-sauced/hot/compare/v2.33.2-beta.2...v2.34.0-beta.1) (2023-09-06)
+
+
+### 🍕 Features
+
+* add million.js ([#487](https://github.com/open-sauced/hot/issues/487)) ([b8acfb8](https://github.com/open-sauced/hot/commit/b8acfb8da73cf0b49d2fd9667ddfab21dc04f09a))
+
 ## [2.33.2-beta.2](https://github.com/open-sauced/hot/compare/v2.33.2-beta.1...v2.33.2-beta.2) (2023-09-06)
 
 

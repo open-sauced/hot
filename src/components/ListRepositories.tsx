@@ -61,7 +61,7 @@ const ListRepositories = ({
       {fetchedData.length > 0 && activeLink !== "myVotes" && hasNextPage && (
         <div className="flex justify-center">
           <button
-            className="bg-white text-gray-700 mt-4 mb-4 text-base border-gray-400 border font-normal py-1 px-4 rounded"
+            className="bg-white hover:bg-slate-200 text-gray-700 mt-4 mb-4 text-base border-gray-400 border font-normal py-1 px-4 rounded"
             onClick={() => handleLoadingMore()}
           >
             Load More

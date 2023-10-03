@@ -186,7 +186,7 @@ const PrimaryNav = (): JSX.Element => {
             <StarTheRepo />
 
             <button
-              className="bg-osOrange w-16 h-9 rounded-md px-3 py-0.5 text-xs font-semibold text-white md:ml-5 [text-shadow:0_0_1px_black]"
+              className="bg-osOrange hover:bg-orange-500 w-16 h-9 rounded-md px-3 py-0.5 text-xs font-semibold text-white md:ml-5 [text-shadow:0_0_1px_black]"
               onClick={async () => {
                 capturePostHogAnayltics("User Login", "userLoginAttempt", "true");
                 await signIn({ provider: "github" });

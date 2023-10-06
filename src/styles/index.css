@@ -17,3 +17,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
+
+.button-hover {
+  background-color: white;
+  color: black;
+} 
+
+.button-hover:hover {
+  background-color: rgb(214, 214, 214);
+}

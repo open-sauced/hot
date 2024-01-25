@@ -5,6 +5,18 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.35.0-beta.1](https://github.com/open-sauced/hot/compare/v2.34.1-beta.1...v2.35.0-beta.1) (2024-01-25)
+
+
+### 🤖 Build System
+
+* **deps-dev:** bump vite from 3.0.4 to 3.2.8 ([03d1586](https://github.com/open-sauced/hot/commit/03d1586e089e038af4a4387adaac5a79b9f6be7f))
+
+
+### 🍕 Features
+
+* Upgrade to v2 API ([c056d37](https://github.com/open-sauced/hot/commit/c056d37662d30b607832bcccb8fd6214292eae79))
+
 ## [2.34.1-beta.1](https://github.com/open-sauced/hot/compare/v2.34.0...v2.34.1-beta.1) (2023-10-20)
 
 

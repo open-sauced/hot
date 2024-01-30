@@ -16,9 +16,10 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: take an issue
-        uses: bdougie/take-action@main
+        uses: bdougie/take-action@v1.6.1
         with:
           message: Thanks for taking this on! If you have not already, join the conversation in our [Discord](https://discord.gg/U2peSNf23P)
           issueCurrentlyAssignedMessage: Thanks for being interested in this issue. It looks like this ticket is already assigned to a contributor. Please communicate with the assigned contributor to confirm the status of the issue.
-          trigger: .take
           token: ${{ secrets.GITHUB_TOKEN }}
+          blockingLabels: 👀 needs triage,🛑 blocked,core team work,🖍need-design,duplicate
+          blockingLabelsMessage: The issue you are trying to assign yourself is blocked until it can be triaged or by another label on the issue.

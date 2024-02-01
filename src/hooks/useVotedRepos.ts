@@ -13,6 +13,10 @@ const useVotedRepos = () => {
       if (user) {
         const data = await fetchRecommendations("myVotes", 1000, user, "");
 
+        if(!data) {
+          return setVotedReposIds([]);
+        }
+
         return setVotedReposIds(data.map(({ id }) => id));
       }
     } catch (e) {

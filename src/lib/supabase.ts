@@ -119,5 +119,5 @@ export async function fetchRecommendations (
 
   error && console.error(error);
 
-  return recommendations as DbRepo[];
+  return recommendations as DbRepo[] | null;
 }

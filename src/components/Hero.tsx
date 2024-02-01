@@ -6,6 +6,7 @@ import searchNormal from "../assets/searchNormal.svg";
 import cmdKIcon from "../assets/cmdK.svg";
 import SearchedRepoCard from "./SearchedRepoCard";
 import { Combobox } from "@headlessui/react";
+import { ToastTrigger } from "../lib/reactHotToast";
 
 const Hero = () => {
   const containerRef = useRef<Document>(document);
@@ -17,6 +18,14 @@ const Hero = () => {
   const [comboBoxSelection, setComboBoxSelection] = useState("");
   const [hasFocus, setFocus] = useState(false);
 
+  const setFetchedDataWithCatch = (results: DbRepo[] | null) => {
+    if (results) {
+      setFetchedData(results);
+    } else {
+      ToastTrigger({ message: "Failed to fetch recommendations", type: "error" });
+    }
+  };
+  
   const handleCmdK = async (e: KeyboardEvent) => {
     comboButtonRef.current?.click();
     if (!hasFocus) {
@@ -24,7 +33,7 @@ const Hero = () => {
       setFocus(true);
       const results = await fetchRecommendations("stars", 3, null, searchTerm);
 
-      setFetchedData(results);
+      setFetchedDataWithCatch(results);
     } else {
       searchBoxRef.current?.blur();
       setFocus(false);
@@ -49,7 +58,7 @@ const Hero = () => {
   useDidUpdate(async () => {
     const results = await fetchRecommendations("stars", 3, null, searchTerm);
 
-    setFetchedData(results);
+    setFetchedDataWithCatch(results);
   }, [searchTerm]);
 
   return (

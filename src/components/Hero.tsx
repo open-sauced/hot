@@ -97,7 +97,8 @@ const Hero = () => {
                     setFocus(false);
                   }, 200)}
                 onKeyUp={(event: React.KeyboardEvent) => {
-                  if (event.key === "Enter") {
+                  // if no result is selected yet, then the comboBoxSelection will be empty, which will trigger a `about:blank` page to open
+                  if (event.key === "Enter" && comboBoxSelection !== "") {
                     window.open(comboBoxSelection, "_blank", "noreferrer");
                   }
                 }}

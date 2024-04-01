@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.36.0-beta.1](https://github.com/open-sauced/hot/compare/v2.35.0...v2.36.0-beta.1) (2024-04-01)
+
+
+### 🍕 Features
+
+* update links to use app ([#516](https://github.com/open-sauced/hot/issues/516)) ([cb9eea0](https://github.com/open-sauced/hot/commit/cb9eea0668ab0548fc6de11907302abc3694904f))
+
 ## [2.35.0](https://github.com/open-sauced/hot/compare/v2.34.0...v2.35.0) (2024-01-30)
 
 

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.36.0-beta.2](https://github.com/open-sauced/hot/compare/v2.36.0-beta.1...v2.36.0-beta.2) (2024-04-01)
+
+
+### 🍕 Features
+
+* Replaced print auth token with copy to clipboard ([#514](https://github.com/open-sauced/hot/issues/514)) ([7684b81](https://github.com/open-sauced/hot/commit/7684b81f248e350ca63dce6ff57b43314d6ba410))
+
 ## [2.36.0-beta.1](https://github.com/open-sauced/hot/compare/v2.35.0...v2.36.0-beta.1) (2024-04-01)
 
 

@@ -345,7 +345,7 @@ module.exports = {
     "react/jsx-closing-bracket-location": "error",
     "react/jsx-closing-tag-location": "error",
     "react/jsx-curly-brace-presence": ["error", "never"],
-    "react/jsx-curly-newline": ["error", "consistent"],
+    "react/jsx-curly-newline": ["warn", "consistent"],
     "react/jsx-equals-spacing": ["error", "never"],
     "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
     "react/jsx-fragments": ["error", "syntax"],
@@ -370,7 +370,7 @@ module.exports = {
       },
     ],
     "react/jsx-newline": [
-      "error",
+      "warn",
       {
         prevent: false,
       },

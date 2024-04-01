@@ -1,12 +1,10 @@
 import { emojify } from "node-emoji";
-import { useEffect, useState } from "react";
-import { FaArrowAltCircleUp, FaDotCircle, FaStar } from "react-icons/fa";
+import { useEffect } from "react";
+import { FaDotCircle, FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
 import StackedAvatar from "./StackedAvatar";
 import useVotedRepos from "../hooks/useVotedRepos";
-import { RiCheckboxCircleFill } from "react-icons/ri";
-import cx from "classnames";
 import useContributions from "../hooks/useContributions";
 
 export declare interface RepoListProps {
@@ -14,9 +12,6 @@ export declare interface RepoListProps {
 }
 
 const RepoList = ({ data }: RepoListProps): JSX.Element => {
-  const { votedReposIds, checkVoted, voteHandler } = useVotedRepos();
-  const [isVoted, setIsVoted] = useState(false);
-
   const {
     id,
     name,
@@ -31,11 +26,6 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
   // {full_name} consists of `{owner}/{repo}`, so this link is actually `repos/{owner}/{repo}/contributions`
   const { data: contributions } = useContributions(full_name);
 
-  useEffect(() => {
-    setIsVoted(checkVoted(id));
-  }, [votedReposIds]);
-
-  const repo_id = parseInt(`${id}`);
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
   return (

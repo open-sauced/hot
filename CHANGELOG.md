@@ -5,6 +5,15 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.36.0](https://github.com/open-sauced/hot/compare/v2.35.0...v2.36.0) (2024-04-01)
+
+
+### 🍕 Features
+
+* Removing the votes feature ([#518](https://github.com/open-sauced/hot/issues/518)) ([8db6b23](https://github.com/open-sauced/hot/commit/8db6b233e5fd6d6b0da7fde6a4a55a8c714e91fa))
+* Replaced print auth token with copy to clipboard ([#514](https://github.com/open-sauced/hot/issues/514)) ([7684b81](https://github.com/open-sauced/hot/commit/7684b81f248e350ca63dce6ff57b43314d6ba410))
+* update links to use app ([#516](https://github.com/open-sauced/hot/issues/516)) ([cb9eea0](https://github.com/open-sauced/hot/commit/cb9eea0668ab0548fc6de11907302abc3694904f))
+
 ## [2.36.0-beta.3](https://github.com/open-sauced/hot/compare/v2.36.0-beta.2...v2.36.0-beta.3) (2024-04-01)
 
 

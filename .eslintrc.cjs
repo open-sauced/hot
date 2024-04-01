@@ -140,7 +140,7 @@ module.exports = {
     "arrow-spacing": "error",
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs"],
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": ["warn", "always-multiline"],
     "comma-spacing": [
       "error",
       {

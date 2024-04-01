@@ -8,7 +8,6 @@ import Skeleton from "react-loading-skeleton";
 export enum RepoOrderByEnum {
   popular = "stars",
   recent = "created_at",
-  upvoted = "votesCount",
   discussed = "issues",
   myVotes = "myVotes",
 }
@@ -51,7 +50,6 @@ const RecentRepoListWrap = (): JSX.Element => {
       const thisWeekData = data.filter(repo => repo.created_at && new Date(repo.created_at) > lastSunday);
 
       thisWeekData.sort((a, b) => (new Date(a.created_at!) > new Date(b.created_at!) ? 1 : -1));
-      thisWeekData.sort((a, b) => (a.votesCount! > b.votesCount! ? -1 : 1));
       setThisWeek(thisWeekData);
 
       const lastWeekData = data.filter(
@@ -102,7 +100,6 @@ const RecentRepoListWrap = (): JSX.Element => {
         )
         : (
           <>
-
             {thisWeek && thisWeek.length > 0 && (
               <ListRepositories
                 activeLink={activeLink}

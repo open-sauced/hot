@@ -6,6 +6,7 @@ import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import { version } from "../../package.json";
 import openSaucedLogo from "../assets/openSauced.svg";
 import { supabase } from "../lib/supabase";
+import { ToastTrigger } from "../lib/reactHotToast";
 
 import RepoSubmission from "./RepoSubmission";
 
@@ -144,9 +145,15 @@ const PrimaryNav = (): JSX.Element => {
                     <button
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
-                      onClick={() => console.log("Token: ", currentUser?.access_token)}
+                      onClick={async () => {
+                        if (!currentUser?.access_token) {
+                          return;
+                        }
+                        await navigator.clipboard.writeText(currentUser.access_token);
+                        ToastTrigger({ message: "Auth Token copied to clipboard", type: "success" });
+                      }}
                     >
-                      Print auth token
+                      Copy auth token
                     </button>
                   )}
                 </Menu.Item>

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.36.0-beta.3](https://github.com/open-sauced/hot/compare/v2.36.0-beta.2...v2.36.0-beta.3) (2024-04-01)
+
+
+### 🍕 Features
+
+* Removing the votes feature ([#518](https://github.com/open-sauced/hot/issues/518)) ([8db6b23](https://github.com/open-sauced/hot/commit/8db6b233e5fd6d6b0da7fde6a4a55a8c714e91fa))
+
 ## [2.36.0-beta.2](https://github.com/open-sauced/hot/compare/v2.36.0-beta.1...v2.36.0-beta.2) (2024-04-01)
 
 

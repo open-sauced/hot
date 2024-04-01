@@ -136,7 +136,7 @@ module.exports = {
       },
     ],
     "array-element-newline": ["error", "consistent"],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": ["warn", "as-needed"],
     "arrow-spacing": "error",
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs"],
@@ -364,7 +364,7 @@ module.exports = {
       },
     ],
     "react/jsx-max-props-per-line": [
-      "error",
+      "warn",
       {
         maximum: 1,
       },
@@ -385,7 +385,7 @@ module.exports = {
       },
     ],
     "react/jsx-one-expression-per-line": [
-      "error",
+      "warn",
       {
         allow: "literal",
       },

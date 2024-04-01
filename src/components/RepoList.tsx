@@ -11,7 +11,6 @@ export declare interface RepoListProps {
 
 const RepoList = ({ data }: RepoListProps): JSX.Element => {
   const {
-    id,
     name,
     full_name,
     description,

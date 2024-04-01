@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.37.0-beta.1](https://github.com/open-sauced/hot/compare/v2.36.0...v2.37.0-beta.1) (2024-04-01)
+
+
+### 🍕 Features
+
+* Use OpenSauced links instead of GitHub ([#520](https://github.com/open-sauced/hot/issues/520)) ([6581b9e](https://github.com/open-sauced/hot/commit/6581b9e130ac9f38c08e1c87f4ffa0cb5cc80648))
+
 ## [2.36.0](https://github.com/open-sauced/hot/compare/v2.35.0...v2.36.0) (2024-04-01)
 
 

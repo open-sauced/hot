@@ -63,7 +63,6 @@ const Hero = () => {
           </span>
 
           <br />
-
           to contribute today
         </h1>
       </div>
@@ -80,9 +79,7 @@ const Hero = () => {
               src={searchNormal}
             />
 
-            <Combobox.Button
-              ref={comboButtonRef}
-            >
+            <Combobox.Button ref={comboButtonRef}>
               <Combobox.Input
                 ref={searchBoxRef}
                 className="w-full outline-none text-base text-lightSlate"
@@ -125,11 +122,9 @@ const Hero = () => {
                     key={data.full_name}
                     as="a"
                     className={({ active }) => (active ? "bg-gray-50" : "")}
-                    value={`https://insights.opensauced.pizza/hot/repositories/filter/${data.full_name}`}
+                    value={`https://app.opensauced.pizza/s/${data.full_name}`}
                   >
-                    <SearchedRepoCard
-                      data={data}
-                    />
+                    <SearchedRepoCard data={data} />
                   </Combobox.Option>
                 ))}
               </div>

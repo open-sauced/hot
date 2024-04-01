@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import useSupabaseAuth from "../hooks/useSupabaseAuth";
 import locationsHash from "../lib/locationsHash";
 import { RepoOrderByEnum } from "./RepoListWrap";
 

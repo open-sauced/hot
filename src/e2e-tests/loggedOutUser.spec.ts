@@ -18,5 +18,4 @@ test("logged out user should see all categories", async ({ page }) => {
 
   await expect(popular).toHaveAttribute("href", "/popular");
   await expect(popular).toBeVisible();
-
 });

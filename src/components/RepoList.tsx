@@ -1,10 +1,8 @@
 import { emojify } from "node-emoji";
-import { useEffect } from "react";
 import { FaDotCircle, FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
 import StackedAvatar from "./StackedAvatar";
-import useVotedRepos from "../hooks/useVotedRepos";
 import useContributions from "../hooks/useContributions";
 
 export declare interface RepoListProps {

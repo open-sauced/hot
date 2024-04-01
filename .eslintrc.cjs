@@ -136,7 +136,7 @@ module.exports = {
       },
     ],
     "array-element-newline": ["error", "consistent"],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-parens": ["warn", "as-needed"],
     "arrow-spacing": "error",
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs"],
@@ -345,7 +345,7 @@ module.exports = {
     "react/jsx-closing-bracket-location": "error",
     "react/jsx-closing-tag-location": "error",
     "react/jsx-curly-brace-presence": ["error", "never"],
-    "react/jsx-curly-newline": ["error", "consistent"],
+    "react/jsx-curly-newline": ["warn", "consistent"],
     "react/jsx-equals-spacing": ["error", "never"],
     "react/jsx-first-prop-new-line": ["error", "multiline-multiprop"],
     "react/jsx-fragments": ["error", "syntax"],
@@ -364,13 +364,13 @@ module.exports = {
       },
     ],
     "react/jsx-max-props-per-line": [
-      "error",
+      "warn",
       {
         maximum: 1,
       },
     ],
     "react/jsx-newline": [
-      "error",
+      "warn",
       {
         prevent: false,
       },
@@ -385,7 +385,7 @@ module.exports = {
       },
     ],
     "react/jsx-one-expression-per-line": [
-      "error",
+      "warn",
       {
         allow: "literal",
       },

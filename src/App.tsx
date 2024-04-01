@@ -10,7 +10,6 @@ import Hero from "./components/Hero";
 import apiFetcher from "./hooks/useSWR";
 
 import getAppVersion from "./lib/appVersion";
-import VotedRepoListWrap from "./components/VotedRepoListWrap";
 import RecentRepoListWrap from "./components/RecentRepoListWrap";
 import SecondaryNav from "./components/SecondaryNav";
 import HotRepositories from "./components/HotRepositories";
@@ -53,11 +52,6 @@ const App = (): JSX.Element => {
             <HotRepositories />
 
             <Routes>
-              <Route
-                element={<VotedRepoListWrap />}
-                path="myVotes"
-              />
-
               <Route
                 element={<RecentRepoListWrap />}
                 path="/"

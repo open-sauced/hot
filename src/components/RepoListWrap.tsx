@@ -7,9 +7,7 @@ import camelCaseToTitleCase from "../lib/camelCaseToTitleCase";
 export enum RepoOrderByEnum {
   popular = "stars",
   recent = "created_at",
-  upvoted = "votesCount",
   discussed = "issues",
-  myVotes = "myVotes"
 }
 
 const parseLimitValue = (limit: string | null): number => {
@@ -34,7 +32,6 @@ const RepoListWrap = (): JSX.Element => {
   const activeLink = (locationsHash[location.pathname] ?? "recent") as keyof typeof RepoOrderByEnum;
   const limit = parseLimitValue(searchParams.get("limit"));
   const pageNumber = parseInt(searchParams.get("pageNumber")!) || 1;
-
 
   const { data, meta } = useRepositoriesList(RepoOrderByEnum[activeLink], limit, pageNumber);
 

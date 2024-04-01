@@ -22,7 +22,7 @@ const Hero = () => {
     if (!hasFocus) {
       searchBoxRef.current?.focus();
       setFocus(true);
-      const results = await fetchRecommendations("stars", 3, null, searchTerm);
+      const results = await fetchRecommendations(3, searchTerm);
 
       setFetchedData(results);
     } else {

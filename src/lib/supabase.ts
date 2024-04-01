@@ -1,4 +1,4 @@
-import { User, createClient } from "@supabase/supabase-js";
+import { createClient } from "@supabase/supabase-js";
 
 export const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -50,9 +50,7 @@ export async function updateVotesByRepo (votes: number, repo_id: number, user_id
 }
 
 export async function fetchRecommendations (
-  activeLink = "popular",
   limit = 25,
-  user: User | null = null,
   textToSearchParam = "",
 ) {
   const orderBy = "stars";
@@ -61,7 +59,7 @@ export async function fetchRecommendations (
     nullsFirst?: boolean,
     foreignTable?: string
   } | undefined = { ascending: false };
-  let selectStatement = `
+  const selectStatement = `
     id,
     user_id,
     full_name,
@@ -70,39 +68,12 @@ export async function fetchRecommendations (
     stars,
     issues,
     starsRelation:users_to_repos_stars(starsCount:count),
-    votesRelation:users_to_repos_votes(votesCount:count),
-    contributions(
-      last_merged_at,
-      contributor,
-      url,
-      prsCount:count
-    )
   `;
-
-  if (activeLink === "upvoted") {
-    selectStatement += `,
-      votes:users_to_repos_votes!inner(*)
-    `;
-  } else if (activeLink === "myVotes") {
-    selectStatement += `,
-      myVotesRelation:users_to_repos_votes!inner(myVotesCount:count),
-      myVotesFilter:users_to_repos_votes!inner(
-        user_id
-      )
-    `;
-  }
 
   const supabaseComposition = supabase
     .from("repos")
     .select(selectStatement)
-    .filter("votesRelation.deleted_at", "is", null)
     .filter("starsRelation.deleted_at", "is", null);
-
-  if (user && activeLink === "myVotes") {
-    await supabaseComposition
-      .filter("myVotesFilter.user_id", "eq", user.user_metadata.sub)
-      .filter("myVotesFilter.deleted_at", "is", null);
-  }
 
   const searchColumn = textToSearchParam === "" ? "" : "full_name";
   const textToSearch = textToSearchParam === "" ? "" : textToSearchParam;

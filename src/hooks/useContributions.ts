@@ -6,13 +6,14 @@ interface PaginatedContributorsResponse {
 }
 
 const useContributions = (repoName: string, limit = 10, orderBy = "recent") => {
-  const baseEndpoint = `repos/${repoName}/contributions`;
+  const baseEndpoint = `contributors/search?repos=${repoName}`;
   const limitQuery = `&limit=${limit}`;
   const orderByQuery = orderBy ? `&updated_at=${orderBy}` : "";
   const endpointString = `${baseEndpoint}?${limitQuery}${orderByQuery}`;
 
   const { data, error, mutate } = useSWR<PaginatedContributorsResponse, Error>(endpointString);
 
+  console.log(data);
   return {
     data: data?.data ?? [],
     meta: data?.meta ?? { itemCount: 0 },

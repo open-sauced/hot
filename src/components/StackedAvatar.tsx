@@ -5,15 +5,12 @@ export declare interface StackedAvatarProps {
 }
 const StackedAvatar = ({ contributors }: StackedAvatarProps) => (
   <div className="-space-x-2 flex hover:space-x-0 transition-all duration-300">
-    {contributors?.slice(0, 5).map(({ contributor, last_merged_at }) => (
+    {contributors?.slice(0, 5).map(({ author_login, updated_at }) => (
       <div
-        key={`contributor-avatar-${contributor}`}
+        key={`contributor-avatar-${author_login}`}
         className="w-7 h-7 overflow-hidden rounded-full transition-all duration-300 border-2 border-white"
       >
-        <Avatar
-          contributor={contributor}
-          lastPr={last_merged_at}
-        />
+        <Avatar contributor={updated_at} lastPr={last_merged_at} />
       </div>
     ))}
   </div>

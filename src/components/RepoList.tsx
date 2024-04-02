@@ -25,6 +25,7 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
 
   const owner = full_name.replace(`/${String(name)}`, "").trim();
 
+  // console.log(contributions);
   return (
     <div className="flex flex-col gap-y-5 md:flex-row bg-white border-[1px] p-4 gap-x-5 font-Inter border-borderGrey overflow-hidden rounded-[16px]">
       <div className="flex gap-y-5 gap-x-5 font-Inter overflow-hidden w-full">

@@ -3,9 +3,9 @@ interface DbContribution {
   readonly id: number;
   readonly repo_id: number;
   readonly count: number;
-  readonly contributor: string;
+  readonly author_login: string;
   readonly url: string;
-  readonly last_merged_at: string;
+  readonly updated_at: string;
 }
 
 interface DbRepo {

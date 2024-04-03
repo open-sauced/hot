@@ -24,7 +24,7 @@ const ListRepositories = ({ activeLink, fetchedData, title }: ListRepositoriesPr
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-1 mt-10">
+    <div className="mx-auto max-w-7xl px-4 pb-1 pt-10">
       <div className="flex flex-col gap-y-5 mb-12">
         <div className="flex items-center gap-x-2.5">
           <BsFillCalendar2Fill className="w-8 h-8 text-white" />

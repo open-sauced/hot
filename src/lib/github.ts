@@ -10,10 +10,21 @@ const getRepoLink = (repoName: string | null) =>
 const getRepoIssuesLink = (repoName: string | null) =>
   `https://github.com/${repoName && `${repoName}/issues` || ""}`;
 
+async function userStatusCode(owner: String) {
+  const apiUserUrl = `https://api.github.com/users/${owner}`;
+  const response = await fetch(apiUserUrl);
+  const {login} = await response.json();
+  if (apiUserUrl !== response.url) {
+    return [301, login];
+  } else {
+    return [response.status,""];
+  }
+}
 
 export {
   getAvatarLink,
   getProfileLink,
   getRepoLink,
   getRepoIssuesLink,
+  userStatusCode,
 };

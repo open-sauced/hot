@@ -7,7 +7,7 @@ import humanizeNumber from "../lib/humanizeNumber";
 
 import StackedAvatar from "./StackedAvatar";
 import useRepo from "../hooks/useRepo";
-import useContributions from "../hooks/useContributions";
+// import useContributions from "../hooks/useContributions";
 
 const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&title=fix:";
 
@@ -17,7 +17,7 @@ export declare interface HotRepoCardProps {
 
 const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const { repo, isLoading, isError } = useRepo(repoName);
-  const { data: contributions } = useContributions(repoName);
+  // const { data: contributions } = useContributions(repoName);
 
   if (isError) {
     return (
@@ -95,7 +95,7 @@ const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
           </div>
         </div>
 
-        <StackedAvatar contributors={contributions} />
+        {/* <StackedAvatar contributors={contributions} /> */}
       </div>
     </div>
   );

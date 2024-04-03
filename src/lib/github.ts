@@ -10,6 +10,7 @@ const getRepoLink = (repoName: string | null) =>
 const getRepoIssuesLink = (repoName: string | null) =>
   `https://github.com/${repoName && `${repoName}/issues` || ""}`;
 
+
 export {
   getAvatarLink,
   getProfileLink,

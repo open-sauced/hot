@@ -4,19 +4,11 @@ import Skeleton from "react-loading-skeleton";
 
 export declare interface ListRepositoriesProps {
   activeLink: string | null;
-  handleLoadingMore: () => void;
   fetchedData: DbRepo[];
   title: string;
-  hasNextPage: boolean;
 }
 
-const ListRepositories = ({
-  activeLink,
-  handleLoadingMore,
-  fetchedData,
-  title,
-  hasNextPage,
-}: ListRepositoriesProps): JSX.Element => {
+const ListRepositories = ({ activeLink, fetchedData, title }: ListRepositoriesProps): JSX.Element => {
   if (!fetchedData.length) {
     return (
       <div className="mx-auto max-w-7xl px-4 mt-10">
@@ -41,20 +33,9 @@ const ListRepositories = ({
         </div>
 
         {fetchedData.map((item, i) => (
-          <RepoList key={`${item.full_name}_${i}`} data={item} />
+          <RepoList key={`${item.repo_name}_${i}`} data={item} />
         ))}
       </div>
-
-      {fetchedData.length > 0 && hasNextPage && (
-        <div className="flex justify-center">
-          <button
-            className="bg-white text-gray-700 mt-4 mb-4 text-base border-gray-400 border font-normal py-1 px-4 rounded"
-            onClick={() => handleLoadingMore()}
-          >
-            Load More
-          </button>
-        </div>
-      )}
     </div>
   );
 };

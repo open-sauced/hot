@@ -18,6 +18,7 @@ interface DbRepo {
   readonly is_fork?: boolean;
   readonly name?: string;
   readonly full_name: string;
+  readonly repo_name: string;
   readonly description: string;
   readonly language?: string;
   readonly license?: string;

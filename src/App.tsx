@@ -23,7 +23,7 @@ console.log(
 ╚██████╔╝██║     ███████╗██║ ╚████║    ███████║██║  ██║╚██████╔╝╚██████╗███████╗██████╔╝
  ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝╚══════╝╚═════╝%c v${getAppVersion()}`,
   "color:#f6d82b",
-  "color:green;font-weight:bold",
+  "color:green;font-weight:bold"
 );
 
 const App = (): JSX.Element => {
@@ -47,26 +47,8 @@ const App = (): JSX.Element => {
           </GradBackground>
 
           <div className="bg-darkestGrey">
-            <SecondaryNav />
-
             <HotRepositories />
-
-            <Routes>
-              <Route
-                element={<RecentRepoListWrap />}
-                path="/"
-              />
-
-              <Route
-                element={<RecentRepoListWrap />}
-                path="recent"
-              />
-
-              <Route
-                element={<RepoListWrap />}
-                path="*"
-              />
-            </Routes>
+            <RepoListWrap />
           </div>
 
           <Footer />

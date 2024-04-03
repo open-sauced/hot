@@ -19,12 +19,9 @@ const bugReportLink =
 const PrimaryNav = (): JSX.Element => {
   const { signIn, signOut, userAndTokens } = useSupabaseAuth();
   const currentUser = supabase.auth.session();
-  const [isFormOpen, setIsFormOpen] = useState(false);
   const [openAdminBar, setOpenAdminBar] = useState(false);
 
   useKey("`", () => setOpenAdminBar(!openAdminBar));
-
-  const handleFormOpen = (state: boolean) => setIsFormOpen(state);
 
   useEffect(() => {
     const fetchAuthSession = async () => {
@@ -108,19 +105,6 @@ const PrimaryNav = (): JSX.Element => {
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       {`v${version}`}
-                    </button>
-                  )}
-                </Menu.Item>
-
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
-                      onClick={() => handleFormOpen(true)}
-                    >
-                      Submit a repository
                     </button>
                   )}
                 </Menu.Item>

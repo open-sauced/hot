@@ -5,9 +5,7 @@ import Skeleton from "react-loading-skeleton";
 import { getAvatarLink } from "../lib/github";
 import humanizeNumber from "../lib/humanizeNumber";
 
-import StackedAvatar from "./StackedAvatar";
 import useRepo from "../hooks/useRepo";
-// import useContributions from "../hooks/useContributions";
 
 const bugReportLink = "https://github.com/open-sauced/hot/issues/new?assignees=&title=fix:";
 
@@ -17,7 +15,6 @@ export declare interface HotRepoCardProps {
 
 const HotRepoCard = ({ repoName }: HotRepoCardProps): JSX.Element => {
   const { repo, isLoading, isError } = useRepo(repoName);
-  // const { data: contributions } = useContributions(repoName);
 
   if (isError) {
     return (

@@ -7,5 +7,4 @@ test("logged out user should see sign in button", async ({ page }) => {
   const login = page.locator("button", { hasText: "Sign in" });
 
   await expect(login).toBeVisible();
-
 });

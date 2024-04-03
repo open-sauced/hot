@@ -2,12 +2,6 @@
 import { FaStar } from "react-icons/fa";
 import humanizeNumber from "../lib/humanizeNumber";
 import { getAvatarLink, getRepoLink } from "../lib/github";
-// import StackedAvatar from "./StackedAvatar";
-import useContributions from "../hooks/useContributions";
-
-async function checkOwnerExists(owner: string) {
-  return await ownerExists(owner);
-}
 
 export declare interface RepoListProps {
   data: DbRepo;
@@ -17,13 +11,14 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
   const {
     repo_name,
     star_count,
-    bucket,
 
     // contributionsCount,
   } = data;
 
-  // {repo_name} consists of `{owner}/{repo}`, so this link is actually `repos/{owner}/{repo}/contributions`
-  // const { data: contributions } = useContributions(repo_name);
+  /*
+   * {repo_name} consists of `{owner}/{repo}`, so this link is actually `repos/{owner}/{repo}/contributions`
+   * const { data: contributions } = useContributions(repo_name);
+   */
 
   const owner = repo_name.split("/")[0];
 
@@ -49,8 +44,6 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
 
               <p className="text-sm">{humanizeNumber(star_count)} today</p>
             </div>
-
-            {/* <StackedAvatar contributors={contributions} /> */}
           </div>
         </div>
       </div>

@@ -57,18 +57,27 @@ const Hero = () => {
       <div>
         <h1 className="font-Lexend text-4xl md:text-5xl text-center text-lightSlate leading-tight tracking-tight">
           {`Find `}
+
           <span className="bg-gradient-to-r from-gradFirst via-gradMiddle to-gradLast bg-clip-text text-transparent">
             Open-Source Repositories
           </span>
+
           <br />
           to contribute today
         </h1>
       </div>
 
-      <Combobox as="div" value={comboBoxSelection} onChange={setComboBoxSelection}>
+      <Combobox
+        as="div"
+        value={comboBoxSelection}
+        onChange={setComboBoxSelection}
+      >
         <div className="mt-11 px-4 py-2.5  bg-white shadow-2xl rounded-2xl md:min-w-[26.375rem] flex justify-between">
           <div className="flex items-center gap-x-2.5">
-            <img alt="search icon" src={searchNormal} />
+            <img
+              alt="search icon"
+              src={searchNormal}
+            />
 
             <Combobox.Button ref={comboButtonRef}>
               <Combobox.Input
@@ -78,13 +87,12 @@ const Hero = () => {
                 placeholder="Search repositories"
                 type="text"
                 value={searchTerm}
-                onChange={(e) => setValueDebounced(e.target.value)}
+                onChange={e => setValueDebounced(e.target.value)}
                 onFocus={() => setFocus(true)}
                 onBlur={() =>
                   setTimeout(() => {
                     setFocus(false);
-                  }, 200)
-                }
+                  }, 200)}
                 onKeyUp={(event: React.KeyboardEvent) => {
                   if (event.key === "Enter") {
                     window.open(comboBoxSelection, "_blank", "noreferrer");
@@ -94,7 +102,11 @@ const Hero = () => {
             </Combobox.Button>
           </div>
 
-          <img alt="command k" className="pt-1.5" src={cmdKIcon} />
+          <img
+            alt="command k"
+            className="pt-1.5"
+            src={cmdKIcon}
+          />
         </div>
 
         <div className="mt-2.5">
@@ -105,7 +117,7 @@ const Hero = () => {
                   <p className="text-gray-500 text-sm font-semibold">Repository</p>
                 </div>
 
-                {fetchedData.map((data) => (
+                {fetchedData.map(data => (
                   <Combobox.Option
                     key={data.full_name}
                     as="a"

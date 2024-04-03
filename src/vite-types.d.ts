@@ -32,6 +32,7 @@ interface DbRepo {
   readonly starsCount?: number;
   readonly submissionsCount?: number;
   readonly stargazersCount?: number;
+  readonly star_count?: number;
 }
 
 interface DbRepoToUserVotes {

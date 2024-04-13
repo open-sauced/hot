@@ -140,7 +140,7 @@ module.exports = {
     "arrow-spacing": "error",
     "block-spacing": ["error", "always"],
     "brace-style": ["error", "1tbs"],
-    "comma-dangle": ["error", "always-multiline"],
+    "comma-dangle": ["warn", "always-multiline"],
     "comma-spacing": [
       "error",
       {
@@ -216,7 +216,7 @@ module.exports = {
     "no-trailing-spaces": "error",
     "no-whitespace-before-property": "error",
     "object-curly-newline": [
-      "error",
+      "warn",
       {
         multiline: true,
       },

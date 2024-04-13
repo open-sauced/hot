@@ -6,7 +6,7 @@ interface PaginatedContributorsResponse {
 }
 
 const useContributions = (repoName: string, limit = 10, orderBy = "recent") => {
-  const baseEndpoint = `repos/${repoName}/contributions`;
+  const baseEndpoint = `contributors/search?repo=${repoName}`;
   const limitQuery = `&limit=${limit}`;
   const orderByQuery = orderBy ? `&updated_at=${orderBy}` : "";
   const endpointString = `${baseEndpoint}?${limitQuery}${orderByQuery}`;

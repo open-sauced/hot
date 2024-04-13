@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.37.0-beta.3](https://github.com/open-sauced/hot/compare/v2.37.0-beta.2...v2.37.0-beta.3) (2024-04-13)
+
+
+### 🍕 Features
+
+* working hotlist with needed cleanup ([#521](https://github.com/open-sauced/hot/issues/521)) ([69ba683](https://github.com/open-sauced/hot/commit/69ba68380d2aee66274e17543effbd3cfd63350a))
+
 ## [2.37.0-beta.2](https://github.com/open-sauced/hot/compare/v2.37.0-beta.1...v2.37.0-beta.2) (2024-04-13)
 
 

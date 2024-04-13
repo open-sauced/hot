@@ -20,7 +20,7 @@ const RepoListWrap = (): JSX.Element => {
   return (
     <ListRepositories
       activeLink={activeLink}
-      fetchedData={data}
+      fetchedData={data as DbRepo[]}
       title={`${camelCaseToTitleCase(activeLink)} Repositories`}
     />
   );

@@ -42,7 +42,7 @@ const RepoList = ({ data }: RepoListProps): JSX.Element => {
             <div className="flex gap-[5px] items-center text-textGrey">
               <FaStar aria-hidden="true" className="w-[16px]" />
 
-              <p className="text-sm">{humanizeNumber(star_count)} today</p>
+              {star_count && <p className="text-sm">{humanizeNumber(star_count)} today</p>}
             </div>
           </div>
         </div>

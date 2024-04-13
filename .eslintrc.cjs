@@ -216,7 +216,7 @@ module.exports = {
     "no-trailing-spaces": "error",
     "no-whitespace-before-property": "error",
     "object-curly-newline": [
-      "error",
+      "warn",
       {
         multiline: true,
       },

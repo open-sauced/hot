@@ -110,7 +110,7 @@ const PrimaryNav = (): JSX.Element => {
                   {({ active }) => (
                     <button
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                        } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       {`v${version}`}
                     </button>
@@ -121,7 +121,7 @@ const PrimaryNav = (): JSX.Element => {
                   {({ active }) => (
                     <button
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                        } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={async () => {
                         if (!currentUser?.access_token) {
                           return;
@@ -142,7 +142,7 @@ const PrimaryNav = (): JSX.Element => {
                       rel="noreferrer"
                       target="_blank"
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                        } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       Report a bug
                     </a>
@@ -153,7 +153,7 @@ const PrimaryNav = (): JSX.Element => {
                   {({ active }) => (
                     <button
                       className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
-                        } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
+                      } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={async () => signOut()}
                     >
                       Logout

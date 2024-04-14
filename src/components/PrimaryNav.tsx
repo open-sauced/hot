@@ -26,13 +26,11 @@ const PrimaryNav = (): JSX.Element => {
   useEffect(() => {
     const fetchAuthSession = async () => {
       if (currentUser?.access_token) {
-        await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, {
-          headers: { accept: "application/json", Authorization: `Bearer ${currentUser.access_token}` },
-        }).catch((err) => console.log("error: ", err));
+        await fetch(`${import.meta.env.VITE_API_URL}/auth/session`, { headers: { accept: "application/json", Authorization: `Bearer ${currentUser.access_token}` } }).catch(err => console.log("error: ", err));
       }
     };
 
-    fetchAuthSession().catch((err) => console.log(err));
+    fetchAuthSession().catch(err => console.log(err));
   }, [userAndTokens]);
 
   return (
@@ -42,14 +40,21 @@ const PrimaryNav = (): JSX.Element => {
       <div className="flex font-OpenSans py-6 px-10 justify-between max-w-screen-2xl mx-auto">
         <div className="flex items-center text-osGrey">
           <a href="/">
-            <img alt="Open Sauced Logo" className="inline-block w-6 h-6 mr-1" src={openSaucedLogo} />
+            <img
+              alt="Open Sauced Logo"
+              className="inline-block w-6 h-6 mr-1"
+              src={openSaucedLogo}
+            />
 
             <span className="text-lg leading-snug font-black tracking-tighter">OpenSauced</span>
           </a>
         </div>
 
         {userAndTokens && (
-          <Menu as="div" className="flex z-50 text-left relative">
+          <Menu
+            as="div"
+            className="flex z-50 text-left relative"
+          >
             <div className="flex items-center">
               <StarTheRepo userAndTokens={userAndTokens} />
 
@@ -90,9 +95,13 @@ const PrimaryNav = (): JSX.Element => {
                     </div>
 
                     <div className="flex-col shrink">
-                      <p className="text-osGrey text-xs font-semibold">{userAndTokens.user.user_metadata.full_name}</p>
+                      <p className="text-osGrey text-xs font-semibold">
+                        {userAndTokens.user.user_metadata.full_name}
+                      </p>
 
-                      <p className="text-gray-500 text-xs font-normal">{userAndTokens.user.user_metadata.user_name}</p>
+                      <p className="text-gray-500 text-xs font-normal">
+                        {userAndTokens.user.user_metadata.user_name}
+                      </p>
                     </div>
                   </div>
                 </Menu.Item>
@@ -100,8 +109,7 @@ const PrimaryNav = (): JSX.Element => {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       {`v${version}`}
@@ -112,8 +120,7 @@ const PrimaryNav = (): JSX.Element => {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={async () => {
                         if (!currentUser?.access_token) {
@@ -134,8 +141,7 @@ const PrimaryNav = (): JSX.Element => {
                       href={bugReportLink}
                       rel="noreferrer"
                       target="_blank"
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                     >
                       Report a bug
@@ -146,8 +152,7 @@ const PrimaryNav = (): JSX.Element => {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      className={`${
-                        active ? "bg-gray-100 text-gray-700" : "text-gray-900"
+                      className={`${active ? "bg-gray-100 text-gray-700" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-5 py-1.5 text-sm`}
                       onClick={async () => signOut()}
                     >

@@ -111,7 +111,7 @@ const Hero = () => {
 
         <div className="mt-2.5">
           <Combobox.Options className="flex w-full justify-center">
-            {fetchedData.length > 0 && (
+            {fetchedData?.length > 0 && (
               <div className="flex md:min-w-96 pb-2 absolute z-50 max-w-96 flex-col bg-white rounded-2.5 shadow-2xl">
                 <div className="bg-gray-100 py-2.5 px-10 md:px-3.5 border-b-gray-100 border-b-0.5 rounded-2.5 rounded-b-none w-full">
                   <p className="text-gray-500 text-sm font-semibold">Repository</p>

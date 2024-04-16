@@ -5,6 +5,14 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.37.2-beta.2](https://github.com/open-sauced/hot/compare/v2.37.2-beta.1...v2.37.2-beta.2) (2024-04-16)
+
+
+### 🐛 Bug Fixes
+
+* copy update ([cd3bad7](https://github.com/open-sauced/hot/commit/cd3bad758c7bc3a859342470c00f6c7edcbe1248))
+* Update src/components/Hero.tsx ([a4b1b04](https://github.com/open-sauced/hot/commit/a4b1b0462891243edbe0f5985bd9020a1b7c757f))
+
 ## [2.37.2-beta.1](https://github.com/open-sauced/hot/compare/v2.37.1...v2.37.2-beta.1) (2024-04-16)
 
 

@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.37.1-beta.1](https://github.com/open-sauced/hot/compare/v2.37.0...v2.37.1-beta.1) (2024-04-14)
+
+
+### 🐛 Bug Fixes
+
+* searching broke the page and make it blank ([#524](https://github.com/open-sauced/hot/issues/524)) ([82f67da](https://github.com/open-sauced/hot/commit/82f67dadbd88b978c8869737a27d168a932b120b))
+
 ## [2.37.0](https://github.com/open-sauced/hot/compare/v2.36.0...v2.37.0) (2024-04-13)
 
 

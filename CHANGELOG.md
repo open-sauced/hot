@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.37.2-beta.1](https://github.com/open-sauced/hot/compare/v2.37.1...v2.37.2-beta.1) (2024-04-16)
+
+
+### 🐛 Bug Fixes
+
+* Hero.tsx to reflecting trending ([9fcdf0b](https://github.com/open-sauced/hot/commit/9fcdf0bc31510de5ff07f501d703d464a9c6fe74))
+
 ## [2.37.1](https://github.com/open-sauced/hot/compare/v2.37.0...v2.37.1) (2024-04-16)
 
 

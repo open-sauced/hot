@@ -9,7 +9,7 @@ const Hero = () => (
         </span>
 
         <br />
-          trending today.
+        trending today.
       </h1>
     </div>
   </div>

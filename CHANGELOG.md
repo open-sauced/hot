@@ -5,6 +5,13 @@
 
 > All notable changes to this project will be documented in this file
 
+## [2.37.3-beta.1](https://github.com/open-sauced/hot/compare/v2.37.2...v2.37.3-beta.1) (2024-06-04)
+
+
+### 🐛 Bug Fixes
+
+* Update triage.yml ([8b2f192](https://github.com/open-sauced/hot/commit/8b2f192fa8b3b24e878567d85a6009157f127bf5))
+
 ## [2.37.2](https://github.com/open-sauced/hot/compare/v2.37.1...v2.37.2) (2024-04-16)
 
 

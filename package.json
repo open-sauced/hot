@@ -2,7 +2,7 @@
   "name": "@open-sauced/hot",
   "description": "🍕The site that recommends the hottest sauce.",
   "keywords": [],
-  "version": "2.37.2",
+  "version": "2.37.3-beta.1",
   "author": "TED Vortex <ted.vortex@gmail.com>",
   "private": true,
   "license": "MIT",
